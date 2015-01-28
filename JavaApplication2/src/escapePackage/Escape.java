@@ -7,6 +7,7 @@ package escapePackage;
 
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
+import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 
@@ -25,6 +26,7 @@ public class Escape {
         Game gameOne = new Game();
         Actor actorOne = new Actor();
         Map gameMap = new Map();
+        Item itemOne = new Item();
 
         // call setter functions
         playerOne.setName("Fred Flintstone");
@@ -32,6 +34,7 @@ public class Escape {
         actorOne.setName("Jaba the Hut");
         gameMap.setRowCount(10);
         gameMap.setColumnCount(5);
+        itemOne.setItemType("Berries");
 
         // display player
         String playerInfo = playerOne.toString();
@@ -48,5 +51,9 @@ public class Escape {
 
         // display map
         System.out.println(gameMap);
+        
+        // display item
+        String itemInfo = itemOne.toString();
+        System.out.println(itemInfo);
     }
 }
