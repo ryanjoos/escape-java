@@ -7,6 +7,7 @@ package escapePackage;
 
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
+import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 
 /**
@@ -23,24 +24,29 @@ public class Escape {
         Player playerOne = new Player();
         Game gameOne = new Game();
         Actor actorOne = new Actor();
-        
+        Map gameMap = new Map();
+
         // call setter functions
         playerOne.setName("Fred Flintstone");
         gameOne.setTotalTime(120.5);
         actorOne.setName("Jaba the Hut");
+        gameMap.setRowCount(10);
+        gameMap.setColumnCount(5);
 
         // display player
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
-        
+
         // display game
         String gameInfo = gameOne.toString();
         System.out.println(gameInfo);
         // System.out.println(gameOne);
-        
+
         // display actor
         String actorInfo = actorOne.toString();
-        System.out.println(actorInfo);        
-    }
+        System.out.println(actorInfo);
 
+        // display map
+        System.out.println(gameMap);
+    }
 }
