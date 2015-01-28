@@ -5,6 +5,7 @@
  */
 package escapePackage;
 
+import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Player;
 
 /**
@@ -17,12 +18,22 @@ public class Escape {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // class instances
         Player playerOne = new Player();
+        Game gameOne = new Game();
 
+        // call setter functions
         playerOne.setName("Fred Flintstone");
+        gameOne.setTotalTime(120.5);
 
+        // display player
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        // display game
+        String gameInfo = gameOne.toString();
+        System.out.println(gameInfo);
+        // System.out.println(gameOne);
     }
 
 }
