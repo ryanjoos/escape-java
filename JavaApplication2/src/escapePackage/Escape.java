@@ -5,6 +5,7 @@
  */
 package escapePackage;
 
+import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Player;
 
@@ -21,10 +22,12 @@ public class Escape {
         // class instances
         Player playerOne = new Player();
         Game gameOne = new Game();
-
+        Actor actorOne = new Actor();
+        
         // call setter functions
         playerOne.setName("Fred Flintstone");
         gameOne.setTotalTime(120.5);
+        actorOne.setName("Jaba the Hut");
 
         // display player
         String playerInfo = playerOne.toString();
@@ -34,6 +37,10 @@ public class Escape {
         String gameInfo = gameOne.toString();
         System.out.println(gameInfo);
         // System.out.println(gameOne);
+        
+        // display actor
+        String actorInfo = actorOne.toString();
+        System.out.println(actorInfo);        
     }
 
 }
