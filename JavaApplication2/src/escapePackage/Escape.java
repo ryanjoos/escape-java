@@ -39,7 +39,7 @@ public class Escape {
         // call setter functions
         playerOne.setName("Fred Flintstone");
         gameOne.setTotalTime(120.5);
-        actorOne.setName("Jaba the Hut");
+        actorOne.setName("Jaba the Hutt");
         gameMap.setRowCount(10);
         gameMap.setColumnCount(5);
         itemOne.setItemType("Berries");
@@ -69,7 +69,8 @@ public class Escape {
         System.out.println(actorInfo);
 
         // display map
-        System.out.println(gameMap);
+        String mapInfo = gameMap.toString();
+        System.out.println(mapInfo);
         
         // display item
         String itemInfo = itemOne.toString();
