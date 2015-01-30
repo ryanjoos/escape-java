@@ -8,8 +8,12 @@ package escapePackage;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
+import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
+import byui.cit260.escape.model.Raft;
+import byui.cit260.escape.model.Resource;
+import byui.cit260.escape.model.Scene;
 
 /**
  *
@@ -27,6 +31,10 @@ public class Escape {
         Actor actorOne = new Actor();
         Map gameMap = new Map();
         Item itemOne = new Item();
+        Raft raftOne = new Raft();
+        Location locationOne = new Location();
+        Resource resourceOne = new Resource();
+        Scene sceneOne = new Scene();
 
         // call setter functions
         playerOne.setName("Fred Flintstone");
@@ -35,6 +43,17 @@ public class Escape {
         gameMap.setRowCount(10);
         gameMap.setColumnCount(5);
         itemOne.setItemType("Berries");
+        raftOne.setRaftStatus(50.00);
+        raftOne.setDescription("Good");
+        locationOne.setColumn(1);
+        locationOne.setRow(2);
+        locationOne.setVisited(true);
+        resourceOne.setType("Berries");
+        resourceOne.setAmount(2);
+        sceneOne.setDescription("Beach");
+        sceneOne.setBlocked(true);
+
+        
 
         // display player
         String playerInfo = playerOne.toString();
@@ -55,5 +74,18 @@ public class Escape {
         // display item
         String itemInfo = itemOne.toString();
         System.out.println(itemInfo);
+        
+        //display raft
+        String raftInfo = raftOne.toString();
+        System.out.println(raftInfo);
+        //display location
+        String locationInfo = locationOne.toString();
+        System.out.println(locationInfo);        
+        //display scene
+        String sceneInfo = sceneOne.toString();
+        System.out.println(sceneInfo);         
+        //resource scene
+        String resourceInfo = resourceOne.toString();
+        System.out.println(resourceInfo);       
     }
 }
