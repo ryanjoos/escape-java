@@ -21,7 +21,27 @@ import byui.cit260.escape.view.StartGameView;
  * @author ryanjoos
  */
 public class Escape {
+    
+    private static Game currentGame = null;
+    private static Player player = null;
 
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        Escape.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        Escape.player = player;
+    }
+
+    
     /**
      * @param args the command line arguments
      */

@@ -6,6 +6,7 @@
 package byui.cit260.escape.control;
 
 import byui.cit260.escape.model.Player;
+import escapePackage.Escape;
 
 /**
  *
@@ -14,8 +15,15 @@ import byui.cit260.escape.model.Player;
 public class ProgramControl {
 
     public static Player createPlayer(String playersName) {
-        System.out.println("\n**** createPlayer function called ****");
-                return null;
+        if (playersName == null){
+        return null;
+    }
+        Player player = new Player();
+        player.setName(playersName);
+        
+        Escape.setPlayer(player);
+        
+        return player;
     }
     
 }
