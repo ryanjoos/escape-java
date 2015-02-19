@@ -31,6 +31,8 @@ public class StartGameView {
         this.displayWelcomeMessage(player);
        
         //Display main menu
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.displayMenu();
     }
 
     private void displayBanner() {
@@ -87,6 +89,7 @@ public class StartGameView {
                 + "\n*Have Fun! :) *"  
                 );    
     }
+
     
  
 }
