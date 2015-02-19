@@ -14,6 +14,7 @@ import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
+import byui.cit260.escape.view.StartGameView;
 
 /**
  *
@@ -25,6 +26,11 @@ public class Escape {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        //Create StartGameView and start the game
+        StartGameView startGameView = new StartGameView();
+        startGameView.startGame();
+        
         // class instances
         Player playerOne = new Player();
         Game gameOne = new Game();
