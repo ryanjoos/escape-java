@@ -5,6 +5,8 @@
  */
 package byui.cit260.escape.view;
 
+import byui.cit260.escape.control.ProgramControl;
+import byui.cit260.escape.model.Player;
 import java.util.Scanner;
 
 /**
@@ -24,7 +26,10 @@ public class StartGameView {
         //Get the players name
         String playersName = this.getPlayersName();
         //Create a New player
+        Player player = ProgramControl.createPlayer(playersName);
         //Display Customized Welcome Message
+        this.displayWelcomeMessage(player);
+       
         //Display main menu
     }
 
@@ -74,4 +79,14 @@ public class StartGameView {
         }
         return playersName; //Takes that value and puts it back up yonder
     }
+
+    private void displayWelcomeMessage(Player player) {
+            System.out.println("*"
+                + "\n*Ye've been warned!!! " + player.getName() + "!!! *"
+                + "\n*This game is not for the faint of heart!*"
+                + "\n*Have Fun! :) *"  
+                );    
+    }
+    
+ 
 }
