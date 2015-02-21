@@ -14,17 +14,17 @@ import java.util.Scanner;
 public class GetHelpView {
 
     private final String MENU = "\n"
-            + "\n============================="
-            + "\n=======  Help Menu  ========="
-            + "\n_____________________________"
-            + "\nG - What is the goal of the game?"
-            + "\nM - How to move"
-            + "\nB - View Bag/View Status of Raft/Resources needed"
+            + "\n========================================================="
+            + "\n======================  Help Menu  ======================"
+            + "\n_________________________________________________________"
+            + "\nG - What is the goal of the game?                        "
+            + "\nM - How to move                                          "
+            + "\nB - View Bag/View Status of Raft/Resources needed        "
             + "\nA - Interact (Harvest certain resources, use items, etc.)"
-            + "\nL - View your location."
-            + "\nO - Observe surroundings"
-            + "\nQ - Quit or Go Back to Main Menu"
-            + "\n=============================";
+            + "\nL - View your location.                                  "
+            + "\nO - Observe surroundings                                 "
+            + "\nQ - Quit or Go Back to Main Menu                         "
+            + "\n=========================================================";
 
     void displayHelpMenu() {
         char selection = ' ';
