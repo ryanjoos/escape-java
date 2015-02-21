@@ -36,25 +36,45 @@ public class StartGameView {
     }
 
     private void displayBanner() {
-        System.out.println("\n\n****************************");
         
-        System.out.println("*"
-                + "\n*You are the captain of your ship. *"
-                + "\n*You have an awesome crew *"
-                + "\n*Unfortunately, whilst sailt the seven seas, *"  
-                + "\n*Your crew was caught in a massive storm. *"
-                + "\n*Your ship was thrown upon the rocks *"
-                + "\n*You are now stranded upon this seemingly uninhabited island. *"
+        System.out.println("         ^^                    @@@@@@@@@                                ");
+        System.out.println("    ^^       ^^             @@@@@@@@@@@@@@@                             ");
+        System.out.println("                          @@@@@@@@@@@@@@@@@@@    ^^                     ");
+        System.out.println("                         @@@@@@@@@@@@@@@@@@@@@                          ");
+        System.out.println("~~~~ ~~ ~~~~ ~~~~~~~ ~~~ &&&&&&&&&&&&&&&&&&&&& ~~~~~~~ ~~~~~~~~ ~~ ~~~~ ");
+        System.out.println("~         ~~  ~   ~      ~~~~~~~~~~~~~~~~~~~~~ ~       ~~     ~~~    ~  ");
+        System.out.println("  ~      ~~    ~~ ~~ ~~   ~~~~~~~~~~~~~ ~~~~~  ~     ~~~     ~ ~~~ ~ ~~ ");
+        System.out.println("  ~ ~~       ~       ~      ~~~~~  ~~ ~~~~        ~~ ~ ~~   ~~ ~        ");
+        System.out.println("~  ~       ~ ~      ~         ~~ ~~~~~~~   ~     ~~~ ~             ~~~  ");
+        System.out.println("    ~         ~       ~     ~      ~       ~~    ~            ~     ~   ");
+        
+        
+        System.out.println("\n**********************************************************************");
+        System.out.println("*                                                                    *");
+        System.out.println("*                                ESCAPE                              *");
+        System.out.println("*                                                                    *");
+        System.out.println("* This is a game to test you skill in the art of survival            *"
+                + "\n* Your main goal in this game to escape from an island               *"
+                + "\n*by finding the necessary resources needed to build and raft.        *"  
+                + "\n*Good Luck!                                                          *"
                 );
-        System.out.println("*"
-                + "\n*You are the captain of your ship. *"
-                + "\n*You have an awesome crew *"
-                + "\n*Unfortunately, whilst sailt the seven seas, *"  
-                + "\n*Your crew was caught in a massive storm. *"
-                + "\n*Your ship was thrown upon the rocks *"
-                + "\n*You are now stranded upon this seemingly uninhabited island. *"
+        System.out.println("*                                                                    *"
+                + "\n* You are a captain of your own ship and have a crew under your      *"
+                + "\n* command. While sailing the seven seas you and your crew were       *"
+                + "\n* caught in a massive storm. Your ship was thrown on the rocks       *"  
+                + "\n* and destroyed. You are able to swim to the island but your crew    *"
+                + "\n* is lost. The shipwreck scattered all of your provisions across     *"
+                + "\n* an island. You have been stranded on Jaba Island. You are alone    *"
+                + "\n* and have nothing. On the island you notice an active volcano,      *"
+                + "\n* Mt. Wannahockaloogie that is going to erupt at any moment.         *"
+                + "\n* The island is small enough that the volcano will destroy           *"
+                + "\n* everything. It is imperative that you escape from the island.      *"
+                + "\n* The island has many resources that are available to gather.        *"
+                + "\n* The resources will be used to create a way for you to escape       *"
+                + "\n* the island.                                                        *"
                 );
-        System.out.println("\n*****************************");
+        System.out.println("*                                                                    *");
+        System.out.println("**********************************************************************");
         
     }    
 
@@ -66,7 +86,7 @@ public class StartGameView {
         while(!valid) { //While a valid name has not been retrieved
             
             //Prompt for User name
-            System.out.println("Enter Yo' Name, Matee(sp?)");
+            System.out.println("\nEnter ye Name, Matey: ");
             
             //get the name from the keyboard and trim off the branks
             playersName = keyboard.nextLine();
@@ -83,13 +103,11 @@ public class StartGameView {
     }
 
     private void displayWelcomeMessage(Player player) {
-            System.out.println("*"
-                + "\n*Ye've been warned!!! " + player.getName() + "!!! *"
-                + "\n*This game is not for the faint of heart!*"
-                + "\n*Have Fun! :) *"  
+            System.out.println("======================================================================"
+                + "\n Ye've be warned!!! " + player.getName() + "!!!         "
+                + "\n This game is not for the faint of heart!               "
+                + "\n Have Fun! :)                                           "
+                + "\n======================================================================"
                 );    
     }
-
-    
- 
 }
