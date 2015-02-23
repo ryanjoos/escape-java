@@ -53,7 +53,7 @@ public class MainMenuView {
 
             //get the name from the keyboard and trim off the branks
             inputValue = keyboard.nextLine();
-            inputValue = inputValue.trim();
+            inputValue = inputValue.trim().toUpperCase();
 
             //If the name is invalid
             if (inputValue.length() < 1) {
