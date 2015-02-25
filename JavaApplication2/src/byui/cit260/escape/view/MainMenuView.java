@@ -97,6 +97,11 @@ public class MainMenuView {
         GameMenuView gameMenu = new GameMenuView();
         // display the game menu
         gameMenu.displayMenu();
+        
+        //Test ObstacleVolcanoView
+        ObstacleVolcanoView volcanoScenario = new ObstacleVolcanoView();
+        // display the volcano scenario
+        volcanoScenario.displayMenu();
 
     }
 
