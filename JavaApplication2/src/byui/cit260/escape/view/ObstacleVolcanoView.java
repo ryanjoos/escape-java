@@ -45,7 +45,7 @@ public class ObstacleVolcanoView {
 
             this.doAction(selection);
 
-        } while (selection != 'R' || selection != 'S');
+        } while (selection != 'S');
     }
 
     private String getInput() {
@@ -87,7 +87,7 @@ public class ObstacleVolcanoView {
             case 'P':
                 this.retreatOption();
                 break;
-            case 'S':    // Exit the program
+            case 'S':    
                 return;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -104,6 +104,12 @@ public class ObstacleVolcanoView {
     private void runOption() {
         System.out.println("These are just fake values until the runningSpeedView is created");
         MapControl.calculateRunningSpeed(30, 1.5);
+       
+        
+        //RunningSpeedView runningInput = new RunningSpeedView();
+        //runningInput.getTimeInput();
+       // runningInput.getDistanceInput();
+        //runningInput.getRunningSpeed(time, distance);
     }
 
     private void hideOption() {
@@ -119,5 +125,9 @@ public class ObstacleVolcanoView {
         System.out.println("river and the location is temporarily blocked. ");
         System.out.println("Choose your next move quick!");
     }
+
+//    private void stayOption() {
+//        System.out.println("You are dead...");
+//    }
 
 }
