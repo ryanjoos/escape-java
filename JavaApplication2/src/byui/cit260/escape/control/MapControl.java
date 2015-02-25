@@ -11,7 +11,7 @@ package byui.cit260.escape.control;
  */
 public class MapControl {
 
-    public double calculateRunningSpeed(double time, double distance) {
+    public static double calculateRunningSpeed(double time, double distance) {
         if (time < 15 || time > 45) {
             return -1;
         }
