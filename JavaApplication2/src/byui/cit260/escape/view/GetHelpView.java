@@ -58,7 +58,7 @@ public class GetHelpView {
                 System.out.println("Please enter a value from the menu: ");
                 continue; // and repeat again
             }
-            break; // stop the do while thingy
+            break; // stop the while thing
         }
         return inputValue;
     }
