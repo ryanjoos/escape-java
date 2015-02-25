@@ -105,9 +105,7 @@ public class MainMenuView {
     }
 
     private void displayHelpMenu() {
-        // create new game
-//        GetHelpView.displayHelpMenu();
-
+        
         //Create a new Game Menu View
         GetHelpView helpMenu = new GetHelpView();
         // display the game menu
@@ -115,6 +113,9 @@ public class MainMenuView {
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame function called ***");
+         //Create a new Game Menu View
+        SaveGameView save = new SaveGameView();
+        // display the game menu
+        save.getSaveInput();
     }
 }
