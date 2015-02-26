@@ -6,7 +6,6 @@
 package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.SaveGameControl;
-import byui.cit260.escape.model.Player;
 import java.util.Scanner;
 
 /**
