@@ -5,6 +5,8 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.view.RunningSpeedView;
+
 /**
  *
  * @author owner
@@ -24,6 +26,7 @@ public class MapControl {
 
         return speedMPH;
     }
+
     
     public double calcBridgeSize(double length, double width, double height){
         
