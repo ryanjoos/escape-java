@@ -93,4 +93,95 @@ public class MapControlTest {
         assertEquals(expResult, result, 0.001);
     }
     
+    public void testBridgeRaftSize() {
+        System.out.println("calcBridgeSize Test 1");
+        double length = 10.0;
+        double width = 11.0;
+        double height = 0.8;
+        RaftControl instance = new RaftControl();
+        double expResult = 88.0;
+        double result = instance.calcRaftSize(length, width, height);
+        assertEquals(expResult, result, 0.001);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+        
+        
+        /**********************************
+        * Test Case two
+        ***********************************/
+        System.out.println("calcBridgeSize Test 2");
+        length = -1.0;
+        width = 12.0;
+        height = 1.0;
+        expResult = -1;
+        result = instance.calcRaftSize(length, width, height);
+        assertEquals(expResult, result, 0.001);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+       
+        /**********************************
+        * Test Case Three
+        ***********************************/
+        System.out.println("calcBridgeSize Test 3");
+        length = 9.0;
+        width = 12.0;
+        height = -1.0;
+        expResult = -1;
+        result = instance.calcRaftSize(length, width, height);
+        assertEquals(expResult, result, 0.001);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+
+        /**********************************
+        * Test Case Four
+        ***********************************/
+         System.out.println("calcBridgeSize Test 4");
+        length = 11.0;
+        width = -1;
+        height = 0.95;
+        expResult = -1;
+        result = instance.calcRaftSize(length, width, height);
+        assertEquals(expResult, result, 0.001);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+        
+        /**********************************
+        * Test Case Five
+        ***********************************/
+         System.out.println("calcBridgeSize Test 5");
+        length = 0.0;
+        width = 15.0;
+        height = 1.0;
+        expResult = -1;
+        result = instance.calcRaftSize(length, width, height);
+        assertEquals(expResult, result, 0.001);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+        
+        /**********************************
+        * Test Case Six
+        ***********************************/
+         System.out.println("calcBridgeSize Test 6");
+        length = 9.0;
+        width = 9.0;
+        height = 0.75;
+        expResult = 60.75;
+        result = instance.calcRaftSize(length, width, height);
+        assertEquals(expResult, result, 0.001);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+        
+        /**********************************
+        * Test Case Seven
+        ***********************************/
+         System.out.println("calcBridgeSize Test 7");
+        length = 12.0;
+        width = 15.0;
+        height = 1.0;
+        expResult = 180.0;
+        result = instance.calcRaftSize(length, width, height);
+        assertEquals(expResult, result, 0.001);
+        // TODO review the generated test code and remove the default call to fail.
+        //fail("The test case is a prototype.");
+    }
 }

@@ -51,6 +51,9 @@ public class Escape {
         StartGameView startGameView = new StartGameView();
         startGameView.startGame();
         
+        //Open Games that have been saved
+
+        
         // class instances
         Player playerOne = new Player();
         Game gameOne = new Game();

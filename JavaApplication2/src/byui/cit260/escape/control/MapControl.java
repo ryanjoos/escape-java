@@ -26,7 +26,7 @@ public class MapControl {
     }
 
     
-    public double calcBridgeSize(double length, double width, double height){
+    public static double calcBridgeSize(double length, double width, double height){
         
         if (length < 10 || length >15){ //If length is between 10 and 15, you're good to go.
         return -1;
