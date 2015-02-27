@@ -5,8 +5,6 @@
  */
 package byui.cit260.escape.control;
 
-import byui.cit260.escape.view.RunningSpeedView;
-
 /**
  *
  * @author owner
