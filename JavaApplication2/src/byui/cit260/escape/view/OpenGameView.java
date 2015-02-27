@@ -28,7 +28,7 @@ public class OpenGameView {
 
     private void displayBanner() {
         System.out.println("*You have selected open game,     *"
-                          + "/n*what game would you like to open?*");
+                          + "\n*what game would you like to open?*");
     }
 
     private String getSelectGame() {
@@ -51,7 +51,7 @@ public class OpenGameView {
             //If the game is invalid
             if (selectGame.length() < 1) {
                 System.out.println("You didn't select a game. Be sure to spell it "
-                        + "correctly and it is case senstive. Try again please!");
+                        + "\n*correctly and it is case senstive. Try again please!");
                 continue; // and repeat again
             }
             break; // stop the do while thingy
