@@ -14,9 +14,9 @@ import java.util.Scanner;
  */
 public class RunningSpeedView {
 
-    int getTimeInput() {
+    public static double getTimeInput() {
         boolean valid = false; //Indicates if the name has be retrieved 
-        int inputTimeValue = 0;
+        double inputTimeValue = 0.0;
         Scanner keyboard = new Scanner(System.in); //keyboard input stream
 
         while (!valid) { //While a valid number has not been retrieved
@@ -34,9 +34,9 @@ public class RunningSpeedView {
         return inputTimeValue;
     }
     
-        int getDistanceInput() {
+        public static double getDistanceInput() {
         boolean valid = false; //Indicates if the name has be retrieved 
-        int inputDistanceValue = 0;
+        double inputDistanceValue = 0.0;
         Scanner keyboard = new Scanner(System.in); //keyboard input stream
 
         while (!valid) { //While a valid number has not been retrieved
@@ -54,7 +54,7 @@ public class RunningSpeedView {
         return inputDistanceValue;
     }
         
-    private void getRunningSpeed(int time, int distance) {
-        MapControl.calculateRunningSpeed(time, distance);
+    public void getRunningSpeed(double inputTimeValue, double inputDistanceValue) {
+        MapControl.calculateRunningSpeed(inputTimeValue, inputDistanceValue);
     }
 }
