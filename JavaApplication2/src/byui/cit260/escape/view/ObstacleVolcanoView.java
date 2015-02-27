@@ -103,12 +103,14 @@ public class ObstacleVolcanoView {
 
     private void runOption() {
         System.out.println("These are just fake values until the runningSpeedView is created");
-        MapControl.calculateRunningSpeed(30, 1.5);
-       
+//        MapControl.calculateRunningSpeed(RunningSpeedView , 1.5);
         
-        //RunningSpeedView runningInput = new RunningSpeedView();
+        RunningSpeedView runningInput = new RunningSpeedView();
+        double timeInput = RunningSpeedView.getTimeInput();
+        double distanceInput = RunningSpeedView.getDistanceInput();
+        runningInput.getRunningSpeed(timeInput, distanceInput);
         //runningInput.getTimeInput();
-       // runningInput.getDistanceInput();
+        // runningInput.getDistanceInput();
         //runningInput.getRunningSpeed(time, distance);
     }
 
