@@ -13,7 +13,15 @@ import java.util.Scanner;
  * @author Carissa
  */
 public class RunningSpeedView {
-
+    
+    
+//        public void displayInput() {
+//
+//        double runningInput = 0.0;
+//        runningInput = this.getTimeInput();
+//    }
+//        
+        
     public static double getTimeInput() {
         boolean valid = false; //Indicates if the name has be retrieved 
         double inputTimeValue = 0.0;
@@ -23,6 +31,9 @@ public class RunningSpeedView {
 
             //Prompt for User name
             System.out.println("\nHow long will it take you to get to the safe field (minutes): ");
+           
+//            inputTimeValue = keyboard.nextLine();
+//            inputTimeValue = inputTimeValue.trim();
 
             //If the name is invalid
             if (inputTimeValue < 1) {

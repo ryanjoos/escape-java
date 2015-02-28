@@ -5,10 +5,15 @@
  */
 package byui.cit260.escape.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Carissa
  */
-public class obstacleScene {
+public class obstacleScene implements Serializable{
+    private int chicken;
+    private double house; 
+    
     
 }
