@@ -13,9 +13,10 @@ import java.util.Scanner;
  *
  * @author ryanjoos
  */
-public class MainMenuView {
+public class MainMenuView extends View {
 
-    private final String MENU = "\n"
+    public MainMenuView() {
+        super("\n"
             + "\n============================="
             + "\n=======  Main Menu  ========="
             + "\n_____________________________"
@@ -24,46 +25,10 @@ public class MainMenuView {
             + "\nH - Get Help"
             + "\nS - Save Game"
             + "\nE - Exit"
-            + "\n=============================";
-
-    public void displayMenu() {
-
-        char selection = ' ';
-        do {
-
-            System.out.println(MENU); // display main menu
-
-            String input = this.getInput();
-            selection = input.charAt(0);
-
-            this.doAction(selection);
-
-        } while (selection != 'E');
+            + "\n=============================");
     }
 
-    private String getInput() {
-        boolean valid = false; //Indicates if the name has be retrieved 
-        String inputValue = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
 
-        while (!valid) { //While a valid name has not been retrieved
-
-            //Prompt for User name
-            System.out.println("\nChoose and option from the menu: ");
-
-            //get the name from the keyboard and trim off the branks
-            inputValue = keyboard.nextLine();
-            inputValue = inputValue.trim().toUpperCase();
-
-            //If the name is invalid
-            if (inputValue.length() < 1) {
-                System.out.println("Please enter a value from the menu: ");
-                continue; // and repeat again
-            }
-            break; // stop the do while thingy
-        }
-        return inputValue;
-    }
 
     private void doAction(char choice) {
 
@@ -124,5 +89,10 @@ public class MainMenuView {
         SaveGameView save = new SaveGameView();
         // display the game menu
         save.getSaveInput();
+    }
+
+    @Override
+    public void doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
