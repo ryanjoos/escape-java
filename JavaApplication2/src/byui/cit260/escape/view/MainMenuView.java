@@ -30,8 +30,8 @@ public class MainMenuView extends View {
 
 
 
-    private void doAction(char choice) {
-
+    public void doAction(String obj) {
+        char choice = obj.toUpperCase().charAt(0);
         switch (choice) {
             case 'N':
                 this.startNewGame();
@@ -89,10 +89,5 @@ public class MainMenuView extends View {
         SaveGameView save = new SaveGameView();
         // display the game menu
         save.getSaveInput();
-    }
-
-    @Override
-    public void doAction(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

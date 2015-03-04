@@ -32,7 +32,7 @@ public abstract class View implements ViewInterface {
 
             this.doAction(value);
 
-        } while (!value.equals("Q"));
+        } while (!value.toUpperCase().equals("E"));
     }
 
     @Override
