@@ -12,26 +12,26 @@ import java.util.Scanner;
  * @author Carissa
  */
 public abstract class View implements ViewInterface {
+
     private String promptMessage;
 
     public View(String promptMessage) {
         this.promptMessage = promptMessage;
     }
-    
-    
+
     @Override
     public void display() {
-        
+
         boolean result;
         String value;
-        
+
         do {
 
             System.out.println(this.promptMessage); // display main menu
 
             value = this.getInput();
 
-           result = this.doAction(value);
+            result = this.doAction(value);
 
         } while (!result);
     }
@@ -68,7 +68,5 @@ public abstract class View implements ViewInterface {
     public void setPromptMessage(String message) {
         this.promptMessage = message;
     }
-    
-    
-    
+
 }

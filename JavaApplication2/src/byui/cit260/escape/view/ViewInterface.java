@@ -10,7 +10,10 @@ package byui.cit260.escape.view;
  * @author Carissa
  */
 public interface ViewInterface {
+
     public void display();
+
     public String getInput();
+
     public boolean doAction(Object obj);
 }

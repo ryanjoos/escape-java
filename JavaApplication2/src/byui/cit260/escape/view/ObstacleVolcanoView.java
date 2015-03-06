@@ -55,7 +55,8 @@ public class ObstacleVolcanoView extends View {
                 this.retreatOption();
                 break;
             case 'S':
-                return false;
+                MainMenuView mainMenu = new MainMenuView();
+                mainMenu.display();
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -70,11 +71,10 @@ public class ObstacleVolcanoView extends View {
     }
 
     private void runOption() {
-        System.out.println("These are just fake values until the runningSpeedView is created");
-
-        double timeInput = RunningSpeedView.getTimeInput();
-        double distanceInput = RunningSpeedView.getDistanceInput();
-        MapControl.calculateRunningSpeed(timeInput, distanceInput);
+//        System.out.println("These are just fake values until the runningSpeedView is created");
+        String promptMessage = null;
+        RunningSpeedView run = new RunningSpeedView(promptMessage);
+        run.display();
     }
 
     private void hideOption() {
