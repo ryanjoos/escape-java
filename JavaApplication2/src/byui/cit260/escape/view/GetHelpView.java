@@ -11,9 +11,10 @@ import java.util.Scanner;
  *
  * @author ryanjoos
  */
-public class GetHelpView {
+public class GetHelpView extends View {
 
-    private final String MENU = "\n"
+    public GetHelpView() {
+    super( "\n"
             + "\n========================================================="
             + "\n======================  Help Menu  ======================"
             + "\n_________________________________________________________"
@@ -24,47 +25,13 @@ public class GetHelpView {
             + "\nL - View your location.                                  "
             + "\nO - Observe surroundings                                 "
             + "\nQ - Quit or Go Back to Main Menu                         "
-            + "\n=========================================================";
-
-    void displayHelpMenu() {
-        char selection = ' ';
-        do {
-            System.out.println(MENU); // display HELP menu
-
-            String input = this.getInput();
-            selection = input.charAt(0);
-
-            this.doHelpAction(selection);
-
-        } while (selection != 'Q');
+            + "\n=========================================================");
+    
     }
 
-    private String getInput() {
-        boolean valid = false; //Indicates if the name has be retrieved 
-        String inputValue = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
-
-        while (!valid) { //While a valid name has not been retrieved
-
-            //Prompt for User name
-            System.out.println("\nChoose and option from the menu: ");
-
-            //get the name from the keyboard and trim off the branks
-            inputValue = keyboard.nextLine();
-            inputValue = inputValue.trim().toUpperCase();
-
-            //If the name is invalid
-            if (inputValue.length() < 1) {
-                System.out.println("Please enter a value from the menu: ");
-                continue; // and repeat again
-            }
-            break; // stop the while thing
-        }
-        return inputValue;
-    }
-
-    private void doHelpAction(char helpChoice) {
-        switch (helpChoice) {
+     public void doAction(String obj) {
+        char choice = obj.toUpperCase().charAt(0);
+        switch (choice) {
             case 'G':
                 this.gameGoal();
                 break;
