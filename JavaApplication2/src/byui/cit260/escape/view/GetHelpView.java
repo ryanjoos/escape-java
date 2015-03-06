@@ -28,9 +28,12 @@ public class GetHelpView extends View {
             + "\n=========================================================");
     
     }
-
-     public void doAction(String obj) {
-        char choice = obj.toUpperCase().charAt(0);
+    @Override
+    public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
         switch (choice) {
             case 'G':
                 this.gameGoal();
@@ -50,12 +53,14 @@ public class GetHelpView extends View {
             case 'O':
                 this.observeSurroundings();
                 break;
-            case 'Q':    // Quit the help menu
-                return;
+            case 'E':    // Quit the help menu go to Main Menu
+                this.displayMainMenu();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
+        return true;
     }
 
     private void gameGoal() {
@@ -80,5 +85,12 @@ public class GetHelpView extends View {
 
     private void observeSurroundings() {
         System.out.println("*** observeSurroundings function called ***");
+    }
+
+    private void displayMainMenu() {
+        //Create a new Game Menu View
+        MainMenuView mainMenu = new MainMenuView();
+        // display the game menu
+        mainMenu.display();
     }
 }
