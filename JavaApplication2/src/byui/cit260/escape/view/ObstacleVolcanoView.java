@@ -12,67 +12,34 @@ import java.util.Scanner;
  *
  * @author Carissa
  */
-public class ObstacleVolcanoView {
+public class ObstacleVolcanoView extends View {
 
-    private final String SCENARIO = "\n"
-            + "\n========================================================="
-            + "\n======================  What next  ======================"
-            + "\n_________________________________________________________"
-            + "\nYou just entered your new location when the volcano      "
-            + "\nMt. Wannahockaloogie starts to emit smoke causing the    "
-            + "\nisland to shake. Although the volcano is not yet ready,  "
-            + "\nthis volcano precursor eruption is causing an avalanch   "
-            + "\nto occur. You must get to safty immediately. You spot an "
-            + "\nfield free of falling rocks and trees, but you may not   "
-            + "\nhave enouth time to reach it before the avalanch comes.  "
-            + "\nWhat is your next move to safety? Quick!                 "
-            + "\nC - Climb a large, strudy tree                           "
-            + "\nR - Run quickly to the next location                     "
-            + "\nH - Hide behind a boulder                                "
-            + "\nP - Find safety at previous location                     "
-            + "\nS - Stay where you are and die                           "
-            + "\n=========================================================";
-
-    public void displayMenu() {
-
-        char selection = ' ';
-        do {
-
-            System.out.println(SCENARIO); // display main menu
-
-            String input = this.getInput();
-            selection = input.charAt(0);
-
-            this.doAction(selection);
-
-        } while (selection != 'S');
+    public ObstacleVolcanoView() {
+        super("\n"
+                + "\n========================================================="
+                + "\n======================  What next  ======================"
+                + "\n_________________________________________________________"
+                + "\nYou just entered your new location when the volcano      "
+                + "\nMt. Wannahockaloogie starts to emit smoke causing the    "
+                + "\nisland to shake. Although the volcano is not yet ready,  "
+                + "\nthis volcano precursor eruption is causing an avalanch   "
+                + "\nto occur. You must get to safty immediately. You spot an "
+                + "\nfield free of falling rocks and trees, but you may not   "
+                + "\nhave enouth time to reach it before the avalanch comes.  "
+                + "\nWhat is your next move to safety? Quick!                 "
+                + "\nC - Climb a large, strudy tree                           "
+                + "\nR - Run quickly to the next location                     "
+                + "\nH - Hide behind a boulder                                "
+                + "\nP - Find safety at previous location                     "
+                + "\nS - Stay where you are and die                           "
+                + "\n=========================================================");
     }
 
-    private String getInput() {
-        boolean valid = false; //Indicates if the name has be retrieved 
-        String inputValue = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
-
-        while (!valid) { //While a valid name has not been retrieved
-
-            //Prompt for User name
-            System.out.println("\nPick your next move: ");
-
-            //get the name from the keyboard and trim off the branks
-            inputValue = keyboard.nextLine();
-            inputValue = inputValue.trim().toUpperCase();
-
-            //If the name is invalid
-            if (inputValue.length() < 1) {
-                System.out.println("Invalid move. Please try another move: ");
-                continue; // and repeat again
-            }
-            break; // stop the do while thingy
-        }
-        return inputValue;
-    }
-
-    private void doAction(char choice) {
+    @Override
+    public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
 
         switch (choice) {
             case 'C':
@@ -88,11 +55,12 @@ public class ObstacleVolcanoView {
                 this.retreatOption();
                 break;
             case 'S':
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
+        return true;
     }
 
     private void climbOption() {
@@ -103,7 +71,6 @@ public class ObstacleVolcanoView {
 
     private void runOption() {
         System.out.println("These are just fake values until the runningSpeedView is created");
-
 
         double timeInput = RunningSpeedView.getTimeInput();
         double distanceInput = RunningSpeedView.getDistanceInput();
