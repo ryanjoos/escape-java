@@ -21,7 +21,8 @@ public abstract class View implements ViewInterface {
     
     @Override
     public void display() {
-
+        
+        boolean result;
         String value;
         
         do {
@@ -30,9 +31,9 @@ public abstract class View implements ViewInterface {
 
             value = this.getInput();
 
-            this.doAction(value);
+           result = this.doAction(value);
 
-        } while (!value.toUpperCase().equals("E"));
+        } while (!result);
     }
 
     @Override
