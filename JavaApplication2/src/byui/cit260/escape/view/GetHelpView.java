@@ -14,26 +14,26 @@ import java.util.Scanner;
 public class GetHelpView extends View {
 
     public GetHelpView() {
-        super("\n"
-                + "\n========================================================="
-                + "\n======================  Help Menu  ======================"
-                + "\n_________________________________________________________"
-                + "\nG - What is the goal of the game?                        "
-                + "\nM - How to move                                          "
-                + "\nB - View Bag/View Status of Raft/Resources needed        "
-                + "\nA - Interact (Harvest certain resources, use items, etc.)"
-                + "\nL - View your location.                                  "
-                + "\nO - Observe surroundings                                 "
-                + "\nQ - Quit or Go Back to Main Menu                         "
-                + "\n=========================================================");
-
-    }
+    super( "\n"
+            + "\n========================================================="
+            + "\n======================  Help Menu  ======================"
+            + "\n_________________________________________________________"
+            + "\nG - What is the goal of the game?                        "
+            + "\nM - How to move                                          "
+            + "\nB - View Bag/View Status of Raft/Resources needed        "
+            + "\nA - Interact (Harvest certain resources, use items, etc.)"
+            + "\nL - View your location.                                  "
+            + "\nO - Observe surroundings                                 "
+            + "\nQ - Quit or Go Back to Main Menu                         "
+            + "\n=========================================================");
     
+    }
     @Override
     public boolean doAction(Object obj) {
         String value = (String) obj;
         value = value.toUpperCase();
         char choice = value.charAt(0);
+        
         switch (choice) {
             case 'G':
                 this.gameGoal();
@@ -53,8 +53,9 @@ public class GetHelpView extends View {
             case 'O':
                 this.observeSurroundings();
                 break;
-            case 'Q':    // Quit the help menu
-                return true;
+            case 'E':    // Quit the help menu go to Main Menu
+                this.displayMainMenu();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -84,5 +85,12 @@ public class GetHelpView extends View {
 
     private void observeSurroundings() {
         System.out.println("*** observeSurroundings function called ***");
+    }
+
+    private void displayMainMenu() {
+        //Create a new Game Menu View
+        MainMenuView mainMenu = new MainMenuView();
+        // display the game menu
+        mainMenu.display();
     }
 }
