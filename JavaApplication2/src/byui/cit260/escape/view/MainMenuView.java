@@ -49,7 +49,7 @@ public class MainMenuView extends View {
                 this.saveGame();
                 break;
             case 'E':    // Exit the program
-                return false;
+                return true;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
