@@ -12,5 +12,5 @@ package byui.cit260.escape.view;
 public interface ViewInterface {
     public void display();
     public String getInput();
-    public void doAction(String value);
+    public boolean doAction(Object obj);
 }

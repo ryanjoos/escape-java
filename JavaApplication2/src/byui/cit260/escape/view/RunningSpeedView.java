@@ -12,16 +12,49 @@ import java.util.Scanner;
  *
  * @author Carissa
  */
-public class RunningSpeedView {
+public class RunningSpeedView extends View {
+
+    public RunningSpeedView(String promptMessage) {
+        super("Determine how fast to run......");
+    }
     
-    
-//        public void displayInput() {
-//
-//        double runningInput = 0.0;
-//        runningInput = this.getTimeInput();
-//    }
-//        
+    @Override
+    public void display() {
+        // while not done
+            // display the prompt message
+
+            // display How long will it take you to get to the safe field (minutes): "
+            // call getInput to get the value
+
+            // display Please enter the time it will take you to get to the field in minutes:
+            // call getINput to get the next value
+
+            // call doAction
         
+        
+        String value1;
+        String value2;
+        boolean result;
+        
+        do {
+
+            System.out.println(this.getPromptMessage()); // display main menu
+            
+            System.out.println("\nHow long will it take you to get to the safe field (minutes): ");
+            value1 = this.getInput();
+            
+             System.out.println("\nWhat is the distance to the field (miles): ");
+            value2 = this.getInput(); 
+            
+            String[] values = new String[2];
+            values[0] = value1;
+            values[1] = value2;
+
+             result =  this.doAction(values);
+  
+        } while (!result);
+    }
+
     public static double getTimeInput() {
         boolean valid = false; //Indicates if the name has be retrieved 
         double inputTimeValue = 0.0;
@@ -31,21 +64,20 @@ public class RunningSpeedView {
 
             //Prompt for User name
             System.out.println("\nHow long will it take you to get to the safe field (minutes): ");
-           
+
 //            inputTimeValue = keyboard.nextLine();
 //            inputTimeValue = inputTimeValue.trim();
-
             //If the name is invalid
             if (inputTimeValue < 1) {
                 System.out.println("Please enter the time it will take you to get to the field in minutes: ");
                 continue; // and repeat again
-            } 
+            }
             break; // stop the do while thingy
         }
         return inputTimeValue;
     }
-    
-        public static double getDistanceInput() {
+
+    public static double getDistanceInput() {
         boolean valid = false; //Indicates if the name has be retrieved 
         double inputDistanceValue = 0.0;
         Scanner keyboard = new Scanner(System.in); //keyboard input stream
@@ -59,13 +91,36 @@ public class RunningSpeedView {
             if (inputDistanceValue < 1) {
                 System.out.println("Please enter the distance to the field in miles: ");
                 continue; // and repeat again
-            } 
+            }
             break; // stop the do while thingy
         }
         return inputDistanceValue;
     }
-        
+
     public void getRunningSpeed(double inputTimeValue, double inputDistanceValue) {
         MapControl.calculateRunningSpeed(inputTimeValue, inputDistanceValue);
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        String[] inputValues = (String[]) obj;       
+        double time = Double.parseDouble(inputValues[0]);
+        double distance = Double.parseDouble(inputValues[1]);
+        
+        if (time < 1) {
+                System.out.println("Please enter the time it will take you to get to the field in minutes: ");
+                return false;
+            }
+        
+         if (distance < 1) {
+                System.out.println("Please enter the distance to the field in miles: ");
+                return false;
+            }
+        
+         // call control function
+         MapControl.calculateRunningSpeed(time, distance);
+         // display output for the next view
+         
+         return true;
     }
 }

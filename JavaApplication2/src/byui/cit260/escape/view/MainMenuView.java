@@ -29,9 +29,12 @@ public class MainMenuView extends View {
     }
 
 
-
-    public void doAction(String obj) {
-        char choice = obj.toUpperCase().charAt(0);
+    @Override
+    public boolean doAction(Object obj) {
+        String value = (String) obj;
+        value = value.toUpperCase();
+        char choice = value.charAt(0);
+        
         switch (choice) {
             case 'N':
                 this.startNewGame();
@@ -46,11 +49,12 @@ public class MainMenuView extends View {
                 this.saveGame();
                 break;
             case 'E':    // Exit the program
-                return;
+                return false;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
+        return true; 
     }
 
     private void startNewGame() {
@@ -66,7 +70,7 @@ public class MainMenuView extends View {
         //Test ObstacleVolcanoView
         ObstacleVolcanoView volcanoScenario = new ObstacleVolcanoView();
         // display the volcano scenario
-        volcanoScenario.displayMenu();
+        volcanoScenario.display();
 
     }
 
