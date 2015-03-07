@@ -5,6 +5,9 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.view.View;
+import java.util.Scanner;
+
 /**
  *
  * @author owner
@@ -12,12 +15,20 @@ package byui.cit260.escape.control;
 public class MapControl {
 
     public static double calculateRunningSpeed(double time, double distance) {
+        Scanner in = new Scanner(System.in);
+        
         if (time < 15 || time > 45) {
-            return -1;
+            System.out.println("Please enter a realistic amount of the time between 15 to 45 minutes: ");
+            time = in.nextDouble();
+            // error message
+            // try again
         }
 
         if (distance < 0.5 || distance > 2) {
-            return -1;
+            System.out.println("Please enter a realistic distance between 0.5 miles to 2 miles: ");
+            distance = in.nextDouble();
+            // error message
+            // try again
         }
 
         double speedMPH = (distance/(time / 60));
