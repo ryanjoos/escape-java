@@ -25,9 +25,9 @@ public class RunningSpeedView extends View {
 
             // display How long will it take you to get to the safe field (minutes): "
         // call getInput to get the value
-            // display Please enter the time it will take you to get to the field in minutes:
+        // display Please enter the time it will take you to get to the field in minutes:
         // call getINput to get the next value
-            // call doAction
+        // call doAction
         String value1;
         String value2;
         boolean result;
@@ -57,7 +57,7 @@ public class RunningSpeedView extends View {
         double time = Double.parseDouble(inputValues[0]);
         double distance = Double.parseDouble(inputValues[1]);
         double result = 0;
-        
+
         if (time < 1) {
             System.out.println("Please enter the time it will take you to get to the field in minutes: ");
             return false;
@@ -70,7 +70,12 @@ public class RunningSpeedView extends View {
 
         // call control function
         result = MapControl.calculateRunningSpeed(time, distance);
-         // display output for the next view
+        // display output output result
+        System.out.println("You are going to run " + result + " mph to get to the next location.");
+
+        // call main menu
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.display();
 
         return true;
     }
