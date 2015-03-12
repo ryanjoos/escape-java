@@ -5,8 +5,10 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.model.Constants;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
+import byui.cit260.escape.model.ItemType;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
@@ -51,20 +53,7 @@ public class GameControl {
         MapControl.moveActorsToStartingLocation(map);
     }
 
-    public enum Item {
 
-        timber,
-        ore,
-        grain,
-        food,
-        drinkingWater,
-        fiberousPlants,
-        hammer,
-        hatchet,
-        spear,
-        rope,
-        barrell;
-    }
 
     private static Item[] createItemList() {
 
@@ -72,6 +61,7 @@ public class GameControl {
         Item[] invetory = new Item[Constants.NUMBER_OF_INVENTORY_ITEMS];
 
         Item timber = new Item();
+        timber.setItemType(ItemType.timber);
         timber.setDescription("Timber");
         timber.setQuantityInStock(0);
         timber.setRequiredAmount(0);

@@ -5,26 +5,37 @@
  */
 package byui.cit260.escape.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author owner
  */
-public class Item {
-    // class instance variables
-    private String itemType;
 
+
+// change this to enum
+public class Item implements Serializable{
+    // class instance variables
+    private ItemType itemType;
+    
+    // add variables
+    // amount collecged
+    // Quant of stock
+    // decrip
+    
+    
+    
     // default constructor
     public Item() {
     }
 
     // getter function
-    public String getItemType() {
+    public ItemType getItemType() {
         return itemType;
     }
     // setter function
-    public void setItemType(String itemType) {
+    public void setItemType(ItemType itemType) {
         this.itemType = itemType;
     }
 
