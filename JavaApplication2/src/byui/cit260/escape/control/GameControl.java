@@ -96,31 +96,31 @@ public class GameControl {
         hammer.setDescription("Hammer");
         hammer.setQuantityInStock(0);
         hammer.setRequiredAmount(0);
-        invetory[6] = hammer;
+        invetory[Item.hammer.ordinal()] = hammer;
         
         Item hatchet = new Item();
         hatchet.setDescription("Hatchet");
         hatchet.setQuantityInStock(0);
         hatchet.setRequiredAmount(0);
-        invetory[7] = hatchet;
+        invetory[Item.hatchet.ordinal()] = hatchet;
         
         Item spear = new Item();
         spear.setDescription("Spear");
         spear.setQuantityInStock(0);
         spear.setRequiredAmount(0);
-        invetory[8] = spear;
+        invetory[Item.spear.ordinal()] = spear;
         
         Item rope = new Item();
         rope.setDescription("Rope");
         rope.setQuantityInStock(0);
         rope.setRequiredAmount(0);
-        invetory[9] = rope;
+        invetory[Item.rope.ordinal()] = rope;
         
         Item barrell = new Item();
         barrell.setDescription("Barrell");
         barrell.setQuantityInStock(0);
         barrell.setRequiredAmount(0);
-        invetory[10] = barrell;
+        invetory[Item.barrell.ordinal()] = barrell;
         
         
         return invetory;
