@@ -51,47 +51,62 @@ public class GameControl {
         MapControl.moveActorsToStartingLocation(map);
     }
 
+    public enum Item {
+
+        timber,
+        ore,
+        grain,
+        food,
+        drinkingWater,
+        fiberousPlants,
+        hammer,
+        hatchet,
+        spear,
+        rope,
+        barrell;
+    }
+
     private static Item[] createItemList() {
 
         // create array (list of items)
-        Item[] invetory = new Item[11];
+        Item[] invetory = new Item[Constants.NUMBER_OF_INVENTORY_ITEMS];
 
         Item timber = new Item();
         timber.setDescription("Timber");
         timber.setQuantityInStock(0);
         timber.setRequiredAmount(0);
-        invetory[0] = timber;
+        invetory[Item.timber.ordinal()] = timber;
 
         Item ore = new Item();
         ore.setDescription("Ore");
         ore.setQuantityInStock(0);
         ore.setRequiredAmount(0);
-        invetory[1] = ore;
+        invetory[Item.ore.ordinal()] = ore;
 
         Item grain = new Item();
         grain.setDescription("Grain");
         grain.setQuantityInStock(0);
         grain.setRequiredAmount(0);
-        invetory[2] = grain;
+        invetory[Item.grain.ordinal()] = grain;
 
         Item food = new Item();
         food.setDescription("Food");
         food.setQuantityInStock(0);
         food.setRequiredAmount(0);
-        invetory[3] = food;
-        
+        invetory[Item.food.ordinal()] = food;
+
         Item drinkingWater = new Item();
         drinkingWater.setDescription("Drinking Water");
         drinkingWater.setQuantityInStock(0);
         drinkingWater.setRequiredAmount(0);
-        invetory[4] = drinkingWater;
+        invetory[Item.drinkingWater.ordinal()] = drinkingWater;
 
         Item fiberousPlants = new Item();
         fiberousPlants.setDescription("Fiberous Plants");
         fiberousPlants.setQuantityInStock(0);
         fiberousPlants.setRequiredAmount(0);
-        invetory[5] = fiberousPlants;
-        
+        invetory[Item.fiberousPlants.ordinal()] = fiberousPlants;
+
         Item hammer = new Item();
         hammer.setDescription("Hammer");
         hammer.setQuantityInStock(0);
@@ -124,6 +139,6 @@ public class GameControl {
         
         
         return invetory;
-        
+
     }
 }
