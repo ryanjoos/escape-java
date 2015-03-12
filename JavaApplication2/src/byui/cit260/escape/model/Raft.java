@@ -17,8 +17,18 @@ public class Raft implements Serializable{
     //class instance variables
     private double raftStatus;
     private String description;
+    private double width;
+    private double length;
+    private double height;
+    
 
     public Raft() {
+        this.description = "\nThis is the raft of Escape."
+                + "\nIf you are lucky you may escape!";
+        this.width = 0;
+        this.length = 0;
+        this.height = 0;
+        this.raftStatus = 0;
     }
 
     
