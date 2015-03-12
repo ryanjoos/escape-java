@@ -5,6 +5,7 @@
  */
 package byui.cit260.escape.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -12,48 +13,27 @@ import java.util.Objects;
  *
  * @author owner
  */
-public class Actor implements Serializable{
+public enum Actor implements Serializable {
+
+    Kale("The best"),
+    Carissa("The second best"),
+    Ryan("The last best");
+
     // class instance variable
-    private String name;
+    private final String description;
+    private final Point coordinates;
 
-    public Actor() {
-    }
-
-    // getter function
-    public String getName() {
-        return name;
-    }
-    // setter function
-    public void setName(String name) {
-        this.name = name;
+    public String getDescription() {
+        return description;
     }
 
-    @Override
-    public String toString() {
-        return "Actor{" + "name=" + name + '}';
+    public Point getCoordinates() {
+        return coordinates;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        return hash;
+    Actor(String description) {
+        this.description = description;
+        coordinates = new Point(1, 1);
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Actor other = (Actor) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
 }
