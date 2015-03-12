@@ -63,63 +63,63 @@ public class GameControl {
         invetory[0] = timber;
 
         Item ore = new Item();
-        timber.setDescription("Ore");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        ore.setDescription("Ore");
+        ore.setQuantityInStock(0);
+        ore.setRequiredAmount(0);
         invetory[1] = ore;
 
         Item grain = new Item();
-        timber.setDescription("Grain");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        grain.setDescription("Grain");
+        grain.setQuantityInStock(0);
+        grain.setRequiredAmount(0);
         invetory[2] = grain;
 
         Item food = new Item();
-        timber.setDescription("Food");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        food.setDescription("Food");
+        food.setQuantityInStock(0);
+        food.setRequiredAmount(0);
         invetory[3] = food;
         
         Item drinkingWater = new Item();
-        timber.setDescription("Drinking Water");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        drinkingWater.setDescription("Drinking Water");
+        drinkingWater.setQuantityInStock(0);
+        drinkingWater.setRequiredAmount(0);
         invetory[4] = drinkingWater;
 
         Item fiberousPlants = new Item();
-        timber.setDescription("Fiberous Plants");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        fiberousPlants.setDescription("Fiberous Plants");
+        fiberousPlants.setQuantityInStock(0);
+        fiberousPlants.setRequiredAmount(0);
         invetory[5] = fiberousPlants;
         
         Item hammer = new Item();
-        timber.setDescription("Hammer");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        hammer.setDescription("Hammer");
+        hammer.setQuantityInStock(0);
+        hammer.setRequiredAmount(0);
         invetory[6] = hammer;
         
         Item hatchet = new Item();
-        timber.setDescription("Hatchet");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        hatchet.setDescription("Hatchet");
+        hatchet.setQuantityInStock(0);
+        hatchet.setRequiredAmount(0);
         invetory[7] = hatchet;
         
         Item spear = new Item();
-        timber.setDescription("Spear");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        spear.setDescription("Spear");
+        spear.setQuantityInStock(0);
+        spear.setRequiredAmount(0);
         invetory[8] = spear;
         
         Item rope = new Item();
-        timber.setDescription("Rope");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        rope.setDescription("Rope");
+        rope.setQuantityInStock(0);
+        rope.setRequiredAmount(0);
         invetory[9] = rope;
         
         Item barrell = new Item();
-        timber.setDescription("Barrell");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        barrell.setDescription("Barrell");
+        barrell.setQuantityInStock(0);
+        barrell.setRequiredAmount(0);
         invetory[10] = barrell;
         
         
