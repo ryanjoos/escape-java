@@ -57,7 +57,7 @@ public class Escape {
         // class instances
         Player playerOne = new Player();
         Game gameOne = new Game();
-        Actor actorOne = new Actor();
+//        Actor actorOne = new Actor();
         Map gameMap = new Map();
         Item itemOne = new Item();
         Raft raftOne = new Raft();
@@ -68,7 +68,7 @@ public class Escape {
         // call setter functions
         playerOne.setName("Fred Flintstone");
         gameOne.setTotalTime(120.5);
-        actorOne.setName("Jaba the Hutt");
+//        actorOne.setName("Jaba the Hutt");
         gameMap.setRowCount(10);
         gameMap.setColumnCount(5);
         itemOne.setItemType("Berries");
@@ -94,8 +94,8 @@ public class Escape {
         // System.out.println(gameOne);
 
         // display actor
-        String actorInfo = actorOne.toString();
-        System.out.println(actorInfo);
+//        String actorInfo = actorOne.toString();
+//        System.out.println(actorInfo);
 
         // display map
         String mapInfo = gameMap.toString();
