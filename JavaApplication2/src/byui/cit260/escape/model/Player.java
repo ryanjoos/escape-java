@@ -18,6 +18,7 @@ public class Player implements Serializable {
     private String name;
 
     public Player() {
+        this.name = null;
     }
     
     

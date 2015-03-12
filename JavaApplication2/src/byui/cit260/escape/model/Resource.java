@@ -19,6 +19,8 @@ public class Resource implements Serializable{
     private int amount;
 
     public Resource() {
+        this.type = null;
+        this.amount = 0;
     }
     
     

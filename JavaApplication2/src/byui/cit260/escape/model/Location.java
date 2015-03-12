@@ -6,17 +6,26 @@
 package byui.cit260.escape.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
  * @author ryanjoos
  */
 public class Location implements Serializable {
-    
-  //class instance variables
-  private int row;
-  private int column;
-  private boolean visited;
+
+    //class instance variables
+    private int row;
+    private int column;
+    private boolean visited;
+    private Scene scene;
+    private ArrayList<Actor> actors;
+
+    public Location() {
+        this.row = 0;
+        this.column = 0;
+        this.visited = false;
+    }
 
     public int getRow() {
         return row;
@@ -40,9 +49,6 @@ public class Location implements Serializable {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
-    }
-
-    public Location() {
     }
 
     @Override
@@ -79,7 +85,5 @@ public class Location implements Serializable {
         }
         return true;
     }
-    
-    
-  
+
 }

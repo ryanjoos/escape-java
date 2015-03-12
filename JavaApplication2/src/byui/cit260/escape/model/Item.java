@@ -12,20 +12,17 @@ import java.util.Objects;
  *
  * @author owner
  */
-
-
 // change this to enum
-public class Item implements Serializable{
+public class Item implements Serializable {
+
     // class instance variables
     private ItemType itemType;
-    
+
     // add variables
-    // amount collecged
-    // Quant of stock
-    // decrip
-    
-    
-    
+    private int quantityInStock;     // amount collected
+    private int requiredAmount;      // amount needed
+    private String description;      // decription
+
     // default constructor
     public Item() {
     }
@@ -34,9 +31,34 @@ public class Item implements Serializable{
     public ItemType getItemType() {
         return itemType;
     }
+
     // setter function
     public void setItemType(ItemType itemType) {
         this.itemType = itemType;
+    }
+
+    public int getQuantityInStock() {
+        return quantityInStock;
+    }
+
+    public void setQuantityInStock(int quantityInStock) {
+        this.quantityInStock = quantityInStock;
+    }
+
+    public int getRequiredAmount() {
+        return requiredAmount;
+    }
+
+    public void setRequiredAmount(int requiredAmount) {
+        this.requiredAmount = requiredAmount;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
@@ -66,17 +88,4 @@ public class Item implements Serializable{
         return true;
     }
 
-    public void setDescription(String timber) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setQuantityInStock(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void setRequiredAmount(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }

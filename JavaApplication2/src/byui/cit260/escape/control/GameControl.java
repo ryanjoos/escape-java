@@ -65,67 +65,67 @@ public class GameControl {
         timber.setDescription("Timber");
         timber.setQuantityInStock(0);
         timber.setRequiredAmount(0);
-        invetory[Item.timber.ordinal()] = timber;
+        invetory[ItemType.timber.ordinal()] = timber;
 
         Item ore = new Item();
         ore.setDescription("Ore");
         ore.setQuantityInStock(0);
         ore.setRequiredAmount(0);
-        invetory[Item.ore.ordinal()] = ore;
+        invetory[ItemType.ore.ordinal()] = ore;
 
         Item grain = new Item();
         grain.setDescription("Grain");
         grain.setQuantityInStock(0);
         grain.setRequiredAmount(0);
-        invetory[Item.grain.ordinal()] = grain;
+        invetory[ItemType.grain.ordinal()] = grain;
 
         Item food = new Item();
         food.setDescription("Food");
         food.setQuantityInStock(0);
         food.setRequiredAmount(0);
-        invetory[Item.food.ordinal()] = food;
+        invetory[ItemType.food.ordinal()] = food;
 
         Item drinkingWater = new Item();
         drinkingWater.setDescription("Drinking Water");
         drinkingWater.setQuantityInStock(0);
         drinkingWater.setRequiredAmount(0);
-        invetory[Item.drinkingWater.ordinal()] = drinkingWater;
+        invetory[ItemType.drinkingWater.ordinal()] = drinkingWater;
 
         Item fiberousPlants = new Item();
         fiberousPlants.setDescription("Fiberous Plants");
         fiberousPlants.setQuantityInStock(0);
         fiberousPlants.setRequiredAmount(0);
-        invetory[Item.fiberousPlants.ordinal()] = fiberousPlants;
+        invetory[ItemType.fiberousPlants.ordinal()] = fiberousPlants;
 
         Item hammer = new Item();
         hammer.setDescription("Hammer");
         hammer.setQuantityInStock(0);
         hammer.setRequiredAmount(0);
-        invetory[Item.hammer.ordinal()] = hammer;
+        invetory[ItemType.hammer.ordinal()] = hammer;
         
         Item hatchet = new Item();
         hatchet.setDescription("Hatchet");
         hatchet.setQuantityInStock(0);
         hatchet.setRequiredAmount(0);
-        invetory[Item.hatchet.ordinal()] = hatchet;
+        invetory[ItemType.hatchet.ordinal()] = hatchet;
         
         Item spear = new Item();
         spear.setDescription("Spear");
         spear.setQuantityInStock(0);
         spear.setRequiredAmount(0);
-        invetory[Item.spear.ordinal()] = spear;
+        invetory[ItemType.spear.ordinal()] = spear;
         
         Item rope = new Item();
         rope.setDescription("Rope");
         rope.setQuantityInStock(0);
         rope.setRequiredAmount(0);
-        invetory[Item.rope.ordinal()] = rope;
+        invetory[ItemType.rope.ordinal()] = rope;
         
         Item barrell = new Item();
         barrell.setDescription("Barrell");
         barrell.setQuantityInStock(0);
         barrell.setRequiredAmount(0);
-        invetory[Item.barrell.ordinal()] = barrell;
+        invetory[ItemType.barrell.ordinal()] = barrell;
         
         
         return invetory;

@@ -15,9 +15,12 @@ public class Map implements Serializable{
     // class instance variables
     private int rowCount;
     private int columnCount;
+    private Location[][] locations;
 
     // default constructor
     public Map() {
+        this.rowCount = 0;
+        this.columnCount = 0;
     }
 
     // rowCount getter function

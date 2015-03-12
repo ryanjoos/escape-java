@@ -71,7 +71,7 @@ public class Escape {
 //        actorOne.setName("Jaba the Hutt");
         gameMap.setRowCount(10);
         gameMap.setColumnCount(5);
-        itemOne.setItemType("Berries");
+//        itemOne.setItemType("Berries");
         raftOne.setRaftStatus(50.00);
         raftOne.setDescription("Good");
         locationOne.setColumn(1);

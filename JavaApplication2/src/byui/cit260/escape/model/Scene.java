@@ -19,6 +19,8 @@ public class Scene implements Serializable{
     private boolean blocked;
 
     public Scene() {
+        this.description = "\nThis is a scene in the island of escape.";
+        this.blocked = false;
     }
 
     public String getDescription() {

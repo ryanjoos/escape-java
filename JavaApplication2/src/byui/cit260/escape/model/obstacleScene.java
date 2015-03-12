@@ -15,5 +15,6 @@ public class obstacleScene implements Serializable{
     private int chicken;
     private double house; 
     
+    // This has not been implemented into the game yet!!!
     
 }
