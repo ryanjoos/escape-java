@@ -5,6 +5,7 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.model.Map;
 import byui.cit260.escape.view.View;
 import java.util.Scanner;
 
@@ -54,5 +55,14 @@ public class MapControl {
         double bridgevolume = length * width * height; //The calculations for this function
 
         return bridgevolume;   
+    }
+
+    static Map createMap() {
+        System.out.println("**** call createMap() in MapControl ***");
+        return null;
+    }
+
+    static void moveActorsToStartingLocation(Map map) {
+        System.out.println("**** called moveActorsToStartingLocation() in GameControl ***");
     }
 }

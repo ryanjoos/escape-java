@@ -14,6 +14,13 @@ import java.io.Serializable;
 public class Game implements Serializable{
     private double totalTime;
 
+    private Raft raft;
+    private Player player;
+    private Map map;
+    private String[] actor;
+    private Item[] item;
+    
+    
     public Game() {
     }
 
@@ -25,6 +32,47 @@ public class Game implements Serializable{
         this.totalTime = totalTime;
     }
 
+    public Raft getRaft() {
+        return raft;
+    }
+
+    public void setRaft(Raft raft) {
+        this.raft = raft;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public Item[] getItem() {
+        return item;
+    }
+
+    public void setItem(Item[] item) {
+        this.item = item;
+    }
+
+    public String[] getActor() {
+        return actor;
+    }
+
+    public void setActor(String[] actor) {
+        this.actor = actor;
+    }
+    
+    
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + '}';

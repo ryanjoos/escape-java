@@ -65,7 +65,7 @@ public class MainMenuView extends View {
         //Create a new Game Menu View
         GameMenuView gameMenu = new GameMenuView();
         // display the game menu
-        gameMenu.displayMenu();
+        gameMenu.displayMenu();        
         
         //Test ObstacleVolcanoView
         ObstacleVolcanoView volcanoScenario = new ObstacleVolcanoView();
