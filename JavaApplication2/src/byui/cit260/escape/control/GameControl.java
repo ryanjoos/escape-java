@@ -12,6 +12,7 @@ import byui.cit260.escape.model.ItemType;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
+import byui.cit260.escape.model.Scene;
 import escapePackage.Escape;
 
 /**
@@ -130,5 +131,52 @@ public class GameControl {
         
         return invetory;
 
+    }
+
+    private static void assignScenesToLocations(Map map, Scene[] scenes) {
+        Location[][] locations = map.getLocations();
+        
+        //start Point
+        locations [0][0].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][1].setScene(scenes[SceneType.desert.ordinal()]);
+        locations [0][2].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][3].setScene(scenes[SceneType.desert.ordinal()]);
+        locations [0][4].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][5].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][6].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][7].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][8].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][9].setScene(scenes[SceneType.desert.ordinal()]);
+        locations [0][0].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][0].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][0].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][0].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][0].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][0].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][0].setScene(scenes[SceneType.desert.ordinal()]); 
+        locations [0][0].setScene(scenes[SceneType.desert.ordinal()]); 
+        
+        
+        //Little note: Do later
+    }
+
+    public static Item[] getSortedInventoryList() {
+        //System.out.println("This is a little message");
+        //return null;
+        Item[] originalInventoryList = 
+                Escape.getCurrentGame().getItem();
+        
+        Item[] inventorylist = originalInventoryList.clone();
+        
+        //using a bubble sort to sort the list of the inventory list by name
+        for (int i = 0; i < inventoryList.length-1; i++){
+            for(int j = 0; j < inventoryList.length-1-i; j++){
+                if(inventoryList[j].getDescription().compareToIgnoreCase(inventoryList[j+1].getDescription()) > 0){
+                    tempInventoryItem = inventoryList[j];
+                    inventoryList[j] =inventoryList[j+1];
+                    inventoryList[j+1] = tempInventoryItem;
+                }
+            }
+    }
     }
 }
