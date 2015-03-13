@@ -25,6 +25,9 @@ public class Item implements Serializable {
 
     // default constructor
     public Item() {
+        this.quantityInStock = 0;
+        this.requiredAmount = 0;
+        this.description = "\n This is an item.";
     }
 
     // getter function
