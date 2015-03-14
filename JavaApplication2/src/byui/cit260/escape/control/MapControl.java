@@ -79,7 +79,7 @@ public class MapControl {
         System.out.println("**** called moveActorsToStartingLocation() in GameControl ***");
     }
 
-    // throws MapControlException
+    // throws MapControlException had to take out because it wasn't working
     private static Scene[] createScenes() {
         BufferedImage image = null;
 
