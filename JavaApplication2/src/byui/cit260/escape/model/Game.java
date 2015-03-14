@@ -13,7 +13,6 @@ import java.io.Serializable;
  */
 public class Game implements Serializable{
     private double totalTime;
-
     private Raft raft;
     private Player player;
     private Map map;
