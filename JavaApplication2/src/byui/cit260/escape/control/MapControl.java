@@ -62,7 +62,7 @@ public class MapControl {
     }
 
     // pg 16.
-    static Map createMap() {
+    public static Map createMap() {
         // create and initilalize new map
         Map map = new Map(20, 20);
 
@@ -110,7 +110,7 @@ public class MapControl {
 //        finishScene.SetIcon(finishSceneImage);
         scenes[SceneType.finish.ordinal()] = finishScene;
         
-        return null;
+        return scenes;
     }
 
     private static ImageIcon getImage(Scene startingScene, String citbyuicit260escapeimagestartingPointjpg) {
