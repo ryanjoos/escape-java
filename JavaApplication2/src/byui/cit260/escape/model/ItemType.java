@@ -10,7 +10,6 @@ package byui.cit260.escape.model;
  * @author Carissa
  */
 public enum ItemType {
-
     timber,
     ore,
     grain,

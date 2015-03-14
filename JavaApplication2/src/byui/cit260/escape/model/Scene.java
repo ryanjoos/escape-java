@@ -5,6 +5,7 @@
  */
 package byui.cit260.escape.model;
 
+import byui.cit260.escape.control.MapControl;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -17,6 +18,9 @@ public class Scene implements Serializable{
     //class instance variables
     private String description;
     private boolean blocked;
+    private String mapSymbol;
+    private double travelTime;
+    private String icon;
 
     public Scene() {
         this.description = "\nThis is a scene in the island of escape.";
@@ -39,6 +43,30 @@ public class Scene implements Serializable{
         this.blocked = blocked;
     }
 
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapSymbol) {
+        this.mapSymbol = mapSymbol;
+    }
+
+    public double getTravelTime() {
+        return travelTime;
+    }
+
+    public void setTravelTime(double travelTime) {
+        this.travelTime = travelTime;
+    }
+
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+   
     @Override
     public String toString() {
         return "Scene{" + "description=" + description + ", blocked=" + blocked + '}';
@@ -69,8 +97,4 @@ public class Scene implements Serializable{
         }
         return true;
     }
-    
-    
-    
-    
 }

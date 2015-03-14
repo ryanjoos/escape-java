@@ -68,10 +68,10 @@ public class MainMenuView extends View {
         // display the game menu
         gameMenu.display();        
         
-        //Test ObstacleVolcanoView
-        ObstacleVolcanoView volcanoScenario = new ObstacleVolcanoView();
-        // display the volcano scenario
-        volcanoScenario.display();
+//        //Test ObstacleVolcanoView
+//        ObstacleVolcanoView volcanoScenario = new ObstacleVolcanoView();
+//        // display the volcano scenario
+//        volcanoScenario.display();
 
     }
 
