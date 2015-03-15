@@ -7,6 +7,7 @@ package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.GameControl;
 import byui.cit260.escape.model.Item;
+import byui.cit260.escape.model.Location;
 
 /**
  *
@@ -91,7 +92,8 @@ public class GameMenuView extends View {
                 this.help();
                 break;
             case 'Q':    // Exit the program
-                return true;
+                this.displayMainMenu();
+                break;
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -102,23 +104,24 @@ public class GameMenuView extends View {
     private void displayMap() {
 //        System.out.println("\n*** displayMap ***");
         // get the map locations from the current game
+        int rowCount = 0;
+        int columnCount = 0;
         
+        Location[][] locations = new Location[rowCount][columnCount];
         // display title
-        
         // display row of column numbers
-        
         // FOR every row in map
-            // DISPLAY row divider
-            // DISPLAY row number
+        // DISPLAY row divider
+        // DISPLAY row number
         // FOR every column in row
-            // DISPLAY column divider
-            // location = location[row][column]
-            // IF location has been visited
-                // DISPLAY the map symbol for location
-            //ELSE
-                // DISPLAY " ?? "
-            // ENDIF
-            // DISPLAY ending column divider
+        // DISPLAY column divider
+        // location = location[row][column]
+        // IF location has been visited
+        // DISPLAY the map symbol for location
+        //ELSE
+        // DISPLAY " ?? "
+        // ENDIF
+        // DISPLAY ending column divider
         //ENDFOR
         //DISPLAY ending row divider
         //END
@@ -139,58 +142,94 @@ public class GameMenuView extends View {
                     + inventoryItem.getRequiredAmount() + "\t "
                     + inventoryItem.getQuantityInStock());
         }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void viewActors() {
         System.out.println("\n*** viewActors ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void viewRaftStatus() {
         System.out.println("\n*** view raft status ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void viewLocationContents() {
         System.out.println("\n*** view location contents ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void movePerson() {
         System.out.println("\n*** move person ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void estimateResources() {
         System.out.println("\n*** estimate resources ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void designBarrels() {
         System.out.println("\n*** design barrels ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void constructTools() {
         System.out.println("\n*** construct tools ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void harvestResource() {
         System.out.println("\n*** harvest resource ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void deliverResource() {
         System.out.println("\n*** deliver resource ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void workOnRaft() {
         System.out.println("\n*** work on raft ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void packRaft() {
         System.out.println("\n*** pack raft ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void launchRaft() {
         System.out.println("\n*** launch raft ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void help() {
         System.out.println("\n*** get help ***");
+        GetHelpView getHelpMenu = new GetHelpView();
+        // display the game menu
+        getHelpMenu.display();
+    }
+
+    private void displayMainMenu() {
+        //Create a new Game Menu View
+        MainMenuView mainMenu = new MainMenuView();
+        // display the game menu
+        mainMenu.display();
     }
 
 }
