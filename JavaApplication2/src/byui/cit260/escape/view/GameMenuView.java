@@ -143,7 +143,7 @@ public class GameMenuView extends View {
                 Location location = locations[i][j];
                 // IF location has been visited
                 // DISPLAY the map symbol for location
-                if (locations[i][j].isVisited() == true) {
+                if (locations[i][j].isVisited() == false) {
 
                     String symbol = location.getScene().getMapSymbol();
                     System.out.print(symbol);
