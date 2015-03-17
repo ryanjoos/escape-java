@@ -20,7 +20,7 @@ public enum SceneType {
     timber,
     grain,
     fibrousPlants,
-    desert,
+    ocean,
     running,
     grass;    
 }
