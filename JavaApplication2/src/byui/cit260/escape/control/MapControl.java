@@ -223,7 +223,7 @@ public class MapControl {
 
         desertScene.setDescription(
                 "\nThis is a desert scene");
-        desertScene.setMapSymbol("  ~~  ");
+        desertScene.setMapSymbol("  ::  ");
         desertScene.setBlocked(false);
         desertScene.setTravelTime(Double.POSITIVE_INFINITY);
         ImageIcon desertSceneImage = MapControl.getImage(desertScene,
@@ -256,30 +256,6 @@ public class MapControl {
                 "picture/path/jpg");
 //        grassScene.SetIcon(grassSceneImage);
         scenes[SceneType.grass.ordinal()] = grassScene;
-        
-        Scene beachScene = new Scene();
-
-        beachScene.setDescription(
-                "\nThis is the Beach");
-        beachScene.setMapSymbol(" BH ");
-        beachScene.setBlocked(false);
-        beachScene.setTravelTime(60);
-        ImageIcon beachSceneImage = MapControl.getImage(beachScene,
-                "picture/path.jpg");
-//        oceanScene.SetIcon(desertSceneImage);
-        scenes[SceneType.beach.ordinal()] = beachScene;
-        
-        Scene oceanScene = new Scene();
-
-        oceanScene.setDescription(
-                "\nThis is the ocean");
-        oceanScene.setMapSymbol(" OC ");
-        oceanScene.setBlocked(false);
-        oceanScene.setTravelTime(60);
-        ImageIcon oceanSceneImage = MapControl.getImage(oceanScene,
-                "picture/path.jpg");
-//        oceanScene.SetIcon(desertSceneImage);
-        scenes[SceneType.ocean.ordinal()] = oceanScene;
         
         return scenes;
     }
