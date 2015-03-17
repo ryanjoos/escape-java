@@ -135,6 +135,7 @@ public class GameControl {
     static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
 
+        locations = setDefaultScene (locations, scenes[SceneType.ocean.ordinal()]);
         //start Point
         locations[0][0].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[0][1].setScene(scenes[SceneType.ocean.ordinal()]);
@@ -603,4 +604,13 @@ public class GameControl {
         }
         return inventoryList;
     }
+    
+    private static Location[][] setDefaultScene (Location[][] locations, Scene defaultScene){
+        for (int row = 0; row < locations.length; row++){
+            for (int column = 0; column < locations.length; column++){
+                locations[row][column].setScene(defaultScene);
+            }
+        }
+        return locations;
+        }
 }
