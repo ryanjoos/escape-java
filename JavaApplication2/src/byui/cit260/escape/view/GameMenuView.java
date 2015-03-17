@@ -205,9 +205,11 @@ public class GameMenuView extends View {
     }
 
     private void estimateResources() {
-        System.out.println("\n*** estimate resources ***");
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
+        Item[] bob = GameControl.getSortedInventoryList();
+        System.out.println(Arrays.toString(bob));
+//        System.out.println("\n*** estimate resources ***");
+//        GameMenuView gameMenu = new GameMenuView();
+//        gameMenu.display();
     }
 
     private void designBarrels() {

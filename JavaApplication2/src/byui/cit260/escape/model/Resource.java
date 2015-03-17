@@ -12,15 +12,21 @@ import java.util.Objects;
  *
  * @author ryanjoos
  */
-public class Resource implements Serializable{
+public enum Resource implements Serializable{
+    
+    grain(30),
+    timber(75),
+    fiberousPlants(40),
+    ore(30),
+    water(50),
+    food(50);
     
     //class instance variables
     private String type;
-    private int amount;
+    private final int amount;
 
-    public Resource() {
-        this.type = null;
-        this.amount = 0;
+    Resource(int amount) {
+        this.amount = amount;
     }
     
     
@@ -36,41 +42,7 @@ public class Resource implements Serializable{
     public int getAmount() {
         return amount;
     }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }
-
-    @Override
-    public String toString() {
-        return "Resource{" + "type=" + type + ", amount=" + amount + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 79 * hash + Objects.hashCode(this.type);
-        hash = 79 * hash + this.amount;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Resource other = (Resource) obj;
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        if (this.amount != other.amount) {
-            return false;
-        }
-        return true;
-    }    
+  
     
     
     
