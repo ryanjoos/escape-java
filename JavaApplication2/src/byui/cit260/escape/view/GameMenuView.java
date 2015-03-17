@@ -6,8 +6,13 @@
 package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.GameControl;
+import byui.cit260.escape.model.Constants;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
+import byui.cit260.escape.model.Map;
+import byui.cit260.escape.model.Scene;
+import byui.cit260.escape.model.SceneType;
+import java.util.Arrays;
 
 /**
  *
@@ -16,6 +21,7 @@ import byui.cit260.escape.model.Location;
 public class GameMenuView extends View {
 
     private char[][] map = null;
+
     public GameMenuView() {
         super("\n"
                 + "\n========================================="
@@ -109,22 +115,35 @@ public class GameMenuView extends View {
         int rowCount = 0;
         int columnCount = 0;
 
-        Location[][] locations = new Location[rowCount][columnCount];
-        // display title
-        System.out.println("Jab Island Map");
-        // display row of column numbers
-        System.out.println("   1     2     3     4     5     6     7     8     9     10    11   12     13    14   15    16    17     18   19    20");
+        Scene[] scenes = new Scene[SceneType.values().length];
 
-        System.out.println("|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|");
+        // display title
+        System.out.println("Jaba Island Map");
+        // display row of column numbers
+        System.out.println("       1     2     3     4     5     6    7     8     9    10    11    12    13    14   15    16    17    18    19    20");
+
+        System.out.println("    ----------------------------------------------------------------------------------------------------------------------");
         for (int i = 0; i < 20; i++) {
-            System.out.print("|    ");
+            if (i < 9) {
+                System.out.print(i + 1 + " ");
+            } else {
+                System.out.print(i + 1);
+            }
+
+            System.out.print("  |    ");
             for (int j = 0; j < 20; j++) {
                 System.out.print(map[i][j] + "|    ");
-            }
-            System.out.println();
-            System.out.println("|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|");
-        }
 
+//                if (location[i][j].isVisited() == true) {
+//                    System.out.println(" ??? ");
+
+                //}
+            }
+
+//            System.out.println(Arrays.toString(sceneSymbol));
+            System.out.println();
+            System.out.println("    ----------------------------------------------------------------------------------------------------------------------");
+        }
 
         // DISPLAY row divider
         // DISPLAY row number
