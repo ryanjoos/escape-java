@@ -11,5 +11,6 @@ package byui.cit260.escape.model;
  */
 public class Constants {
     public static final int NUMBER_OF_INVENTORY_ITEMS = 11;
+    public static int NUMBER_OF_SCENE_TYPES = 13;
     
 }

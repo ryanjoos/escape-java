@@ -20,7 +20,10 @@ public class Scene implements Serializable{
     private boolean blocked;
     private String mapSymbol;
     private double travelTime;
+    
     private String icon;
+    
+     private SceneType sceneType;
 
     public Scene() {
         this.description = "\nThis is a scene in the island of escape.";
@@ -66,7 +69,16 @@ public class Scene implements Serializable{
     public void setIcon(String icon) {
         this.icon = icon;
     }
+
+    public SceneType getSceneType() {
+        return sceneType;
+    }
+
+    public void setSceneType(SceneType sceneType) {
+        this.sceneType = sceneType;
+    }
    
+    
     @Override
     public String toString() {
         return "Scene{" + "description=" + description + ", blocked=" + blocked + '}';
