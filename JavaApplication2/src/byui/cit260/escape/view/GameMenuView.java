@@ -120,14 +120,14 @@ public class GameMenuView extends View {
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
 
         // display title
-        System.out.println("                                                         Jaba Island Map                                               ");
+        System.out.println("                                                                    Jaba Island Map                                                         ");
         System.out.println();
 
         // display row of column numbers
-        System.out.println("       1     2     3     4     5     6    7     8     9    10    11    12    13    14   15    16    17    18    19    20");
+        System.out.println("      1      2      3      4      5      6     7      8      9      10     11     12     13     14     15     16     17     18     19     20");
 
         // DISPLAY row divider
-        System.out.println("    ----------------------------------------------------------------------------------------------------------------------");
+        System.out.println("   -------------------------------------------------------------------------------------------------------------------------------------------");
         // DISPLAY row number
         // FOR every column in row
         // DISPLAY column divider
@@ -144,12 +144,14 @@ public class GameMenuView extends View {
                 // IF location has been visited
                 // DISPLAY the map symbol for location
                 if (locations[i][j].isVisited() == true) {
-                    String symbol = locations[i][j].getScene().getMapSymbol();
+
+                    String symbol = location.getScene().getMapSymbol();
                     System.out.print(symbol);
+
                 } //ELSE
                 // DISPLAY " ?? "
                 else {
-                    System.out.print(" ??? ");
+                    System.out.print("  ??  ");
                 }
                 // ENDIF
                 // DISPLAY ending column divider
@@ -157,7 +159,7 @@ public class GameMenuView extends View {
                 //ENDFOR
             }
             System.out.println();
-            System.out.println("    ----------------------------------------------------------------------------------------------------------------------");
+            System.out.println("   -------------------------------------------------------------------------------------------------------------------------------------------");
         }
         //DISPLAY ending row divider
 
