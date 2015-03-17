@@ -13,6 +13,7 @@ import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
+import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
@@ -135,7 +136,7 @@ public class GameControl {
     static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
 
-        locations = setDefaultScene (locations, scenes[SceneType.ocean.ordinal()]);
+        
         //start Point
         locations[0][0].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[0][1].setScene(scenes[SceneType.ocean.ordinal()]);
@@ -605,12 +606,21 @@ public class GameControl {
         return inventoryList;
     }
     
-    private static Location[][] setDefaultScene (Location[][] locations, Scene defaultScene){
-        for (int row = 0; row < locations.length; row++){
-            for (int column = 0; column < locations.length; column++){
-                locations[row][column].setScene(defaultScene);
-            }
+    public static void getResourceList() {
+        Resource[] neededResources = Resource.values();
+        
+        for (Resource neededResource: neededResources) {
+            System.out.println(neededResource + ":     \t" + neededResource.getAmount());
         }
-        return locations;
-        }
+    }
+    
+    public static double getRequiredAmount(Resource resource, int days) {
+        double requiredAmount = resource.getAmount() * days;
+        
+        return requiredAmount;
+    }
+    
+    public double getTotalResources() {
+        return 0;
+    }
 }
