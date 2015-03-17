@@ -136,6 +136,7 @@ public class GameControl {
     static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
 
+        
         //start Point
         locations[0][0].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[0][1].setScene(scenes[SceneType.ocean.ordinal()]);

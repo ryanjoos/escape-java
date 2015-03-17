@@ -19,11 +19,15 @@ import java.util.Scanner;
  * @author owner
  */
 public class MapControl {
+    
+    private static final int MAP_SIZE = 20;
+    private static final int MIN_TIME = 15;
+    private static final int MAX_TIME = 45;
 
     public static double calculateRunningSpeed(double time, double distance) {
         Scanner in = new Scanner(System.in);
 
-        if (time < 15 || time > 45) {
+        if (time < MIN_TIME || time > MAX_TIME) {
             System.out.println("Please enter a realistic amount of the time between 15 to 45 minutes: ");
             time = in.nextDouble();
             // error message
@@ -64,7 +68,7 @@ public class MapControl {
     // pg 16.
     public static Map createMap() {
         // create and initilalize new map
-        Map map = new Map(20, 20);
+        Map map = new Map(MAP_SIZE, MAP_SIZE);
 
         //create the scenes for the game
         Scene[] scenes = createScenes();
@@ -107,7 +111,7 @@ public class MapControl {
         finishScene.setTravelTime(Double.POSITIVE_INFINITY);
         ImageIcon finishSceneImage = MapControl.getImage(finishScene,
                 "picture/path/jpg");
-//        finishScene.SetIcon(finishSceneImage);
+//        oceanScene.SetIcon(finishSceneImage);
         scenes[SceneType.finish.ordinal()] = finishScene;
 
 //        beach("Beach scene", "***"),
@@ -252,6 +256,30 @@ public class MapControl {
                 "picture/path/jpg");
 //        grassScene.SetIcon(grassSceneImage);
         scenes[SceneType.grass.ordinal()] = grassScene;
+        
+        Scene beachScene = new Scene();
+
+        beachScene.setDescription(
+                "\nThis is the Beach");
+        beachScene.setMapSymbol(" BH ");
+        beachScene.setBlocked(false);
+        beachScene.setTravelTime(60);
+        ImageIcon beachSceneImage = MapControl.getImage(beachScene,
+                "picture/path.jpg");
+//        oceanScene.SetIcon(desertSceneImage);
+        scenes[SceneType.beach.ordinal()] = beachScene;
+        
+        Scene oceanScene = new Scene();
+
+        oceanScene.setDescription(
+                "\nThis is the ocean");
+        oceanScene.setMapSymbol(" OC ");
+        oceanScene.setBlocked(false);
+        oceanScene.setTravelTime(60);
+        ImageIcon oceanSceneImage = MapControl.getImage(oceanScene,
+                "picture/path.jpg");
+//        oceanScene.SetIcon(desertSceneImage);
+        scenes[SceneType.ocean.ordinal()] = oceanScene;
         
         return scenes;
     }
