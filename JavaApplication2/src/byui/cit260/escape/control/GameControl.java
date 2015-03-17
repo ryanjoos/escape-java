@@ -13,6 +13,7 @@ import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
+import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
@@ -602,5 +603,23 @@ public class GameControl {
             }
         }
         return inventoryList;
+    }
+    
+    public static void getResourceList() {
+        Resource[] neededResources = Resource.values();
+        
+        for (Resource neededResource: neededResources) {
+            System.out.println(neededResource + ":     \t" + neededResource.getAmount());
+        }
+    }
+    
+    public static double getRequiredAmount(Resource resource, int days) {
+        double requiredAmount = resource.getAmount() * days;
+        
+        return requiredAmount;
+    }
+    
+    public double getTotalResources() {
+        return 0;
     }
 }

@@ -18,6 +18,7 @@ public class Game implements Serializable{
     private Map map;
     private String[] actor;
     private Item[] item;
+    private Resource[] resource;
     
     
     public Game() {
@@ -69,6 +70,14 @@ public class Game implements Serializable{
 
     public void setActor(String[] actor) {
         this.actor = actor;
+    }
+
+    public Resource[] getResource() {
+        return resource;
+    }
+
+    public void setResource(Resource[] resource) {
+        this.resource = resource;
     }
     
     

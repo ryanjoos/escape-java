@@ -7,11 +7,14 @@ package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.GameControl;
 import byui.cit260.escape.model.Constants;
+import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
+import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
+import escapePackage.Escape;
 import java.util.Arrays;
 
 /**
@@ -34,6 +37,7 @@ public class GameMenuView extends View {
                 + "\nL - View contents of location"
                 + "\nM - Move person to new location"
                 + "\nE - Estimate the resource needed"
+                + "\nO - View resource status"
                 + "\nB - Design barrels"
                 + "\nC - Construct tools"
                 + "\nR - Harvest resource"
@@ -54,7 +58,6 @@ public class GameMenuView extends View {
 
         switch (choice) {
             case 'V':
-                map = new char[20][20];
                 this.displayMap();
                 break;
             case 'I':
@@ -74,6 +77,9 @@ public class GameMenuView extends View {
                 break;
             case 'E':
                 this.estimateResources();
+                break;
+            case 'O':
+                this.viewResourceStatus();
                 break;
             case 'B':
                 this.designBarrels();
@@ -110,54 +116,49 @@ public class GameMenuView extends View {
     }
 
     private void displayMap() {
-//        System.out.println("\n*** displayMap ***");
         // get the map locations from the current game
-        int rowCount = 0;
-        int columnCount = 0;
-
-        Scene[] scenes = new Scene[SceneType.values().length];
+        Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
 
         // display title
-        System.out.println("Jaba Island Map");
+        System.out.println("                                                         Jaba Island Map                                               ");
+        System.out.println();
+
         // display row of column numbers
         System.out.println("       1     2     3     4     5     6    7     8     9    10    11    12    13    14   15    16    17    18    19    20");
 
+        // DISPLAY row divider
         System.out.println("    ----------------------------------------------------------------------------------------------------------------------");
+        // DISPLAY row number
+        // FOR every column in row
+        // DISPLAY column divider
         for (int i = 0; i < 20; i++) {
             if (i < 9) {
                 System.out.print(i + 1 + " ");
             } else {
                 System.out.print(i + 1);
             }
-
-            System.out.print("  |    ");
+            System.out.print("|");
             for (int j = 0; j < 20; j++) {
-                System.out.print(map[i][j] + "|    ");
-
-//                if (location[i][j].isVisited() == true) {
-//                    System.out.println(" ??? ");
-
-                //}
+                // location = location[row][column]
+                Location location = locations[i][j];
+                // IF location has been visited
+                // DISPLAY the map symbol for location
+                if (locations[i][j].isVisited() == true) {
+                    System.out.println(" ~~~ ");
+                } //ELSE
+                // DISPLAY " ?? "
+                else {
+                    System.out.println(" ??? ");
+                }
+                // ENDIF
+                // DISPLAY ending column divider
+                System.out.print("|");
+                //ENDFOR
             }
-
-//            System.out.println(Arrays.toString(sceneSymbol));
-            System.out.println();
-            System.out.println("    ----------------------------------------------------------------------------------------------------------------------");
         }
-
-        // DISPLAY row divider
-        // DISPLAY row number
-        // FOR every column in row
-        // DISPLAY column divider
-        // location = location[row][column]
-        // IF location has been visited
-        // DISPLAY the map symbol for location
-        //ELSE
-        // DISPLAY " ?? "
-        // ENDIF
-        // DISPLAY ending column divider
-        //ENDFOR
         //DISPLAY ending row divider
+        System.out.println();
+        System.out.println("    ----------------------------------------------------------------------------------------------------------------------");
         //END
     }
 
@@ -205,11 +206,19 @@ public class GameMenuView extends View {
     }
 
     private void estimateResources() {
-        Item[] bob = GameControl.getSortedInventoryList();
-        System.out.println(Arrays.toString(bob));
+        int days = 14;
+        Resource[] resource = Resource.values();
+//        double estimate =  GameControl.getRequiredAmount(resource, days);
 //        System.out.println("\n*** estimate resources ***");
 //        GameMenuView gameMenu = new GameMenuView();
 //        gameMenu.display();
+    }
+
+    private void viewResourceStatus() {
+        GameControl.getResourceList();
+        MainMenuView mainMenu = new MainMenuView();
+        // display the game menu
+        mainMenu.display();
     }
 
     private void designBarrels() {
