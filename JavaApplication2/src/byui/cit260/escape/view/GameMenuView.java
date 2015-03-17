@@ -144,21 +144,22 @@ public class GameMenuView extends View {
                 // IF location has been visited
                 // DISPLAY the map symbol for location
                 if (locations[i][j].isVisited() == true) {
-                    System.out.println(" ~~~ ");
+                    System.out.print(" ~~~ ");
                 } //ELSE
                 // DISPLAY " ?? "
                 else {
-                    System.out.println(" ??? ");
+                    System.out.print(" ??? ");
                 }
                 // ENDIF
                 // DISPLAY ending column divider
                 System.out.print("|");
                 //ENDFOR
             }
+            System.out.println();
+            System.out.println("    ----------------------------------------------------------------------------------------------------------------------");
         }
         //DISPLAY ending row divider
-        System.out.println();
-        System.out.println("    ----------------------------------------------------------------------------------------------------------------------");
+
         //END
     }
 
