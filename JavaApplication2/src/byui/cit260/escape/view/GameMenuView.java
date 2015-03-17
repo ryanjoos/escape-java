@@ -6,16 +6,10 @@
 package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.GameControl;
-import byui.cit260.escape.model.Constants;
-import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
-import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Resource;
-import byui.cit260.escape.model.Scene;
-import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
-import java.util.Arrays;
 
 /**
  *
