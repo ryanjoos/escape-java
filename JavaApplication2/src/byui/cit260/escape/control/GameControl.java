@@ -134,10 +134,7 @@ public class GameControl {
 
     static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
-        
-        //This line of code will set all of the locations to a default.
-        //All others will have to override and change
-        locations = setDefaultScene (locations, scenes[SceneType.ocean.ordinal()]);
+
         //start Point
         locations[0][0].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[0][1].setScene(scenes[SceneType.ocean.ordinal()]);
@@ -150,16 +147,16 @@ public class GameControl {
         locations[0][8].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[0][9].setScene(scenes[SceneType.ocean.ordinal()]);
 
-        locations[1][0].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[1][1].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[1][2].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[1][3].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[1][4].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[1][5].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[1][6].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[1][7].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[1][8].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[1][9].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[0][10].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][11].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][12].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][13].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][14].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][15].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][16].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][17].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][18].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
         locations[1][0].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[1][1].setScene(scenes[SceneType.ocean.ordinal()]);
@@ -237,17 +234,6 @@ public class GameControl {
         locations[4][7].setScene(scenes[SceneType.beach.ordinal()]);
         locations[4][8].setScene(scenes[SceneType.beach.ordinal()]);
         locations[4][9].setScene(scenes[SceneType.grass.ordinal()]);
-
-        locations[9][0].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[9][1].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[9][2].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[9][3].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[9][4].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[9][5].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[9][6].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[9][7].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[9][8].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[9][9].setScene(scenes[SceneType.beach.ordinal()]);
 
         locations[4][10].setScene(scenes[SceneType.river.ordinal()]);
         locations[4][11].setScene(scenes[SceneType.river.ordinal()]);
@@ -593,7 +579,6 @@ public class GameControl {
         locations[19][18].setScene(scenes[SceneType.beach.ordinal()]);
         locations[19][19].setScene(scenes[SceneType.start.ordinal()]);
 
-//>>>>>>> origin/master
     }
 
     public static Item[] getSortedInventoryList() {
@@ -617,14 +602,5 @@ public class GameControl {
             }
         }
         return inventoryList;
-    }
-    
-    private static Location[][] setDefaultScene (Location[][] locations, Scene defaultScene){
-        for (int row = 0; row < locations.length; row++){
-            for (int column = 0; column < locations.length; column++){
-                locations[row][column].setScene(defaultScene);
-            }
-        }
-        return locations;
     }
 }

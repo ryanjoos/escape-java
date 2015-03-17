@@ -62,7 +62,7 @@ public class Escape {
         Item itemOne = new Item();
         Raft raftOne = new Raft();
         Location locationOne = new Location();
-        Resource resourceOne = new Resource();
+//        Resource resourceOne = new Resource();
         Scene sceneOne = new Scene();
 
         // call setter functions
@@ -77,8 +77,8 @@ public class Escape {
         locationOne.setColumn(1);
         locationOne.setRow(2);
         locationOne.setVisited(true);
-        resourceOne.setType("Berries");
-        resourceOne.setAmount(2);
+//        resourceOne.setType("Berries");
+//        resourceOne.setAmount(2);
         sceneOne.setDescription("Beach");
         sceneOne.setBlocked(true);
 
@@ -115,7 +115,7 @@ public class Escape {
         String sceneInfo = sceneOne.toString();
         System.out.println(sceneInfo);         
         //resource scene
-        String resourceInfo = resourceOne.toString();
-        System.out.println(resourceInfo);       
+//        String resourceInfo = resourceOne.toString();
+//        System.out.println(resourceInfo);       
     }
 }
