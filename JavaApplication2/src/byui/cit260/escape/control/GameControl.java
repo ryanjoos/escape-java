@@ -620,7 +620,12 @@ public class GameControl {
         return requiredAmount;
     }
     
-    public double getTotalResources() {
-        return 0;
+    public int getTotalResources() {
+        int totalAmount = 0;
+        
+//        for (int total: resource) {
+//            totalAmount += total;
+//        }
+        return totalAmount;
     }
 }
