@@ -5,6 +5,7 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Scene;
@@ -268,15 +269,8 @@ public class MapControl {
         return null;
     }
 
-    private static class MapControlException extends Exception {
 
-        public MapControlException() {
-        }
-
-        private MapControlException(String string) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-    }
+    // remove images
 
     private static class ImageIcon {
 
