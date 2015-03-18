@@ -9,7 +9,6 @@ import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
-import byui.cit260.escape.view.View;
 import escapePackage.Escape;
 import java.awt.image.BufferedImage;
 import java.util.Scanner;
