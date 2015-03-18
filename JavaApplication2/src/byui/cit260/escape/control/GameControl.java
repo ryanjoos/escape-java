@@ -624,7 +624,7 @@ public class GameControl {
         }
     }
     
-    public int getTotalResources(int days) {
+    public static int getTotalResources(int days) {
         int totalAmount = 0;
         // convert enum to array
         Resource[] resources = Resource.values();
