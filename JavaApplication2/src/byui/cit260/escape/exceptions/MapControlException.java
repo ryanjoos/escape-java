@@ -10,6 +10,25 @@ package byui.cit260.escape.exceptions;
  *
  * @author Carissa
  */
-public class MapControlException {
+public class MapControlException extends Exception{
+
+    public MapControlException() {
+    }
+
+    public MapControlException(String string) {
+        super(string);
+    }
+
+    public MapControlException(String string, Throwable thrwbl) {
+        super(string, thrwbl);
+    }
+
+    public MapControlException(Throwable thrwbl) {
+        super(thrwbl);
+    }
+
+    public MapControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
+        super(string, thrwbl, bln, bln1);
+    }
     
 }

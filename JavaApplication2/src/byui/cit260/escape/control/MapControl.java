@@ -23,19 +23,23 @@ public class MapControl {
     private static final int MIN_TIME = 15;
     private static final int MAX_TIME = 45;
 
-    public static double calculateRunningSpeed(double time, double distance) {
+    public static double calculateRunningSpeed(double time, double distance) throws MapControlException {
         Scanner in = new Scanner(System.in);
 
-        if (time < MIN_TIME || time > MAX_TIME) {
-            System.out.println("Please enter a realistic amount of the time between 15 to 45 minutes: ");
-            time = in.nextDouble();
+        if (time < MIN_TIME || time > MAX_TIME)  {
+            throw new MapControlException("Please enter a realistic amount "
+                                         + "of the time between 15 to 45 minutes: ");
+//            System.out.println("Please enter a realistic amount of the time between 15 to 45 minutes: ");
+//            time = in.nextDouble();
             // error message
             // try again
         }
 
         if (distance < 0.5 || distance > 2) {
-            System.out.println("Please enter a realistic distance between 0.5 miles to 2 miles: ");
-            distance = in.nextDouble();
+             throw new MapControlException("Please enter a realistic distance between "
+                                         + "0.5 miles to 2 miles: ");
+//            System.out.println("Please enter a realistic distance between 0.5 miles to 2 miles: ");
+//            distance = in.nextDouble();
             // error message
             // try again
         }
@@ -267,6 +271,10 @@ public class MapControl {
     private static class MapControlException extends Exception {
 
         public MapControlException() {
+        }
+
+        private MapControlException(String string) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
     }
 
