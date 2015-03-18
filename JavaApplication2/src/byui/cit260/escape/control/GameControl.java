@@ -614,18 +614,14 @@ public class GameControl {
         }
     }
     
-    public static double getRequiredAmount(Resource resource, int days) {
-        double requiredAmount = resource.getAmount() * days;
-        
-        return requiredAmount;
-    }
-    
-    public int getTotalResources() {
+    public int getTotalResources(int days) {
         int totalAmount = 0;
-        
-//        for (int total: resource) {
-//            totalAmount += total;
-//        }
+        // convert enum to array
+        Resource[] resources = Resource.values();
+        for (Resource resource : resources) {
+              double requiredAmount = resource.getAmount() * days;  
+              totalAmount += requiredAmount;
+            }
         return totalAmount;
     }
 }
