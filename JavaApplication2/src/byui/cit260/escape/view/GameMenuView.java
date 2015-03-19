@@ -204,10 +204,10 @@ public class GameMenuView extends View {
     }
 
     private void estimateResources() {
-        int days = 14;
-        Resource[] resource = Resource.values();
+        int days = 16;
+        int totalAmount = GameControl.getTotalResources(days);
+        System.out.println("You will need a total of " + totalAmount + " resources to complete the game");
 //        double estimate =  GameControl.getRequiredAmount(resource, days);
-//        System.out.println("\n*** estimate resources ***");
 //        GameMenuView gameMenu = new GameMenuView();
 //        gameMenu.display();
     }

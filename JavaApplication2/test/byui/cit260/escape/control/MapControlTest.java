@@ -5,6 +5,7 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.exceptions.MapControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class MapControlTest {
      * Test of move method, of class MapControl.
      */
     @Test
-    public void testCalcRunSpeed() {
+    public void testCalcRunSpeed() throws MapControlException {
         System.out.println("calcRunSpeed Test 1");
         double time = 30.0;
         double distance = 2.0;

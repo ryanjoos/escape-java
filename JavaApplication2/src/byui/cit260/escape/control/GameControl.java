@@ -135,10 +135,9 @@ public class GameControl {
 
     static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
-        
-        locations = setDefaultScene (locations, scenes[SceneType.ocean.ordinal()]);
 
-        
+        locations = setDefaultScene(locations, scenes[SceneType.ocean.ordinal()]);
+
         //start Point
         //locations[0][0].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[0][1].setScene(scenes[SceneType.ocean.ordinal()]);
@@ -607,35 +606,36 @@ public class GameControl {
         }
         return inventoryList;
     }
-        private static Location[][] setDefaultScene (Location[][] locations, Scene defaultScene){
-        for (int row = 0; row < locations.length; row++){
-            for (int column = 0; column < locations.length; column++){
+
+    private static Location[][] setDefaultScene(Location[][] locations, Scene defaultScene) {
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations.length; column++) {
                 locations[row][column].setScene(defaultScene);
             }
         }
         return locations;
-        }
-    
+    }
+
     public static void getResourceList() {
         Resource[] neededResources = Resource.values();
-        
-        for (Resource neededResource: neededResources) {
+
+        for (Resource neededResource : neededResources) {
             System.out.println(neededResource + ":     \t" + neededResource.getAmount());
         }
     }
-    
-    public static double getRequiredAmount(Resource resource, int days) {
-        double requiredAmount = resource.getAmount() * days;
-        
-        return requiredAmount;
-    }
-    
-    public int getTotalResources() {
+
+    public static int getTotalResources(int days) {
         int totalAmount = 0;
-        
-//        for (int total: resource) {
-//            totalAmount += total;
-//        }
+        // convert enum to array
+        Resource[] resources = Resource.values();
+        for (Resource resource : resources) {
+            if (days < 1 || days > 45) {
+                return -1;
+            } else {
+                double requiredAmount = resource.getAmount() * days;
+                totalAmount += requiredAmount;
+            }
+        }
         return totalAmount;
     }
 }
