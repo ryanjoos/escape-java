@@ -5,10 +5,6 @@
  */
 package byui.cit260.escape.control;
 
-import byui.cit260.escape.model.Item;
-import byui.cit260.escape.model.Map;
-import byui.cit260.escape.model.Player;
-import byui.cit260.escape.model.Scene;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
