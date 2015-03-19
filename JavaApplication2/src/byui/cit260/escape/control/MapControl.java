@@ -108,8 +108,15 @@ public class MapControl {
         }   
     }
 
-    static void moveActorsToStartingLocation(Map map) {
-        System.out.println("**** called moveActorsToStartingLocation() in GameControl ***");
+    public static void moveActorsToStartingLocation(Map map) 
+                        throws MapControlException {
+    
+        Actor [] actors = Actor.values();
+        
+        for (Actor actor : actors){
+            Point coordinates = actor.getCoordinates();
+            MapControl.moveActorToLocation(actor, coordinates);
+        }
     }
 
     // throws MapControlException had to take out because it wasn't working

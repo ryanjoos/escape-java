@@ -60,7 +60,7 @@ public abstract class View implements ViewInterface {
         }
         return selection;
     }
-
+    
     public String getPromptMessage() {
         return promptMessage;
     }
@@ -68,5 +68,5 @@ public abstract class View implements ViewInterface {
     public void setPromptMessage(String message) {
         this.promptMessage = message;
     }
-
+    
 }

@@ -6,10 +6,14 @@
 package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.GameControl;
+import byui.cit260.escape.control.MapControl;
+import byui.cit260.escape.exceptions.MapControlException;
+import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Resource;
 import escapePackage.Escape;
+import java.awt.Point;
 
 /**
  *
@@ -106,6 +110,7 @@ public class GameMenuView extends View {
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
+
         return true;
     }
 
@@ -197,8 +202,19 @@ public class GameMenuView extends View {
         gameMenu.display();
     }
 
-    private void movePerson() {
-        System.out.println("\n*** move person ***");
+    public void movePerson() {
+
+        Actor actor = null;
+        Point coordinates = null;
+
+        //move actor to location
+        
+        try{
+        MapControl.moveActorToLocation(actor, coordinates);    
+        } catch (MapControlException me) {
+            System.out.println(me.getMessage());
+        }
+        
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
