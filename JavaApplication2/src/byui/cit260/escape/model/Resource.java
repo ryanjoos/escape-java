@@ -14,12 +14,12 @@ import java.util.Objects;
  */
 public enum Resource implements Serializable{
     
-    grain(30),
-    timber(75),
-    fiberousPlants(40),
-    ore(30),
-    water(50),
-    food(50);
+    grain(5),
+    timber(10),
+    fiberousPlants(8),
+    ore(3),
+    water(5),
+    food(4);
     
     //class instance variables
     private String type;
