@@ -5,11 +5,13 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
+import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.util.Scanner;
 
@@ -20,8 +22,15 @@ import java.util.Scanner;
 public class MapControl {
     
     private static final int MAP_SIZE = 20;
-    private static final int MIN_TIME = 15;
-    private static final int MAX_TIME = 45;
+    private static final double MIN_TIME = 15;
+    private static final double MAX_TIME = 45;
+    private static final double MAX_BRIDGE_LENGTH = 15;
+    private static final double MIN_BRIDGE_LENGTH = 10;
+    private static final double MAX_BRIDGE_WIDTH = 15;
+    private static final double MIN_BRIDGE_WIDTHTH = 4;
+    private static final double MAX_BRIDGE_HEIGHT = 0.75;
+    private static final double MIN_BRIDGE_HEIGHT = 1;
+
 
     public static double calculateRunningSpeed(double time, double distance) throws MapControlException {
         Scanner in = new Scanner(System.in);
@@ -80,6 +89,22 @@ public class MapControl {
         GameControl.assignScenesToLocations(map, scenes);
 
         return map;
+    }
+    
+    public static void moveActorToLocation(Actor actor, Point coordinates)
+                throws MapControlException{
+        
+        Map map = Escape.getCurrentGame().getMap();
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        
+        if(newRow < 0 || newRow >= MAP_SIZE ||
+            newColumn < 0 || newColumn >= MAP_SIZE){
+            throw new MapControlException("Can not move actor to location "
+            + coordinates.x + ", " + coordinates.y
+            + " because that location is outside "
+            + "the bounds of the map.");
+        }   
     }
 
     static void moveActorsToStartingLocation(Map map) {
