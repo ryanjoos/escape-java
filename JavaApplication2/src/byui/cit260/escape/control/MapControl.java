@@ -58,18 +58,18 @@ public class MapControl {
         return speedMPH;
     }
 
-    public static double calcBridgeSize(double length, double width, double height) {
+    public static double calcBridgeSize(double length, double width, double height) throws MapControlException {
 
         if (length < 10 || length > 15) { //If length is between 10 and 15, you're good to go.
-            return -1;
+            throw new MapControlException("Please enter a realistic length between 10 to 15 ft");
         }
 
         if (width < 4 || width > 15) { //If width is between 9 & 15 it works.
-            return -1;
+            throw new MapControlException("Please enter a realistic width between 4 to 15 ft");
         }
 
         if (height < 0.75 || height > 1) { //If height is between 0.75 and 1 then it works.
-            return -1;
+            throw new MapControlException("Please enter a realistic height between o.75 to 1 ft");
         }
 
         double bridgevolume = length * width * height; //The calculations for this function
