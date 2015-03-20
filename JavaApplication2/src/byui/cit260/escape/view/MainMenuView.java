@@ -6,8 +6,10 @@
 package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.GameControl;
+import byui.cit260.escape.exceptions.MapControlException;
 import escapePackage.Escape;
-import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -37,7 +39,13 @@ public class MainMenuView extends View {
         
         switch (choice) {
             case 'N':
+        {
+            try {
                 this.startNewGame();
+            } catch (MapControlException me) {
+            System.out.println(me.getMessage());
+        }
+        }
                 break;
             case 'G':
                 this.openGame();
@@ -57,7 +65,7 @@ public class MainMenuView extends View {
         return true; 
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlException {
 
         // create new game
         GameControl.createNewGame(Escape.getPlayer());

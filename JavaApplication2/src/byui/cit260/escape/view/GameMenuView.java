@@ -11,7 +11,6 @@ import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
-import byui.cit260.escape.model.Resource;
 import escapePackage.Escape;
 import java.awt.Point;
 

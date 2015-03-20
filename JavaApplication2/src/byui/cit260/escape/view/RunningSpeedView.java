@@ -57,15 +57,29 @@ public class RunningSpeedView extends View {
     @Override
     public boolean doAction(Object obj) {
         String[] inputValues = (String[]) obj;
-        double time = Double.parseDouble(inputValues[0]);
-        double distance = Double.parseDouble(inputValues[1]);
+        double time = 0;
+        double distance = 0;
+        try {
+            time = Double.parseDouble(inputValues[0]);
+        } catch (NumberFormatException nf) {
+            System.out.println("\nYou must enter a valid number."
+                    + "Try again or enter Q to quit");
+        }
+        try {
+            distance = Double.parseDouble(inputValues[1]);
+        } catch (NumberFormatException nf) {
+            System.out.println("\nYou must enter a valid number."
+                    + "Try again or enter Q to quit");
+        }
 
-        if (time < 1) {
+        if (time
+                < 1) {
             System.out.println("Please enter the time it will take you to get to the field in minutes: ");
             return false;
         }
 
-        if (distance < 1) {
+        if (distance
+                < 1) {
             System.out.println("Please enter the distance to the field in miles: ");
             return false;
         }
@@ -79,10 +93,13 @@ public class RunningSpeedView extends View {
             System.out.println(me.getMessage());
         }
 //display output output result
-        System.out.println("You are going to run " + result + " mph to get to the next location.");
+
+        System.out.println(
+                "You are going to run " + result + " mph to get to the next location.");
 
         // call main menu
         MainMenuView mainMenu = new MainMenuView();
+
         mainMenu.display();
 
         return true;

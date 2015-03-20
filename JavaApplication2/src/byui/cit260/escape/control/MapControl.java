@@ -21,7 +21,7 @@ import java.util.Scanner;
  * @author owner
  */
 public class MapControl {
-    
+
     private static final int MAP_SIZE = 20;
     private static final double MIN_TIME = 15;
     private static final double MAX_TIME = 45;
@@ -32,13 +32,12 @@ public class MapControl {
     private static final double MAX_BRIDGE_HEIGHT = 0.75;
     private static final double MIN_BRIDGE_HEIGHT = 1;
 
-
     public static double calculateRunningSpeed(double time, double distance) throws MapControlException {
         Scanner in = new Scanner(System.in);
 
-        if (time < MIN_TIME || time > MAX_TIME)  {
+        if (time < MIN_TIME || time > MAX_TIME) {
             throw new MapControlException("Please enter a realistic amount "
-                                         + "of the time between 15 to 45 minutes: ");
+                    + "of the time between 15 to 45 minutes: ");
 //            System.out.println("Please enter a realistic amount of the time between 15 to 45 minutes: ");
 //            time = in.nextDouble();
             // error message
@@ -46,8 +45,8 @@ public class MapControl {
         }
 
         if (distance < 0.5 || distance > 2) {
-             throw new MapControlException("Please enter a realistic distance between "
-                                         + "0.5 miles to 2 miles: ");
+            throw new MapControlException("Please enter a realistic distance between "
+                    + "0.5 miles to 2 miles: ");
 //            System.out.println("Please enter a realistic distance between 0.5 miles to 2 miles: ");
 //            distance = in.nextDouble();
             // error message
@@ -91,29 +90,29 @@ public class MapControl {
 
         return map;
     }
-    
+
     public static void moveActorToLocation(Actor actor, Point coordinates)
-                throws MapControlException{
-        
+            throws MapControlException {
+
         Map map = Escape.getCurrentGame().getMap();
-        int newRow = coordinates.x-1;
-        int newColumn = coordinates.y-1;
-        
-        if(newRow < 0 || newRow >= map.getRowCount() ||
-            newColumn < 0 || newColumn >= map.getColumnCount()){
+        int newRow = coordinates.x - 1;
+        int newColumn = coordinates.y - 1;
+
+        if (newRow < 0 || newRow >= map.getRowCount()
+                || newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
-            + coordinates.x + ", " + coordinates.y
-            + " because that location is outside "
-            + "the bounds of the map.");
-        }   
+                    + coordinates.x + ", " + coordinates.y
+                    + " because that location is outside "
+                    + "the bounds of the map.");
+        }
     }
 
-    public static void moveActorsToStartingLocation(Map map) 
-                        throws MapControlException {
-    
-        Actor [] actors = Actor.values();
-        
-        for (Actor actor : actors){
+    public static void moveActorsToStartingLocation(Map map)
+            throws MapControlException {
+
+        Actor[] actors = Actor.values();
+
+        for (Actor actor : actors) {
             Point coordinates = actor.getCoordinates();
             MapControl.moveActorToLocation(actor, coordinates);
         }
@@ -133,9 +132,6 @@ public class MapControl {
         startingScene.setMapSymbol("  ST  ");
         startingScene.setBlocked(false);
         startingScene.setTravelTime(240);
-        ImageIcon startingSceneImage = MapControl.getImage(startingScene,
-                "/citbyui/cit260/escape/image/startingPoint.jpg");
-//        startingScene.setIcon(startingSceneImage);
         scenes[SceneType.start.ordinal()] = startingScene;
 
         Scene finishScene = new Scene();
@@ -145,9 +141,6 @@ public class MapControl {
         finishScene.setMapSymbol("  FN  ");
         finishScene.setBlocked(false);
         finishScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon finishSceneImage = MapControl.getImage(finishScene,
-                "picture/path/jpg");
-//        oceanScene.SetIcon(finishSceneImage);
         scenes[SceneType.finish.ordinal()] = finishScene;
 
 //        beach("Beach scene", "***"),
@@ -158,9 +151,6 @@ public class MapControl {
         beachScene.setMapSymbol("  **  ");
         beachScene.setBlocked(false);
         beachScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon beachSceneImage = MapControl.getImage(beachScene,
-                "picture/path/jpg");
-//        beachScene.SetIcon(beachSceneImage);
         scenes[SceneType.beach.ordinal()] = beachScene;
 
 //    river("River scene", ">>>"),
@@ -171,9 +161,6 @@ public class MapControl {
         riverScene.setMapSymbol("  >>  ");
         riverScene.setBlocked(false);
         riverScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon riverSceneImage = MapControl.getImage(riverScene,
-                "picture/path/jpg");
-//        riverScene.SetIcon(riverSceneImage);
         scenes[SceneType.river.ordinal()] = riverScene;
 
 //    cliff("Cliff scene", "^^^"),
@@ -184,9 +171,6 @@ public class MapControl {
         cliffScene.setMapSymbol("  ^^  ");
         cliffScene.setBlocked(false);
         cliffScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon cliffSceneImage = MapControl.getImage(cliffScene,
-                "picture/path/jpg");
-//        cliffScene.SetIcon(cliffSceneImage);
         scenes[SceneType.cliff.ordinal()] = cliffScene;
 
 //    volcano("Volcano Scene", "/^\\"),
@@ -197,9 +181,6 @@ public class MapControl {
         volcanoScene.setMapSymbol("  /\\  ");
         volcanoScene.setBlocked(false);
         volcanoScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon volcanoSceneImage = MapControl.getImage(volcanoScene,
-                "picture/path/jpg");
-//        volcanoScene.SetIcon(volcanoSceneImage);
         scenes[SceneType.volcano.ordinal()] = volcanoScene;
 
 //    jungle("Jungle scene", "###"),
@@ -210,9 +191,6 @@ public class MapControl {
         jungleScene.setMapSymbol("  ##  ");
         jungleScene.setBlocked(false);
         jungleScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon jungleSceneImage = MapControl.getImage(jungleScene,
-                "picture/path/jpg");
-//        jungleScene.SetIcon(jungleSceneImage);
         scenes[SceneType.jungle.ordinal()] = jungleScene;
 
 //    timber("Timber resource scene", "$$$"),
@@ -223,9 +201,6 @@ public class MapControl {
         timberScene.setMapSymbol("  $$  ");
         timberScene.setBlocked(false);
         timberScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon timberSceneImage = MapControl.getImage(timberScene,
-                "picture/path/jpg");
-//        timberScene.SetIcon(timberSceneImage);
         scenes[SceneType.timber.ordinal()] = timberScene;
 
 //    grain("Grain resource scene", "%%%"),
@@ -236,9 +211,6 @@ public class MapControl {
         grainScene.setMapSymbol("  %%  ");
         grainScene.setBlocked(false);
         grainScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon grainSceneImage = MapControl.getImage(grainScene,
-                "picture/path/jpg");
-//        grainScene.SetIcon(grainSceneImage);
         scenes[SceneType.grain.ordinal()] = grainScene;
 
         //    ocean("Ocean scene", "~~~"),
@@ -249,9 +221,6 @@ public class MapControl {
         oceanScene.setMapSymbol("  ~~  ");
         oceanScene.setBlocked(false);
         oceanScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon oceanSceneImage = MapControl.getImage(oceanScene,
-                "picture/path/jpg");
-//        oceanScene.SetIcon(oceanSceneImage);
         scenes[SceneType.ocean.ordinal()] = oceanScene;
 
         //    desert("desert scene", " :: "),
@@ -262,9 +231,6 @@ public class MapControl {
         desertScene.setMapSymbol("  ::  ");
         desertScene.setBlocked(false);
         desertScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon desertSceneImage = MapControl.getImage(desertScene,
-                "picture/path/jpg");
-//        desertScene.SetIcon(desertSceneImage);
         scenes[SceneType.desert.ordinal()] = desertScene;
 
         //    running("running scene", "!!!"),
@@ -275,9 +241,6 @@ public class MapControl {
         runningScene.setMapSymbol("  !!  ");
         runningScene.setBlocked(false);
         runningScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon runningSceneImage = MapControl.getImage(runningScene,
-                "picture/path/jpg");
-//        runningScene.SetIcon(runningSceneImage);
         scenes[SceneType.running.ordinal()] = runningScene;
 
         //    grass("Grass scene", "===");
@@ -288,25 +251,9 @@ public class MapControl {
         grassScene.setMapSymbol("  ==  ");
         grassScene.setBlocked(false);
         grassScene.setTravelTime(Double.POSITIVE_INFINITY);
-        ImageIcon grassSceneImage = MapControl.getImage(grassScene,
-                "picture/path/jpg");
-//        grassScene.SetIcon(grassSceneImage);
         scenes[SceneType.grass.ordinal()] = grassScene;
-        
+
         return scenes;
     }
 
-    private static ImageIcon getImage(Scene startingScene, String citbyuicit260escapeimagestartingPointjpg) {
-        System.out.println("****getImage ***** ");
-        return null;
-    }
-
-
-    // remove images
-
-    private static class ImageIcon {
-
-        public ImageIcon() {
-        }
-    }
 }

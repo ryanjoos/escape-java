@@ -49,8 +49,13 @@ public class Escape {
         
         //Create StartGameView and start the game
         StartGameView startGameView = new StartGameView();
+        try {
         startGameView.startGame();
-        
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+//            startGameView.display();
+        }
         //Open Games that have been saved
 
         
