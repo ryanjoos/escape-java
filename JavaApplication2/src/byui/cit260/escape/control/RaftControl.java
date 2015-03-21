@@ -5,29 +5,31 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.exceptions.RaftControlException;
+
 /**
  *
  * @author ryanjoos
  */
 public class RaftControl {
 
-    public double calcRaftSize(double length, double width, double height) {
-
+    public void calcRaftSize(double length, double width, double height) throws RaftControlException {
+                
         if (length < 9 || length > 12) { //If length is between 9 and 12, you're good to go.
-            return -1;
+            throw new RaftControlException("Can't sail the raft your length is not between 9 and 12");
         }
 
         if (width < 9 || width > 15) { //If width is between 9 & 15 it works.
-            return -1;
+            throw new RaftControlException("Can't use the raft your width is not between 9 and 15");
         }
 
         if (height < 0.75 || height > 1) { //If height is between 0.75 and 1 then it works.
-            return -1;
+            throw new RaftControlException("Can't use the raft your height is not between 0.75 and 1");
         }
 
         double volume = length * width * height; //The calculations for this function
 
-        return volume;
+    
     }
 
     public double calcRaftStatus(double amount) {

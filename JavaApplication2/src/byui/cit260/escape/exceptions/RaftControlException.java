@@ -9,6 +9,26 @@ package byui.cit260.escape.exceptions;
  *
  * @author ryanjoos
  */
-public class RaftControlException {
+public class RaftControlException extends Exception {
+
+    public RaftControlException() {
+    }
+
+    public RaftControlException(String message) {
+        super(message);
+    }
+
+    public RaftControlException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public RaftControlException(Throwable cause) {
+        super(cause);
+    }
+
+    public RaftControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
+
     
 }
