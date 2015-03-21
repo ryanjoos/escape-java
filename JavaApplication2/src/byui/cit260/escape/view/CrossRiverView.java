@@ -56,10 +56,14 @@ public class CrossRiverView extends View {
     }
 
     private void buildBridge() {
-        MapControl.calcBridgeSize(10,10,1);
+        String promptMessage = null;
+        BuildBridgeView start = new BuildBridgeView(promptMessage);
+        start.display();
     }
 
     private void leave() {
-        MapControl.calcBridgeSize(10,10,1); 
+        MainMenuView mainMenu = new MainMenuView();
+
+        mainMenu.display();
     }
 }

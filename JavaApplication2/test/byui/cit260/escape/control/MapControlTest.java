@@ -94,7 +94,7 @@ public class MapControlTest {
         assertEquals(expResult, result, 0.001);
     }
     
-    public void testBridgeRaftSize() {
+    public void testBridgeRaftSize () throws MapControlException {
         System.out.println("calcBridgeSize Test 1");
         double length = 10.0;
         double width = 11.0;
