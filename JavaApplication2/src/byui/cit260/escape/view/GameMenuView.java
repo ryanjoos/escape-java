@@ -7,6 +7,7 @@ package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.GameControl;
 import byui.cit260.escape.control.MapControl;
+import byui.cit260.escape.exceptions.GameControlException;
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Item;
@@ -207,20 +208,24 @@ public class GameMenuView extends View {
         Point coordinates = null;
 
         //move actor to location
-        
-        try{
-        MapControl.moveActorToLocation(actor, coordinates);    
+        try {
+            MapControl.moveActorToLocation(actor, coordinates);
         } catch (MapControlException me) {
             System.out.println(me.getMessage());
         }
-        
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
 
     private void estimateResources() {
         int days = 16;
-        int totalAmount = GameControl.getTotalResources(days);
+        int totalAmount = 0;
+        try {
+        totalAmount = GameControl.getTotalResources(days);
+        } catch (GameControlException gc) {
+            System.out.println(gc.getMessage());
+        }
         System.out.println("You will need a total of " + totalAmount + " resources to complete the game");
 //        double estimate =  GameControl.getRequiredAmount(resource, days);
 //        GameMenuView gameMenu = new GameMenuView();

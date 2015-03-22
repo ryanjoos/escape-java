@@ -56,7 +56,6 @@ public class GameControl {
         game.setMap(map);
 
         // move actors
-
         MapControl.moveActorsToStartingLocation(map);
     }
 
@@ -633,6 +632,7 @@ public class GameControl {
         Resource[] resources = Resource.values();
         for (Resource resource : resources) {
             if (days < 1 || days > 45) {
+                System.out.println("Chicken");
                 throw new GameControlException ("The number of days is incorrect.");
             } else {
                 double requiredAmount = resource.getAmount() * days;
