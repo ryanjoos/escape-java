@@ -264,7 +264,9 @@ public class GameMenuView extends View {
     }
 
     private void workOnRaft() {
-        System.out.println("\n*** work on raft ***");
+        String promptMessage = null;
+        RaftView volume = new RaftView(promptMessage);
+        volume.display();
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

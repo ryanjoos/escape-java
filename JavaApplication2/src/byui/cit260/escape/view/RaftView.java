@@ -5,17 +5,17 @@
  */
 package byui.cit260.escape.view;
 
-import byui.cit260.escape.control.MapControl;
-import byui.cit260.escape.exceptions.MapControlException;
+import byui.cit260.escape.control.RaftControl;
+import byui.cit260.escape.exceptions.RaftControlException;
 
 /**
  *
  * @author Carissa
  */
-public class RunningSpeedView extends View {
-
-    public RunningSpeedView(String promptMessage) {
-        super("Determine how fast to run......");
+public class RaftView extends View{
+    
+ public RaftView(String promptMessage) {
+        super("Determine how big to build the raft......");
     }
 
     @Override
@@ -30,21 +30,27 @@ public class RunningSpeedView extends View {
         // call doAction
         String value1;
         String value2;
+        String value3;
+        
         boolean result;
 
         do {
 
             System.out.println(this.getPromptMessage()); // display main menu
 
-            System.out.println("\nHow long will it take you to get to the safe field (minutes): ");
+            System.out.println("\nWhat length would you like your raft to be: ");
             value1 = this.getInput();
 
-            System.out.println("\nWhat is the distance to the field (miles): ");
+            System.out.println("\nWhat width would you like your raft to be:  ");
             value2 = this.getInput();
-
-            String[] values = new String[2];
+            
+            System.out.println("\nWhat height would you like your raft to be: ");
+            value3 = this.getInput();
+            
+            String[] values = new String[3];
             values[0] = value1;
             values[1] = value2;
+            values[2] = value3;
 
             result = this.doAction(values);
 
@@ -54,43 +60,57 @@ public class RunningSpeedView extends View {
     @Override
     public boolean doAction(Object obj) {
         String[] inputValues = (String[]) obj;
-        double time = 0;
-        double distance = 0;
+        double length = 0;
+        double width = 0;
+        double height = 0;
+        
         try {
-            time = Double.parseDouble(inputValues[0]);
+            length = Double.parseDouble(inputValues[0]);
         } catch (NumberFormatException nf) {
             System.out.println("\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
         try {
-            distance = Double.parseDouble(inputValues[1]);
+            width = Double.parseDouble(inputValues[1]);
+        } catch (NumberFormatException nf) {
+            System.out.println("\nYou must enter a valid number."
+                    + "Try again or enter Q to quit");
+        }
+        
+        try {
+            height = Double.parseDouble(inputValues[2]);
         } catch (NumberFormatException nf) {
             System.out.println("\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
 
-        if (time < 1) {
-            System.out.println("Please enter the time it will take you to get to the field in minutes: ");
+        if (length < 1) {
+            System.out.println("Please enter the length you wish to build your raft: ");
             return false;
         }
 
-        if (distance < 1) {
-            System.out.println("Please enter the distance to the field in miles: ");
+        if (width < 1) {
+            System.out.println("Please enter the width you wish to build your raft: ");
             return false;
         }
 
+        if (height < 1) {
+            System.out.println("Please enter the height you wish to build your raft: ");
+            return false;
+        }
+        
         // call control function
         double result = 0;
 
         try {
-            result = MapControl.calculateRunningSpeed(time, distance);
-        } catch (MapControlException me) {
-            System.out.println(me.getMessage());
+            result = RaftControl.calcRaftSize(length, width, height);
+        } catch (RaftControlException re) {
+            System.out.println(re.getMessage());
         }
 //display output output result
 
         System.out.println(
-                "You are going to run " + result + " mph to get to the next location.");
+                "The volume of your specified raft will be " + result + " cubic feet");
 
         // call main menu
         MainMenuView mainMenu = new MainMenuView();
