@@ -5,14 +5,12 @@
  */
 package escapePackage;
 
-import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
-import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.view.StartGameView;
 
