@@ -641,4 +641,5 @@ public class GameControl {
         }
         return totalAmount;
     }
+   
 }

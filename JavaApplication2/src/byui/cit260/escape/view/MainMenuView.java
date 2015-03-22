@@ -64,6 +64,10 @@ public class MainMenuView extends View {
         GameControl.createNewGame(Escape.getPlayer());
         } catch (MapControlException me) {
             System.out.println(me.getMessage());
+        } catch (Throwable te) {
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            return;
         }
         //Create a new Game Menu View
         GameMenuView gameMenu = new GameMenuView();
