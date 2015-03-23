@@ -13,7 +13,7 @@ import byui.cit260.escape.exceptions.RaftControlException;
  */
 public class RaftControl {
 
-    public double calcRaftSize(double length, double width, double height) throws RaftControlException {
+    public static double calcRaftSize(double length, double width, double height) throws RaftControlException {
                 
         if (length < 9 || length > 12) { //If length is between 9 and 12, you're good to go.
             throw new RaftControlException("Can't sail the raft your length is not between 9 and 12");
@@ -28,9 +28,8 @@ public class RaftControl {
         }
 
         double volume = length * width * height; //The calculations for this function
-        
+
         return volume;
-    
     }
 
     public double calcRaftStatus(double amount) {

@@ -5,6 +5,7 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.exceptions.GameControlException;
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Constants;
 import byui.cit260.escape.model.Game;
@@ -55,7 +56,6 @@ public class GameControl {
         game.setMap(map);
 
         // move actors
-
         MapControl.moveActorsToStartingLocation(map);
     }
 
@@ -626,13 +626,14 @@ public class GameControl {
         }
     }
 
-    public static int getTotalResources(int days) {
+    public static int getTotalResources(int days) throws GameControlException {
         int totalAmount = 0;
         // convert enum to array
         Resource[] resources = Resource.values();
         for (Resource resource : resources) {
             if (days < 1 || days > 45) {
-                return -1;
+                System.out.println("Chicken");
+                throw new GameControlException ("The number of days is incorrect.");
             } else {
                 double requiredAmount = resource.getAmount() * days;
                 totalAmount += requiredAmount;
@@ -640,4 +641,5 @@ public class GameControl {
         }
         return totalAmount;
     }
+   
 }
