@@ -5,6 +5,7 @@
  */
 package byui.cit260.escape.control;
 
+import byui.cit260.escape.exceptions.RaftControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class RaftControlTest {
      * Test of calcRaftSize method, of class RaftControl.
      */
     @Test
-    public void testCalcRaftSize() {
+    public void testCalcRaftSize() throws RaftControlException {
         System.out.println("calcRaftSize Test 1");
         double length = 10.0;
         double width = 11.0;

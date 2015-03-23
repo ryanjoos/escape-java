@@ -57,28 +57,40 @@ public class BuildBridgeView extends View{
     @Override
     public boolean doAction(Object obj) {
         String[] bridgeValues = (String[]) obj;
-        double time = 0;
-        double distance = 0;
+        double length = 0;
+        double width = 0;
+        double height = 0;
         try {
-            time = Double.parseDouble(bridgeValues[0]);
+            length = Double.parseDouble(bridgeValues[0]);
         } catch (NumberFormatException nf) {
             System.out.println("\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
         try {
-            distance = Double.parseDouble(bridgeValues[1]);
+            width = Double.parseDouble(bridgeValues[1]);
+        } catch (NumberFormatException nf) {
+            System.out.println("\nYou must enter a valid number."
+                    + "Try again or enter Q to quit");
+        }
+          try {
+            height = Double.parseDouble(bridgeValues[2]);
         } catch (NumberFormatException nf) {
             System.out.println("\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
 
-        if (time
+        if (length
                 < 1) {
             System.out.println("Please enter the time it will take you to get to the field in minutes: ");
             return false;
         }
 
-        if (distance
+        if (width
+                < 1) {
+            System.out.println("Please enter the distance to the field in miles: ");
+            return false;
+        }
+        if (height
                 < 1) {
             System.out.println("Please enter the distance to the field in miles: ");
             return false;
@@ -88,7 +100,7 @@ public class BuildBridgeView extends View{
         double result = 0;
 
         try {
-            result = MapControl.calculateRunningSpeed(time, distance);
+            result = MapControl.calcBridgeSize(length, width, height);
         } catch (MapControlException me) {
             System.out.println(me.getMessage());
         }
