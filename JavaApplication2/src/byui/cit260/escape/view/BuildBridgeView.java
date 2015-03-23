@@ -15,7 +15,7 @@ import byui.cit260.escape.exceptions.MapControlException;
 public class BuildBridgeView extends View{
 
      public BuildBridgeView(String promptMessage) {
-        super("Determine how fast to run......");
+        super("We need to build a bridge to cross the river.");
     }
 
     @Override
@@ -107,7 +107,7 @@ public class BuildBridgeView extends View{
 //display output output result
 
         System.out.println(
-                "You are going to run " + result + " mph to get to the next location.");
+                "You can now access the locations on the other side of the river.");
 
         // call main menu
         MainMenuView mainMenu = new MainMenuView();
