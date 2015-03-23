@@ -28,7 +28,7 @@ public class MapControl {
     private static final double MAX_BRIDGE_LENGTH = 15;
     private static final double MIN_BRIDGE_LENGTH = 10;
     private static final double MAX_BRIDGE_WIDTH = 15;
-    private static final double MIN_BRIDGE_WIDTHTH = 4;
+    private static final double MIN_BRIDGE_WIDTH = 4;
     private static final double MAX_BRIDGE_HEIGHT = 0.75;
     private static final double MIN_BRIDGE_HEIGHT = 1;
 

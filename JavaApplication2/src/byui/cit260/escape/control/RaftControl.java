@@ -12,18 +12,24 @@ import byui.cit260.escape.exceptions.RaftControlException;
  * @author ryanjoos
  */
 public class RaftControl {
+    private static final double MAX_RAFT_LENGTH = 12;
+    private static final double MIN_RAFT_LENGTH = 9;
+    private static final double MAX_RAFT_WIDTH = 15;
+    private static final double MIN_RAFT_WIDTH = 9;
+    private static final double MAX_RAFT_HEIGHT = 1;
+    private static final double MIN_RAFT_HEIGHT = 0.75;
 
     public static double calcRaftSize(double length, double width, double height) throws RaftControlException {
                 
-        if (length < 9 || length > 12) { //If length is between 9 and 12, you're good to go.
+        if (MIN_RAFT_LENGTH < 9 || MAX_RAFT_LENGTH > 12) { //If length is between 9 and 12, you're good to go.
             throw new RaftControlException("Can't sail the raft your length is not between 9 and 12");
         }
 
-        if (width < 9 || width > 15) { //If width is between 9 & 15 it works.
+        if (MIN_RAFT_WIDTH < 9 || MAX_RAFT_WIDTH > 15) { //If width is between 9 & 15 it works.
             throw new RaftControlException("Can't use the raft your width is not between 9 and 15");
         }
 
-        if (height < 0.75 || height > 1) { //If height is between 0.75 and 1 then it works.
+        if (MIN_RAFT_HEIGHT < 0.75 || MAX_RAFT_HEIGHT > 1) { //If height is between 0.75 and 1 then it works.
             throw new RaftControlException("Can't use the raft your height is not between 0.75 and 1");
         }
 

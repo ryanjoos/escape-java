@@ -94,14 +94,14 @@ public class MapControlTest {
         assertEquals(expResult, result, 0.001);
     }
     
-    public void testBridgeRaftSize() {
+    public void testBridgeRaftSize () throws MapControlException {
         System.out.println("calcBridgeSize Test 1");
         double length = 10.0;
         double width = 11.0;
         double height = 0.8;
-        RaftControl instance = new RaftControl();
+        MapControl instance = new MapControl();
         double expResult = 88.0;
-        double result = instance.calcRaftSize(length, width, height);
+        double result = instance.calcBridgeSize(length, width, height);
         assertEquals(expResult, result, 0.001);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -115,7 +115,7 @@ public class MapControlTest {
         width = 12.0;
         height = 1.0;
         expResult = -1;
-        result = instance.calcRaftSize(length, width, height);
+        result = instance.calcBridgeSize(length, width, height);
         assertEquals(expResult, result, 0.001);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -128,7 +128,7 @@ public class MapControlTest {
         width = 12.0;
         height = -1.0;
         expResult = -1;
-        result = instance.calcRaftSize(length, width, height);
+        result = instance.calcBridgeSize(length, width, height);
         assertEquals(expResult, result, 0.001);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -141,7 +141,7 @@ public class MapControlTest {
         width = -1;
         height = 0.95;
         expResult = -1;
-        result = instance.calcRaftSize(length, width, height);
+        result = instance.calcBridgeSize(length, width, height);
         assertEquals(expResult, result, 0.001);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -154,7 +154,7 @@ public class MapControlTest {
         width = 15.0;
         height = 1.0;
         expResult = -1;
-        result = instance.calcRaftSize(length, width, height);
+        result = instance.calcBridgeSize(length, width, height);
         assertEquals(expResult, result, 0.001);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -167,7 +167,7 @@ public class MapControlTest {
         width = 9.0;
         height = 0.75;
         expResult = 60.75;
-        result = instance.calcRaftSize(length, width, height);
+        result = instance.calcBridgeSize(length, width, height);
         assertEquals(expResult, result, 0.001);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -180,7 +180,7 @@ public class MapControlTest {
         width = 15.0;
         height = 1.0;
         expResult = 180.0;
-        result = instance.calcRaftSize(length, width, height);
+        result = instance.calcBridgeSize(length, width, height);
         assertEquals(expResult, result, 0.001);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
