@@ -30,7 +30,6 @@ public class Map implements Serializable {
             return;
         }
 
-        // Error problem
         this.rowCount = rowCount;
         this.columnCount = columnCount;
 

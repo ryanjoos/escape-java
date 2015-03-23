@@ -13,15 +13,26 @@ import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.view.StartGameView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author ryanjoos
  */
 public class Escape {
-    
+
     private static Game currentGame = null;
     private static Player player = null;
+
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+
+    private static PrintWriter logFile = null;
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -39,24 +50,75 @@ public class Escape {
         Escape.player = player;
     }
 
-    
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        Escape.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        Escape.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        Escape.logFile = logFile;
+    }
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
+        try {
+            Escape.inFile
+                    = new BufferedReader(new InputStreamReader(System.in));
+
+            Escape.outFile = new PrintWriter(System.out, true);
+
+            // open log file
+            String filePath = "log.txt";
+            Escape.logFile = new PrintWriter(filePath);
+        } catch (Exception e) {
+            // temp
+            System.out.println("Exception: " + e.toString()
+                    + "\nCause: " + e.getCause()
+                    + "\nMessage: " + e.getMessage());
+        } finally {
+            try {
+                if (Escape.inFile != null) {
+                    Escape.inFile.close();
+                }
+
+                if (Escape.outFile != null) {
+                    Escape.outFile.close();
+                }
+
+            } catch (IOException ex) {
+                Logger.getLogger(Escape.class.getName()).log(Level.SEVERE, null, ex);
+                return;
+            }
+        }
         //Create StartGameView and start the game
         StartGameView startGameView = new StartGameView();
         try {
-        startGameView.startGame();
+            startGameView.startGame();
         } catch (Throwable te) {
             System.out.println(te.getMessage());
             te.printStackTrace();
-//            startGameView.display();
+//            strtGameView.display();
         }
         //Open Games that have been saved
 
-        
         // class instances
         Player playerOne = new Player();
         Game gameOne = new Game();
@@ -85,8 +147,6 @@ public class Escape {
         sceneOne.setDescription("Beach");
         sceneOne.setBlocked(true);
 
-        
-
         // display player
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
@@ -99,24 +159,23 @@ public class Escape {
         // display actor
 //        String actorInfo = actorOne.toString();
 //        System.out.println(actorInfo);
-
         // display map
         String mapInfo = gameMap.toString();
         System.out.println(mapInfo);
-        
+
         // display item
         String itemInfo = itemOne.toString();
         System.out.println(itemInfo);
-        
+
         //display raft
         String raftInfo = raftOne.toString();
         System.out.println(raftInfo);
         //display location
         String locationInfo = locationOne.toString();
-        System.out.println(locationInfo);        
+        System.out.println(locationInfo);
         //display scene
         String sceneInfo = sceneOne.toString();
-        System.out.println(sceneInfo);         
+        System.out.println(sceneInfo);
         //resource scene
 //        String resourceInfo = resourceOne.toString();
 //        System.out.println(resourceInfo);       
