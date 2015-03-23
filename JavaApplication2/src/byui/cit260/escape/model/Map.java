@@ -30,8 +30,9 @@ public class Map implements Serializable {
             return;
         }
 
-        this.rowCount = 0;
-        this.columnCount = 0;
+        // Error problem
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
 
         //create a 2-D array for Location objects
         this.locations = new Location[rowCount][columnCount];

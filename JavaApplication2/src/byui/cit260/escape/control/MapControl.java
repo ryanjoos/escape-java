@@ -100,6 +100,7 @@ public class MapControl {
 
         if (newRow < 0 || newRow >= map.getRowCount()
                 || newColumn < 0 || newColumn >= map.getColumnCount()) {
+            
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
                     + " because that location is outside "
