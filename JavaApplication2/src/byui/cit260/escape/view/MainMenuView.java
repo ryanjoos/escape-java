@@ -8,6 +8,7 @@ package byui.cit260.escape.view;
 import byui.cit260.escape.control.GameControl;
 import byui.cit260.escape.exceptions.MapControlException;
 import escapePackage.Escape;
+import java.io.IOException;
 
 /**
  *
@@ -80,7 +81,11 @@ public class MainMenuView extends View {
     private void openGame() {
         System.out.println("*** openGame function called ***");
         OpenGameView openGameView = new OpenGameView();
+        try {
         openGameView.openGame();
+        } catch (IOException exc) {
+            System.out.println("I/O Error: " + exc);
+        }
     }
 
     private void displayHelpMenu() {
@@ -95,6 +100,10 @@ public class MainMenuView extends View {
         //Create a new Game Menu View
         SaveGameView save = new SaveGameView();
         // display the game menu
+        try {
         save.getSaveInput();
+        }catch (IOException exc) {
+            System.out.println("I/O Error: " + exc);
+        }
     }
 }

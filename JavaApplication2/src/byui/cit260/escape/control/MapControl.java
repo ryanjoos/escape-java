@@ -14,7 +14,6 @@ import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
-import java.util.Scanner;
 
 /**
  *
@@ -33,7 +32,8 @@ public class MapControl {
     private static final double MIN_BRIDGE_HEIGHT = 1;
 
     public static double calculateRunningSpeed(double time, double distance) throws MapControlException {
-        Scanner in = new Scanner(System.in);
+        
+        
 
         if (time < MIN_TIME || time > MAX_TIME) {
             throw new MapControlException("Please enter a realistic amount "

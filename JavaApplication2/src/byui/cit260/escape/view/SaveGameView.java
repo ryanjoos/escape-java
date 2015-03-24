@@ -6,13 +6,18 @@
 package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.SaveGameControl;
-import java.util.Scanner;
+import java.io.IOException;
 
 /**
  *
  * @author ryanjoos
  */
-public class SaveGameView {
+public class SaveGameView extends View{
+
+    public SaveGameView() {
+        super("Saving the game to a file: ");
+    }
+
 
 //    public void displayMenu() {
 //
@@ -29,10 +34,9 @@ public class SaveGameView {
 //        } while (selection != 'E');
 //    }
 
-    String getSaveInput() {
+    String getSaveInput() throws IOException {
         boolean valid = false; //Indicates if the name has be retrieved 
         String inputValue = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
 
         while (!valid) { //While a valid name has not been retrieved
 
@@ -40,7 +44,7 @@ public class SaveGameView {
             System.out.println("\n Matey, which file would ye like to save ye game: ");
 
             //get the name from the keyboard and trim off the branks
-            inputValue = keyboard.nextLine();
+            inputValue = this.keyboard.readLine();
             inputValue = inputValue.trim();
 
             //If the name is invalid
@@ -53,5 +57,10 @@ public class SaveGameView {
             break; // stop the do while thingy
         }
         return inputValue;
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

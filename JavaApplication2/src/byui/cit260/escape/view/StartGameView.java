@@ -7,19 +7,20 @@ package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.ProgramControl;
 import byui.cit260.escape.model.Player;
-import java.util.Scanner;
+import java.io.IOException;
 
 /**
  *
  * @author ryanjoos
  */
-public class StartGameView {
+public class StartGameView extends View {
     
-    public StartGameView(){
-        
+    public StartGameView() {
+        super("Starting the game: ");
     }
+
     
-    public void startGame(){
+    public void startGame() throws IOException{
         
         //display banner screen
         this.displayBanner();
@@ -78,10 +79,9 @@ public class StartGameView {
         
     }    
 
-    private String getPlayersName() {
+    private String getPlayersName() throws IOException {
         boolean valid = false; //Indicates if the name has be retrieved 
         String playersName = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
         
         while(!valid) { //While a valid name has not been retrieved
             
@@ -89,7 +89,7 @@ public class StartGameView {
             System.out.println("\nEnter ye Name, Matey: ");
             
             //get the name from the keyboard and trim off the branks
-            playersName = keyboard.nextLine();
+            playersName = this.keyboard.readLine();
             playersName = playersName.trim();
             
             //If the name is invalid
@@ -109,5 +109,10 @@ public class StartGameView {
                 + "\n Have Fun! :)                                           "
                 + "\n======================================================================"
                 );    
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

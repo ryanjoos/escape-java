@@ -5,7 +5,13 @@
  */
 package byui.cit260.escape.view;
 
+import escapePackage.Escape;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,6 +20,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
 
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = Escape.getInFile();
+    protected final PrintWriter console = Escape.getOutFile();
 
     public View(String promptMessage) {
         this.promptMessage = promptMessage;
@@ -40,15 +49,18 @@ public abstract class View implements ViewInterface {
     public String getInput() {
         boolean valid = false; //Indicates if the name has be retrieved 
         String selection = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
 
         while (!valid) { //While a valid name has not been retrieved
 
             //Prompt for User name
             System.out.println("\nEnter your selection below: ");
 
-            //get the name from the keyboard and trim off the branks
-            selection = keyboard.nextLine();
+            try {
+                //get the name from the keyboard and trim off the branks
+                selection = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
             selection = selection.trim();
 
             //If the name is invalid

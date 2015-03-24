@@ -5,19 +5,21 @@
  */
 package byui.cit260.escape.view;
 
-import java.util.Scanner;
+import escapePackage.Escape;
+import java.io.IOException;
 
 /**
  *
  * @author ryanjoos
  */
-public class OpenGameView {
+public class OpenGameView extends View{
+    
     
     public OpenGameView(){
-        
+        super ("Open the game son.");
     }
     
-    public void openGame(){
+    public void openGame() throws IOException{
        //Display What they have selected
         this.displayBanner();
        //Display list of available saved Games
@@ -31,11 +33,11 @@ public class OpenGameView {
                           + "\n*what game would you like to open?*");
     }
 
-    private String getSelectGame() {
+    private String getSelectGame() throws IOException {
            
         boolean valid = false; //Indicates if the game has been selected 
         String selectGame = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        
         
         while(!valid) { //While a valid game has not been retrieved
             
@@ -45,7 +47,7 @@ public class OpenGameView {
                     + "\n -Ryan1");
             
             //get the name from the keyboard and trim off the branks
-            selectGame = keyboard.nextLine();
+            selectGame = this.keyboard.readLine();
             selectGame = selectGame.trim();
             
             //If the game is invalid
@@ -60,6 +62,11 @@ public class OpenGameView {
         System.out.println("Success, Loading Game");
         return selectGame; //Takes that value and puts it back up yonder
         
+    }
+
+    @Override
+    public boolean doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 

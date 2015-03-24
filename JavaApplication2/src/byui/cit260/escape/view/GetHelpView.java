@@ -5,8 +5,6 @@
  */
 package byui.cit260.escape.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author ryanjoos

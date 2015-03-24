@@ -79,6 +79,7 @@ public class Escape {
      */
     public static void main(String[] args) {
 
+        // did not change System.in
         try {
             Escape.inFile
                     = new BufferedReader(new InputStreamReader(System.in));
@@ -102,6 +103,10 @@ public class Escape {
                 if (Escape.outFile != null) {
                     Escape.outFile.close();
                 }
+                
+                if (Escape.logFile != null) {
+                    Escape.logFile.close();
+                }
 
             } catch (IOException ex) {
                 Logger.getLogger(Escape.class.getName()).log(Level.SEVERE, null, ex);
@@ -110,6 +115,7 @@ public class Escape {
         }
         //Create StartGameView and start the game
         StartGameView startGameView = new StartGameView();
+        
         try {
             startGameView.startGame();
         } catch (Throwable te) {
