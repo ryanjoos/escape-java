@@ -18,22 +18,6 @@ public class SaveGameView extends View{
         super("Saving the game to a file: ");
     }
 
-
-//    public void displayMenu() {
-//
-//        char selection = ' ';
-//        do {
-//
-//            System.out.println(MENU); // display main menu
-//
-//            String input = this.getInput();
-//            selection = input.charAt(0);
-//
-//            this.doAction(selection);
-//
-//        } while (selection != 'E');
-//    }
-
     String getSaveInput() throws IOException {
         boolean valid = false; //Indicates if the name has be retrieved 
         String inputValue = null;
@@ -41,7 +25,7 @@ public class SaveGameView extends View{
         while (!valid) { //While a valid name has not been retrieved
 
             //Prompt for User name
-            System.out.println("\n Matey, which file would ye like to save ye game: ");
+            this.console.println("\n Matey, which file would ye like to save ye game: ");
 
             //get the name from the keyboard and trim off the branks
             inputValue = this.keyboard.readLine();
@@ -49,7 +33,7 @@ public class SaveGameView extends View{
 
             //If the name is invalid
             if (inputValue.length() < 1) {
-                System.out.println("Please enter a file name ");
+                ErrorView.display(this.getClass().getName(), "Please enter a file name ");
                 continue; // and repeat again
             }
             else 
