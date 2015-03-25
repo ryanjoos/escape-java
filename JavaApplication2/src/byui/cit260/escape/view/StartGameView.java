@@ -14,14 +14,13 @@ import java.io.IOException;
  * @author ryanjoos
  */
 public class StartGameView extends View {
-    
+
     public StartGameView() {
         super("Starting the game: ");
     }
 
-    
-    public void startGame() throws IOException{
-        
+    public void startGame() throws IOException {
+
         //display banner screen
         this.displayBanner();
         //Get the players name
@@ -30,39 +29,38 @@ public class StartGameView extends View {
         Player player = ProgramControl.createPlayer(playersName);
         //Display Customized Welcome Message
         this.displayWelcomeMessage(player);
-       
+
         //Display main menu
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.display();
     }
 
     private void displayBanner() {
-        
-        System.out.println("         ^^                    @@@@@@@@@                                ");
-        System.out.println("    ^^       ^^             @@@@@@@@@@@@@@@                             ");
-        System.out.println("                          @@@@@@@@@@@@@@@@@@@    ^^                     ");
-        System.out.println("                         @@@@@@@@@@@@@@@@@@@@@                          ");
-        System.out.println("~~~~ ~~ ~~~~ ~~~~~~~ ~~~ &&&&&&&&&&&&&&&&&&&&& ~~~~~~~ ~~~~~~~~ ~~ ~~~~ ");
-        System.out.println("~         ~~  ~   ~      ~~~~~~~~~~~~~~~~~~~~~ ~       ~~     ~~~    ~  ");
-        System.out.println("  ~      ~~    ~~ ~~ ~~   ~~~~~~~~~~~~~ ~~~~~  ~     ~~~     ~ ~~~ ~ ~~ ");
-        System.out.println("  ~ ~~       ~       ~      ~~~~~  ~~ ~~~~        ~~ ~ ~~   ~~ ~        ");
-        System.out.println("~  ~       ~ ~      ~         ~~ ~~~~~~~   ~     ~~~ ~             ~~~  ");
-        System.out.println("    ~         ~       ~     ~      ~       ~~    ~            ~     ~   ");
-        
-        
-        System.out.println("\n**********************************************************************");
-        System.out.println("*                                                                    *");
-        System.out.println("*                                ESCAPE                              *");
-        System.out.println("*                                                                    *");
-        System.out.println("* This is a game to test you skill in the art of survival            *"
+
+        this.console.println("         ^^                    @@@@@@@@@                                ");
+        this.console.println("    ^^       ^^             @@@@@@@@@@@@@@@                             ");
+        this.console.println("                          @@@@@@@@@@@@@@@@@@@    ^^                     ");
+        this.console.println("                         @@@@@@@@@@@@@@@@@@@@@                          ");
+        this.console.println("~~~~ ~~ ~~~~ ~~~~~~~ ~~~ &&&&&&&&&&&&&&&&&&&&& ~~~~~~~ ~~~~~~~~ ~~ ~~~~ ");
+        this.console.println("~         ~~  ~   ~      ~~~~~~~~~~~~~~~~~~~~~ ~       ~~     ~~~    ~  ");
+        this.console.println("  ~      ~~    ~~ ~~ ~~   ~~~~~~~~~~~~~ ~~~~~  ~     ~~~     ~ ~~~ ~ ~~ ");
+        this.console.println("  ~ ~~       ~       ~      ~~~~~  ~~ ~~~~        ~~ ~ ~~   ~~ ~        ");
+        this.console.println("~  ~       ~ ~      ~         ~~ ~~~~~~~   ~     ~~~ ~             ~~~  ");
+        this.console.println("    ~         ~       ~     ~      ~       ~~    ~            ~     ~   ");
+
+        this.console.println("\n**********************************************************************");
+        this.console.println("*                                                                    *");
+        this.console.println("*                                ESCAPE                              *");
+        this.console.println("*                                                                    *");
+        this.console.println("* This is a game to test you skill in the art of survival            *"
                 + "\n* Your main goal in this game to escape from an island               *"
-                + "\n*by finding the necessary resources needed to build and raft.        *"  
+                + "\n*by finding the necessary resources needed to build and raft.        *"
                 + "\n*Good Luck!                                                          *"
-                );
-        System.out.println("*                                                                    *"
+        );
+        this.console.println("*                                                                    *"
                 + "\n* You are a captain of your own ship and have a crew under your      *"
                 + "\n* command. While sailing the seven seas you and your crew were       *"
-                + "\n* caught in a massive storm. Your ship was thrown on the rocks       *"  
+                + "\n* caught in a massive storm. Your ship was thrown on the rocks       *"
                 + "\n* and destroyed. You are able to swim to the island but your crew    *"
                 + "\n* is lost. The shipwreck scattered all of your provisions across     *"
                 + "\n* an island. You have been stranded on Jaba Island. You are alone    *"
@@ -73,28 +71,28 @@ public class StartGameView extends View {
                 + "\n* The island has many resources that are available to gather.        *"
                 + "\n* The resources will be used to create a way for you to escape       *"
                 + "\n* the island.                                                        *"
-                );
-        System.out.println("*                                                                    *");
-        System.out.println("**********************************************************************");
-        
-    }    
+        );
+        this.console.println("*                                                                    *");
+        this.console.println("**********************************************************************");
+
+    }
 
     private String getPlayersName() throws IOException {
         boolean valid = false; //Indicates if the name has be retrieved 
         String playersName = null;
-        
-        while(!valid) { //While a valid name has not been retrieved
-            
+
+        while (!valid) { //While a valid name has not been retrieved
+
             //Prompt for User name
-            System.out.println("\nEnter ye Name, Matey: ");
-            
+            this.console.println("\nEnter ye Name, Matey: ");
+
             //get the name from the keyboard and trim off the branks
             playersName = this.keyboard.readLine();
             playersName = playersName.trim();
-            
+
             //If the name is invalid
             if (playersName.length() < 1) {
-                System.out.println("Your name is less than 1 character? That's silly. Try again please!");
+                ErrorView.display(this.getClass().getName(), "Your name is less than 1 character? That's silly. Try again please!");
                 continue; // and repeat again
             }
             break; // stop the do while thingy
@@ -103,12 +101,12 @@ public class StartGameView extends View {
     }
 
     private void displayWelcomeMessage(Player player) {
-            System.out.println("======================================================================"
+        this.console.println("======================================================================"
                 + "\n Ye've be warned!!! " + player.getName() + "!!!         "
                 + "\n This game is not for the faint of heart!               "
                 + "\n Have Fun! :)                                           "
                 + "\n======================================================================"
-                );    
+        );
     }
 
     @Override

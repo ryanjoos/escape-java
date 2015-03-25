@@ -67,35 +67,35 @@ public class RaftView extends View{
         try {
             length = Double.parseDouble(inputValues[0]);
         } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
         try {
             width = Double.parseDouble(inputValues[1]);
         } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
         
         try {
             height = Double.parseDouble(inputValues[2]);
         } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
 
         if (length < 1) {
-            System.out.println("Please enter the length you wish to build your raft: ");
+            ErrorView.display(this.getClass().getName(), "Please enter the length you wish to build your raft: ");
             return false;
         }
 
         if (width < 1) {
-            System.out.println("Please enter the width you wish to build your raft: ");
+            ErrorView.display(this.getClass().getName(), "Please enter the width you wish to build your raft: ");
             return false;
         }
 
         if (height < 1) {
-            System.out.println("Please enter the height you wish to build your raft: ");
+            ErrorView.display(this.getClass().getName(), "Please enter the height you wish to build your raft: ");
             return false;
         }
         
@@ -105,11 +105,11 @@ public class RaftView extends View{
         try {
             result = RaftControl.calcRaftSize(length, width, height);
         } catch (RaftControlException re) {
-            System.out.println(re.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + re.getMessage());     
         }
 //display output output result
 
-        System.out.println(
+        this.console.println(
                 "The volume of your specified raft will be " + result + " cubic feet");
 
         // call main menu

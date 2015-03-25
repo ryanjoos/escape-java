@@ -178,6 +178,6 @@ public class Escape {
         System.out.println(sceneInfo);
         //resource scene
 //        String resourceInfo = resourceOne.toString();
-//        System.out.println(resourceInfo);       
+//        this.console.println(resourceInfo);       
     }
 }

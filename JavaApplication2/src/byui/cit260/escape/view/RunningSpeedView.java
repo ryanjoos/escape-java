@@ -59,23 +59,23 @@ public class RunningSpeedView extends View {
         try {
             time = Double.parseDouble(inputValues[0]);
         } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
         try {
             distance = Double.parseDouble(inputValues[1]);
         } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
+            ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
 
         if (time < 1) {
-            System.out.println("Please enter the time it will take you to get to the field in minutes: ");
+            ErrorView.display(this.getClass().getName(), "Please enter the time it will take you to get to the field in minutes: ");
             return false;
         }
 
         if (distance < 1) {
-            System.out.println("Please enter the distance to the field in miles: ");
+            ErrorView.display(this.getClass().getName(), "Please enter the distance to the field in miles: ");
             return false;
         }
 
@@ -85,11 +85,11 @@ public class RunningSpeedView extends View {
         try {
             result = MapControl.calculateRunningSpeed(time, distance);
         } catch (MapControlException me) {
-            System.out.println(me.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + me.getMessage());
         }
 //display output output result
 
-        System.out.println(
+        this.console.println(
                 "You are going to run " + result + " mph to get to the next location.");
 
         // call main menu
