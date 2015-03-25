@@ -36,15 +36,15 @@ public class RaftView extends View{
 
         do {
 
-            System.out.println(this.getPromptMessage()); // display main menu
+            this.console.println(this.getPromptMessage()); // display main menu
 
-            System.out.println("\nWhat length would you like your raft to be: ");
+            this.console.println("\nWhat length would you like your raft to be: ");
             value1 = this.getInput();
 
-            System.out.println("\nWhat width would you like your raft to be:  ");
+            this.console.println("\nWhat width would you like your raft to be:  ");
             value2 = this.getInput();
             
-            System.out.println("\nWhat height would you like your raft to be: ");
+            this.console.println("\nWhat height would you like your raft to be: ");
             value3 = this.getInput();
             
             String[] values = new String[3];

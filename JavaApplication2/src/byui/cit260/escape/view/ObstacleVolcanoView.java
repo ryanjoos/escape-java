@@ -58,16 +58,16 @@ public class ObstacleVolcanoView extends View {
                 MainMenuView mainMenu = new MainMenuView();
                 mainMenu.display();
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return true;
     }
 
     private void climbOption() {
-        System.out.println("As soon as you were about to run to the tree, ");
-        System.out.println("it became uprooted and feel to the ground");
-        System.out.println("Choose your next move quick!");
+        this.console.println("As soon as you were about to run to the tree, ");
+        this.console.println("it became uprooted and feel to the ground");
+        this.console.println("Choose your next move quick!");
     }
 
     private void runOption() {
@@ -78,17 +78,17 @@ public class ObstacleVolcanoView extends View {
     }
 
     private void hideOption() {
-        System.out.println("Unfortunately, the earthquake cause the large ");
-        System.out.println("boulder to roll down into the forest. ");
-        System.out.println("Your only choice of shleter is now gone ");
-        System.out.println("Choose your next move quick!");
+        this.console.println("Unfortunately, the earthquake cause the large ");
+        this.console.println("boulder to roll down into the forest. ");
+        this.console.println("Your only choice of shleter is now gone ");
+        this.console.println("Choose your next move quick!");
     }
 
     private void retreatOption() {
-        System.out.println("As you turn around to retreat, you notice ");
-        System.out.println("the earthquake caused the water to rise in the ");
-        System.out.println("river and the location is temporarily blocked. ");
-        System.out.println("Choose your next move quick!");
+        this.console.println("As you turn around to retreat, you notice ");
+        this.console.println("the earthquake caused the water to rise in the ");
+        this.console.println("river and the location is temporarily blocked. ");
+        this.console.println("Choose your next move quick!");
     }
 
 //    private void stayOption() {

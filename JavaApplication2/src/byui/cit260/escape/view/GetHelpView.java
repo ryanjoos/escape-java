@@ -63,7 +63,7 @@ public class GetHelpView extends View {
     }
 
     private void gameGoal() {
-        System.out.println("*** gameGoal function called ***");
+        this.console.println("*** gameGoal function called ***");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
@@ -71,35 +71,35 @@ public class GetHelpView extends View {
     }
 
     private void howToMove() {
-        System.out.println("*** howToMove function called ***");
+        this.console.println("*** howToMove function called ***");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
     }
 
     private void viewResourceBag() {
-        System.out.println("*** viewResourceBag function called ***");
+        this.console.println("*** viewResourceBag function called ***");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
     }
 
     private void howToInteract() {
-        System.out.println("*** howToInteract function called ***");
+        this.console.println("*** howToInteract function called ***");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
     }
 
     private void viewLocation() {
-        System.out.println("*** viewLocation function called ***");
+        this.console.println("*** viewLocation function called ***");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
     }
 
     private void observeSurroundings() {
-        System.out.println("*** observeSurroundings function called ***");
+        this.console.println("*** observeSurroundings function called ***");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();

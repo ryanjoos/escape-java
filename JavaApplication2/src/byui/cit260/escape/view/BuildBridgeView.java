@@ -34,15 +34,15 @@ public class BuildBridgeView extends View{
 
         do {
 
-            System.out.println(this.getPromptMessage()); // display main menu
+            this.console.println(this.getPromptMessage()); // display main menu
 
-            System.out.println("\nHWhat is the length of the bridge? ");
+            this.console.println("\nHWhat is the length of the bridge? ");
             length = this.getInput();
 
-            System.out.println("\nWhat is the width of the bridge? ");
+            this.console.println("\nWhat is the width of the bridge? ");
             width = this.getInput();
             
-            System.out.println("\nWhat is the height of the bridge? ");
+            this.console.println("\nWhat is the height of the bridge? ");
             height = this.getInput();            
 
             String[] values = new String[2];
@@ -107,7 +107,7 @@ public class BuildBridgeView extends View{
         }
 //display output output result
 
-        System.out.println(
+        this.console.println(
                 "You can now access the locations on the other side of the river.");
 
         // call main menu
