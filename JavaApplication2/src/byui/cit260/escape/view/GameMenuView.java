@@ -107,10 +107,10 @@ public class GameMenuView extends View {
                 this.displayMainMenu();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+            ErrorView.display(this.getClass().getName(),
+            "\n***** invalid selection **** Try Again!");                
                 break;
         }
-
         return true;
     }
 
@@ -224,7 +224,8 @@ public class GameMenuView extends View {
         try {
         totalAmount = GameControl.getTotalResources(days);
         } catch (GameControlException gc) {
-            System.out.println(gc.getMessage());
+            ErrorView.display(this.getClass().getName(),
+            "\nError: " + gc.getMessage());
         }
         this.console.println("You will need a total of " + totalAmount + " resources to complete the game");
 //        double estimate =  GameControl.getRequiredAmount(resource, days);
