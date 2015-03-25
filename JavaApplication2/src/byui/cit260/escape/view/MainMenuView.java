@@ -52,7 +52,7 @@ public class MainMenuView extends View {
             case 'E':    // Exit the program
                 return true;
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
         return true;
@@ -64,9 +64,9 @@ public class MainMenuView extends View {
         try {
         GameControl.createNewGame(Escape.getPlayer());
         } catch (MapControlException me) {
-            System.out.println(me.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + me.getMessage());
         } catch (Throwable te) {
-            System.out.println(te.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + te.getMessage());
             te.printStackTrace();
             return;
         }
@@ -84,7 +84,7 @@ public class MainMenuView extends View {
         try {
         openGameView.openGame();
         } catch (IOException exc) {
-            System.out.println("I/O Error: " + exc);
+            ErrorView.display(this.getClass().getName(), "I/O Error: " + exc);
         }
     }
 
@@ -103,7 +103,7 @@ public class MainMenuView extends View {
         try {
         save.getSaveInput();
         }catch (IOException exc) {
-            System.out.println("I/O Error: " + exc);
+            ErrorView.display(this.getClass().getName(), "I/O Error: " + exc);
         }
     }
 }
