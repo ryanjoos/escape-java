@@ -22,6 +22,7 @@ public class BuildBridgeView extends View{
     public void display() {
         // while not done
         // display the prompt message
+        // display the bridge
 
         // display How long will it take you to get to the safe field (minutes): "
         // call BridgeInput to get the value from the Array
