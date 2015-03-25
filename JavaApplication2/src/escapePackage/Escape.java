@@ -89,6 +89,9 @@ public class Escape {
             // open log file
             String filePath = "log.txt";
             Escape.logFile = new PrintWriter(filePath);
+            
+            StartGameView startGameView = new StartGameView();
+            startGameView.startGame();
         } catch (Exception e) {
             // temp
             System.out.println("Exception: " + e.toString()
@@ -113,16 +116,7 @@ public class Escape {
                 return;
             }
         }
-        //Create StartGameView and start the game
-        StartGameView startGameView = new StartGameView();
         
-        try {
-            startGameView.startGame();
-        } catch (Throwable te) {
-            System.out.println(te.getMessage());
-            te.printStackTrace();
-//            strtGameView.display();
-        }
         //Open Games that have been saved
 
         // class instances
