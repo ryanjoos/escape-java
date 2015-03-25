@@ -64,36 +64,36 @@ public class BuildBridgeView extends View{
         try {
             length = Double.parseDouble(bridgeValues[0]);
         } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
-                    + "Try again or enter Q to quit");
+            ErrorView.display(this.getClass().getName(),
+            "\nYou must enter a valid number." + "Try again or enter Q to quit");
         }
         try {
             width = Double.parseDouble(bridgeValues[1]);
         } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
-                    + "Try again or enter Q to quit");
+            ErrorView.display(this.getClass().getName(),
+            "\nYou must enter a valid number." + "Try again or enter Q to quit");
         }
           try {
             height = Double.parseDouble(bridgeValues[2]);
         } catch (NumberFormatException nf) {
-            System.out.println("\nYou must enter a valid number."
-                    + "Try again or enter Q to quit");
+            ErrorView.display(this.getClass().getName(),
+            "\nYou must enter a valid number." + "Try again or enter Q to quit");
         }
 
         if (length
                 < 1) {
-            System.out.println("Please enter the time it will take you to get to the field in minutes: ");
+            this.console.println("Please enter the time it will take you to get to the field in minutes: ");
             return false;
         }
 
         if (width
                 < 1) {
-            System.out.println("Please enter the distance to the field in miles: ");
+            this.console.println("Please enter the distance to the field in miles: ");
             return false;
         }
         if (height
                 < 1) {
-            System.out.println("Please enter the distance to the field in miles: ");
+            this.console.println("Please enter the distance to the field in miles: ");
             return false;
         }
 
@@ -103,7 +103,8 @@ public class BuildBridgeView extends View{
         try {
             result = MapControl.calcBridgeSize(length, width, height);
         } catch (MapControlException me) {
-            System.out.println(me.getMessage());
+            ErrorView.display(this.getClass().getName(),
+            "\nYou must enter a valid number." + "Try again or enter Q to quit" + me.getMessage());
         }
 //display output output result
 

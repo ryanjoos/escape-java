@@ -45,7 +45,8 @@ public class CrossRiverView extends View {
                 this.leave();
                 return true;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+            ErrorView.display(this.getClass().getName(),
+            "\nYou must enter a valid Selection.");
                 break;
         }
         return true;
