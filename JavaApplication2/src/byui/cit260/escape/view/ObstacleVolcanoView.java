@@ -5,9 +5,6 @@
  */
 package byui.cit260.escape.view;
 
-import byui.cit260.escape.control.MapControl;
-import java.util.Scanner;
-
 /**
  *
  * @author Carissa
@@ -58,7 +55,7 @@ public class ObstacleVolcanoView extends View {
                 MainMenuView mainMenu = new MainMenuView();
                 mainMenu.display();
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
         }
         return true;
@@ -71,7 +68,6 @@ public class ObstacleVolcanoView extends View {
     }
 
     private void runOption() {
-//        System.out.println("These are just fake values until the runningSpeedView is created");
         String promptMessage = null;
         RunningSpeedView run = new RunningSpeedView(promptMessage);
         run.display();
@@ -90,8 +86,4 @@ public class ObstacleVolcanoView extends View {
         this.console.println("river and the location is temporarily blocked. ");
         this.console.println("Choose your next move quick!");
     }
-
-//    private void stayOption() {
-//        System.out.println("You are dead...");
-//    }
 }
