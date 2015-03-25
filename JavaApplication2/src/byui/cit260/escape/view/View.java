@@ -35,7 +35,7 @@ public abstract class View implements ViewInterface {
 
         do {
 
-            System.out.println(this.promptMessage); // display main menu
+            this.console.println(this.promptMessage); // display main menu
 
             value = this.getInput();
 
@@ -52,7 +52,7 @@ public abstract class View implements ViewInterface {
         while (!valid) { //While a valid name has not been retrieved
 
             //Prompt for User name
-            System.out.println("\nEnter your selection below: ");
+            this.console.println("\nEnter your selection below: ");
 
             try {
                 //get the name from the keyboard and trim off the branks
@@ -64,7 +64,8 @@ public abstract class View implements ViewInterface {
 
             //If the name is invalid
             if (selection.length() < 1) {
-                System.out.println("***\n Invalid Selection *** Try again");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid selection. Please enter another selection.");
                 continue; // and repeat again
             }
             break; // stop the do while thingy
