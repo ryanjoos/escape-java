@@ -34,12 +34,12 @@ public class RunningSpeedView extends View {
 
         do {
 
-            System.out.println(this.getPromptMessage()); // display main menu
+            this.console.println(this.getPromptMessage()); // display main menu
 
-            System.out.println("\nHow long will it take you to get to the safe field (minutes): ");
+            this.console.println("\nHow long will it take you to get to the safe field (minutes): ");
             value1 = this.getInput();
 
-            System.out.println("\nWhat is the distance to the field (miles): ");
+            this.console.println("\nWhat is the distance to the field (miles): ");
             value2 = this.getInput();
 
             String[] values = new String[2];

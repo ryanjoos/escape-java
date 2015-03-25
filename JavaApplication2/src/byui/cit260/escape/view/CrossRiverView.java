@@ -52,7 +52,7 @@ public class CrossRiverView extends View {
     }
 
     private void checkResources() {
-        System.out.println("Looks Good, Go ahead and Build the Bridge");
+        this.console.println("Looks Good, Go ahead and Build the Bridge");
     }
 
     private void buildBridge() {
