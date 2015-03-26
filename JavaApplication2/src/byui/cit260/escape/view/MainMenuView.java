@@ -62,7 +62,7 @@ public class MainMenuView extends View {
 
         // create new game
         try {
-        GameControl.createNewGame(Escape.getPlayer());
+            GameControl.createNewGame(Escape.getPlayer());
         } catch (MapControlException me) {
             ErrorView.display(this.getClass().getName(), "Error reading input: " + me.getMessage());
         } catch (Throwable te) {
@@ -79,13 +79,23 @@ public class MainMenuView extends View {
     }
 
     private void openGame() {
-        this.console.println("*** openGame function called ***");
-        OpenGameView openGameView = new OpenGameView();
+        
+        // prompt for and get the name of the file to save the game in
+        this.console.println("\n\nEnter the file path for file where the game "
+                + "is to be saved.");
+        
+        String filePath = this.getInput();
+
         try {
-        openGameView.openGame();
-        } catch (IOException exc) {
-            ErrorView.display(this.getClass().getName(), "I/O Error: " + exc);
+            // start a saved game
+            GameControl.getSavedGame(filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
         }
+        
+        // display the game menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void displayHelpMenu() {
@@ -97,13 +107,16 @@ public class MainMenuView extends View {
     }
 
     private void saveGame() {
-        //Create a new Game Menu View
-        SaveGameView save = new SaveGameView();
-        // display the game menu
+
+        // prompt for and get the name of the file to save the game in 
+        this.console.println("\n\nEnter the file path for file where the game "
+                + "is to be saved.");
+        String filePath = this.getInput();
+
         try {
-        save.getSaveInput();
-        }catch (IOException exc) {
-            ErrorView.display(this.getClass().getName(), "I/O Error: " + exc);
+            GameControl.saveGame(Escape.getCurrentGame(), filePath);
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
         }
     }
 }
