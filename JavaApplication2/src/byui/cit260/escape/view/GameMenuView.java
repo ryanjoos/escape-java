@@ -134,7 +134,7 @@ public class GameMenuView extends View {
             if (i < 9) {
                 this.console.print(i + 1 + " ");
             } else {
-                System.out.print(i + 1);
+                this.console.print(i + 1);
             }
             this.console.print("|");
             for (int j = 0; j < 20; j++) {
