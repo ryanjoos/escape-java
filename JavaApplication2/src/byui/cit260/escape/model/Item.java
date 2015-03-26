@@ -19,8 +19,8 @@ public class Item implements Serializable {
     private ItemType itemType;
 
     // add variables
-    private int quantityInStock;     // amount collected
-    private int requiredAmount;      // amount needed
+    private double quantityInStock;     // amount collected
+    private double requiredAmount;      // amount needed
     private String description;      // decription
 
     // default constructor
@@ -40,7 +40,7 @@ public class Item implements Serializable {
         this.itemType = itemType;
     }
 
-    public int getQuantityInStock() {
+    public double getQuantityInStock() {
         return quantityInStock;
     }
 
@@ -48,7 +48,7 @@ public class Item implements Serializable {
         this.quantityInStock = quantityInStock;
     }
 
-    public int getRequiredAmount() {
+    public double getRequiredAmount() {
         return requiredAmount;
     }
 

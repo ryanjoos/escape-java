@@ -60,15 +60,15 @@ public class MapControl {
 
     public static double calcBridgeSize(double length, double width, double height) throws MapControlException {
 
-        if (length < 10 || length > 15) { //If length is between 10 and 15, you're good to go.
+        if (MIN_BRIDGE_LENGTH < 10 || MAX_BRIDGE_LENGTH > 15) { //If length is between 10 and 15, you're good to go.
             throw new MapControlException("Please enter a realistic length between 10 to 15 ft");
         }
 
-        if (width < 4 || width > 15) { //If width is between 9 & 15 it works.
+        if (MIN_BRIDGE_WIDTH < 4 || MAX_BRIDGE_WIDTH > 15) { //If width is between 9 & 15 it works.
             throw new MapControlException("Please enter a realistic width between 4 to 15 ft");
         }
 
-        if (height < 0.75 || height > 1) { //If height is between 0.75 and 1 then it works.
+        if (MIN_BRIDGE_HEIGHT < 0.75 || MAX_BRIDGE_HEIGHT > 1) { //If height is between 0.75 and 1 then it works.
             throw new MapControlException("Please enter a realistic height between o.75 to 1 ft");
         }
 
