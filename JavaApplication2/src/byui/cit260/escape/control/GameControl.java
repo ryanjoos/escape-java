@@ -209,7 +209,7 @@ public class GameControl {
         locations[2][14].setScene(scenes[SceneType.beach.ordinal()]);
         locations[2][15].setScene(scenes[SceneType.beach.ordinal()]);
         locations[2][16].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[2][17].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[2][17].setScene(scenes[SceneType.start.ordinal()]);
         locations[2][18].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[2][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
@@ -458,137 +458,138 @@ public class GameControl {
         locations[13][18].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[13][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
+        // needs fixing
         locations[14][0].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[14][1].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[14][2].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[14][3].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[14][4].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[14][5].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[14][6].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[14][7].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[14][8].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[14][9].setScene(scenes[SceneType.grass.ordinal()]);
+        locations[14][1].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[14][2].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[14][3].setScene(scenes[SceneType.grass.ordinal()]);
+        locations[14][4].setScene(scenes[SceneType.jungle.ordinal()]);
+        locations[14][5].setScene(scenes[SceneType.river.ordinal()]);
+        locations[14][6].setScene(scenes[SceneType.jungle.ordinal()]);
+        locations[14][7].setScene(scenes[SceneType.jungle.ordinal()]);
+        locations[14][8].setScene(scenes[SceneType.jungle.ordinal()]);
+        locations[14][9].setScene(scenes[SceneType.jungle.ordinal()]);
 
-        locations[14][10].setScene(scenes[SceneType.river.ordinal()]);
-        locations[14][11].setScene(scenes[SceneType.river.ordinal()]);
+        locations[14][10].setScene(scenes[SceneType.jungle.ordinal()]);
+        locations[14][11].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[14][12].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[14][13].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[14][14].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[14][15].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[14][16].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[14][17].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[14][14].setScene(scenes[SceneType.grass.ordinal()]);
+        locations[14][15].setScene(scenes[SceneType.grass.ordinal()]);
+        locations[14][16].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[14][17].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[14][18].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[14][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
         locations[15][0].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[15][1].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[15][2].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[15][2].setScene(scenes[SceneType.beach.ordinal()]);
         locations[15][3].setScene(scenes[SceneType.beach.ordinal()]);
         locations[15][4].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[15][5].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[15][6].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[15][7].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[15][8].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[15][9].setScene(scenes[SceneType.grass.ordinal()]);
+        locations[15][5].setScene(scenes[SceneType.river.ordinal()]);
+        locations[15][6].setScene(scenes[SceneType.river.ordinal()]);
+        locations[15][7].setScene(scenes[SceneType.river.ordinal()]);
+        locations[15][8].setScene(scenes[SceneType.river.ordinal()]);
+        locations[15][9].setScene(scenes[SceneType.river.ordinal()]);
 
-        locations[15][10].setScene(scenes[SceneType.river.ordinal()]);
+        locations[15][10].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[15][11].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[15][12].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[15][13].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[15][14].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[15][15].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[15][16].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[15][17].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[15][18].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[15][15].setScene(scenes[SceneType.grass.ordinal()]);
+        locations[15][16].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[15][17].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[15][18].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[15][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
         locations[16][0].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[16][1].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[16][2].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[16][3].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[16][4].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[16][5].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[16][6].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[16][7].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[16][8].setScene(scenes[SceneType.river.ordinal()]);
+        locations[16][2].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[16][3].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[16][4].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[16][5].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[16][6].setScene(scenes[SceneType.jungle.ordinal()]);
+        locations[16][7].setScene(scenes[SceneType.jungle.ordinal()]);
+        locations[16][8].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[16][9].setScene(scenes[SceneType.river.ordinal()]);
 
         locations[16][10].setScene(scenes[SceneType.river.ordinal()]);
-        locations[16][11].setScene(scenes[SceneType.jungle.ordinal()]);
+        locations[16][11].setScene(scenes[SceneType.river.ordinal()]);
         locations[16][12].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[16][13].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[16][14].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[16][15].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[16][16].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[16][17].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[16][18].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[16][15].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[16][16].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[16][17].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[16][18].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[16][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
         locations[17][0].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[17][1].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[17][2].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[17][3].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[17][4].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[17][5].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[17][6].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[17][7].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[17][8].setScene(scenes[SceneType.river.ordinal()]);
-        locations[17][9].setScene(scenes[SceneType.jungle.ordinal()]);
+        locations[17][1].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[17][2].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[17][3].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[17][4].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[17][5].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][6].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][7].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][8].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][9].setScene(scenes[SceneType.beach.ordinal()]);
 
-        locations[17][10].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[17][11].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[17][12].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[17][13].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[17][14].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[17][15].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[17][16].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[17][17].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[17][18].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][10].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][11].setScene(scenes[SceneType.river.ordinal()]);
+        locations[17][12].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][13].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][14].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][15].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[17][16].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[17][17].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[17][18].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[17][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
         locations[18][0].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[18][1].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[18][2].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[18][3].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[18][4].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[18][5].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[18][6].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[18][7].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[18][8].setScene(scenes[SceneType.river.ordinal()]);
-        locations[18][9].setScene(scenes[SceneType.cliff.ordinal()]);
+        locations[18][1].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[18][2].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[18][3].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[18][4].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[18][5].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[18][6].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[18][7].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[18][8].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[18][9].setScene(scenes[SceneType.beach.ordinal()]);
 
-        locations[18][10].setScene(scenes[SceneType.cliff.ordinal()]);
-        locations[18][11].setScene(scenes[SceneType.cliff.ordinal()]);
-        locations[18][12].setScene(scenes[SceneType.cliff.ordinal()]);
-        locations[18][13].setScene(scenes[SceneType.cliff.ordinal()]);
-        locations[18][14].setScene(scenes[SceneType.running.ordinal()]);
-        locations[18][15].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[18][16].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[18][17].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[18][18].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[18][10].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[18][11].setScene(scenes[SceneType.river.ordinal()]);
+        locations[18][12].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[18][13].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[18][14].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[18][15].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[18][16].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[18][17].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[18][18].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[18][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
         locations[19][0].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[19][1].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[19][2].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[19][3].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[19][4].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[19][5].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[19][6].setScene(scenes[SceneType.river.ordinal()]);
-        locations[19][7].setScene(scenes[SceneType.river.ordinal()]);
-        locations[19][8].setScene(scenes[SceneType.river.ordinal()]);
-        locations[19][9].setScene(scenes[SceneType.cliff.ordinal()]);
+        locations[19][1].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][2].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][3].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][4].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][5].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][6].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][7].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][8].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][9].setScene(scenes[SceneType.ocean.ordinal()]);
 
-        locations[19][10].setScene(scenes[SceneType.volcano.ordinal()]);
-        locations[19][11].setScene(scenes[SceneType.volcano.ordinal()]);
-        locations[19][12].setScene(scenes[SceneType.volcano.ordinal()]);
-        locations[19][13].setScene(scenes[SceneType.cliff.ordinal()]);
-        locations[19][14].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[19][15].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[19][16].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[19][17].setScene(scenes[SceneType.grass.ordinal()]);
-        locations[19][18].setScene(scenes[SceneType.beach.ordinal()]);
-        locations[19][19].setScene(scenes[SceneType.start.ordinal()]);
+        locations[19][10].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][11].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][12].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][13].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][14].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][15].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][16].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][17].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][18].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[19][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
     }
 
@@ -677,5 +678,7 @@ public class GameControl {
         // close the output file
         Escape.setCurrentGame(game); // save in Escape
     }
+    
+    // use a reg print stream to print directly to the file
 
 }
