@@ -61,6 +61,8 @@ public class GameMenuView extends View {
         switch (choice) {
             case 'V':
                 this.displayMap(this.console);
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.display();
                 break;
             case 'T':
                 this.printMap();
@@ -125,8 +127,6 @@ public class GameMenuView extends View {
         String map = buildDisplayMap();
         out.println(map);
         //END
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
     }
 
     private String buildDisplayMap() {
@@ -154,7 +154,7 @@ public class GameMenuView extends View {
             } else {
                 sbMap.append(i + 1);
             }
-           sbMap.append("|");
+            sbMap.append("|");
             for (int j = 0; j < 20; j++) {
                 // location = location[row][column]
                 Location location = locations[i][j];
@@ -186,14 +186,17 @@ public class GameMenuView extends View {
 
     private void printMap() {
         try {
-        // prompt for and get the name of the file to print a report of the current map
-        this.console.println("\n\nEnter the file path of the file where the map report"
-                + "is to be saved.");
-        String filePath = this.getInput();
-        PrintWriter out = new PrintWriter(filePath);
-        this.displayMap(out);
+            // prompt for and get the name of the file to print a report of the current map
+            this.console.println("\n\nEnter the file path of the file where the map report"
+                    + "is to be saved.");
+
+            String filePath = this.getInput();
+            PrintWriter out = new PrintWriter(filePath);
+            this.displayMap(out);
+            out.flush();
+//            this.displayMap(out);
         } catch (IOException exc) {
-            ErrorView.display("GameMenuView " , "error printing map to file " + exc.getMessage());
+            ErrorView.display("GameMenuView ", "error printing map to file " + exc.getMessage());
         } catch (Exception ex) {
             ErrorView.display("GameMenuView", ex.getMessage());
         }
