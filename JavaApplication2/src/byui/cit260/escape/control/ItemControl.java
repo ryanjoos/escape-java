@@ -5,10 +5,11 @@
  */
 package byui.cit260.escape.control;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ryanjoos
  */
-public class ResourceControl {
-    
+public class ItemControl {
 }

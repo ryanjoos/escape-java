@@ -5,7 +5,6 @@
  */
 package byui.cit260.escape.model;
 
-import byui.cit260.escape.control.MapControl;
 import java.io.Serializable;
 import java.util.Objects;
 
