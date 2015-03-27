@@ -141,13 +141,13 @@ public class GameControl {
 
     }
 
-    static void assignScenesToLocations(Map map, Scene[] scenes) {
+    public static void assignScenesToLocations(Map map, Scene[] scenes) {
         Location[][] locations = map.getLocations();
 
         locations = setDefaultScene(locations, scenes[SceneType.ocean.ordinal()]);
 
         //start Point
-        //locations[0][0].setScene(scenes[SceneType.ocean.ordinal()]);
+        locations[0][0].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[0][1].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[0][2].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[0][3].setScene(scenes[SceneType.ocean.ordinal()]);
@@ -592,6 +592,14 @@ public class GameControl {
         locations[19][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
     }
+    
+//    public static  void findVisited (Map map, Scene[] scenes) {
+//        Location[][] locations = map.getLocations();
+//
+//        if (scenes == SceneType.ocean.ordinal()) {
+//            
+//        }
+//    }
 
     public static Item[] getSortedInventoryList() {
         // get inventory list for the current game
