@@ -18,13 +18,19 @@ import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
+import byui.cit260.escape.view.GameMenuView;
 import escapePackage.Escape;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 
 /**
  *
@@ -592,7 +598,7 @@ public class GameControl {
         locations[19][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
     }
-    
+
 //    public static  void findVisited (Map map, Scene[] scenes) {
 //        Location[][] locations = map.getLocations();
 //
@@ -600,7 +606,6 @@ public class GameControl {
 //            
 //        }
 //    }
-
     public static Item[] getSortedInventoryList() {
         // get inventory list for the current game
         Item[] originalInventoryList
@@ -686,7 +691,4 @@ public class GameControl {
         // close the output file
         Escape.setCurrentGame(game); // save in Escape
     }
-    
-    // use a reg print stream to print directly to the file
-
 }
