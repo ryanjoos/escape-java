@@ -21,11 +21,11 @@ public class Location implements Serializable {
     private Scene scene;
     private ArrayList<Actor> actors;
 
-    public Location() {
-        this.row = 0;
-        this.column = 0;
-        this.visited = false;
-    }
+//    public Location() {
+//        this.row = 0;
+//        this.column = 0;
+//        this.visited = false;
+//    }
 
     Location(int row, int column, boolean visited, Scene scene) {
         this.row = row;

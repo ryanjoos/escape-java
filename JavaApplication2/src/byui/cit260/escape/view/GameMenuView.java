@@ -165,8 +165,11 @@ public class GameMenuView extends View {
                     String symbol = location.getScene().getMapSymbol();
                     sbMap.append(symbol);
 
-                } //ELSE
-                // DISPLAY " ?? "
+                } 
+                if (locations[i][j].getScene().getMapSymbol() == "  ~~  ") {
+                    sbMap.append(locations[i][j].getScene().getMapSymbol());
+                }
+                // ELSE DISPLAY " ?? "
                 else {
                     sbMap.append("  ??  ");
                 }

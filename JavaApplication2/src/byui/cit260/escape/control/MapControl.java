@@ -8,6 +8,7 @@ package byui.cit260.escape.control;
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
+import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
@@ -32,8 +33,6 @@ public class MapControl {
     private static final double MIN_BRIDGE_HEIGHT = 1;
 
     public static double calculateRunningSpeed(double time, double distance) throws MapControlException {
-        
-        
 
         if (time < MIN_TIME || time > MAX_TIME) {
             throw new MapControlException("Please enter a realistic amount "
@@ -100,7 +99,7 @@ public class MapControl {
 
         if (newRow < 0 || newRow >= map.getRowCount()
                 || newColumn < 0 || newColumn >= map.getColumnCount()) {
-            
+
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
                     + " because that location is outside "
@@ -121,7 +120,6 @@ public class MapControl {
 
     // throws MapControlException had to take out because it wasn't working
     private static Scene[] createScenes() {
-        BufferedImage image = null;
 
         Game game = Escape.getCurrentGame();
 
@@ -180,7 +178,7 @@ public class MapControl {
         volcanoScene.setDescription(
                 "\nThis is a volcano scene");
         volcanoScene.setMapSymbol("  /\\  ");
-        volcanoScene.setBlocked(false);
+        volcanoScene.setBlocked(true);
         volcanoScene.setTravelTime(Double.POSITIVE_INFINITY);
         scenes[SceneType.volcano.ordinal()] = volcanoScene;
 
@@ -220,7 +218,7 @@ public class MapControl {
         oceanScene.setDescription(
                 "\nThis is a ocean scene");
         oceanScene.setMapSymbol("  ~~  ");
-        oceanScene.setBlocked(false);
+        oceanScene.setBlocked(true);
         oceanScene.setTravelTime(Double.POSITIVE_INFINITY);
         scenes[SceneType.ocean.ordinal()] = oceanScene;
 
@@ -255,6 +253,16 @@ public class MapControl {
         scenes[SceneType.grass.ordinal()] = grassScene;
 
         return scenes;
+    }
+
+    public static void findVisited() {
+        Location location = null;
+        // locations[0][0].setScene(scenes[SceneType.ocean.ordinal()]);
+        Scene[] scenes = new Scene[SceneType.values().length];
+        SceneType scene = null;
+        if (scene == SceneType.ocean) {
+            location.setVisited(true);
+        }
     }
 
 }
