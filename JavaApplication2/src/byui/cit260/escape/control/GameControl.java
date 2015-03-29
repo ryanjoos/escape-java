@@ -18,19 +18,13 @@ import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
-import byui.cit260.escape.view.GameMenuView;
 import escapePackage.Escape;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 
 /**
  *

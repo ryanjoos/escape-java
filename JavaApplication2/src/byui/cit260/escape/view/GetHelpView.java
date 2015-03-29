@@ -12,7 +12,31 @@ package byui.cit260.escape.view;
 public class GetHelpView extends View {
 
     public GetHelpView() {
-        super("\n"
+        super("                                  _\n"
+                + "                              ,--.\\`-. __\n"
+                + "                            _,.`. \\:/,\"  `-._\n"
+                + "                        ,-*\" _,.-;-*`-.+\"*._ )\n"
+                + "                       ( ,.\"* ,-\" / `.  \\.  `.\n"
+                + "                      ,\"   ,;\"  ,\"\\../\\  \\:   \\\n"
+                + "                     (   ,\"/   / \\.,' :   ))  /\n"
+                + "                      \\  |/   / \\.,'  /  // ,'\n"
+                + "                       \\_)\\ ,' \\.,'  (  / )/\n"
+                + "                           `  \\._,'   `\"\n"
+                + "                            O \\../\n"
+                + "                           ,~.\\../\n"
+                + "                    ~     <'_/\\../           ~~\n"
+                + "             ~~         ~~ /.|\\../   ~~   ~      ~~\n"
+                + "        ~~    ~   ~~  __.__\\||\\../-...__ ~~~     ~~\n"
+                + "          ~~~~  ~_,--\"  `'--*'\\../      `--.__ ~~    ~~\n"
+                + "      ~~~  __,--\"    .  . .-- . `\".--. .      `--.__   ~~~\n"
+                + "   ~~  ,--\"          |--| |-- |   |__| |            `--.\n"
+                + "      '------......__'__' '-- '-- '   _.____......------` ~~\n"
+                + "    ~~~   ~    ~~      ~ `````---\"\"\"\"\"  ~~   ~     ~~\n"
+                + "           ~~~~    ~~  ~~~~       ~~~~~~  ~ ~~   ~~ ~~~  ~\n"
+                + "        ~~   ~   ~~~     ~~~ ~         ~~       ~~   \n"
+                + "                 ~        ~~       ~~~       ~asdf"
+                + ""
+                + "\n"
                 + "\n========================================================="
                 + "\n======================  Help Menu  ======================"
                 + "\n_________________________________________________________"
@@ -63,7 +87,9 @@ public class GetHelpView extends View {
     }
 
     private void gameGoal() {
-        this.console.println("*** gameGoal function called ***");
+        this.console.println("The goal of Escape is to test your skill in escaping Jaba Island. "
+                + "You will have to use strategy to gather all the nessecary resources to build a raft and"
+                + "make it safely off the island. ");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();

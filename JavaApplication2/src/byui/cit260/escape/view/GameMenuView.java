@@ -27,7 +27,11 @@ public class GameMenuView extends View {
 
     public GameMenuView() {
         // f,g,k,n,t,u,x,y,z
-        super("\n"
+        super("   ,(   ,(   ,(   ,(   ,(   ,(   ,(   ,(\n"
+                + "`-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `\n"
+                + "   ,(   ,(   ,(   ,(   ,(   ,(   ,(   ,(\n"
+                + "`-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `"
+                + "\n"
                 + "\n========================================="
                 + "\n=============  Game Menu  ==============="
                 + "\n_________________________________________"
@@ -165,11 +169,10 @@ public class GameMenuView extends View {
                     String symbol = location.getScene().getMapSymbol();
                     sbMap.append(symbol);
 
-                } 
+                }
                 if (locations[i][j].getScene().getMapSymbol() == "  ~~  ") {
                     sbMap.append(locations[i][j].getScene().getMapSymbol());
-                }
-                // ELSE DISPLAY " ?? "
+                } // ELSE DISPLAY " ?? "
                 else {
                     sbMap.append("  ??  ");
                 }

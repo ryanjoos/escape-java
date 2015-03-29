@@ -5,7 +5,6 @@
  */
 package byui.cit260.escape.view;
 
-import escapePackage.Escape;
 import java.io.IOException;
 
 /**
