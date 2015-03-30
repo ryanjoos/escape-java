@@ -228,7 +228,9 @@ public class GameMenuView extends View {
     }
 
     private void viewActors() {
-        this.console.println("\n*** viewActors ***");
+
+        this.console.println("\n*** These are the Actors ***");
+        
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

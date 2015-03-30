@@ -7,6 +7,7 @@ package byui.cit260.escape.control;
 
 import byui.cit260.escape.exceptions.GameControlException;
 import byui.cit260.escape.exceptions.MapControlException;
+import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Constants;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
@@ -685,4 +686,5 @@ public class GameControl {
         // close the output file
         Escape.setCurrentGame(game); // save in Escape
     }
+
 }
