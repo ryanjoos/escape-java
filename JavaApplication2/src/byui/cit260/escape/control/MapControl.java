@@ -289,6 +289,7 @@ public class MapControl {
 
         return scenes;
     }
+    
 
     public static void findVisited() {
         Location location = null;

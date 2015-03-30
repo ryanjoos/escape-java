@@ -226,8 +226,8 @@ public class GameMenuView extends View {
 
         //For each inventory item
         for (Item inventoryItem : inventory) {
-            this.console.println(inventoryItem.getDescription() + "\t "
-                    + inventoryItem.getRequiredAmount() + "\t "
+            this.console.println(inventoryItem.getDescription() + "\t       "
+                    + inventoryItem.getRequiredAmount() + "\t    "
                     + inventoryItem.getQuantityInStock());
         }
         GameMenuView gameMenu = new GameMenuView();
@@ -235,7 +235,9 @@ public class GameMenuView extends View {
     }
 
     private void viewActors() {
-        this.console.println("\n*** viewActors ***");
+
+        this.console.println("\n*** These are the Actors ***");
+        
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

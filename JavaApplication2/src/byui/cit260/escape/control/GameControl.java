@@ -7,6 +7,7 @@ package byui.cit260.escape.control;
 
 import byui.cit260.escape.exceptions.GameControlException;
 import byui.cit260.escape.exceptions.MapControlException;
+import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Constants;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
@@ -74,19 +75,19 @@ public class GameControl {
         timber.setItemType(ItemType.timber);
         timber.setDescription("Timber");
         timber.setQuantityInStock(0);
-        timber.setRequiredAmount(0);
+        timber.setRequiredAmount(5);
         invetory[ItemType.timber.ordinal()] = timber;
 
         Item ore = new Item();
         ore.setDescription("Ore");
         ore.setQuantityInStock(0);
-        ore.setRequiredAmount(0);
+        ore.setRequiredAmount(6);
         invetory[ItemType.ore.ordinal()] = ore;
 
         Item grain = new Item();
         grain.setDescription("Grain");
         grain.setQuantityInStock(0);
-        grain.setRequiredAmount(0);
+        grain.setRequiredAmount(3);
         invetory[ItemType.grain.ordinal()] = grain;
 
         Item food = new Item();
@@ -96,13 +97,13 @@ public class GameControl {
         invetory[ItemType.food.ordinal()] = food;
 
         Item drinkingWater = new Item();
-        drinkingWater.setDescription("Drinking Water");
+        drinkingWater.setDescription("Water");
         drinkingWater.setQuantityInStock(0);
         drinkingWater.setRequiredAmount(0);
         invetory[ItemType.drinkingWater.ordinal()] = drinkingWater;
 
         Item fiberousPlants = new Item();
-        fiberousPlants.setDescription("Fiberous Plants");
+        fiberousPlants.setDescription("Plants");
         fiberousPlants.setQuantityInStock(0);
         fiberousPlants.setRequiredAmount(0);
         invetory[ItemType.fiberousPlants.ordinal()] = fiberousPlants;
@@ -685,4 +686,5 @@ public class GameControl {
         // close the output file
         Escape.setCurrentGame(game); // save in Escape
     }
+
 }
