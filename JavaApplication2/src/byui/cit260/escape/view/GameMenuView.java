@@ -12,6 +12,7 @@ import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
+import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import escapePackage.Escape;
 import java.awt.Point;
@@ -170,13 +171,14 @@ public class GameMenuView extends View {
                 // DISPLAY the map symbol for location
                 Point playerCoordinates = locations[i][j].getPlayer().getCoordinates();
                 String symbol = location.getScene().getMapSymbol();
+                String mapSymbol = locations[i][j].getScene().getMapSymbol();
                 if (playerCoordinates.x == i && playerCoordinates.y == j) {
                     // could get player's name
                     locations[i][j].setVisited(true);
                     sbMap.append("  X   ");
                 } else if (locations[i][j].isVisited() == true) {
                     sbMap.append(symbol);
-                } else if (locations[i][j].getScene().getMapSymbol() == "  ~~  ") {
+                } else if (mapSymbol == "  ~~  " || mapSymbol == "  ST  " || mapSymbol == "  FN  ") {
                     sbMap.append(locations[i][j].getScene().getMapSymbol());
                 } // ELSE DISPLAY " ?? "
                 else {

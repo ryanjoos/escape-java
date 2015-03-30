@@ -111,6 +111,7 @@ public class MapControl {
         System.out.println(what);
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
+            locations[newRow][newColumn].setVisited(true);
             System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
@@ -143,6 +144,7 @@ public class MapControl {
         System.out.println(what);
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
+            locations[newRow][newColumn].setVisited(true);
             System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
@@ -175,6 +177,7 @@ public class MapControl {
         System.out.println(what);
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
+            locations[newRow][newColumn].setVisited(true);
             System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
@@ -207,6 +210,7 @@ public class MapControl {
         System.out.println(what);
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
+            locations[newRow][newColumn].setVisited(true);
             System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
@@ -216,7 +220,7 @@ public class MapControl {
         } else {
             System.out.println("This location is blocked. Please pick a new location to move to matey or choose another option from the Game Menu! ");
             System.out.println();
-        }  
+        }
     }
 
     public static void moveActorToLocation(Actor actor, Point coordinates)
@@ -228,7 +232,6 @@ public class MapControl {
 
         if (newRow < 0 || newRow >= map.getRowCount()
                 || newColumn < 0 || newColumn >= map.getColumnCount()) {
-
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
                     + " because that location is outside "
