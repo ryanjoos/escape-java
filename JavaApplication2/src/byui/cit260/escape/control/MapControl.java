@@ -93,36 +93,130 @@ public class MapControl {
 
     public static void moveUp(Player player, Point coordinates)
             throws MapControlException {
-        System.out.println("move up");
-        Location location = null;
+        // give a description of new scene
+        // set previous location to visited
+        // else if statement for blocked scened - try again
+        // change parameters
+        // clean up fuction
         Map map = Escape.getCurrentGame().getMap();
-        int newColumn = coordinates.y - 1;
-        //location.getScene();
-        if (location.getScene().isBlocked() == false) {
-           
-        }
+        Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
+        Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        int newRow = newCoordinates.x - 1;
+        int newColumn = newCoordinates.y;
+        newCoordinates = new Point(newRow, newColumn);
 
-        if (newColumn < 0 || newColumn >= map.getColumnCount()) {
+        Location location = locations[newRow][newColumn];
+        System.out.println(location);
+        Scene what = location.getScene();
+        System.out.println(what);
+        if (location.getScene().isBlocked() == false) {
+            locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
+            System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
+        } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
                     + " because that location is outside "
                     + "the bounds of the map.");
+        } else {
+            System.out.println("This location is blocked. Please pick a new location to move to matey or choose another option from the Game Menu! ");
+            System.out.println();
         }
     }
 
     public static void moveDown(Player player, Point coordinates)
             throws MapControlException {
-        System.out.println("move down");
+        // give a description of new scene
+        // set previous location to visited
+        // else if statement for blocked scened - try again
+        // change parameters
+        // clean up fuction
+        Map map = Escape.getCurrentGame().getMap();
+        Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
+        Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        int newRow = newCoordinates.x + 1;
+        int newColumn = newCoordinates.y;
+        newCoordinates = new Point(newRow, newColumn);
+
+        Location location = locations[newRow][newColumn];
+        System.out.println(location);
+        Scene what = location.getScene();
+        System.out.println(what);
+        if (location.getScene().isBlocked() == false) {
+            locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
+            System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
+        } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
+            throw new MapControlException("Can not move actor to location "
+                    + coordinates.x + ", " + coordinates.y
+                    + " because that location is outside "
+                    + "the bounds of the map.");
+        } else {
+            System.out.println("This location is blocked. Please pick a new location to move to matey or choose another option from the Game Menu! ");
+            System.out.println();
+        }
     }
 
     public static void moveRight(Player player, Point coordinates)
             throws MapControlException {
-        System.out.println("move right");
+        // give a description of new scene
+        // set previous location to visited
+        // else if statement for blocked scened - try again
+        // change parameters
+        // clean up fuction
+        Map map = Escape.getCurrentGame().getMap();
+        Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
+        Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        int newRow = newCoordinates.x;
+        int newColumn = newCoordinates.y + 1;
+        newCoordinates = new Point(newRow, newColumn);
+
+        Location location = locations[newRow][newColumn];
+        System.out.println(location);
+        Scene what = location.getScene();
+        System.out.println(what);
+        if (location.getScene().isBlocked() == false) {
+            locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
+            System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
+        } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
+            throw new MapControlException("Can not move actor to location "
+                    + coordinates.x + ", " + coordinates.y
+                    + " because that location is outside "
+                    + "the bounds of the map.");
+        } else {
+            System.out.println("This location is blocked. Please pick a new location to move to matey or choose another option from the Game Menu! ");
+            System.out.println();
+        }
     }
 
     public static void moveLeft(Player player, Point coordinates)
             throws MapControlException {
-        System.out.println("move left");
+        // give a description of new scene
+        // set previous location to visited
+        // else if statement for blocked scened - try again
+        // change parameters
+        // clean up fuction
+        Map map = Escape.getCurrentGame().getMap();
+        Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
+        Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        int newRow = newCoordinates.x;
+        int newColumn = newCoordinates.y - 1;
+        newCoordinates = new Point(newRow, newColumn);
+
+        Location location = locations[newRow][newColumn];
+        System.out.println(location);
+        Scene what = location.getScene();
+        System.out.println(what);
+        if (location.getScene().isBlocked() == false) {
+            locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
+            System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
+        } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
+            throw new MapControlException("Can not move actor to location "
+                    + coordinates.x + ", " + coordinates.y
+                    + " because that location is outside "
+                    + "the bounds of the map.");
+        } else {
+            System.out.println("This location is blocked. Please pick a new location to move to matey or choose another option from the Game Menu! ");
+            System.out.println();
+        }  
     }
 
     public static void moveActorToLocation(Actor actor, Point coordinates)
@@ -289,7 +383,6 @@ public class MapControl {
 
         return scenes;
     }
-    
 
     public static void findVisited() {
         Location location = null;

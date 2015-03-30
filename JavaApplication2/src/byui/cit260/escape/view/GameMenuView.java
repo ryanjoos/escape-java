@@ -269,31 +269,31 @@ public class GameMenuView extends View {
                 this.console.println(me.getMessage());
             }
         }
-        if ("DOWN".equals(movement)) {
+        else if ("DOWN".equals(movement)) {
             try {
                 MapControl.moveDown(player, coordinates);
             } catch (MapControlException me) {
                 this.console.println(me.getMessage());
             }
         }
-        if ("LEFT".equals(movement)) {
+        else if ("LEFT".equals(movement)) {
             try {
                 MapControl.moveLeft(player, coordinates);
             } catch (MapControlException me) {
                 this.console.println(me.getMessage());
             }
         }
-        if ("RIGHT".equals(movement)) {
+        else if ("RIGHT".equals(movement)) {
             try {
                 MapControl.moveRight(player, coordinates);
             } catch (MapControlException me) {
                 this.console.println(me.getMessage());
             }
         }
-//        else {
-//            this.console.println("Error - incorrect input. Try again!");
-//            this.movePlayer();
-//        }
+        else {
+            this.console.println("Error - incorrect input. Try again!");
+            this.movePlayer();
+        }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
