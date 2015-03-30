@@ -5,6 +5,7 @@
  */
 package byui.cit260.escape.model;
 
+import java.awt.Point;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -16,9 +17,11 @@ public class Player implements Serializable {
     
     //class instance variables
     private String name;
+    private Point coordinates;
 
     public Player() {
         this.name = null;
+        this.coordinates = new Point(2, 17);
     }
     
     
@@ -30,6 +33,14 @@ public class Player implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public Point getCoordinates() {
+        return coordinates;
+    }
+    public void setCoorinates(Point coordinates) {
+        this.coordinates = coordinates;
+    }
+    
 
     @Override
     public String toString() {

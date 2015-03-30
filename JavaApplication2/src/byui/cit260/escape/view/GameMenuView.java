@@ -12,6 +12,7 @@ import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
+import byui.cit260.escape.model.Player;
 import escapePackage.Escape;
 import java.awt.Point;
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class GameMenuView extends View {
     private char[][] map = null;
 
     public GameMenuView() {
-        // f,g,k,n,t,u,x,y,z
+        // f,g,k,u,x,y,z
         super("   ,(   ,(   ,(   ,(   ,(   ,(   ,(   ,(\n"
                 + "`-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `\n"
                 + "   ,(   ,(   ,(   ,(   ,(   ,(   ,(   ,(\n"
@@ -41,7 +42,8 @@ public class GameMenuView extends View {
                 + "\nA - View list of actors"
                 + "\nS - View raft status"
                 + "\nL - View contents of location"
-                + "\nM - Move person to new location"
+                + "\nM - Move to new location"
+                + "\nN - Move character to new location"
                 + "\nE - Estimate the resource needed"
                 + "\nO - View resource status"
                 + "\nB - Design barrels"
@@ -84,6 +86,8 @@ public class GameMenuView extends View {
                 this.viewLocationContents();
                 break;
             case 'M':
+                this.movePlayer();
+            case 'N':
                 this.movePerson();
                 break;
             case 'E':
@@ -164,18 +168,21 @@ public class GameMenuView extends View {
                 Location location = locations[i][j];
                 // IF location has been visited
                 // DISPLAY the map symbol for location
-                if (locations[i][j].isVisited() == true) {
-
-                    String symbol = location.getScene().getMapSymbol();
+                Point playerCoordinates = locations[i][j].getPlayer().getCoordinates();
+                String symbol = location.getScene().getMapSymbol();
+                if (playerCoordinates.x == i && playerCoordinates.y == j) {
+                    // could get player's name
+                    locations[i][j].setVisited(true);
+                    sbMap.append("  X   ");
+                } else if (locations[i][j].isVisited() == true) {
                     sbMap.append(symbol);
-
-                }
-                if (locations[i][j].getScene().getMapSymbol() == "  ~~  ") {
+                } else if (locations[i][j].getScene().getMapSymbol() == "  ~~  ") {
                     sbMap.append(locations[i][j].getScene().getMapSymbol());
                 } // ELSE DISPLAY " ?? "
                 else {
                     sbMap.append("  ??  ");
                 }
+
                 // ENDIF
                 // DISPLAY ending column divider
                 sbMap.append("|");
@@ -243,6 +250,50 @@ public class GameMenuView extends View {
 
     private void viewLocationContents() {
         this.console.println("\n*** view location contents ***");
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+    }
+
+    public void movePlayer() {
+        Player player = null;
+        Point coordinates = null;
+
+        this.console.println("Which direction would you like to move(up,down,left,right): ");
+        String movement = this.getInput().toUpperCase();
+        this.console.println(movement);
+
+        if ("UP".equals(movement)) {
+            try {
+                MapControl.moveUp(player, coordinates);
+            } catch (MapControlException me) {
+                this.console.println(me.getMessage());
+            }
+        }
+        if ("DOWN".equals(movement)) {
+            try {
+                MapControl.moveDown(player, coordinates);
+            } catch (MapControlException me) {
+                this.console.println(me.getMessage());
+            }
+        }
+        if ("LEFT".equals(movement)) {
+            try {
+                MapControl.moveLeft(player, coordinates);
+            } catch (MapControlException me) {
+                this.console.println(me.getMessage());
+            }
+        }
+        if ("RIGHT".equals(movement)) {
+            try {
+                MapControl.moveRight(player, coordinates);
+            } catch (MapControlException me) {
+                this.console.println(me.getMessage());
+            }
+        }
+//        else {
+//            this.console.println("Error - incorrect input. Try again!");
+//            this.movePlayer();
+//        }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

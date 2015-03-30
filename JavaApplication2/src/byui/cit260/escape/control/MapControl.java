@@ -10,11 +10,11 @@ import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
+import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
 import java.awt.Point;
-import java.awt.image.BufferedImage;
 
 /**
  *
@@ -31,6 +31,7 @@ public class MapControl {
     private static final double MIN_BRIDGE_WIDTH = 4;
     private static final double MAX_BRIDGE_HEIGHT = 0.75;
     private static final double MIN_BRIDGE_HEIGHT = 1;
+    private static final String PLAYER_SYMBOL = " X ";
 
     public static double calculateRunningSpeed(double time, double distance) throws MapControlException {
 
@@ -88,6 +89,40 @@ public class MapControl {
         GameControl.assignScenesToLocations(map, scenes);
 
         return map;
+    }
+
+    public static void moveUp(Player player, Point coordinates)
+            throws MapControlException {
+        System.out.println("move up");
+        Location location = null;
+        Map map = Escape.getCurrentGame().getMap();
+        int newColumn = coordinates.y - 1;
+        //location.getScene();
+        if (location.getScene().isBlocked() == false) {
+           
+        }
+
+        if (newColumn < 0 || newColumn >= map.getColumnCount()) {
+            throw new MapControlException("Can not move actor to location "
+                    + coordinates.x + ", " + coordinates.y
+                    + " because that location is outside "
+                    + "the bounds of the map.");
+        }
+    }
+
+    public static void moveDown(Player player, Point coordinates)
+            throws MapControlException {
+        System.out.println("move down");
+    }
+
+    public static void moveRight(Player player, Point coordinates)
+            throws MapControlException {
+        System.out.println("move right");
+    }
+
+    public static void moveLeft(Player player, Point coordinates)
+            throws MapControlException {
+        System.out.println("move left");
     }
 
     public static void moveActorToLocation(Actor actor, Point coordinates)
@@ -265,5 +300,4 @@ public class MapControl {
             location.setVisited(true);
         }
     }
-
 }
