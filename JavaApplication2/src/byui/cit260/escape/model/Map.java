@@ -5,7 +5,7 @@
  */
 package byui.cit260.escape.model;
 
-import byui.cit260.escape.control.GameControl;
+import escapePackage.Escape;
 import java.io.Serializable;
 
 /**
@@ -20,6 +20,7 @@ public class Map implements Serializable {
     private Location[][] locations;
     private boolean visited; 
     private Scene scene;
+    private Player player; 
 
     // default constructor
     public Map() {
@@ -27,6 +28,7 @@ public class Map implements Serializable {
     }
 
     public Map(int rowCount, int columnCount) {
+        player = Escape.getPlayer();
         if (rowCount < 1 || columnCount < 1) {
             System.out.println("The number of rows and columns must be > zero");
             return;
@@ -41,7 +43,7 @@ public class Map implements Serializable {
         for (int row = 0; row < rowCount; row++) {
             for (int column = 0; column < columnCount; column++) {
                 //create and initialize new Location object instance
-                Location location = new Location(row, column, visited, scene);
+                Location location = new Location(row, column, visited, scene, player);
 //                location.setColumn(column);
 //                location.setRow(row);
 //                location.setVisited(false);
@@ -79,6 +81,32 @@ public class Map implements Serializable {
     public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+    
 
     @Override
     public String toString() {

@@ -7,7 +7,6 @@ package byui.cit260.escape.model;
 
 import java.awt.Point;
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
@@ -15,14 +14,14 @@ import java.util.Objects;
  */
 public enum Actor implements Serializable {
 
-    NativeIslander1("A native to the island who builds for the tribe"),
-    NativeIslander2("A native to the island who is mated with the builder"),
-    NativeIslander3("A native to the island who hunts for the tribe"),
-    NativeIslander4("A native to the island who is considered the medicine man"),
-    NativeChief    ("Chief of the islanders of Jaba Island"),
-    Kale           ("An injured crew member who lays at the beach"),
-    Carissa        ("Another injured crew member"),
-    Ryan           ("Injured crew member who tries to keep peace between the islander and the crew");
+    NativeIslander1("A native to the island who builds for the tribe", new Point(1,1)),
+    NativeIslander2("A native to the island who is mated with the builder", new Point(1,1)),
+    NativeIslander3("A native to the island who hunts for the tribe", new Point(1,1)),
+    NativeIslander4("A native to the island who is considered the medicine man", new Point(1,1)),
+    NativeChief    ("Chief of the islanders of Jaba Island", new Point(1,1)),
+    Kale           ("An injured crew member who lays at the beach", new Point(1,1)),
+    Carissa        ("Another injured crew member", new Point(1,1)),
+    Ryan           ("Injured crew member who tries to keep peace between the islander and the crew", new Point(1,1));
     
 
     // class instance variable
@@ -30,9 +29,9 @@ public enum Actor implements Serializable {
     private final Point coordinates;
     
     
-    Actor(String description) {
+    Actor(String description, Point coordinates) {
         this.description = description;
-        coordinates = new Point(1, 1);
+        this.coordinates = coordinates;
     }
 
     public String getDescription() {

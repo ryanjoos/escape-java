@@ -20,6 +20,7 @@ public class Location implements Serializable {
     private boolean visited;
     private Scene scene;
     private ArrayList<Actor> actors;
+    private Player player;
 
 //    public Location() {
 //        this.row = 0;
@@ -27,11 +28,12 @@ public class Location implements Serializable {
 //        this.visited = false;
 //    }
 
-    Location(int row, int column, boolean visited, Scene scene) {
+    Location(int row, int column, boolean visited, Scene scene, Player player) {
         this.row = row;
         this.column = column;
         this.visited = visited;
         this.scene = scene;
+        this.player = player;
     }
 
     public int getRow() {
@@ -73,6 +75,16 @@ public class Location implements Serializable {
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+    
 
     @Override
     public String toString() {
