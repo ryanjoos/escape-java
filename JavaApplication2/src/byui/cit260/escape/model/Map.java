@@ -18,6 +18,8 @@ public class Map implements Serializable {
     private int rowCount;
     private int columnCount;
     private Location[][] locations;
+    private boolean visited; 
+    private Scene scene;
 
     // default constructor
     public Map() {
@@ -39,10 +41,10 @@ public class Map implements Serializable {
         for (int row = 0; row < rowCount; row++) {
             for (int column = 0; column < columnCount; column++) {
                 //create and initialize new Location object instance
-                Location location = new Location();
-                location.setColumn(column);
-                location.setRow(row);
-                location.setVisited(false);
+                Location location = new Location(row, column, visited, scene);
+//                location.setColumn(column);
+//                location.setRow(row);
+//                location.setVisited(false);
 
                 //assign the Location object to the current position in array
                 locations[row][column] = location;

@@ -592,7 +592,7 @@ public class GameControl {
         locations[19][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
     }
-    
+
 //    public static  void findVisited (Map map, Scene[] scenes) {
 //        Location[][] locations = map.getLocations();
 //
@@ -600,7 +600,6 @@ public class GameControl {
 //            
 //        }
 //    }
-
     public static Item[] getSortedInventoryList() {
         // get inventory list for the current game
         Item[] originalInventoryList
@@ -686,7 +685,4 @@ public class GameControl {
         // close the output file
         Escape.setCurrentGame(game); // save in Escape
     }
-    
-    // use a reg print stream to print directly to the file
-
 }

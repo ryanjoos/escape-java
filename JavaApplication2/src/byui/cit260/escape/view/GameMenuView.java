@@ -14,6 +14,8 @@ import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
 import escapePackage.Escape;
 import java.awt.Point;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  *
@@ -24,11 +26,17 @@ public class GameMenuView extends View {
     private char[][] map = null;
 
     public GameMenuView() {
-        super("\n"
+        // f,g,k,n,t,u,x,y,z
+        super("   ,(   ,(   ,(   ,(   ,(   ,(   ,(   ,(\n"
+                + "`-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `\n"
+                + "   ,(   ,(   ,(   ,(   ,(   ,(   ,(   ,(\n"
+                + "`-'  `-'  `-'  `-'  `-'  `-'  `-'  `-'  `"
+                + "\n"
                 + "\n========================================="
                 + "\n=============  Game Menu  ==============="
                 + "\n_________________________________________"
                 + "\nV - View Map"
+                + "\nT - Print map report"
                 + "\nI - View list of items in inventory"
                 + "\nA - View list of actors"
                 + "\nS - View raft status"
@@ -56,7 +64,12 @@ public class GameMenuView extends View {
 
         switch (choice) {
             case 'V':
-                this.displayMap();
+                this.displayMap(this.console);
+                GameMenuView gameMenu = new GameMenuView();
+                gameMenu.display();
+                break;
+            case 'T':
+                this.printMap();
                 break;
             case 'I':
                 this.viewInventory();
@@ -114,29 +127,38 @@ public class GameMenuView extends View {
         return true;
     }
 
-    private void displayMap() {
+    public void displayMap(PrintWriter out) {
+        String map = buildDisplayMap();
+        out.println(map);
+        //END
+    }
+
+    private String buildDisplayMap() {
         // get the map locations from the current game
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
 
+        StringBuilder sbMap = new StringBuilder();
+
         // display title
-        this.console.println("                                                                    Jaba Island Map                                                         ");
-        this.console.println();
+        sbMap.append("                                                                    Jaba Island Map                                                         \n");
+        sbMap.append("\n");
 
         // display row of column numbers
-        this.console.println("      1      2      3      4      5      6     7      8      9      10     11     12     13     14     15     16     17     18     19     20");
-
+        sbMap.append("      1      2      3      4      5      6     7      8      9      10     11     12     13     14     15     16     17     18     19     20");
+        sbMap.append("\n");
         // DISPLAY row divider
-        this.console.println("   -------------------------------------------------------------------------------------------------------------------------------------------");
-        // DISPLAY row number
+        sbMap.append("   -------------------------------------------------------------------------------------------------------------------------------------------");
+        sbMap.append("\n");
+// DISPLAY row number
         // FOR every column in row
         // DISPLAY column divider
         for (int i = 0; i < 20; i++) {
             if (i < 9) {
-                this.console.print(i + 1 + " ");
+                sbMap.append(i + 1 + " ");
             } else {
-                this.console.print(i + 1);
+                sbMap.append(i + 1);
             }
-            this.console.print("|");
+            sbMap.append("|");
             for (int j = 0; j < 20; j++) {
                 // location = location[row][column]
                 Location location = locations[i][j];
@@ -145,26 +167,45 @@ public class GameMenuView extends View {
                 if (locations[i][j].isVisited() == true) {
 
                     String symbol = location.getScene().getMapSymbol();
-                    this.console.print(symbol);
+                    sbMap.append(symbol);
 
-                } //ELSE
-                // DISPLAY " ?? "
+                }
+                if (locations[i][j].getScene().getMapSymbol() == "  ~~  ") {
+                    sbMap.append(locations[i][j].getScene().getMapSymbol());
+                } // ELSE DISPLAY " ?? "
                 else {
-                    this.console.print("  ??  ");
+                    sbMap.append("  ??  ");
                 }
                 // ENDIF
                 // DISPLAY ending column divider
-                this.console.print("|");
+                sbMap.append("|");
                 //ENDFOR
             }
-            this.console.println();
-            this.console.println("   -------------------------------------------------------------------------------------------------------------------------------------------");
+            sbMap.append("\n");
+            sbMap.append("   -------------------------------------------------------------------------------------------------------------------------------------------");
+            sbMap.append("\n");
         }
         //DISPLAY ending row divider
 
-        //END
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
+        return sbMap.toString();
+    }
+
+    private void printMap() {
+        try {
+            // prompt for and get the name of the file to print a report of the current map
+            this.console.println("\n\nEnter the file path of the file where the map report"
+                    + "is to be saved.");
+
+            String filePath = this.getInput();
+            PrintWriter out = new PrintWriter(filePath);
+            this.displayMap(out);
+            out.flush();
+//            this.displayMap(out);
+        } catch (IOException exc) {
+            ErrorView.display("GameMenuView ", "error printing map to file " + exc.getMessage());
+        } catch (Exception ex) {
+            ErrorView.display("GameMenuView", ex.getMessage());
+        }
     }
 
     private void viewInventory() {

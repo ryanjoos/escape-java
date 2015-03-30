@@ -17,7 +17,18 @@ import java.io.IOException;
 public class MainMenuView extends View {
 
     public MainMenuView() {
-        super("\n"
+        super("               ,\n"
+                + "             .';\n"
+                + "         .-'` .'\n"
+                + "       ,`.-'-.`\\\n"
+                + "      ; /     '-'\n"
+                + "      | \\       ,-,\n"
+                + "      \\  '-.__   )_`'._\n"
+                + "       '.     ```      ``'--._\n"
+                + "      .-' ,                   `'-.\n"
+                + "       '-'`-._           ((   o   )\n"
+                + "              `'--....(`- ,__..--'\n"
+                + "                       '-'`"
                 + "\n============================="
                 + "\n=======  Main Menu  ========="
                 + "\n_____________________________"
@@ -79,11 +90,11 @@ public class MainMenuView extends View {
     }
 
     private void openGame() {
-        
+
         // prompt for and get the name of the file to save the game in
         this.console.println("\n\nEnter the file path for file where the game "
                 + "is to be saved.");
-        
+
         String filePath = this.getInput();
 
         try {
@@ -92,7 +103,7 @@ public class MainMenuView extends View {
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
-        
+
         // display the game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
