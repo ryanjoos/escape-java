@@ -22,7 +22,7 @@ public class Scene implements Serializable{
     
     private String icon;
     
-     private SceneType sceneType;
+    private SceneType sceneType;
 
     public Scene() {
         this.description = "\nThis is a scene in the island of escape.";

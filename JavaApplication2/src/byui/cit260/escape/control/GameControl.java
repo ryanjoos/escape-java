@@ -93,49 +93,49 @@ public class GameControl {
         Item food = new Item();
         food.setDescription("Food");
         food.setQuantityInStock(0);
-        food.setRequiredAmount(0);
+        food.setRequiredAmount(10);
         invetory[ItemType.food.ordinal()] = food;
 
         Item drinkingWater = new Item();
         drinkingWater.setDescription("Water");
         drinkingWater.setQuantityInStock(0);
-        drinkingWater.setRequiredAmount(0);
+        drinkingWater.setRequiredAmount(10);
         invetory[ItemType.drinkingWater.ordinal()] = drinkingWater;
 
         Item fiberousPlants = new Item();
         fiberousPlants.setDescription("Plants");
         fiberousPlants.setQuantityInStock(0);
-        fiberousPlants.setRequiredAmount(0);
+        fiberousPlants.setRequiredAmount(10);
         invetory[ItemType.fiberousPlants.ordinal()] = fiberousPlants;
 
         Item hammer = new Item();
         hammer.setDescription("Hammer");
         hammer.setQuantityInStock(0);
-        hammer.setRequiredAmount(0);
+        hammer.setRequiredAmount(1);
         invetory[ItemType.hammer.ordinal()] = hammer;
 
         Item hatchet = new Item();
         hatchet.setDescription("Hatchet");
         hatchet.setQuantityInStock(0);
-        hatchet.setRequiredAmount(0);
+        hatchet.setRequiredAmount(1);
         invetory[ItemType.hatchet.ordinal()] = hatchet;
 
         Item spear = new Item();
         spear.setDescription("Spear");
         spear.setQuantityInStock(0);
-        spear.setRequiredAmount(0);
+        spear.setRequiredAmount(1);
         invetory[ItemType.spear.ordinal()] = spear;
 
         Item rope = new Item();
         rope.setDescription("Rope");
         rope.setQuantityInStock(0);
-        rope.setRequiredAmount(0);
+        rope.setRequiredAmount(5);
         invetory[ItemType.rope.ordinal()] = rope;
 
         Item barrell = new Item();
         barrell.setDescription("Barrell");
         barrell.setQuantityInStock(0);
-        barrell.setRequiredAmount(0);
+        barrell.setRequiredAmount(2);
         invetory[ItemType.barrell.ordinal()] = barrell;
 
         return invetory;
