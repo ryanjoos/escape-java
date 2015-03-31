@@ -7,13 +7,12 @@ package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.GameControl;
 import byui.cit260.escape.control.MapControl;
-import byui.cit260.escape.exceptions.GameControlException;
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
-import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
+import byui.cit260.escape.model.Resource;
 import escapePackage.Escape;
 import java.awt.Point;
 import java.io.IOException;
@@ -172,6 +171,9 @@ public class GameMenuView extends View {
                 Point playerCoordinates = locations[i][j].getPlayer().getCoordinates();
                 String symbol = location.getScene().getMapSymbol();
                 String mapSymbol = locations[i][j].getScene().getMapSymbol();
+                Resource resource = locations[i][j].getResource();
+                sbMap.append(resource);
+                
                 if (playerCoordinates.x == i && playerCoordinates.y == j) {
                     // could get player's name
                     locations[i][j].setVisited(true);
@@ -317,25 +319,25 @@ public class GameMenuView extends View {
     }
 
     private void estimateResources() {
-        int days = 16;
-        int totalAmount = 0;
-        try {
-            totalAmount = GameControl.getTotalResources(days);
-        } catch (GameControlException gc) {
-            ErrorView.display(this.getClass().getName(),
-                    "\nError: " + gc.getMessage());
-        }
-        this.console.println("You will need a total of " + totalAmount + " resources to complete the game");
+//        int days = 16;
+//        int totalAmount = 0;
+//        try {
+//            totalAmount = GameControl.getTotalResources(days);
+//        } catch (GameControlException gc) {
+//            ErrorView.display(this.getClass().getName(),
+//                    "\nError: " + gc.getMessage());
+//        }
+//        this.console.println("You will need a total of " + totalAmount + " resources to complete the game");
 //        double estimate =  GameControl.getRequiredAmount(resource, days);
 //        GameMenuView gameMenu = new GameMenuView();
 //        gameMenu.display();
     }
 
     private void viewResourceStatus() {
-        GameControl.getResourceList();
-        MainMenuView mainMenu = new MainMenuView();
-        // display the game menu
-        mainMenu.display();
+//        GameControl.getResourceList();
+//        MainMenuView mainMenu = new MainMenuView();
+//        // display the game menu
+//        mainMenu.display();
     }
 
     private void designBarrels() {
