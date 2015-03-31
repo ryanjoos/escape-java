@@ -7,6 +7,8 @@ package byui.cit260.escape.control;
 
 import byui.cit260.escape.exceptions.GameControlException;
 import byui.cit260.escape.exceptions.MapControlException;
+import byui.cit260.escape.model.Actor;
+import byui.cit260.escape.model.ActorEnum;
 import byui.cit260.escape.model.Constants;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
@@ -66,12 +68,50 @@ public class GameControl {
     }
     private static Actor[] createActorList(){
         
-        Actor[] list = new Actor[5];
+        Actor[] list = new Actor[8];
+        
+        Actor native1 = new Actor();
+        native1.setActor(ActorEnum.NativeIslander1);
+        native1.setDescription("Carissa, is a wild woman");
+        native1.setStartingPoint(1,1);
+        list[ActorEnum.NativeIslander1.ordinal()] = native1;
+        
+        Actor native2 = new Actor();
+        native2.setActor(ActorEnum.NativeIslander2);
+        native2.setDescription("Carissa, is a wild woman");
+        native2.setStartingPoint(1,1);
+        list[ActorEnum.NativeIslander2.ordinal()] = native2;
+        
+        Actor native3 = new Actor();
+        native3.setActor(ActorEnum.NativeIslander3);
+        native3.setDescription("Carissa, is a wild woman");
+        native3.setStartingPoint(1,1);
+        list[ActorEnum.NativeIslander3.ordinal()] = native3;
+        
+        Actor native4 = new Actor();
+        native4.setActor(ActorEnum.NativeIslander4);
+        native4.setDescription("Carissa, is a wild woman");
+        native4.setStartingPoint(1,1);
+        list[ActorEnum.NativeIslander4.ordinal()] = native4;
+        
+        Actor chief = new Actor();
+        chief.setActor(ActorEnum.NativeChief);
+        chief.setDescription("The cheif, is a wild woman");
+        chief.setStartingPoint(1,1);
+        list[ActorEnum.NativeChief.ordinal()] = chief;
         
         Actor carissa = new Actor();
-        carissa.setActor(Actor.Carissa);
+        carissa.setActor(ActorEnum.Carissa);
         carissa.setDescription("Carissa, is a wild woman");
-        list[Actor.Carissa.ordinal()] = carissa;
+        carissa.setStartingPoint(1,1);
+        list[ActorEnum.Carissa.ordinal()] = carissa;
+ 
+        Actor ryan = new Actor();
+        ryan.setActor(ActorEnum.Ryan);
+        ryan.setDescription("Ryan, is cool");
+        ryan.setStartingPoint(1,1);
+        list[ActorEnum.Ryan.ordinal()] = ryan;        
+        
                 
         return list;
     }
