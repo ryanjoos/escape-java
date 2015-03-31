@@ -7,7 +7,6 @@ package byui.cit260.escape.control;
 
 import byui.cit260.escape.exceptions.GameControlException;
 import byui.cit260.escape.exceptions.MapControlException;
-import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Constants;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
@@ -232,7 +231,7 @@ public class GameControl {
         locations[3][5].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[3][6].setScene(scenes[SceneType.ocean.ordinal()]);
         locations[3][7].setScene(scenes[SceneType.ocean.ordinal()]);
-        locations[3][8].setScene(scenes[SceneType.beach.ordinal()]);
+        locations[3][8].setScene(scenes[SceneType.finish.ordinal()]);
         locations[3][9].setScene(scenes[SceneType.beach.ordinal()]);
 
         locations[3][10].setScene(scenes[SceneType.jungle.ordinal()]);
