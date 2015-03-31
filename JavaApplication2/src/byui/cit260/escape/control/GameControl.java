@@ -65,7 +65,17 @@ public class GameControl {
         // move actors
         MapControl.moveActorsToStartingLocation(map);
     }
-
+    private static Actor[] createActorList(){
+        
+        Actor[] list = new Actor[5];
+        
+        Actor carissa = new Actor();
+        carissa.setActor(Actor.Carissa);
+        carissa.setDescription("Carissa, is a wild woman");
+        list[Actor.Carissa.ordinal()] = carissa;
+                
+        return list;
+    }
     private static Item[] createItemList() {
 
         // create array (list of items)

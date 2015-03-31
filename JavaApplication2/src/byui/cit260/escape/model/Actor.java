@@ -27,6 +27,7 @@ public enum Actor implements Serializable {
     // class instance variable
     private final String description;
     private final Point coordinates;
+    private Actor actor;
     
     
     Actor(String description, Point coordinates) {
@@ -42,4 +43,10 @@ public enum Actor implements Serializable {
         return coordinates;
     }
 
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+
+    public void setDescription(String description) {
+    }
 }
