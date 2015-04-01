@@ -238,7 +238,15 @@ public class GameMenuView extends View {
 
     private void viewActors() {
 
+        Actor[] list = GameControl.getActorList();
+        
         this.console.println("\n*** These are the Actors ***");
+        this.console.println("\nList of Actors");
+        this.console.println("\nName" + "\t" + "Description");
+        
+        for(Actor actorList : list){
+            this.console.println(actorList.getDescription());
+        }
         
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();

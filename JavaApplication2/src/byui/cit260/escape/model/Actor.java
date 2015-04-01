@@ -7,6 +7,7 @@ package byui.cit260.escape.model;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
@@ -17,47 +18,83 @@ public class Actor implements Serializable {
     public static Actor[] values() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
     // class instance variable
-    private final String description;
-    private final Point coordinates;
     private Actor actor;
     
+    //add variables
+    private String description;
+    private Point coordinates;
     
-    Actor(String description, Point coordinates) {
-        this.description = description;
-        this.coordinates = coordinates;
+    // default constructor
+        public Actor() {
+        this.coordinates = new Point(1,1);
+        this.description = "\n This is an item.";
     }
-
-    public Actor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //getters
+    public Actor getActor() {
+    return actor;
+    }
+    // setter function
+    public void setActor(Actor iactor) {
+    this.actor = actor;
     }
 
     public String getDescription() {
         return description;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public void setActor(ActorEnum actorEnum) {
+        
+    }
+
+    public Point setStartingPoint(int i, int i0) {
+        this.coordinates = new Point(1,1);
+        return null;
+    }
+
     public Point getCoordinates() {
         return coordinates;
     }
-
-    public void setActor(Actor actor) {
-        this.actor = actor;
+    //hashcode and equals and tostring and a bunch of other stuff I do not understand
+    @Override
+    public String toString() {
+        return "Actor{" + "actor=" + actor + ", description=" + description + ", coordinates=" + coordinates + '}';
     }
 
-    public void setDescription(String description) {
-    }
-    //This might not supposed to be here....
-    public void setActor(ActorEnum actorEnum) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    // I don't know if this will mess stuff up... I hope it doesn't
-    public void setPoint(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.actor);
+        hash = 61 * hash + Objects.hashCode(this.description);
+        hash = 61 * hash + Objects.hashCode(this.coordinates);
+        return hash;
     }
 
-    public void setStartingPoint(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Actor other = (Actor) obj;
+        if (!Objects.equals(this.actor, other.actor)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.coordinates, other.coordinates)) {
+            return false;
+        }
+        return true;
     }
+
+
 
 }
