@@ -18,6 +18,7 @@ import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
+import byui.cit260.escape.model.ResourceType;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
@@ -188,6 +189,112 @@ public class GameControl {
 
         return invetory;
 
+    }
+
+    public static void assignResourcesToLocation(Map map, Resource[] resources) {
+        Location[][] locations = map.getLocations();
+
+        //grains
+        locations[6][4].setResource(resources[ResourceType.grain.ordinal()]);
+        locations[7][6].setResource(resources[ResourceType.grain.ordinal()]);
+        locations[7][17].setResource(resources[ResourceType.grain.ordinal()]);
+        locations[9][3].setResource(resources[ResourceType.grain.ordinal()]);
+        locations[9][16].setResource(resources[ResourceType.grain.ordinal()]);
+        locations[12][3].setResource(resources[ResourceType.grain.ordinal()]);
+        locations[12][14].setResource(resources[ResourceType.grain.ordinal()]);
+
+        //timber
+        locations[5][13].setResource(resources[ResourceType.timber.ordinal()]);
+        locations[5][15].setResource(resources[ResourceType.timber.ordinal()]);
+        locations[6][12].setResource(resources[ResourceType.timber.ordinal()]);
+        locations[11][4].setResource(resources[ResourceType.timber.ordinal()]);
+        locations[13][8].setResource(resources[ResourceType.timber.ordinal()]);
+        locations[13][10].setResource(resources[ResourceType.timber.ordinal()]);
+        locations[14][4].setResource(resources[ResourceType.timber.ordinal()]);
+        locations[14][12].setResource(resources[ResourceType.timber.ordinal()]);
+        locations[16][7].setResource(resources[ResourceType.timber.ordinal()]);
+        locations[6][13].setResource(resources[ResourceType.timber.ordinal()]);
+
+        // fiberousPlants
+        locations[3][10].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
+        locations[4][14].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
+        locations[8][5].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
+        locations[10][15].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
+        locations[11][12].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
+        locations[14][9].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
+        locations[14][15].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
+        locations[15][13].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
+        locations[16][8].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
+        
+        //ore
+        locations[7][9].setResource(resources[ResourceType.ore.ordinal()]);
+        locations[7][10].setResource(resources[ResourceType.ore.ordinal()]);
+        locations[7][12].setResource(resources[ResourceType.ore.ordinal()]);
+        locations[7][13].setResource(resources[ResourceType.ore.ordinal()]);
+        locations[10][8].setResource(resources[ResourceType.ore.ordinal()]);
+        locations[10][14].setResource(resources[ResourceType.ore.ordinal()]);
+        locations[11][14].setResource(resources[ResourceType.ore.ordinal()]);
+        locations[12][8].setResource(resources[ResourceType.ore.ordinal()]);
+        locations[13][11].setResource(resources[ResourceType.ore.ordinal()]);
+        locations[13][13].setResource(resources[ResourceType.ore.ordinal()]);
+        
+        // water
+        locations[1][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[2][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[3][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[4][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[4][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[5][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[6][8].setResource(resources[ResourceType.water.ordinal()]);
+        locations[6][9].setResource(resources[ResourceType.water.ordinal()]);
+        locations[6][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[7][8].setResource(resources[ResourceType.water.ordinal()]);
+        locations[8][8].setResource(resources[ResourceType.water.ordinal()]);
+        locations[9][6].setResource(resources[ResourceType.water.ordinal()]);
+        locations[9][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[9][8].setResource(resources[ResourceType.water.ordinal()]);
+        locations[10][6].setResource(resources[ResourceType.water.ordinal()]);
+        locations[11][6].setResource(resources[ResourceType.water.ordinal()]);
+        locations[12][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[12][6].setResource(resources[ResourceType.water.ordinal()]);
+        locations[13][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[14][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[15][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[15][6].setResource(resources[ResourceType.water.ordinal()]);
+        locations[15][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[15][8].setResource(resources[ResourceType.water.ordinal()]);
+        locations[15][9].setResource(resources[ResourceType.water.ordinal()]);
+        locations[16][9].setResource(resources[ResourceType.water.ordinal()]);
+        locations[16][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[16][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[17][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[18][11].setResource(resources[ResourceType.water.ordinal()]);
+        
+        
+        // berries
+        locations[2][10].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[4][15].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[4][16].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[6][14].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[7][16].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[8][2].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[8][7].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[11][16].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[13][3].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[16][6].setResource(resources[ResourceType.berries.ordinal()]);
+        locations[16][12].setResource(resources[ResourceType.berries.ordinal()]);
+        
+        // animal
+        locations[6][6].setResource(resources[ResourceType.meat.ordinal()]);
+        locations[7][5].setResource(resources[ResourceType.meat.ordinal()]);
+        locations[7][7].setResource(resources[ResourceType.meat.ordinal()]);
+        locations[7][14].setResource(resources[ResourceType.meat.ordinal()]);
+        locations[9][2].setResource(resources[ResourceType.meat.ordinal()]);
+        locations[9][4].setResource(resources[ResourceType.meat.ordinal()]);
+        locations[10][3].setResource(resources[ResourceType.meat.ordinal()]);
+        locations[10][4].setResource(resources[ResourceType.meat.ordinal()]);
+        locations[13][15].setResource(resources[ResourceType.meat.ordinal()]);
+        locations[14][7].setResource(resources[ResourceType.meat.ordinal()]);
     }
 
     public static void assignScenesToLocations(Map map, Scene[] scenes) {
@@ -704,29 +811,29 @@ public class GameControl {
         return locations;
     }
 
-    public static void getResourceList() {
-        Resource[] neededResources = Resource.values();
-
-        for (Resource neededResource : neededResources) {
-            System.out.println(neededResource + ":     \t" + neededResource.getAmount());
-        }
-    }
-
-    public static int getTotalResources(int days) throws GameControlException {
-        int totalAmount = 0;
-        // convert enum to array
-        Resource[] resources = Resource.values();
-        for (Resource resource : resources) {
-            if (days < 1 || days > 45) {
-                System.out.println("Chicken");
-                throw new GameControlException("The number of days is incorrect.");
-            } else {
-                double requiredAmount = resource.getAmount() * days;
-                totalAmount += requiredAmount;
-            }
-        }
-        return totalAmount;
-    }
+//    public static void getResourceList() {
+//        Resource[] neededResources = Resource.values();
+//
+//        for (Resource neededResource : neededResources) {
+//            System.out.println(neededResource + ":     \t" + neededResource.getAmount());
+//        }
+//    }
+//
+//    public static int getTotalResources(int days) throws GameControlException {
+//        int totalAmount = 0;
+//        // convert enum to array
+//        Resource[] resources = Resource.values();
+//        for (Resource resource : resources) {
+//            if (days < 1 || days > 45) {
+//                System.out.println("Chicken");
+//                throw new GameControlException("The number of days is incorrect.");
+//            } else {
+//                double requiredAmount = resource.getAmount() * days;
+//                totalAmount += requiredAmount;
+//            }
+//        }
+//        return totalAmount;
+//    }
 
     public static void saveGame(Game game, String filepath)
             throws GameControlException {

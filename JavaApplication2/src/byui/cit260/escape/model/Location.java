@@ -21,19 +21,24 @@ public class Location implements Serializable {
     private Scene scene;
     private ArrayList<Actor> actors;
     private Player player;
+    private Resource resource;
+    //private ArrayList<Resource> resources = new ArrayList<Resource>();
+    //resource add
+    
 
-//    public Location() {
-//        this.row = 0;
-//        this.column = 0;
-//        this.visited = false;
-//    }
+    public Location() {
+        this.row = 0;
+        this.column = 0;
+        this.visited = false;
+    }
 
-    Location(int row, int column, boolean visited, Scene scene, Player player) {
+    Location(int row, int column, boolean visited, Scene scene, Player player, Resource resource) {
         this.row = row;
         this.column = column;
         this.visited = visited;
         this.scene = scene;
         this.player = player;
+        this.resource = resource;
     }
 
     public int getRow() {
@@ -83,7 +88,14 @@ public class Location implements Serializable {
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
+
+    public Resource getResource() {
+        return resource;
+    }
+
+    public void setResource(Resource resource) {
+        this.resource = resource;
+    }
     
 
     @Override

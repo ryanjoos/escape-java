@@ -21,6 +21,7 @@ public class Map implements Serializable {
     private boolean visited; 
     private Scene scene;
     private Player player; 
+    private Resource resource;
 
     // default constructor
     public Map() {
@@ -29,6 +30,7 @@ public class Map implements Serializable {
 
     public Map(int rowCount, int columnCount) {
         player = Escape.getPlayer();
+        
         if (rowCount < 1 || columnCount < 1) {
             System.out.println("The number of rows and columns must be > zero");
             return;
@@ -43,7 +45,7 @@ public class Map implements Serializable {
         for (int row = 0; row < rowCount; row++) {
             for (int column = 0; column < columnCount; column++) {
                 //create and initialize new Location object instance
-                Location location = new Location(row, column, visited, scene, player);
+                Location location = new Location(row, column, visited, scene, player, resource);
 //                location.setColumn(column);
 //                location.setRow(row);
 //                location.setVisited(false);

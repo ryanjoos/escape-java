@@ -8,7 +8,6 @@ package byui.cit260.escape.view;
 import byui.cit260.escape.control.GameControl;
 import byui.cit260.escape.exceptions.MapControlException;
 import escapePackage.Escape;
-import java.io.IOException;
 
 /**
  *
