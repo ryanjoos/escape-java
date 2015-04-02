@@ -13,7 +13,6 @@ import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Resource;
-import byui.cit260.escape.model.ResourceType;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
@@ -87,9 +86,11 @@ public class MapControl {
 
         //create the scenes for the game
         Scene[] scenes = createScenes();
+        Resource[] resources = GameControl.createResource();
 
         // assign scenes to locations
         GameControl.assignScenesToLocations(map, scenes);
+        GameControl.assignResourcesToLocation(map, resources);
 
         return map;
     }
@@ -150,7 +151,7 @@ public class MapControl {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
-            System.out.println(locations[newRow][newColumn].getResource());
+            System.out.println(locations[newRow][newColumn].getResource().getType());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -257,62 +258,7 @@ public class MapControl {
         }  */
     }
 
-    private static Resource[] createResource() {
-        Game game = Escape.getCurrentGame();
 
-        Resource[] resources = new Resource[ResourceType.values().length];
-
-        // grain,
-        Resource grainResource = new Resource();
-        grainResource.setType("grain");
-        grainResource.setAmount(0);
-        grainResource.setNeededAmount(5);
-        resources[ResourceType.grain.ordinal()] = grainResource;
-
-        // timber,
-        Resource timberResource = new Resource();
-        timberResource.setType("timber");
-        timberResource.setAmount(0);
-        timberResource.setNeededAmount(10);
-        resources[ResourceType.timber.ordinal()] = timberResource;
-
-        // fiberousPlants
-        Resource fiberousPlantResource = new Resource();
-        fiberousPlantResource.setType("fiberous plants");
-        fiberousPlantResource.setAmount(0);
-        fiberousPlantResource.setNeededAmount(5);
-        resources[ResourceType.fiberousPlants.ordinal()] = fiberousPlantResource;
-
-        // ore,
-        Resource oreResource = new Resource();
-        oreResource.setType("ore");
-        oreResource.setAmount(0);
-        oreResource.setNeededAmount(5);
-        resources[ResourceType.ore.ordinal()] = oreResource;
-
-        // water,
-        Resource waterResource = new Resource();
-        waterResource.setType("water");
-        waterResource.setAmount(0);
-        waterResource.setNeededAmount(5);
-        resources[ResourceType.water.ordinal()] = waterResource;
-
-        // berries
-        Resource berriesResource = new Resource();
-        berriesResource.setType("berries");
-        berriesResource.setAmount(0);
-        berriesResource.setNeededAmount(5);
-        resources[ResourceType.berries.ordinal()] = berriesResource;
-
-        // meat
-        Resource meatResource = new Resource();
-        meatResource.setType("meat");
-        meatResource.setAmount(0);
-        meatResource.setNeededAmount(5);
-        resources[ResourceType.meat.ordinal()] = meatResource;
-
-        return resources;
-    }
 
     // throws MapControlException had to take out because it wasn't working
     private static Scene[] createScenes() {

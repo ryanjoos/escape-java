@@ -28,8 +28,9 @@ public class Resource implements Serializable{
     }
     
     public Resource() {
-        this.type = null;
-        this.amount = 5;
+        this.type = "This is a resource";
+        this.amount = 0;
+        this.neededAmount = 5;
     }
     
     

@@ -5,8 +5,6 @@
  */
 package byui.cit260.escape.model;
 
-import java.awt.Point;
-
 /**
  *
  * @author ryanjoos
