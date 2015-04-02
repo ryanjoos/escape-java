@@ -172,7 +172,7 @@ public class GameControl {
         Location[][] locations = map.getLocations();
 
         locations = setDefaultResource(locations, resources[ResourceType.nothing.ordinal()]);
-        
+
         //grains
         locations[6][4].setResource(resources[ResourceType.grain.ordinal()]);
         locations[7][6].setResource(resources[ResourceType.grain.ordinal()]);
@@ -789,8 +789,8 @@ public class GameControl {
         }
         return locations;
     }
-    
-        private static Location[][] setDefaultResource(Location[][] locations, Resource defaultResource) {
+
+    private static Location[][] setDefaultResource(Location[][] locations, Resource defaultResource) {
         for (int row = 0; row < locations.length; row++) {
             for (int column = 0; column < locations.length; column++) {
                 locations[row][column].setResource(defaultResource);
@@ -929,6 +929,12 @@ public class GameControl {
         meatResource.setNeededAmount(5);
         resources[ResourceType.meat.ordinal()] = meatResource;
 
+        // nothing
+        Resource nothingResource = new Resource();
+        nothingResource.setType("no resource");
+        nothingResource.setAmount(0);
+        nothingResource.setNeededAmount(0);
+        resources[ResourceType.nothing.ordinal()] = nothingResource;
         return resources;
     }
 
