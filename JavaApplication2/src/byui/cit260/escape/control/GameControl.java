@@ -77,7 +77,7 @@ public class GameControl {
         
         Actor native1 = new Actor();
         native1.setActor(ActorEnum.NativeIslander1);
-        native1.setDescription("Native Islander #1, is a wild woman");
+        native1.setDescription("Native Islander #1, is not a woman");
         native1.setStartingPoint(1,1);
         list[ActorEnum.NativeIslander1.ordinal()] = native1;
         
