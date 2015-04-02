@@ -773,30 +773,6 @@ public class GameControl {
         return list;
     }
 
-    public static Actor[] getActorList() {
-        // get actor list for the current game
-        Actor[] originalActorList
-                = Escape.getCurrentGame().getActor();
-
-        // clone {make a copy} list
-        Actor[] list = originalActorList.clone();
-
-        // using BubbleSort to sort the list of list by name
-        Actor tempList;
-        for (int i = 0; i < list.length - 1; i++) {
-            for (int j = 0; j < list.length - 1 - i; j++) {
-                if (list[j].getDescription().
-                        compareToIgnoreCase(list[j + 1].getDescription()) > 0) {
-                    tempList = list[j];
-                    list[j] = list[j + 1];
-                    list[j + 1] = tempList;
-                }
-            }
-        }
-
-        return list;
-    }
-
     private static Location[][] setDefaultScene(Location[][] locations, Scene defaultScene) {
         for (int row = 0; row < locations.length; row++) {
             for (int column = 0; column < locations.length; column++) {
