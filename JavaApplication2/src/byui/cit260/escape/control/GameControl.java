@@ -65,21 +65,20 @@ public class GameControl {
         game.setMap(map);
         //create list of actors
         Actor[] actorList = GameControl.createActorList();
-
+        
         //save actors in a list in the game
         game.setActor(actorList);
         // move actors
         MapControl.moveActorsToStartingLocation(map);
     }
-
-    public static Actor[] createActorList() {
-
+    public static Actor[] createActorList(){
+        
         Actor[] list = new Actor[8];
 
         Actor native1 = new Actor();
         native1.setActor(ActorEnum.NativeIslander1);
         native1.setDescription("Native Islander #1, is not a woman");
-        native1.setStartingPoint(1, 1);
+        native1.setStartingPoint(1,1);
         list[ActorEnum.NativeIslander1.ordinal()] = native1;
 
         Actor native2 = new Actor();
@@ -118,6 +117,9 @@ public class GameControl {
         ryan.setStartingPoint(1, 1);
         list[ActorEnum.Ryan.ordinal()] = ryan;
 
+        ryan.setStartingPoint(1,1);
+        list[ActorEnum.Ryan.ordinal()] = ryan;        
+                
         return list;
     }
 
@@ -745,6 +747,30 @@ public class GameControl {
             }
         }
         return inventoryList;
+    }
+    
+    public static Actor[] getActorList() {
+        // get actor list for the current game
+        Actor[] originalActorList
+                = Escape.getCurrentGame().getActor();
+
+        // clone {make a copy} list
+        Actor[] list = originalActorList.clone();
+
+        // using BubbleSort to sort the list of list by name
+        Actor tempList;
+        for (int i = 0; i < list.length - 1; i++) {
+            for (int j = 0; j < list.length - 1 - i; j++) {
+                if (list[j].getDescription().
+                        compareToIgnoreCase(list[j + 1].getDescription()) > 0) {
+                    tempList = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = tempList;
+                }
+            }
+        }
+        
+        return list;
     }
 
     public static Actor[] getActorList() {
