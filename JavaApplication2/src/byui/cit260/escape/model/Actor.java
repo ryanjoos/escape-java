@@ -13,8 +13,8 @@ import java.util.Objects;
  *
  * @author owner
  */
-public class Actor implements Serializable {  
-
+public class Actor implements Serializable {
+    
     // class instance variable
     private Actor actor;
     
