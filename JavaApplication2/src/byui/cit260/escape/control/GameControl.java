@@ -783,7 +783,7 @@ public class GameControl {
         return inventoryList;
     }
     
-        public static Actor[] getActorList() {
+    public static Actor[] getActorList() {
         // get actor list for the current game
         Actor[] originalActorList
                 = Escape.getCurrentGame().getActor();
