@@ -250,8 +250,9 @@ public class MapControl {
             throws MapControlException {
 
         Actor[] actor = new Actor[ActorEnum.values().length];
-
-      /*for (Actor actorlist : list) {
+        
+    // I have no idea what I am doing here.
+        /*for (Actor actorlist : list) {
             Point coordinates = actor.getCoordinates();
             MapControl.moveActorToLocation(actor, coordinates);
         }  */
