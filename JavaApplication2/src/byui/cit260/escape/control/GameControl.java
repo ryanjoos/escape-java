@@ -65,101 +65,66 @@ public class GameControl {
         game.setMap(map);
         //create list of actors
         Actor[] actorList = GameControl.createActorList();
-        
+
         //save actors in a list in the game
         game.setActor(actorList);
         // move actors
         MapControl.moveActorsToStartingLocation(map);
     }
-    public static Actor[] createActorList(){
-        
+
+    public static Actor[] createActorList() {
+
         Actor[] list = new Actor[8];
-        
+
         Actor native1 = new Actor();
         native1.setActor(ActorEnum.NativeIslander1);
         native1.setDescription("Native Islander #1, is not a woman");
-        native1.setStartingPoint(1,1);
+        native1.setStartingPoint(1, 1);
         list[ActorEnum.NativeIslander1.ordinal()] = native1;
-        
+
         Actor native2 = new Actor();
         native2.setActor(ActorEnum.NativeIslander2);
         native2.setDescription("Native Islander #2, is a wild woman");
-        native2.setStartingPoint(1,1);
+        native2.setStartingPoint(1, 1);
         list[ActorEnum.NativeIslander2.ordinal()] = native2;
-        
+
         Actor native3 = new Actor();
         native3.setActor(ActorEnum.NativeIslander3);
         native3.setDescription("Native Islander #3, is a wild woman");
-        native3.setStartingPoint(1,1);
+        native3.setStartingPoint(1, 1);
         list[ActorEnum.NativeIslander3.ordinal()] = native3;
-        
+
         Actor native4 = new Actor();
         native4.setActor(ActorEnum.NativeIslander4);
         native4.setDescription("Native Islander #4, is a wild woman");
-        native4.setStartingPoint(1,1);
+        native4.setStartingPoint(1, 1);
         list[ActorEnum.NativeIslander4.ordinal()] = native4;
-        
+
         Actor chief = new Actor();
         chief.setActor(ActorEnum.NativeChief);
         chief.setDescription("The cheif, is a wild woman");
-        chief.setStartingPoint(1,1);
+        chief.setStartingPoint(1, 1);
         list[ActorEnum.NativeChief.ordinal()] = chief;
-        
+
         Actor carissa = new Actor();
         carissa.setActor(ActorEnum.Carissa);
         carissa.setDescription("Carissa, is a wild woman");
-        carissa.setStartingPoint(1,1);
+        carissa.setStartingPoint(1, 1);
         list[ActorEnum.Carissa.ordinal()] = carissa;
- 
+
         Actor ryan = new Actor();
         ryan.setActor(ActorEnum.Ryan);
         ryan.setDescription("Ryan, is cool");
-        ryan.setStartingPoint(1,1);
-        list[ActorEnum.Ryan.ordinal()] = ryan;        
-                
+        ryan.setStartingPoint(1, 1);
+        list[ActorEnum.Ryan.ordinal()] = ryan;
+
         return list;
     }
+
     private static Item[] createItemList() {
 
         // create array (list of items)
         Item[] invetory = new Item[Constants.NUMBER_OF_INVENTORY_ITEMS];
-
-        Item timber = new Item();
-        timber.setItemType(ItemType.timber);
-        timber.setDescription("Timber");
-        timber.setQuantityInStock(0);
-        timber.setRequiredAmount(5);
-        invetory[ItemType.timber.ordinal()] = timber;
-
-        Item ore = new Item();
-        ore.setDescription("Ore");
-        ore.setQuantityInStock(0);
-        ore.setRequiredAmount(6);
-        invetory[ItemType.ore.ordinal()] = ore;
-
-        Item grain = new Item();
-        grain.setDescription("Grain");
-        grain.setQuantityInStock(0);
-        grain.setRequiredAmount(3);
-        invetory[ItemType.grain.ordinal()] = grain;
-
-        Item food = new Item();
-        food.setDescription("Food");
-        food.setQuantityInStock(0);
-        food.setRequiredAmount(10);
-        invetory[ItemType.food.ordinal()] = food;
-
-        Item drinkingWater = new Item();
-        drinkingWater.setDescription("Water");
-        drinkingWater.setQuantityInStock(0);
-        drinkingWater.setRequiredAmount(10);
-        invetory[ItemType.drinkingWater.ordinal()] = drinkingWater;
-
-        Item fiberousPlants = new Item();
-        fiberousPlants.setDescription("Plants");
-        fiberousPlants.setQuantityInStock(0);
-        fiberousPlants.setRequiredAmount(10);
-        invetory[ItemType.fiberousPlants.ordinal()] = fiberousPlants;
 
         Item hammer = new Item();
         hammer.setDescription("Hammer");
@@ -229,7 +194,7 @@ public class GameControl {
         locations[14][15].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
         locations[15][13].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
         locations[16][8].setResource(resources[ResourceType.fiberousPlants.ordinal()]);
-        
+
         //ore
         locations[7][9].setResource(resources[ResourceType.ore.ordinal()]);
         locations[7][10].setResource(resources[ResourceType.ore.ordinal()]);
@@ -241,7 +206,7 @@ public class GameControl {
         locations[12][8].setResource(resources[ResourceType.ore.ordinal()]);
         locations[13][11].setResource(resources[ResourceType.ore.ordinal()]);
         locations[13][13].setResource(resources[ResourceType.ore.ordinal()]);
-        
+
         // water
         locations[1][11].setResource(resources[ResourceType.water.ordinal()]);
         locations[2][11].setResource(resources[ResourceType.water.ordinal()]);
@@ -273,8 +238,7 @@ public class GameControl {
         locations[16][11].setResource(resources[ResourceType.water.ordinal()]);
         locations[17][11].setResource(resources[ResourceType.water.ordinal()]);
         locations[18][11].setResource(resources[ResourceType.water.ordinal()]);
-        
-        
+
         // berries
         locations[2][10].setResource(resources[ResourceType.berries.ordinal()]);
         locations[4][15].setResource(resources[ResourceType.berries.ordinal()]);
@@ -287,7 +251,7 @@ public class GameControl {
         locations[13][3].setResource(resources[ResourceType.berries.ordinal()]);
         locations[16][6].setResource(resources[ResourceType.berries.ordinal()]);
         locations[16][12].setResource(resources[ResourceType.berries.ordinal()]);
-        
+
         // animal
         locations[6][6].setResource(resources[ResourceType.meat.ordinal()]);
         locations[7][5].setResource(resources[ResourceType.meat.ordinal()]);
@@ -782,7 +746,7 @@ public class GameControl {
         }
         return inventoryList;
     }
-    
+
     public static Actor[] getActorList() {
         // get actor list for the current game
         Actor[] originalActorList
@@ -803,7 +767,7 @@ public class GameControl {
                 }
             }
         }
-        
+
         return list;
     }
 
@@ -839,7 +803,6 @@ public class GameControl {
 //        }
 //        return totalAmount;
 //    }
-
     public static void saveGame(Game game, String filepath)
             throws GameControlException {
 
@@ -869,8 +832,8 @@ public class GameControl {
         // close the output file
         Escape.setCurrentGame(game); // save in Escape
     }
-    
-            public static Resource[] getSortedResourceList() {
+
+    public static Resource[] getSortedResourceList() {
         // get inventory list for the current game
 //            System.out.println("test");
         Resource[] originalResourceList
@@ -878,11 +841,11 @@ public class GameControl {
 
         // clone {make a copy} originalList
         Resource[] resourceList = originalResourceList.clone();
-            
-            for (int i = 0; i < resourceList.length; i++) {
-                System.out.println(resourceList[i]);
-                
-            }
+
+        for (int i = 0; i < resourceList.length; i++) {
+            System.out.println(resourceList[i]);
+
+        }
 
         // using BubbleSort to sort the list of inventoryList by name
         Resource tempInventoryResource;
@@ -897,6 +860,62 @@ public class GameControl {
             }
         }
         return resourceList;
+    }
+
+    public static Resource[] createResource() {
+        Game game = Escape.getCurrentGame();
+
+        Resource[] resources = new Resource[ResourceType.values().length];
+        // grain,
+        Resource grainResource = new Resource();
+        grainResource.setType("grain");
+        grainResource.setAmount(0);
+        grainResource.setNeededAmount(5);
+        resources[ResourceType.grain.ordinal()] = grainResource;
+
+        // timber,
+        Resource timberResource = new Resource();
+        timberResource.setType("timber");
+        timberResource.setAmount(0);
+        timberResource.setNeededAmount(10);
+        resources[ResourceType.timber.ordinal()] = timberResource;
+
+        // fiberousPlants
+        Resource fiberousPlantResource = new Resource();
+        fiberousPlantResource.setType("fiberous plants");
+        fiberousPlantResource.setAmount(0);
+        fiberousPlantResource.setNeededAmount(5);
+        resources[ResourceType.fiberousPlants.ordinal()] = fiberousPlantResource;
+
+        // ore,
+        Resource oreResource = new Resource();
+        oreResource.setType("ore");
+        oreResource.setAmount(0);
+        oreResource.setNeededAmount(5);
+        resources[ResourceType.ore.ordinal()] = oreResource;
+
+        // water,
+        Resource waterResource = new Resource();
+        waterResource.setType("water");
+        waterResource.setAmount(0);
+        waterResource.setNeededAmount(5);
+        resources[ResourceType.water.ordinal()] = waterResource;
+
+        // berries
+        Resource berriesResource = new Resource();
+        berriesResource.setType("berries");
+        berriesResource.setAmount(0);
+        berriesResource.setNeededAmount(5);
+        resources[ResourceType.berries.ordinal()] = berriesResource;
+
+        // meat
+        Resource meatResource = new Resource();
+        meatResource.setType("meat");
+        meatResource.setAmount(0);
+        meatResource.setNeededAmount(5);
+        resources[ResourceType.meat.ordinal()] = meatResource;
+
+        return resources;
     }
 
 }

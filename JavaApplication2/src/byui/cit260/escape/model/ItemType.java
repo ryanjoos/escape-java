@@ -14,5 +14,5 @@ public enum ItemType {
     hatchet,
     spear,
     rope,
-    barrell, timber, ore, grain, food, drinkingWater, fiberousPlants;
+    barrell;
 }
