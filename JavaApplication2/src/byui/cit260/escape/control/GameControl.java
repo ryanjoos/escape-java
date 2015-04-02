@@ -171,6 +171,8 @@ public class GameControl {
     public static void assignResourcesToLocation(Map map, Resource[] resources) {
         Location[][] locations = map.getLocations();
 
+        locations = setDefaultResource(locations, resources[ResourceType.nothing.ordinal()]);
+        
         //grains
         locations[6][4].setResource(resources[ResourceType.grain.ordinal()]);
         locations[7][6].setResource(resources[ResourceType.grain.ordinal()]);
@@ -787,6 +789,15 @@ public class GameControl {
         }
         return locations;
     }
+    
+        private static Location[][] setDefaultResource(Location[][] locations, Resource defaultResource) {
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations.length; column++) {
+                locations[row][column].setResource(defaultResource);
+            }
+        }
+        return locations;
+    }
 
 //    public static void getResourceList() {
 //        Resource[] neededResources = Resource.values();
@@ -850,23 +861,18 @@ public class GameControl {
         // clone {make a copy} originalList
         Resource[] resourceList = originalResourceList.clone();
 
-        for (int i = 0; i < resourceList.length; i++) {
-            System.out.println(resourceList[i]);
-
-        }
-
-        // using BubbleSort to sort the list of inventoryList by name
-        Resource tempInventoryResource;
-        for (int i = 0; i < resourceList.length - 1; i++) {
-            for (int j = 0; j < resourceList.length - 1 - i; j++) {
-                if (resourceList[j].getType().
-                        compareToIgnoreCase(resourceList[j + 1].getType()) > 0) {
-                    tempInventoryResource = resourceList[j];
-                    resourceList[j] = resourceList[j + 1];
-                    resourceList[j + 1] = tempInventoryResource;
-                }
-            }
-        }
+//        // using BubbleSort to sort the list of inventoryList by name
+//        Resource tempInventoryResource;
+//        for (int i = 0; i < resourceList.length - 1; i++) {
+//            for (int j = 0; j < resourceList.length - 1 - i; j++) {
+//                if (resourceList[j].getType().
+//                        compareToIgnoreCase(resourceList[j + 1].getType()) > 0) {
+//                    tempInventoryResource = resourceList[j];
+//                    resourceList[j] = resourceList[j + 1];
+//                    resourceList[j + 1] = tempInventoryResource;
+//                }
+//            }
+//        }
         return resourceList;
     }
 
