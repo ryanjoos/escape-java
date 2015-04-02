@@ -64,7 +64,10 @@ public class GameControl {
         // save map 
         game.setMap(map);
         //create list of actors
-        Actor[] list = GameControl.createActorList();
+        Actor[] actorList = GameControl.createActorList();
+        
+        //save actors in a list in the game
+        game.setActor(actorList);
         // move actors
         MapControl.moveActorsToStartingLocation(map);
     }
@@ -800,6 +803,7 @@ public class GameControl {
                 }
             }
         }
+        
         return list;
     }
 
