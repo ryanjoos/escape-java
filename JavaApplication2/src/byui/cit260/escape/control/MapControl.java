@@ -7,6 +7,7 @@ package byui.cit260.escape.control;
 
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
+import byui.cit260.escape.model.ActorEnum;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
@@ -248,12 +249,12 @@ public class MapControl {
     public static void moveActorsToStartingLocation(Map map)
             throws MapControlException {
 
-        Actor[] actors = Actor.values();
+        Actor[] actor = new Actor[ActorEnum.values().length];
 
-        for (Actor actor : actors) {
+      /*for (Actor actorlist : list) {
             Point coordinates = actor.getCoordinates();
             MapControl.moveActorToLocation(actor, coordinates);
-        }
+        }  */
     }
 
     private static Resource[] createResource() {

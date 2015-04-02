@@ -14,10 +14,6 @@ import java.util.Objects;
  * @author owner
  */
 public class Actor implements Serializable {
-
-    public static Actor[] values() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     // class instance variable
     private Actor actor;
@@ -27,16 +23,16 @@ public class Actor implements Serializable {
     private Point coordinates;
     
     // default constructor
-        public Actor() {
-        this.coordinates = new Point(1,1);
-        this.description = "\n This is an item.";
+    public Actor() {
+    this.coordinates = new Point(1,1);
+    this.description = "\n This is an item.";
     }
     //getters
     public Actor getActor() {
     return actor;
     }
     // setter function
-    public void setActor(Actor iactor) {
+    public void setActor(Actor actor) {
     this.actor = actor;
     }
 
@@ -94,7 +90,4 @@ public class Actor implements Serializable {
         }
         return true;
     }
-
-
-
 }

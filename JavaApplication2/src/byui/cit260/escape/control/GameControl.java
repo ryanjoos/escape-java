@@ -63,11 +63,12 @@ public class GameControl {
 
         // save map 
         game.setMap(map);
-
+        //create list of actors
+        Actor[] list = GameControl.createActorList();
         // move actors
         MapControl.moveActorsToStartingLocation(map);
     }
-    private static Actor[] createActorList(){
+    public static Actor[] createActorList(){
         
         Actor[] list = new Actor[8];
         
@@ -780,14 +781,14 @@ public class GameControl {
     }
     
         public static Actor[] getActorList() {
-        // get inventory list for the current game
+        // get actor list for the current game
         Actor[] firstList
                 = Escape.getCurrentGame().getActor();
 
-        // clone {make a copy} originalList
+        // clone {make a copy} list
         Actor[] list = firstList.clone();
 
-        // using BubbleSort to sort the list of inventoryList by name
+        // using BubbleSort to sort the list of list by name
         Actor tempList;
         for (int i = 0; i < list.length - 1; i++) {
             for (int j = 0; j < list.length - 1 - i; j++) {
