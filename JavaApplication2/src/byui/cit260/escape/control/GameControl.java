@@ -52,6 +52,11 @@ public class GameControl {
         // save items list in game
         game.setItem(itemList);
 
+        Resource[] resourceList = GameControl.createResource();
+
+        // save items list in game
+        game.setResource(resourceList);
+
         // create raft
         Raft raft = new Raft();
 
@@ -65,20 +70,21 @@ public class GameControl {
         game.setMap(map);
         //create list of actors
         Actor[] actorList = GameControl.createActorList();
-        
+
         //save actors in a list in the game
         game.setActor(actorList);
         // move actors
         MapControl.moveActorsToStartingLocation(map);
     }
-    public static Actor[] createActorList(){
-        
+
+    public static Actor[] createActorList() {
+
         Actor[] list = new Actor[8];
 
         Actor native1 = new Actor();
         native1.setActor(ActorEnum.NativeIslander1);
         native1.setDescription("Native Islander #1, is not a woman");
-        native1.setStartingPoint(1,1);
+        native1.setStartingPoint(1, 1);
         list[ActorEnum.NativeIslander1.ordinal()] = native1;
 
         Actor native2 = new Actor();
@@ -117,9 +123,9 @@ public class GameControl {
         ryan.setStartingPoint(1, 1);
         list[ActorEnum.Ryan.ordinal()] = ryan;
 
-        ryan.setStartingPoint(1,1);
-        list[ActorEnum.Ryan.ordinal()] = ryan;        
-                
+        ryan.setStartingPoint(1, 1);
+        list[ActorEnum.Ryan.ordinal()] = ryan;
+
         return list;
     }
 
@@ -748,7 +754,7 @@ public class GameControl {
         }
         return inventoryList;
     }
-    
+
     public static Actor[] getActorList() {
         // get actor list for the current game
         Actor[] originalActorList
@@ -769,7 +775,7 @@ public class GameControl {
                 }
             }
         }
-        
+
         return list;
     }
 
