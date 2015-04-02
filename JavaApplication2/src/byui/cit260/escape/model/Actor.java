@@ -7,59 +7,86 @@ package byui.cit260.escape.model;
 
 import java.awt.Point;
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author owner
  */
-public enum Actor implements Serializable {
-
-    NativeIslander1("A native to the island who builds for the tribe", new Point(1,1)),
-    NativeIslander2("A native to the island who is mated with the builder", new Point(1,1)),
-    NativeIslander3("A native to the island who hunts for the tribe", new Point(1,1)),
-    NativeIslander4("A native to the island who is considered the medicine man", new Point(1,1)),
-    NativeChief    ("Chief of the islanders of Jaba Island", new Point(1,1)),
-    Kale           ("An injured crew member who lays at the beach", new Point(1,1)),
-    Carissa        ("Another injured crew member", new Point(1,1)),
-    Ryan           ("Injured crew member who tries to keep peace between the islander and the crew", new Point(1,1));
-    
+public class Actor implements Serializable {  
 
     // class instance variable
-    private final String description;
-    private final Point coordinates;
     private Actor actor;
     
+    //add variables
+    private String description;
+    private Point coordinates;
     
-    Actor(String description, Point coordinates) {
-        this.description = description;
-        this.coordinates = coordinates;
+    // default constructor
+    public Actor() {
+    this.coordinates = new Point(1,1);
+    this.description = "\n This is an item.";
+    }
+    //getters
+    public Actor getActor() {
+    return actor;
+    }
+    // setter function
+    public void setActor(Actor actor) {
+    this.actor = actor;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public Point getCoordinates() {
-        return coordinates;
-    }
-
-    public void setActor(Actor actor) {
-        this.actor = actor;
-    }
-
     public void setDescription(String description) {
+        this.description = description;
     }
-    //This might not supposed to be here....
     public void setActor(ActorEnum actorEnum) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    // I don't know if this will mess stuff up... I hope it doesn't
-    public void setPoint(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     public void setStartingPoint(int i, int i0) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.coordinates = new Point(1,1);
     }
 
+    public Point getCoordinates() {
+        return coordinates;
+    }
+    //hashcode and equals and tostring and a bunch of other stuff I do not understand
+    @Override
+    public String toString() {
+        return "Actor{" + "actor=" + actor + ", description=" + description + ", coordinates=" + coordinates + '}';
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 61 * hash + Objects.hashCode(this.actor);
+        hash = 61 * hash + Objects.hashCode(this.description);
+        hash = 61 * hash + Objects.hashCode(this.coordinates);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Actor other = (Actor) obj;
+        if (!Objects.equals(this.actor, other.actor)) {
+            return false;
+        }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
+        if (!Objects.equals(this.coordinates, other.coordinates)) {
+            return false;
+        }
+        return true;
+    }
 }

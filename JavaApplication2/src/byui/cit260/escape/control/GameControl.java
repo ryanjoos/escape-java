@@ -7,6 +7,8 @@ package byui.cit260.escape.control;
 
 import byui.cit260.escape.exceptions.GameControlException;
 import byui.cit260.escape.exceptions.MapControlException;
+import byui.cit260.escape.model.Actor;
+import byui.cit260.escape.model.ActorEnum;
 import byui.cit260.escape.model.Constants;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
@@ -65,59 +67,14 @@ public class GameControl {
 
         // save map 
         game.setMap(map);
-
+        //create list of actors
+        Actor[] actorList = GameControl.createActorList();
+        
+        //save actors in a list in the game
+        game.setActor(actorList);
         // move actors
         MapControl.moveActorsToStartingLocation(map);
     }
-
-//    private static Actor[] createActorList() {
-//
-//        Actor[] list = new Actor[8];
-//
-//        Actor native1 = new Actor();
-//        native1.setActor(ActorEnum.NativeIslander1);
-//        native1.setDescription("Carissa, is a wild woman");
-//        native1.setStartingPoint(1, 1);
-//        list[ActorEnum.NativeIslander1.ordinal()] = native1;
-//
-//        Actor native2 = new Actor();
-//        native2.setActor(ActorEnum.NativeIslander2);
-//        native2.setDescription("Carissa, is a wild woman");
-//        native2.setStartingPoint(1, 1);
-//        list[ActorEnum.NativeIslander2.ordinal()] = native2;
-//
-//        Actor native3 = new Actor();
-//        native3.setActor(ActorEnum.NativeIslander3);
-//        native3.setDescription("Carissa, is a wild woman");
-//        native3.setStartingPoint(1, 1);
-//        list[ActorEnum.NativeIslander3.ordinal()] = native3;
-//
-//        Actor native4 = new Actor();
-//        native4.setActor(ActorEnum.NativeIslander4);
-//        native4.setDescription("Carissa, is a wild woman");
-//        native4.setStartingPoint(1, 1);
-//        list[ActorEnum.NativeIslander4.ordinal()] = native4;
-//
-//        Actor chief = new Actor();
-//        chief.setActor(ActorEnum.NativeChief);
-//        chief.setDescription("The cheif, is a wild woman");
-//        chief.setStartingPoint(1, 1);
-//        list[ActorEnum.NativeChief.ordinal()] = chief;
-//
-//        Actor carissa = new Actor();
-//        carissa.setActor(ActorEnum.Carissa);
-//        carissa.setDescription("Carissa, is a wild woman");
-//        carissa.setStartingPoint(1, 1);
-//        list[ActorEnum.Carissa.ordinal()] = carissa;
-//
-//        Actor ryan = new Actor();
-//        ryan.setActor(ActorEnum.Ryan);
-//        ryan.setDescription("Ryan, is cool");
-//        ryan.setStartingPoint(1, 1);
-//        list[ActorEnum.Ryan.ordinal()] = ryan;
-//
-//        return list;
-//    }
 
     public static Resource[] createResource() {
         Game game = Escape.getCurrentGame();
@@ -181,6 +138,55 @@ public class GameControl {
         resources[ResourceType.nothing.ordinal()] = noResource;
 
         return resources;
+    }
+    
+    public static Actor[] createActorList(){
+        
+        Actor[] list = new Actor[8];
+        
+        Actor native1 = new Actor();
+        native1.setActor(ActorEnum.NativeIslander1);
+        native1.setDescription("Native Islander #1, is a wild woman");
+        native1.setStartingPoint(1,1);
+        list[ActorEnum.NativeIslander1.ordinal()] = native1;
+        
+        Actor native2 = new Actor();
+        native2.setActor(ActorEnum.NativeIslander2);
+        native2.setDescription("Native Islander #2, is a wild woman");
+        native2.setStartingPoint(1,1);
+        list[ActorEnum.NativeIslander2.ordinal()] = native2;
+        
+        Actor native3 = new Actor();
+        native3.setActor(ActorEnum.NativeIslander3);
+        native3.setDescription("Native Islander #3, is a wild woman");
+        native3.setStartingPoint(1,1);
+        list[ActorEnum.NativeIslander3.ordinal()] = native3;
+        
+        Actor native4 = new Actor();
+        native4.setActor(ActorEnum.NativeIslander4);
+        native4.setDescription("Native Islander #4, is a wild woman");
+        native4.setStartingPoint(1,1);
+        list[ActorEnum.NativeIslander4.ordinal()] = native4;
+        
+        Actor chief = new Actor();
+        chief.setActor(ActorEnum.NativeChief);
+        chief.setDescription("The cheif, is a wild woman");
+        chief.setStartingPoint(1,1);
+        list[ActorEnum.NativeChief.ordinal()] = chief;
+        
+        Actor carissa = new Actor();
+        carissa.setActor(ActorEnum.Carissa);
+        carissa.setDescription("Carissa, is a wild woman");
+        carissa.setStartingPoint(1,1);
+        list[ActorEnum.Carissa.ordinal()] = carissa;
+ 
+        Actor ryan = new Actor();
+        ryan.setActor(ActorEnum.Ryan);
+        ryan.setDescription("Ryan, is cool");
+        ryan.setStartingPoint(1,1);
+        list[ActorEnum.Ryan.ordinal()] = ryan;        
+                
+        return list;
     }
     
     private static Item[] createItemList() {
@@ -801,6 +807,30 @@ public class GameControl {
             }
         }
         return inventoryList;
+    }
+    
+        public static Actor[] getActorList() {
+        // get actor list for the current game
+        Actor[] originalActorList
+                = Escape.getCurrentGame().getActor();
+
+        // clone {make a copy} list
+        Actor[] list = originalActorList.clone();
+
+        // using BubbleSort to sort the list of list by name
+        Actor tempList;
+        for (int i = 0; i < list.length - 1; i++) {
+            for (int j = 0; j < list.length - 1 - i; j++) {
+                if (list[j].getDescription().
+                        compareToIgnoreCase(list[j + 1].getDescription()) > 0) {
+                    tempList = list[j];
+                    list[j] = list[j + 1];
+                    list[j + 1] = tempList;
+                }
+            }
+        }
+        
+        return list;
     }
 
         public static Resource[] getSortedResourceList() {
