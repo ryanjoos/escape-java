@@ -16,5 +16,6 @@ public enum ResourceType {
     ore,
     water,
     berries,
-    meat;
+    meat,
+    nothing;
 }

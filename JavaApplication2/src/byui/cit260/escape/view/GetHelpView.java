@@ -97,7 +97,12 @@ public class GetHelpView extends View {
     }
 
     private void howToMove() {
-        this.console.println("*** howToMove function called ***");
+        this.console.println("In order to move, you must start or open a game. The Game Menu provides\n"
+                + "an option 'M' to move the player. You will be instructed to pick between moving up,\n"
+                + "down, left, or right. In you input an invalid selection. It will take you back to the game menu\n"
+                + "to choose the option again. If you input a correct value to move, the player will move if\n"
+                + "the location is not blocked. You can check you new player's location by viewing the map\n"
+                + "with option 'V' in the Game Menu. The symbol 'X' representing your character will have moved.\n");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();

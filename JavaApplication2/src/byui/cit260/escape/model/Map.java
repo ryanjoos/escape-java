@@ -22,6 +22,7 @@ public class Map implements Serializable {
     private Scene scene;
     private Player player; 
     private Resource resource;
+    
 
     // default constructor
     public Map() {

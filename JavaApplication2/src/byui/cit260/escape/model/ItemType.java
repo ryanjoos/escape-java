@@ -10,12 +10,6 @@ package byui.cit260.escape.model;
  * @author Carissa
  */
 public enum ItemType {
-    timber,
-    ore,
-    grain,
-    food,
-    drinkingWater,
-    fiberousPlants,
     hammer,
     hatchet,
     spear,

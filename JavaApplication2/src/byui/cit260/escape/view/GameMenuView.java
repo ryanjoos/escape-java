@@ -38,7 +38,7 @@ public class GameMenuView extends View {
                 + "\n_________________________________________"
                 + "\nV - View Map"
                 + "\nT - Print map report"
-                + "\nI - View list of items in inventory"
+                + "\nI - View list of items and resources in inventory"
                 + "\nA - View list of actors"
                 + "\nS - View raft status"
                 + "\nL - View contents of location"
@@ -75,6 +75,7 @@ public class GameMenuView extends View {
                 break;
             case 'I':
                 this.viewInventory();
+                this.viewResourceInventory();
                 break;
             case 'A':
                 this.viewActors();
@@ -171,8 +172,6 @@ public class GameMenuView extends View {
                 Point playerCoordinates = locations[i][j].getPlayer().getCoordinates();
                 String symbol = location.getScene().getMapSymbol();
                 String mapSymbol = locations[i][j].getScene().getMapSymbol();
-                Resource resource = locations[i][j].getResource();
-                sbMap.append(resource);
                 
                 if (playerCoordinates.x == i && playerCoordinates.y == j) {
                     // could get player's name
@@ -233,6 +232,23 @@ public class GameMenuView extends View {
             this.console.println(inventoryItem.getDescription() + "\t       "
                     + inventoryItem.getRequiredAmount() + "\t    "
                     + inventoryItem.getQuantityInStock());
+        }
+    }
+    
+        private void viewResourceInventory() {
+        //get the sorted list of inventory items
+        Resource[] inventory = GameControl.getSortedResourceList();
+
+        this.console.println("\nList of resources");
+        this.console.println("\nType" + "\t"
+                + "Required" + "\t"
+                + "In Stock");
+
+        //For each inventory resource
+        for (Resource inventoryResource : inventory) {
+            this.console.println(inventoryResource.getType() + "\t       "
+                    + inventoryResource.getNeededAmount() + "\t    "
+                    + inventoryResource.getAmount());
         }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
@@ -385,7 +401,6 @@ public class GameMenuView extends View {
     }
 
     private void help() {
-        this.console.println("\n*** get help ***");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
