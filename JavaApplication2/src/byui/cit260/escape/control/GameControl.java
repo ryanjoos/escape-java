@@ -782,11 +782,11 @@ public class GameControl {
     
         public static Actor[] getActorList() {
         // get actor list for the current game
-        Actor[] firstList
+        Actor[] originalActorList
                 = Escape.getCurrentGame().getActor();
 
         // clone {make a copy} list
-        Actor[] list = firstList.clone();
+        Actor[] list = originalActorList.clone();
 
         // using BubbleSort to sort the list of list by name
         Actor tempList;

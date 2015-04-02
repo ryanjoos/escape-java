@@ -47,9 +47,8 @@ public class Actor implements Serializable {
         
     }
 
-    public Point setStartingPoint(int i, int i0) {
+    public void setStartingPoint(int i, int i0) {
         this.coordinates = new Point(1,1);
-        return null;
     }
 
     public Point getCoordinates() {
