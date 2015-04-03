@@ -164,7 +164,7 @@ public class GameControl {
         Item barrell = new Item();
         barrell.setDescription("Barrell");
         barrell.setQuantityInStock(0);
-        barrell.setRequiredAmount(2);
+        barrell.setRequiredAmount(3);
         invetory[ItemType.barrell.ordinal()] = barrell;
 
         return invetory;

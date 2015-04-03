@@ -6,6 +6,7 @@
 package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.GameControl;
+import byui.cit260.escape.control.ItemControl;
 import byui.cit260.escape.control.MapControl;
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
@@ -292,35 +293,41 @@ public class GameMenuView extends View {
         this.console.println("Which direction would you like to move(up,down,left,right): ");
         String movement = this.getInput().toUpperCase();
 
-        if (null != movement) switch (movement) {
-            case "UP":
-                try {
-                    MapControl.moveUp(player, coordinates);
-                } catch (MapControlException me) {
-                    this.console.println(me.getMessage());
-                }   break;
-            case "DOWN":
-                try {
-                    MapControl.moveDown(player, coordinates);
-                } catch (MapControlException me) {
-                    this.console.println(me.getMessage());
-            }   break;
-            case "LEFT":
-                try {
-                    MapControl.moveLeft(player, coordinates);
-                } catch (MapControlException me) {
-                    this.console.println(me.getMessage());
-            }   break;
-            case "RIGHT":
-                try {
-                    MapControl.moveRight(player, coordinates);
-                } catch (MapControlException me) {
-                    this.console.println(me.getMessage());
-                }   break;
-            default:
-                this.console.println("Error - incorrect input. Try again!");
-                this.movePlayer();
-                break;
+        if (null != movement) {
+            switch (movement) {
+                case "UP":
+                    try {
+                        MapControl.moveUp(player, coordinates);
+                    } catch (MapControlException me) {
+                        this.console.println(me.getMessage());
+                    }
+                    break;
+                case "DOWN":
+                    try {
+                        MapControl.moveDown(player, coordinates);
+                    } catch (MapControlException me) {
+                        this.console.println(me.getMessage());
+                    }
+                    break;
+                case "LEFT":
+                    try {
+                        MapControl.moveLeft(player, coordinates);
+                    } catch (MapControlException me) {
+                        this.console.println(me.getMessage());
+                    }
+                    break;
+                case "RIGHT":
+                    try {
+                        MapControl.moveRight(player, coordinates);
+                    } catch (MapControlException me) {
+                        this.console.println(me.getMessage());
+                    }
+                    break;
+                default:
+                    this.console.println("Error - incorrect input. Try again!");
+                    this.movePlayer();
+                    break;
+            }
         }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
@@ -372,6 +379,24 @@ public class GameMenuView extends View {
 
     private void constructTools() {
         this.console.println("\n*** construct tools ***");
+        this.console.println("Wish tool do you wish to build:\n ");
+        this.console.println("hammer\n");
+        this.console.println("hatchet\n");
+        this.console.println("spear\n");
+        this.console.println("rope\n");
+        this.console.println("barrell\n");
+        String choice = this.getInput().toLowerCase();
+        if ("hammer".equals(choice)) {
+            ItemControl.makeHammer();
+        } else if ("hatchet".equals(choice)) {
+            ItemControl.makeHatchet();
+        } else if ("spear".equals(choice)) {
+            ItemControl.makeSpear();
+        } else if ("rope".equals(choice)) {
+            ItemControl.makeRope();
+        } else if ("barrell".equals(choice)) {
+            ItemControl.makeBarrell();
+        }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
