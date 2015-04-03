@@ -111,68 +111,6 @@ public class Escape {
                 return;
             }
         }
-        
-        //Open Games that have been saved
-
-        // class instances
-//        Player playerOne = new Player();
-//        Game gameOne = new Game();
-////        Actor actorOne = new Actor();
-//        Map gameMap = new Map();
-//        Item itemOne = new Item();
-//        Raft raftOne = new Raft();
-//        Location locationOne = new Location();
-////        Resource resourceOne = new Resource();
-//        Scene sceneOne = new Scene();
-//
-//        // call setter functions
-//        playerOne.setName("Fred Flintstone");
-//        gameOne.setTotalTime(120.5);
-////        actorOne.setName("Jaba the Hutt");
-//        gameMap.setRowCount(10);
-//        gameMap.setColumnCount(5);
-////        itemOne.setItemType("Berries");
-//        raftOne.setRaftStatus(50.00);
-//        raftOne.setDescription("Good");
-//        locationOne.setColumn(1);
-//        locationOne.setRow(2);
-//        locationOne.setVisited(true);
-////        resourceOne.setType("Berries");
-////        resourceOne.setAmount(2);
-//        sceneOne.setDescription("Beach");
-//        sceneOne.setBlocked(true);
-
-        // display player
-//        String playerInfo = playerOne.toString();
-//        System.out.println(playerInfo);
-//
-//        // display game
-//        String gameInfo = gameOne.toString();
-//        System.out.println(gameInfo);
-//        // System.out.println(gameOne);
-//
-//        // display actor
-////        String actorInfo = actorOne.toString();
-////        System.out.println(actorInfo);
-//        // display map
-//        String mapInfo = gameMap.toString();
-//        System.out.println(mapInfo);
-//
-//        // display item
-//        String itemInfo = itemOne.toString();
-//        System.out.println(itemInfo);
-//
-//        //display raft
-//        String raftInfo = raftOne.toString();
-//        System.out.println(raftInfo);
-//        //display location
-//        String locationInfo = locationOne.toString();
-//        System.out.println(locationInfo);
-//        //display scene
-//        String sceneInfo = sceneOne.toString();
-//        System.out.println(sceneInfo);
-//        //resource scene
-////        String resourceInfo = resourceOne.toString();
-////        this.console.println(resourceInfo);       
+               
     }
 }

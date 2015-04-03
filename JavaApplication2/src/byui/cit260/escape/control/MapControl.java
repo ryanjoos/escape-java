@@ -376,7 +376,6 @@ public class MapControl {
     }
 
     public static void harvestResources(Point coordinates) {
-        Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         coordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
         int row = coordinates.x;
@@ -386,9 +385,7 @@ public class MapControl {
         System.out.println(resource);
         String resourceType = locations[row][column].getResource().getType();
         int totalAmount = resource.getTotalAmount();
-        System.out.println("test");
-        //int totalAmount = locations[row][column].getResource().getTotalAmount();
-
+        
         System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
         totalAmount += amount;
         locations[row][column].getResource().setTotalAmount(totalAmount);
