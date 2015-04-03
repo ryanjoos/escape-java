@@ -86,7 +86,7 @@ public class MapControl {
 
         //create the scenes for the game
         Scene[] scenes = createScenes();
-        Resource[] resources = GameControl.createResource();
+        Resource[] resources = Escape.getCurrentGame().getResource();
 
         // assign scenes to locations
         GameControl.assignScenesToLocations(map, scenes);
@@ -237,7 +237,7 @@ public class MapControl {
 
         Actor[] actor = new Actor[ActorEnum.values().length];
 
-    // I have no idea what I am doing here.
+        // I have no idea what I am doing here.
         /*for (Actor actorlist : list) {
          Point coordinates = actor.getCoordinates();
          MapControl.moveActorToLocation(actor, coordinates);
@@ -388,15 +388,19 @@ public class MapControl {
         int row = coordinates.x;
         int column = coordinates.y;
         int amount = locations[row][column].getResource().getLocationAmount();
+        Resource resource = locations[row][column].getResource();
+        System.out.println(resource);
         String resourceType = locations[row][column].getResource().getType();
-        int totalAmount = locations[row][column].getResource().getTotalAmount();
-        System.out.println("You current total amount for " + resourceType + " is " + totalAmount+ ".");
+        int totalAmount = resource.getTotalAmount();
+        System.out.println("test");
+        //int totalAmount = locations[row][column].getResource().getTotalAmount();
+
+        System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
         totalAmount += amount;
-        //locations[row][column].getResource().setTotalAmount(totalAmount);
-        Escape.getCurrentGame().getMap().getResource().setTotalAmount(totalAmount);
-        
+        locations[row][column].getResource().setTotalAmount(totalAmount);
+        resource.setTotalAmount(totalAmount);
+
         System.out.println(resourceType + " amount at the location(" + row + ", " + column + ") is " + amount + ".");
         System.out.println("After harvesting the " + resourceType + " you now have a total of " + totalAmount + ".");
-
     }
 }
