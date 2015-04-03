@@ -382,4 +382,12 @@ public class MapControl {
 
         return scenes;
     }
+    
+    public static void harvestResources(Point coordinates) {
+        Map map = Escape.getCurrentGame().getMap();
+        Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
+        coordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        int row = coordinates.x;
+        int column = coordinates.y;
+    }
 }
