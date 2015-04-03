@@ -861,18 +861,18 @@ public class GameControl {
         // clone {make a copy} originalList
         Resource[] resourceList = originalResourceList.clone();
 
-//        // using BubbleSort to sort the list of inventoryList by name
-//        Resource tempInventoryResource;
-//        for (int i = 0; i < resourceList.length - 1; i++) {
-//            for (int j = 0; j < resourceList.length - 1 - i; j++) {
-//                if (resourceList[j].getType().
-//                        compareToIgnoreCase(resourceList[j + 1].getType()) > 0) {
-//                    tempInventoryResource = resourceList[j];
-//                    resourceList[j] = resourceList[j + 1];
-//                    resourceList[j + 1] = tempInventoryResource;
-//                }
-//            }
-//        }
+        // using BubbleSort to sort the list of inventoryList by name
+        Resource tempInventoryResource;
+        for (int i = 0; i < resourceList.length - 1; i++) {
+            for (int j = 0; j < resourceList.length - 1 - i; j++) {
+                if (resourceList[j].getType().
+                        compareToIgnoreCase(resourceList[j + 1].getType()) > 0) {
+                    tempInventoryResource = resourceList[j];
+                    resourceList[j] = resourceList[j + 1];
+                    resourceList[j + 1] = tempInventoryResource;
+                }
+            }
+        }
         return resourceList;
     }
 

@@ -54,7 +54,7 @@ public class GameMenuView extends View {
                 + "\nP - Pack raft"
                 + "\nJ - Launch raft"
                 + "\nH - Help"
-                + "\nQ - Quit"
+                + "\nQ - Quit - Go to Main Menu"
                 + "\n=========================================");
     }
 
@@ -159,7 +159,7 @@ public class GameMenuView extends View {
         // DISPLAY column divider
         for (int i = 0; i < 20; i++) {
             if (i < 9) {
-                sbMap.append(i + 1 + " ");
+                sbMap.append(i).append(1).append(" ");
             } else {
                 sbMap.append(i + 1);
             }
@@ -179,7 +179,7 @@ public class GameMenuView extends View {
                     sbMap.append("  X   ");
                 } else if (locations[i][j].isVisited() == true) {
                     sbMap.append(symbol);
-                } else if (mapSymbol == "  ~~  " || mapSymbol == "  ST  " || mapSymbol == "  FN  ") {
+                } else if ("  ~~  ".equals(mapSymbol) || "  ST  ".equals(mapSymbol) || "  FN  ".equals(mapSymbol)) {
                     sbMap.append(locations[i][j].getScene().getMapSymbol());
                 } // ELSE DISPLAY " ?? "
                 else {
@@ -252,6 +252,7 @@ public class GameMenuView extends View {
             this.console.printf("\t%12s", inventoryResource.getNeededAmount());
             this.console.printf("\t%12s%n", inventoryResource.getTotalAmount());
         }
+        this.console.println();
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -290,35 +291,36 @@ public class GameMenuView extends View {
 
         this.console.println("Which direction would you like to move(up,down,left,right): ");
         String movement = this.getInput().toUpperCase();
-        this.console.println(movement);
 
-        if ("UP".equals(movement)) {
-            try {
-                MapControl.moveUp(player, coordinates);
-            } catch (MapControlException me) {
-                this.console.println(me.getMessage());
-            }
-        } else if ("DOWN".equals(movement)) {
-            try {
-                MapControl.moveDown(player, coordinates);
-            } catch (MapControlException me) {
-                this.console.println(me.getMessage());
-            }
-        } else if ("LEFT".equals(movement)) {
-            try {
-                MapControl.moveLeft(player, coordinates);
-            } catch (MapControlException me) {
-                this.console.println(me.getMessage());
-            }
-        } else if ("RIGHT".equals(movement)) {
-            try {
-                MapControl.moveRight(player, coordinates);
-            } catch (MapControlException me) {
-                this.console.println(me.getMessage());
-            }
-        } else {
-            this.console.println("Error - incorrect input. Try again!");
-            this.movePlayer();
+        if (null != movement) switch (movement) {
+            case "UP":
+                try {
+                    MapControl.moveUp(player, coordinates);
+                } catch (MapControlException me) {
+                    this.console.println(me.getMessage());
+                }   break;
+            case "DOWN":
+                try {
+                    MapControl.moveDown(player, coordinates);
+                } catch (MapControlException me) {
+                    this.console.println(me.getMessage());
+            }   break;
+            case "LEFT":
+                try {
+                    MapControl.moveLeft(player, coordinates);
+                } catch (MapControlException me) {
+                    this.console.println(me.getMessage());
+            }   break;
+            case "RIGHT":
+                try {
+                    MapControl.moveRight(player, coordinates);
+                } catch (MapControlException me) {
+                    this.console.println(me.getMessage());
+                }   break;
+            default:
+                this.console.println("Error - incorrect input. Try again!");
+                this.movePlayer();
+                break;
         }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
@@ -380,11 +382,11 @@ public class GameMenuView extends View {
         String choice = this.getInput().toLowerCase();
         if ("yes".equals(choice)) {
             MapControl.harvestResources(coordinates);
-        } 
-        
-            GameMenuView gameMenu = new GameMenuView();
-            gameMenu.display();
-        
+        }
+
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
+
     }
 
     private void deliverResource() {
@@ -408,7 +410,20 @@ public class GameMenuView extends View {
     }
 
     private void launchRaft() {
-        this.console.println("\n*** launch raft ***");
+        //get the sorted list of inventory items
+        Resource[] inventory = GameControl.getSortedResourceList();
+        int total = 0;
+        //For each inventory resource
+        for (Resource inventoryResource : inventory) {
+            total = inventoryResource.getTotalAmount();
+        }
+        if (total >= 100) {
+            this.console.println("Congratualtions you won!! You gathered all the resources needed to "
+                    + "\n make it safely home! You are a survival master!");
+        } else {
+            this.console.println("Sorry, you do not have enough resources to make it home. Keep playing the game!");
+        }
+        this.console.println();
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

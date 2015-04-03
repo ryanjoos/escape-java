@@ -106,14 +106,12 @@ public class MapControl {
         newCoordinates = new Point(newRow, newColumn);
 
         Location location = locations[newRow][newColumn];
-        System.out.println(location);
         String scene = location.getScene().getDescription();
-        System.out.println(scene);
+        System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
-            System.out.println(locations[newRow][newColumn].getResource().getType());
+            System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -136,15 +134,12 @@ public class MapControl {
         newCoordinates = new Point(newRow, newColumn);
 
         Location location = locations[newRow][newColumn];
-        System.out.println(location);
         String scene = location.getScene().getDescription();
-        System.out.println(scene);
-
+        System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
-            System.out.println(locations[newRow][newColumn].getResource().getType());
+            System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -167,14 +162,12 @@ public class MapControl {
         newCoordinates = new Point(newRow, newColumn);
 
         Location location = locations[newRow][newColumn];
-        System.out.println(location);
         String scene = location.getScene().getDescription();
-        System.out.println(scene);
+        System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
-            System.out.println(locations[newRow][newColumn].getResource().getType());
+            System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -197,14 +190,12 @@ public class MapControl {
         newCoordinates = new Point(newRow, newColumn);
 
         Location location = locations[newRow][newColumn];
-        System.out.println(location);
         String scene = location.getScene().getDescription();
-        System.out.println(scene);
+        System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            System.out.println(locations[newRow][newColumn].getPlayer().getCoordinates());
-            System.out.println(locations[newRow][newColumn].getResource().getType());
+            System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
