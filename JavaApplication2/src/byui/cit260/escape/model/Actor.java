@@ -25,7 +25,7 @@ public class Actor implements Serializable {
     // default constructor
     public Actor() {
     this.coordinates = new Point(1,1);
-    this.description = "\n This is an item.";
+    this.description = "\n This is an Actor.";
     }
     //getters
     public Actor getActor() {
