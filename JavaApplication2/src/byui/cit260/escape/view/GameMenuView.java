@@ -172,7 +172,7 @@ public class GameMenuView extends View {
                 Point playerCoordinates = locations[i][j].getPlayer().getCoordinates();
                 String symbol = location.getScene().getMapSymbol();
                 String mapSymbol = locations[i][j].getScene().getMapSymbol();
-                
+
                 if (playerCoordinates.x == i && playerCoordinates.y == j) {
                     // could get player's name
                     locations[i][j].setVisited(true);
@@ -236,8 +236,8 @@ public class GameMenuView extends View {
                     + inventoryItem.getQuantityInStock());
         }
     }
-    
-        private void viewResourceInventory() {
+
+    private void viewResourceInventory() {
         //get the sorted list of inventory items
         Resource[] inventory = GameControl.getSortedResourceList();
 
@@ -248,7 +248,7 @@ public class GameMenuView extends View {
 
         //For each inventory resource
         for (Resource inventoryResource : inventory) {
-            this.console.print(inventoryResource.getType()); 
+            this.console.print(inventoryResource.getType());
             this.console.printf("\t%12s", inventoryResource.getNeededAmount());
             this.console.printf("\t%12s%n", inventoryResource.getTotalAmount());
         }
@@ -259,15 +259,15 @@ public class GameMenuView extends View {
     private void viewActors() {
 
         Actor[] list = GameControl.getActorList();
-        
+
         this.console.println("\n*** These are the Actors ***");
         this.console.println("\nList of Actors");
         this.console.println("\nName" + "\t" + "Description");
-        
-        for(Actor actorList : list){
+
+        for (Actor actorList : list) {
             this.console.println(actorList.getDescription());
         }
-        
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -298,29 +298,25 @@ public class GameMenuView extends View {
             } catch (MapControlException me) {
                 this.console.println(me.getMessage());
             }
-        }
-        else if ("DOWN".equals(movement)) {
+        } else if ("DOWN".equals(movement)) {
             try {
                 MapControl.moveDown(player, coordinates);
             } catch (MapControlException me) {
                 this.console.println(me.getMessage());
             }
-        }
-        else if ("LEFT".equals(movement)) {
+        } else if ("LEFT".equals(movement)) {
             try {
                 MapControl.moveLeft(player, coordinates);
             } catch (MapControlException me) {
                 this.console.println(me.getMessage());
             }
-        }
-        else if ("RIGHT".equals(movement)) {
+        } else if ("RIGHT".equals(movement)) {
             try {
                 MapControl.moveRight(player, coordinates);
             } catch (MapControlException me) {
                 this.console.println(me.getMessage());
             }
-        }
-        else {
+        } else {
             this.console.println("Error - incorrect input. Try again!");
             this.movePlayer();
         }
@@ -379,9 +375,16 @@ public class GameMenuView extends View {
     }
 
     private void harvestResource() {
-        this.console.println("\n*** harvest resource ***");
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
+        Point coordinates = null;
+        this.console.println("\nDo you want to gether the resource? (yes/no)\n");
+        String choice = this.getInput().toLowerCase();
+        this.console.println(choice);
+        if ("yes".equals(choice)) {
+            MapControl.harvestResources(coordinates);
+        } else {
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.display();
+        }
     }
 
     private void deliverResource() {
