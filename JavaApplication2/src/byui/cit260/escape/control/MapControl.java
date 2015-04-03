@@ -235,7 +235,7 @@ public class MapControl {
     public static void moveActorsToStartingLocation(Map map)
             throws MapControlException {
         
-        Actor[] actor = Escape.getCurrentGame().getActor();
+        Actor[] actors = Escape.getCurrentGame().getActor();
         
         
         
@@ -243,10 +243,10 @@ public class MapControl {
         //Go through the Actor Array and get the information about the various actors in it
         
         
-        //for (Actor[] actorlist : list) {
-        //    Point coordinates = actor.getCoordinates();
-        //    MapControl.moveActorToLocation(actor, coordinates);
-        //}  
+        for (Actor actor : actors) {
+            Point coordinates = actor.getCoordinates();
+            MapControl.moveActorToLocation(actor, coordinates);
+        }  
     }
 
     // throws MapControlException had to take out because it wasn't working
