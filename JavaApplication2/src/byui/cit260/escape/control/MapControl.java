@@ -392,7 +392,8 @@ public class MapControl {
         int totalAmount = locations[row][column].getResource().getTotalAmount();
         System.out.println("You current total amount for " + resourceType + " is " + totalAmount+ ".");
         totalAmount += amount;
-        locations[row][column].getResource().setTotalAmount(totalAmount);
+        //locations[row][column].getResource().setTotalAmount(totalAmount);
+        Escape.getCurrentGame().getMap().getResource().setTotalAmount(totalAmount);
         
         System.out.println(resourceType + " amount at the location(" + row + ", " + column + ") is " + amount + ".");
         System.out.println("After harvesting the " + resourceType + " you now have a total of " + totalAmount + ".");

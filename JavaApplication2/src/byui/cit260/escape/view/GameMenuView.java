@@ -243,7 +243,7 @@ public class GameMenuView extends View {
 
         this.console.println("\nList of resources");
         this.console.println("\nType" + "   \t  \t"
-                + "Required" + "\t"
+                + "\tRequired" + "\t"
                 + "In Stock");
 
         //For each inventory resource
