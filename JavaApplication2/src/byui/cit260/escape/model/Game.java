@@ -16,7 +16,7 @@ public class Game implements Serializable{
     private Raft raft;
     private Player player;
     private Map map;
-    private Actor[] actor;
+    private Actor[] actors;
     private Item[] item;
     private Resource[] resource;
     
@@ -65,11 +65,11 @@ public class Game implements Serializable{
     }
 
     public Actor[] getActor() {
-        return actor;
+        return actors;
     }
 
     public void setActor(Actor[] actor) {
-        this.actor = actor;
+        this.actors = actor;
     }
 
     public Resource[] getResource() {

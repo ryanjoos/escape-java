@@ -111,6 +111,12 @@ public class GameControl {
         chief.setStartingPoint(1, 1);
         list[ActorEnum.NativeChief.ordinal()] = chief;
 
+        Actor kale = new Actor();
+        kale.setActor(ActorEnum.Kale);
+        kale.setDescription("Kale, is a wild woman");
+        kale.setStartingPoint(1, 1);
+        list[ActorEnum.Kale.ordinal()] = kale;
+        
         Actor carissa = new Actor();
         carissa.setActor(ActorEnum.Carissa);
         carissa.setDescription("Carissa, is a wild woman");
@@ -120,9 +126,6 @@ public class GameControl {
         Actor ryan = new Actor();
         ryan.setActor(ActorEnum.Ryan);
         ryan.setDescription("Ryan, is cool");
-        ryan.setStartingPoint(1, 1);
-        list[ActorEnum.Ryan.ordinal()] = ryan;
-
         ryan.setStartingPoint(1, 1);
         list[ActorEnum.Ryan.ordinal()] = ryan;
 
