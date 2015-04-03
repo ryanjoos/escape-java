@@ -86,7 +86,7 @@ public class MapControl {
 
         //create the scenes for the game
         Scene[] scenes = createScenes();
-        Resource[] resources = GameControl.createResource();
+        Resource[] resources = Escape.getCurrentGame().getResource();
 
         // assign scenes to locations
         GameControl.assignScenesToLocations(map, scenes);
@@ -97,7 +97,7 @@ public class MapControl {
 
     public static void moveUp(Player player, Point coordinates)
             throws MapControlException {
-        
+
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
@@ -249,8 +249,6 @@ public class MapControl {
         //}  
     }
 
-
-
     // throws MapControlException had to take out because it wasn't working
     private static Scene[] createScenes() {
 
@@ -387,12 +385,27 @@ public class MapControl {
 
         return scenes;
     }
-    
+
     public static void harvestResources(Point coordinates) {
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         coordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
         int row = coordinates.x;
         int column = coordinates.y;
+        int amount = locations[row][column].getResource().getLocationAmount();
+        Resource resource = locations[row][column].getResource();
+        System.out.println(resource);
+        String resourceType = locations[row][column].getResource().getType();
+        int totalAmount = resource.getTotalAmount();
+        System.out.println("test");
+        //int totalAmount = locations[row][column].getResource().getTotalAmount();
+
+        System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
+        totalAmount += amount;
+        locations[row][column].getResource().setTotalAmount(totalAmount);
+        resource.setTotalAmount(totalAmount);
+
+        System.out.println(resourceType + " amount at the location(" + row + ", " + column + ") is " + amount + ".");
+        System.out.println("After harvesting the " + resourceType + " you now have a total of " + totalAmount + ".");
     }
 }

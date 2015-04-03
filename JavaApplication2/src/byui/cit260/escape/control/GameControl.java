@@ -919,7 +919,7 @@ public class GameControl {
 
         // berries
         Resource berriesResource = new Resource();
-        berriesResource.setType("berries resource");
+        berriesResource.setType("berry resource");
         berriesResource.setTotalAmount(0);
         berriesResource.setLocationAmount(5);
         berriesResource.setNeededAmount(100);
