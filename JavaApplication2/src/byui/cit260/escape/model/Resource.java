@@ -16,21 +16,24 @@ public class Resource implements Serializable{
     
     //class instance variables
     private String type;
-    private int amount;
+    private int totalAmount;
     private int neededAmount; 
+    private int locationAmount;
     
     private ResourceType resourceType;
 
-    public Resource(String type, int amount, ResourceType resourceType) {
+    public Resource(String type, int totalAmount, ResourceType resourceType, int locationAmount) {
         this.type = type;
-        this.amount = amount;
+        this.totalAmount = totalAmount;
         this.resourceType = resourceType;
+        this.locationAmount = locationAmount;
     }
     
     public Resource() {
         this.type = "This is a resource";
-        this.amount = 0;
+        this.totalAmount = 0;
         this.neededAmount = 5;
+        this.locationAmount = 5;
     }
     
     
@@ -43,12 +46,12 @@ public class Resource implements Serializable{
         this.type = type;
     }
 
-    public int getAmount() {
-        return amount;
+    public int getTotalAmount() {
+        return totalAmount;
     }
 
-    public void setAmount(int amount) {
-        this.amount = amount;
+    public void setTotalAmount(int totalAmount) {
+        this.totalAmount = totalAmount;
     }
 
     public ResourceType getResourceType() {
@@ -67,17 +70,26 @@ public class Resource implements Serializable{
         this.neededAmount = neededAmount;
     }
 
+    public int getLocationAmount() {
+        return locationAmount;
+    }
+
+    public void setLocationAmount(int locationAmount) {
+        this.locationAmount = locationAmount;
+    }
+
     @Override
     public String toString() {
-        return "Resource{" + "type=" + type + ", amount=" + amount + ", neededAmount=" + neededAmount + ", resourceType=" + resourceType + '}';
+        return "Resource{" + "type=" + type + ", totalAmount=" + totalAmount + ", neededAmount=" + neededAmount + ", locationAmount=" + locationAmount + ", resourceType=" + resourceType + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
+        int hash = 3;
         hash = 53 * hash + Objects.hashCode(this.type);
-        hash = 53 * hash + this.amount;
+        hash = 53 * hash + this.totalAmount;
         hash = 53 * hash + this.neededAmount;
+        hash = 53 * hash + this.locationAmount;
         hash = 53 * hash + Objects.hashCode(this.resourceType);
         return hash;
     }
@@ -94,10 +106,13 @@ public class Resource implements Serializable{
         if (!Objects.equals(this.type, other.type)) {
             return false;
         }
-        if (this.amount != other.amount) {
+        if (this.totalAmount != other.totalAmount) {
             return false;
         }
         if (this.neededAmount != other.neededAmount) {
+            return false;
+        }
+        if (this.locationAmount != other.locationAmount) {
             return false;
         }
         if (this.resourceType != other.resourceType) {
@@ -105,8 +120,6 @@ public class Resource implements Serializable{
         }
         return true;
     }
-
-
-    
+ 
     
 }

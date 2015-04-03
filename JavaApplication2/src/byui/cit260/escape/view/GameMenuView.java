@@ -250,7 +250,7 @@ public class GameMenuView extends View {
         for (Resource inventoryResource : inventory) {
             this.console.print(inventoryResource.getType()); 
             this.console.printf("\t%12s", inventoryResource.getNeededAmount());
-            this.console.printf("\t%12s%n", inventoryResource.getAmount());
+            this.console.printf("\t%12s%n", inventoryResource.getTotalAmount());
         }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
