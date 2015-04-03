@@ -32,7 +32,6 @@ public class MapControl {
     private static final double MIN_BRIDGE_WIDTH = 4;
     private static final double MAX_BRIDGE_HEIGHT = 0.75;
     private static final double MIN_BRIDGE_HEIGHT = 1;
-    private static final String PLAYER_SYMBOL = " X ";
 
     public static double calculateRunningSpeed(double time, double distance) throws MapControlException {
 
