@@ -123,9 +123,6 @@ public class GameControl {
         ryan.setStartingPoint(1, 1);
         list[ActorEnum.Ryan.ordinal()] = ryan;
 
-        ryan.setStartingPoint(1, 1);
-        list[ActorEnum.Ryan.ordinal()] = ryan;
-
         return list;
     }
 
