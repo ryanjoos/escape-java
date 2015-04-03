@@ -108,6 +108,14 @@ public class Map implements Serializable {
     public void setPlayer(Player player) {
         this.player = player;
     }
+
+    public Resource getResource() {
+        return resource;
+    }
+
+    public void setResource(Resource resource) {
+        this.resource = resource;
+    }
     
     
 

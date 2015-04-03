@@ -171,6 +171,8 @@ public class GameControl {
     public static void assignResourcesToLocation(Map map, Resource[] resources) {
         Location[][] locations = map.getLocations();
 
+        locations = setDefaultResource(locations, resources[ResourceType.nothing.ordinal()]);
+
         //grains
         locations[6][4].setResource(resources[ResourceType.grain.ordinal()]);
         locations[7][6].setResource(resources[ResourceType.grain.ordinal()]);
@@ -788,6 +790,15 @@ public class GameControl {
         return locations;
     }
 
+    private static Location[][] setDefaultResource(Location[][] locations, Resource defaultResource) {
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations.length; column++) {
+                locations[row][column].setResource(defaultResource);
+            }
+        }
+        return locations;
+    }
+
 //    public static void getResourceList() {
 //        Resource[] neededResources = Resource.values();
 //
@@ -850,23 +861,18 @@ public class GameControl {
         // clone {make a copy} originalList
         Resource[] resourceList = originalResourceList.clone();
 
-        for (int i = 0; i < resourceList.length; i++) {
-            System.out.println(resourceList[i]);
-
-        }
-
-        // using BubbleSort to sort the list of inventoryList by name
-        Resource tempInventoryResource;
-        for (int i = 0; i < resourceList.length - 1; i++) {
-            for (int j = 0; j < resourceList.length - 1 - i; j++) {
-                if (resourceList[j].getType().
-                        compareToIgnoreCase(resourceList[j + 1].getType()) > 0) {
-                    tempInventoryResource = resourceList[j];
-                    resourceList[j] = resourceList[j + 1];
-                    resourceList[j + 1] = tempInventoryResource;
-                }
-            }
-        }
+//        // using BubbleSort to sort the list of inventoryList by name
+//        Resource tempInventoryResource;
+//        for (int i = 0; i < resourceList.length - 1; i++) {
+//            for (int j = 0; j < resourceList.length - 1 - i; j++) {
+//                if (resourceList[j].getType().
+//                        compareToIgnoreCase(resourceList[j + 1].getType()) > 0) {
+//                    tempInventoryResource = resourceList[j];
+//                    resourceList[j] = resourceList[j + 1];
+//                    resourceList[j + 1] = tempInventoryResource;
+//                }
+//            }
+//        }
         return resourceList;
     }
 
@@ -876,53 +882,67 @@ public class GameControl {
         Resource[] resources = new Resource[ResourceType.values().length];
         // grain,
         Resource grainResource = new Resource();
-        grainResource.setType("grain");
-        grainResource.setAmount(0);
-        grainResource.setNeededAmount(5);
+        grainResource.setType("grain resource");
+        grainResource.setTotalAmount(0);
+        grainResource.setLocationAmount(5);
+        grainResource.setNeededAmount(100);
         resources[ResourceType.grain.ordinal()] = grainResource;
 
         // timber,
         Resource timberResource = new Resource();
-        timberResource.setType("timber");
-        timberResource.setAmount(0);
-        timberResource.setNeededAmount(10);
+        timberResource.setType("timber resource");
+        timberResource.setTotalAmount(0);
+        timberResource.setLocationAmount(10);
+        timberResource.setNeededAmount(100);
         resources[ResourceType.timber.ordinal()] = timberResource;
 
         // fiberousPlants
         Resource fiberousPlantResource = new Resource();
         fiberousPlantResource.setType("fiberous plants");
-        fiberousPlantResource.setAmount(0);
-        fiberousPlantResource.setNeededAmount(5);
+        fiberousPlantResource.setTotalAmount(0);
+        fiberousPlantResource.setLocationAmount(3);
+        fiberousPlantResource.setNeededAmount(100);
         resources[ResourceType.fiberousPlants.ordinal()] = fiberousPlantResource;
 
         // ore,
         Resource oreResource = new Resource();
-        oreResource.setType("ore");
-        oreResource.setAmount(0);
-        oreResource.setNeededAmount(5);
+        oreResource.setType("ore resource");
+        oreResource.setTotalAmount(0);
+        oreResource.setLocationAmount(5);
+        oreResource.setNeededAmount(100);
         resources[ResourceType.ore.ordinal()] = oreResource;
 
         // water,
         Resource waterResource = new Resource();
-        waterResource.setType("water");
-        waterResource.setAmount(0);
-        waterResource.setNeededAmount(5);
+        waterResource.setType("water resource");
+        waterResource.setTotalAmount(0);
+        waterResource.setLocationAmount(5);
+        waterResource.setNeededAmount(100);
         resources[ResourceType.water.ordinal()] = waterResource;
 
         // berries
         Resource berriesResource = new Resource();
-        berriesResource.setType("berries");
-        berriesResource.setAmount(0);
-        berriesResource.setNeededAmount(5);
+        berriesResource.setType("berries resource");
+        berriesResource.setTotalAmount(0);
+        berriesResource.setLocationAmount(5);
+        berriesResource.setNeededAmount(100);
         resources[ResourceType.berries.ordinal()] = berriesResource;
 
         // meat
         Resource meatResource = new Resource();
-        meatResource.setType("meat");
-        meatResource.setAmount(0);
-        meatResource.setNeededAmount(5);
+        meatResource.setType("meat resource");
+        meatResource.setTotalAmount(0);
+        meatResource.setLocationAmount(5);
+        meatResource.setNeededAmount(100);
         resources[ResourceType.meat.ordinal()] = meatResource;
 
+        // nothing
+        Resource nothingResource = new Resource();
+        nothingResource.setType("no resource");
+        nothingResource.setTotalAmount(0);
+        nothingResource.setLocationAmount(0);
+        nothingResource.setNeededAmount(0);
+        resources[ResourceType.nothing.ordinal()] = nothingResource;
         return resources;
     }
 

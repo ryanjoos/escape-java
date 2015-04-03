@@ -223,14 +223,16 @@ public class GameMenuView extends View {
         Item[] inventory = GameControl.getSortedInventoryList();
 
         this.console.println("\nList of Items");
-        this.console.println("\nDescription" + "\t"
-                + "Required" + "\t"
+        this.console.println("\nDescription" + "\t   "
+                + "Required" + "     "
+                + ""
+                + " \t "
                 + "In Stock");
 
         //For each inventory item
         for (Item inventoryItem : inventory) {
-            this.console.println(inventoryItem.getDescription() + "\t       "
-                    + inventoryItem.getRequiredAmount() + "\t    "
+            this.console.println(inventoryItem.getDescription() + "\t\t     "
+                    + inventoryItem.getRequiredAmount() + "\t           "
                     + inventoryItem.getQuantityInStock());
         }
     }
@@ -240,15 +242,15 @@ public class GameMenuView extends View {
         Resource[] inventory = GameControl.getSortedResourceList();
 
         this.console.println("\nList of resources");
-        this.console.println("\nType" + "\t"
+        this.console.println("\nType" + "   \t  \t"
                 + "Required" + "\t"
                 + "In Stock");
 
         //For each inventory resource
         for (Resource inventoryResource : inventory) {
-            this.console.println(inventoryResource.getType() + "\t       "
-                    + inventoryResource.getNeededAmount() + "\t    "
-                    + inventoryResource.getAmount());
+            this.console.print(inventoryResource.getType()); 
+            this.console.printf("\t%12s", inventoryResource.getNeededAmount());
+            this.console.printf("\t%12s%n", inventoryResource.getTotalAmount());
         }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
