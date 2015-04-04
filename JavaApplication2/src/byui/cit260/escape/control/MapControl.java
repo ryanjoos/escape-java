@@ -14,6 +14,7 @@ import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
+import byui.cit260.escape.view.ObstacleVolcanoView;
 import escapePackage.Escape;
 import java.awt.Point;
 
@@ -127,14 +128,23 @@ public class MapControl {
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        Point otherCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
         int newRow = newCoordinates.x + 1;
         int newColumn = newCoordinates.y;
         newCoordinates = new Point(newRow, newColumn);
+        otherCoordinates = new Point(newRow+1, newColumn);
 
         Location location = locations[newRow][newColumn];
         String scene = location.getScene().getDescription();
         System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
-        if (location.getScene().isBlocked() == false) {
+        if (newRow == 8 && newColumn == 14) {
+            locations[newRow+1][newColumn].getPlayer().setCoorinates(otherCoordinates);
+            locations[newRow][newColumn].setVisited(true);
+            locations[newRow+1][newColumn].setVisited(true);
+            ObstacleVolcanoView obstacleVolcanoMenu = new ObstacleVolcanoView();
+            obstacleVolcanoMenu.display();
+        }
+        else if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
