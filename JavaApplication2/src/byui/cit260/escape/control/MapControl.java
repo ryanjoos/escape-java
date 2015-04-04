@@ -278,7 +278,7 @@ public class MapControl {
         riverScene.setDescription(
                 "\nThis is a river scene");
         riverScene.setMapSymbol("  >>  ");
-        riverScene.setBlocked(false);
+        riverScene.setBlocked(true);
         riverScene.setTravelTime(Double.POSITIVE_INFINITY);
         scenes[SceneType.river.ordinal()] = riverScene;
 

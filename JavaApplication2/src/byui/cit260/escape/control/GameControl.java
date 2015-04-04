@@ -116,7 +116,7 @@ public class GameControl {
         kale.setDescription("Kale, is a wild woman");
         kale.setStartingPoint(1, 1);
         list[ActorEnum.Kale.ordinal()] = kale;
-        
+
         Actor carissa = new Actor();
         carissa.setActor(ActorEnum.Carissa);
         carissa.setDescription("Carissa, is a wild woman");
@@ -221,36 +221,33 @@ public class GameControl {
         locations[13][13].setResource(resources[ResourceType.ore.ordinal()]);
 
         // water
-        locations[1][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[2][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[3][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[4][10].setResource(resources[ResourceType.water.ordinal()]);
-        locations[4][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[5][10].setResource(resources[ResourceType.water.ordinal()]);
-        locations[6][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[6][9].setResource(resources[ResourceType.water.ordinal()]);
-        locations[6][10].setResource(resources[ResourceType.water.ordinal()]);
-        locations[7][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[8][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[9][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[9][7].setResource(resources[ResourceType.water.ordinal()]);
-        locations[9][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[10][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[11][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[12][5].setResource(resources[ResourceType.water.ordinal()]);
-        locations[12][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[13][5].setResource(resources[ResourceType.water.ordinal()]);
-        locations[14][5].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][5].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][7].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][9].setResource(resources[ResourceType.water.ordinal()]);
-        locations[16][9].setResource(resources[ResourceType.water.ordinal()]);
-        locations[16][10].setResource(resources[ResourceType.water.ordinal()]);
-        locations[16][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[17][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[18][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[1][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[1][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[2][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[3][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[4][9].setResource(resources[ResourceType.water.ordinal()]);
+        locations[4][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[5][9].setResource(resources[ResourceType.water.ordinal()]);
+        locations[5][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[6][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[6][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[9][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[10][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[10][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[11][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[11][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[12][4].setResource(resources[ResourceType.water.ordinal()]);
+        locations[12][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[13][4].setResource(resources[ResourceType.water.ordinal()]);
+        locations[13][6].setResource(resources[ResourceType.water.ordinal()]);
+        locations[14][8].setResource(resources[ResourceType.water.ordinal()]);
+        locations[15][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[15][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[17][9].setResource(resources[ResourceType.water.ordinal()]);
+        locations[17][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[17][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[18][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[18][12].setResource(resources[ResourceType.water.ordinal()]);
 
         // berries
         locations[2][10].setResource(resources[ResourceType.berries.ordinal()]);
