@@ -894,7 +894,7 @@ public class GameControl {
         // timber,
         Resource timberResource = new Resource();
         timberResource.setType("timber resource");
-        timberResource.setTotalAmount(0);
+        timberResource.setTotalAmount(5);
         timberResource.setLocationAmount(10);
         timberResource.setNeededAmount(100);
         resources[ResourceType.timber.ordinal()] = timberResource;
@@ -910,7 +910,7 @@ public class GameControl {
         // ore,
         Resource oreResource = new Resource();
         oreResource.setType("ore resource");
-        oreResource.setTotalAmount(0);
+        oreResource.setTotalAmount(6);
         oreResource.setLocationAmount(5);
         oreResource.setNeededAmount(100);
         resources[ResourceType.ore.ordinal()] = oreResource;
