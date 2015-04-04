@@ -362,7 +362,7 @@ public class GameControl {
         locations[3][9].setScene(scenes[SceneType.beach.ordinal()]);
 
         locations[3][10].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[3][11].setScene(scenes[SceneType.river.ordinal()]);
+        locations[3][11].setScene(scenes[SceneType.bridge.ordinal()]);
         locations[3][12].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[3][13].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[3][14].setScene(scenes[SceneType.beach.ordinal()]);
@@ -405,7 +405,7 @@ public class GameControl {
         locations[5][8].setScene(scenes[SceneType.grass.ordinal()]);
         locations[5][9].setScene(scenes[SceneType.grass.ordinal()]);
 
-        locations[5][10].setScene(scenes[SceneType.river.ordinal()]);
+        locations[5][10].setScene(scenes[SceneType.bridge.ordinal()]);
         locations[5][11].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[5][12].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[5][13].setScene(scenes[SceneType.jungle.ordinal()]);
@@ -535,7 +535,7 @@ public class GameControl {
         locations[11][3].setScene(scenes[SceneType.grass.ordinal()]);
         locations[11][4].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[11][5].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[11][6].setScene(scenes[SceneType.river.ordinal()]);
+        locations[11][6].setScene(scenes[SceneType.bridge.ordinal()]);
         locations[11][7].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[11][8].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[11][9].setScene(scenes[SceneType.cliff.ordinal()]);
@@ -624,7 +624,7 @@ public class GameControl {
         locations[15][3].setScene(scenes[SceneType.beach.ordinal()]);
         locations[15][4].setScene(scenes[SceneType.beach.ordinal()]);
         locations[15][5].setScene(scenes[SceneType.river.ordinal()]);
-        locations[15][6].setScene(scenes[SceneType.river.ordinal()]);
+        locations[15][6].setScene(scenes[SceneType.bridge.ordinal()]);
         locations[15][7].setScene(scenes[SceneType.river.ordinal()]);
         locations[15][8].setScene(scenes[SceneType.river.ordinal()]);
         locations[15][9].setScene(scenes[SceneType.river.ordinal()]);

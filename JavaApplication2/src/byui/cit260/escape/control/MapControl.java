@@ -342,15 +342,15 @@ public class MapControl {
         oceanScene.setTravelTime(Double.POSITIVE_INFINITY);
         scenes[SceneType.ocean.ordinal()] = oceanScene;
 
-        //    desert("desert scene", " :: "),
-        Scene desertScene = new Scene();
+        //    bridge("desert scene", " :: "),
+        Scene bridgeScene = new Scene();
 
-        desertScene.setDescription(
-                "\nThis is a desert scene");
-        desertScene.setMapSymbol("  ::  ");
-        desertScene.setBlocked(false);
-        desertScene.setTravelTime(Double.POSITIVE_INFINITY);
-        scenes[SceneType.desert.ordinal()] = desertScene;
+        bridgeScene.setDescription(
+                "\nThis is a bridge scene");
+        bridgeScene.setMapSymbol("  ==  ");
+        bridgeScene.setBlocked(false);
+        bridgeScene.setTravelTime(Double.POSITIVE_INFINITY);
+        scenes[SceneType.bridge.ordinal()] = bridgeScene;
 
         //    running("running scene", "!!!"),
         Scene runningScene = new Scene();
@@ -367,7 +367,7 @@ public class MapControl {
 
         grassScene.setDescription(
                 "\nThis is a grass scene");
-        grassScene.setMapSymbol("  ==  ");
+        grassScene.setMapSymbol("  ::  ");
         grassScene.setBlocked(false);
         grassScene.setTravelTime(Double.POSITIVE_INFINITY);
         scenes[SceneType.grass.ordinal()] = grassScene;
