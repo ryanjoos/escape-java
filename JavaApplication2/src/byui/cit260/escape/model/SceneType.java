@@ -23,9 +23,9 @@ public enum SceneType implements Serializable {
     timber("Timber resource scene", "$$$"),
     grain("Grain resource scene", "%%%"),
     ocean("Ocean scene", "~~~"),
-    desert("desert scene", "---"),
     running("running scene", "!!!"),
-    grass("Grass scene", "===");
+    bridge("Bridge scene", "==="),
+    grass("Grass scene", ":::");
 
     private final String description;
     private final String mapSymbol;

@@ -68,8 +68,7 @@ public class ObstacleVolcanoView extends View {
                 this.retreatOption();
                 break;
             case 'S':
-                MainMenuView mainMenu = new MainMenuView();
-                mainMenu.display();
+                this.dieOption();
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 break;
@@ -81,6 +80,9 @@ public class ObstacleVolcanoView extends View {
         this.console.println("As soon as you were about to run to the tree, ");
         this.console.println("it became uprooted and feel to the ground");
         this.console.println("Choose your next move quick!");
+
+        ObstacleVolcanoView obstacleVolcanoMenu = new ObstacleVolcanoView();
+        obstacleVolcanoMenu.display();
     }
 
     private void runOption() {
@@ -94,6 +96,9 @@ public class ObstacleVolcanoView extends View {
         this.console.println("boulder to roll down into the forest. ");
         this.console.println("Your only choice of shleter is now gone ");
         this.console.println("Choose your next move quick!");
+
+        ObstacleVolcanoView obstacleVolcanoMenu = new ObstacleVolcanoView();
+        obstacleVolcanoMenu.display();
     }
 
     private void retreatOption() {
@@ -101,5 +106,15 @@ public class ObstacleVolcanoView extends View {
         this.console.println("the earthquake caused the water to rise in the ");
         this.console.println("river and the location is temporarily blocked. ");
         this.console.println("Choose your next move quick!");
+
+        ObstacleVolcanoView obstacleVolcanoMenu = new ObstacleVolcanoView();
+        obstacleVolcanoMenu.display();
+    }
+
+    private void dieOption() {
+        this.console.println("Matey, death is not an option of you! Choose another option fast!!!!");
+
+        ObstacleVolcanoView obstacleVolcanoMenu = new ObstacleVolcanoView();
+        obstacleVolcanoMenu.display();
     }
 }

@@ -93,9 +93,8 @@ public class RunningSpeedView extends View {
                 "You are going to run " + result + " mph to get to the next location.");
 
         // call main menu
-        MainMenuView mainMenu = new MainMenuView();
-
-        mainMenu.display();
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
 
         return true;
     }

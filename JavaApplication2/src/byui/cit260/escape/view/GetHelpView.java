@@ -87,9 +87,9 @@ public class GetHelpView extends View {
     }
 
     private void gameGoal() {
-        this.console.println("The goal of Escape is to test your skill in escaping Jaba Island. "
-                + "You will have to use strategy to gather all the nessecary resources to build a raft and"
-                + "make it safely off the island. ");
+        this.console.println("The goal of Escape is to test your skill in escaping Jaba Island.\n "
+                + "You will have to use strategy to gather all the nessecary resources to build a raft and\n"
+                + "make it safely off the island.\n ");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
@@ -109,21 +109,24 @@ public class GetHelpView extends View {
     }
 
     private void viewResourceBag() {
-        this.console.println("*** viewResourceBag function called ***");
+        this.console.println("To view the amount of resources and item you have in"
+                + " the game, go to the Game Menu and choose option 'I'\n");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
     }
 
     private void howToInteract() {
-        this.console.println("*** howToInteract function called ***");
+        this.console.println("The Game Menu gives you all the options to interact with"
+                + " the game.");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
     }
 
     private void viewLocation() {
-        this.console.println("*** viewLocation function called ***");
+        this.console.println("Option 'L' in the Game Menu will display all the contents "
+                + "inside the location.");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();

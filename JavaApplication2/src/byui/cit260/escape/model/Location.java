@@ -6,7 +6,6 @@
 package byui.cit260.escape.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  *
@@ -19,12 +18,11 @@ public class Location implements Serializable {
     private int column;
     private boolean visited;
     private Scene scene;
-    private ArrayList<Actor> actors;
+    private Actor actors;
     private Player player;
     private Resource resource;
     //private ArrayList<Resource> resources = new ArrayList<Resource>();
     //resource add
-    
 
     public Location() {
         this.row = 0;
@@ -32,13 +30,14 @@ public class Location implements Serializable {
         this.visited = false;
     }
 
-    Location(int row, int column, boolean visited, Scene scene, Player player, Resource resource) {
+    Location(int row, int column, boolean visited, Scene scene, Player player, Resource resource, Actor actors) {
         this.row = row;
         this.column = column;
         this.visited = visited;
         this.scene = scene;
         this.player = player;
         this.resource = resource;
+        this.actors = actors;
     }
 
     public int getRow() {
@@ -65,11 +64,11 @@ public class Location implements Serializable {
         this.scene = scene;
     }
 
-    public ArrayList<Actor> getActors() {
+    public Actor getActors() {
         return actors;
     }
 
-    public void setActors(ArrayList<Actor> actors) {
+    public void setActors(Actor actors) {
         this.actors = actors;
     }
 
@@ -96,12 +95,13 @@ public class Location implements Serializable {
     public void setResource(Resource resource) {
         this.resource = resource;
     }
-    
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scene=" + scene + ", actors=" + actors + ", player=" + player + ", resource=" + resource + '}';
     }
+
+    
 
     @Override
     public int hashCode() {

@@ -22,6 +22,7 @@ import byui.cit260.escape.model.ResourceType;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
+import java.awt.Point;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -84,49 +85,49 @@ public class GameControl {
         Actor native1 = new Actor();
         native1.setActor(ActorEnum.NativeIslander1);
         native1.setDescription("Native Islander #1, is not a woman");
-        native1.setStartingPoint(1, 1);
+        native1.setStartingPoint(new Point(5, 9));
         list[ActorEnum.NativeIslander1.ordinal()] = native1;
 
         Actor native2 = new Actor();
         native2.setActor(ActorEnum.NativeIslander2);
         native2.setDescription("Native Islander #2, is a wild woman");
-        native2.setStartingPoint(1, 1);
+        native2.setStartingPoint(new Point(5, 9));
         list[ActorEnum.NativeIslander2.ordinal()] = native2;
 
         Actor native3 = new Actor();
         native3.setActor(ActorEnum.NativeIslander3);
         native3.setDescription("Native Islander #3, is a wild woman");
-        native3.setStartingPoint(1, 1);
+        native3.setStartingPoint(new Point(5, 8));
         list[ActorEnum.NativeIslander3.ordinal()] = native3;
 
         Actor native4 = new Actor();
         native4.setActor(ActorEnum.NativeIslander4);
         native4.setDescription("Native Islander #4, is a wild woman");
-        native4.setStartingPoint(1, 1);
+        native4.setStartingPoint(new Point(4, 9));
         list[ActorEnum.NativeIslander4.ordinal()] = native4;
 
         Actor chief = new Actor();
         chief.setActor(ActorEnum.NativeChief);
         chief.setDescription("The cheif, is a wild woman");
-        chief.setStartingPoint(1, 1);
+        chief.setStartingPoint(new Point(2, 16));
         list[ActorEnum.NativeChief.ordinal()] = chief;
 
         Actor kale = new Actor();
         kale.setActor(ActorEnum.Kale);
         kale.setDescription("Kale, is a wild woman");
-        kale.setStartingPoint(1, 1);
+        kale.setStartingPoint(new Point(3, 17));
         list[ActorEnum.Kale.ordinal()] = kale;
-        
+
         Actor carissa = new Actor();
         carissa.setActor(ActorEnum.Carissa);
         carissa.setDescription("Carissa, is a wild woman");
-        carissa.setStartingPoint(1, 1);
+        carissa.setStartingPoint(new Point(3, 17));
         list[ActorEnum.Carissa.ordinal()] = carissa;
 
         Actor ryan = new Actor();
         ryan.setActor(ActorEnum.Ryan);
         ryan.setDescription("Ryan, is cool");
-        ryan.setStartingPoint(1, 1);
+        ryan.setStartingPoint(new Point(3, 17));
         list[ActorEnum.Ryan.ordinal()] = ryan;
 
         return list;
@@ -164,7 +165,7 @@ public class GameControl {
         Item barrell = new Item();
         barrell.setDescription("Barrell");
         barrell.setQuantityInStock(0);
-        barrell.setRequiredAmount(2);
+        barrell.setRequiredAmount(3);
         invetory[ItemType.barrell.ordinal()] = barrell;
 
         return invetory;
@@ -221,36 +222,33 @@ public class GameControl {
         locations[13][13].setResource(resources[ResourceType.ore.ordinal()]);
 
         // water
-        locations[1][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[2][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[3][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[4][10].setResource(resources[ResourceType.water.ordinal()]);
-        locations[4][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[5][10].setResource(resources[ResourceType.water.ordinal()]);
-        locations[6][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[6][9].setResource(resources[ResourceType.water.ordinal()]);
-        locations[6][10].setResource(resources[ResourceType.water.ordinal()]);
-        locations[7][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[8][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[9][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[9][7].setResource(resources[ResourceType.water.ordinal()]);
-        locations[9][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[10][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[11][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[12][5].setResource(resources[ResourceType.water.ordinal()]);
-        locations[12][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[13][5].setResource(resources[ResourceType.water.ordinal()]);
-        locations[14][5].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][5].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][6].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][7].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][8].setResource(resources[ResourceType.water.ordinal()]);
-        locations[15][9].setResource(resources[ResourceType.water.ordinal()]);
-        locations[16][9].setResource(resources[ResourceType.water.ordinal()]);
-        locations[16][10].setResource(resources[ResourceType.water.ordinal()]);
-        locations[16][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[17][11].setResource(resources[ResourceType.water.ordinal()]);
-        locations[18][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[1][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[1][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[2][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[3][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[4][9].setResource(resources[ResourceType.water.ordinal()]);
+        locations[4][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[5][9].setResource(resources[ResourceType.water.ordinal()]);
+        locations[5][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[6][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[6][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[9][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[10][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[10][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[11][5].setResource(resources[ResourceType.water.ordinal()]);
+        locations[11][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[12][4].setResource(resources[ResourceType.water.ordinal()]);
+        locations[12][7].setResource(resources[ResourceType.water.ordinal()]);
+        locations[13][4].setResource(resources[ResourceType.water.ordinal()]);
+        locations[13][6].setResource(resources[ResourceType.water.ordinal()]);
+        locations[14][8].setResource(resources[ResourceType.water.ordinal()]);
+        locations[15][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[15][11].setResource(resources[ResourceType.water.ordinal()]);
+        locations[17][9].setResource(resources[ResourceType.water.ordinal()]);
+        locations[17][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[17][12].setResource(resources[ResourceType.water.ordinal()]);
+        locations[18][10].setResource(resources[ResourceType.water.ordinal()]);
+        locations[18][12].setResource(resources[ResourceType.water.ordinal()]);
 
         // berries
         locations[2][10].setResource(resources[ResourceType.berries.ordinal()]);
@@ -362,7 +360,7 @@ public class GameControl {
         locations[3][9].setScene(scenes[SceneType.beach.ordinal()]);
 
         locations[3][10].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[3][11].setScene(scenes[SceneType.river.ordinal()]);
+        locations[3][11].setScene(scenes[SceneType.bridge.ordinal()]);
         locations[3][12].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[3][13].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[3][14].setScene(scenes[SceneType.beach.ordinal()]);
@@ -405,7 +403,7 @@ public class GameControl {
         locations[5][8].setScene(scenes[SceneType.grass.ordinal()]);
         locations[5][9].setScene(scenes[SceneType.grass.ordinal()]);
 
-        locations[5][10].setScene(scenes[SceneType.river.ordinal()]);
+        locations[5][10].setScene(scenes[SceneType.bridge.ordinal()]);
         locations[5][11].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[5][12].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[5][13].setScene(scenes[SceneType.jungle.ordinal()]);
@@ -535,7 +533,7 @@ public class GameControl {
         locations[11][3].setScene(scenes[SceneType.grass.ordinal()]);
         locations[11][4].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[11][5].setScene(scenes[SceneType.jungle.ordinal()]);
-        locations[11][6].setScene(scenes[SceneType.river.ordinal()]);
+        locations[11][6].setScene(scenes[SceneType.bridge.ordinal()]);
         locations[11][7].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[11][8].setScene(scenes[SceneType.jungle.ordinal()]);
         locations[11][9].setScene(scenes[SceneType.cliff.ordinal()]);
@@ -624,7 +622,7 @@ public class GameControl {
         locations[15][3].setScene(scenes[SceneType.beach.ordinal()]);
         locations[15][4].setScene(scenes[SceneType.beach.ordinal()]);
         locations[15][5].setScene(scenes[SceneType.river.ordinal()]);
-        locations[15][6].setScene(scenes[SceneType.river.ordinal()]);
+        locations[15][6].setScene(scenes[SceneType.bridge.ordinal()]);
         locations[15][7].setScene(scenes[SceneType.river.ordinal()]);
         locations[15][8].setScene(scenes[SceneType.river.ordinal()]);
         locations[15][9].setScene(scenes[SceneType.river.ordinal()]);
@@ -864,18 +862,18 @@ public class GameControl {
         // clone {make a copy} originalList
         Resource[] resourceList = originalResourceList.clone();
 
-//        // using BubbleSort to sort the list of inventoryList by name
-//        Resource tempInventoryResource;
-//        for (int i = 0; i < resourceList.length - 1; i++) {
-//            for (int j = 0; j < resourceList.length - 1 - i; j++) {
-//                if (resourceList[j].getType().
-//                        compareToIgnoreCase(resourceList[j + 1].getType()) > 0) {
-//                    tempInventoryResource = resourceList[j];
-//                    resourceList[j] = resourceList[j + 1];
-//                    resourceList[j + 1] = tempInventoryResource;
-//                }
-//            }
-//        }
+        // using BubbleSort to sort the list of inventoryList by name
+        Resource tempInventoryResource;
+        for (int i = 0; i < resourceList.length - 1; i++) {
+            for (int j = 0; j < resourceList.length - 1 - i; j++) {
+                if (resourceList[j].getType().
+                        compareToIgnoreCase(resourceList[j + 1].getType()) > 0) {
+                    tempInventoryResource = resourceList[j];
+                    resourceList[j] = resourceList[j + 1];
+                    resourceList[j + 1] = tempInventoryResource;
+                }
+            }
+        }
         return resourceList;
     }
 
@@ -896,7 +894,7 @@ public class GameControl {
         timberResource.setType("timber resource");
         timberResource.setTotalAmount(0);
         timberResource.setLocationAmount(10);
-        timberResource.setNeededAmount(100);
+        timberResource.setNeededAmount(0);
         resources[ResourceType.timber.ordinal()] = timberResource;
 
         // fiberousPlants
@@ -904,7 +902,7 @@ public class GameControl {
         fiberousPlantResource.setType("fiberous plants");
         fiberousPlantResource.setTotalAmount(0);
         fiberousPlantResource.setLocationAmount(3);
-        fiberousPlantResource.setNeededAmount(100);
+        fiberousPlantResource.setNeededAmount(0);
         resources[ResourceType.fiberousPlants.ordinal()] = fiberousPlantResource;
 
         // ore,
@@ -912,7 +910,7 @@ public class GameControl {
         oreResource.setType("ore resource");
         oreResource.setTotalAmount(0);
         oreResource.setLocationAmount(5);
-        oreResource.setNeededAmount(100);
+        oreResource.setNeededAmount(0);
         resources[ResourceType.ore.ordinal()] = oreResource;
 
         // water,

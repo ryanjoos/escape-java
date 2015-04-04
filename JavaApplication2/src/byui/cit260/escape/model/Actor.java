@@ -16,25 +16,33 @@ import java.util.Objects;
 public class Actor implements Serializable {
     
     // class instance variable
-    private Actor actor;
+    //private Actor actor;
     
     //add variables
     private String description;
     private Point coordinates;
+    private Point startingPoint;
+    
+    private ActorEnum actorEnum;
     
     // default constructor
     public Actor() {
-    this.coordinates = new Point(1,1);
+    this.coordinates = new Point(2, 17);
     this.description = "\n This is an Actor.";
     }
+    
+    public Actor (String description, ActorEnum actorEnum) {
+        this.description = description;
+        this.actorEnum = actorEnum;
+    }
     //getters
-    public Actor getActor() {
-    return actor;
-    }
-    // setter function
-    public void setActor(Actor actor) {
-    this.actor = actor;
-    }
+//    public Actor getActor() {
+//    return actor;
+//    }
+//    // setter function
+//    public void setActor(Actor actor) {
+//    this.actor = actor;
+//    }
 
     public String getDescription() {
         return description;
@@ -47,25 +55,45 @@ public class Actor implements Serializable {
         
     }
 
-    public void setStartingPoint(int i, int i0) {
-        this.coordinates = new Point(1,1);
+    public Point getStartingPoint() {
+        return startingPoint;
     }
+
+    public void setStartingPoint(Point startingPoint) {
+        this.startingPoint = startingPoint;
+    }
+
+//    public void setStartingPoint(int i, int i0) {
+//        this.coordinates = new Point(2, 17);
+//    }
 
     public Point getCoordinates() {
         return coordinates;
     }
-    //hashcode and equals and tostring and a bunch of other stuff I do not understand
+
+    public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    public ActorEnum getActorEnum() {
+        return actorEnum;
+    }
+
+    public void setActorEnum(ActorEnum actorEnum) {
+        this.actorEnum = actorEnum;
+    }
+
     @Override
     public String toString() {
-        return "Actor{" + "actor=" + actor + ", description=" + description + ", coordinates=" + coordinates + '}';
+        return "Actor{" + "description=" + description + ", coordinates=" + coordinates + ", actorEnum=" + actorEnum + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.actor);
-        hash = 61 * hash + Objects.hashCode(this.description);
-        hash = 61 * hash + Objects.hashCode(this.coordinates);
+        hash = 79 * hash + Objects.hashCode(this.description);
+        hash = 79 * hash + Objects.hashCode(this.coordinates);
+        hash = 79 * hash + Objects.hashCode(this.actorEnum);
         return hash;
     }
 
@@ -78,15 +106,15 @@ public class Actor implements Serializable {
             return false;
         }
         final Actor other = (Actor) obj;
-        if (!Objects.equals(this.actor, other.actor)) {
-            return false;
-        }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
         if (!Objects.equals(this.coordinates, other.coordinates)) {
             return false;
         }
+        if (this.actorEnum != other.actorEnum) {
+            return false;
+        }
         return true;
-    }
+    }    
 }
