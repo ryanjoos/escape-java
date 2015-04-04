@@ -19,12 +19,11 @@ public class Location implements Serializable {
     private int column;
     private boolean visited;
     private Scene scene;
-    private ArrayList<Actor> actors;
+    private Actor actors;
     private Player player;
     private Resource resource;
     //private ArrayList<Resource> resources = new ArrayList<Resource>();
     //resource add
-    
 
     public Location() {
         this.row = 0;
@@ -65,11 +64,11 @@ public class Location implements Serializable {
         this.scene = scene;
     }
 
-    public ArrayList<Actor> getActors() {
+    public Actor getActors() {
         return actors;
     }
 
-    public void setActors(ArrayList<Actor> actors) {
+    public void setActors(Actor actors) {
         this.actors = actors;
     }
 
@@ -96,7 +95,6 @@ public class Location implements Serializable {
     public void setResource(Resource resource) {
         this.resource = resource;
     }
-    
 
     @Override
     public String toString() {

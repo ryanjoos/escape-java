@@ -281,7 +281,26 @@ public class GameMenuView extends View {
     }
 
     private void viewLocationContents() {
-        this.console.println("\n*** view location contents ***");
+        // add actor info to location
+        Point coordinates;
+        Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
+        coordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        int row = coordinates.x;
+        int column = coordinates.y;
+        int amount = locations[row][column].getResource().getLocationAmount();
+        Resource resource = locations[row][column].getResource();
+        Actor actor = locations[row][column].getActors();
+        String resourceType = locations[row][column].getResource().getType();
+        int totalAmount = resource.getTotalAmount();
+        //String actorDescription = locations[row][column].getActors().getDescription();
+        this.console.println(actor);
+        System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
+        totalAmount += amount;
+        locations[row][column].getResource().setTotalAmount(totalAmount);
+        resource.setTotalAmount(totalAmount);
+
+        System.out.println(resourceType + " amount at the location(" + row + ", " + column + ") is " + amount + ".");
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

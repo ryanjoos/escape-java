@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Actor implements Serializable {
     
     // class instance variable
-    private Actor actor;
+    //private Actor actor;
     
     //add variables
     private String description;
@@ -28,13 +28,13 @@ public class Actor implements Serializable {
     this.description = "\n This is an Actor.";
     }
     //getters
-    public Actor getActor() {
-    return actor;
-    }
-    // setter function
-    public void setActor(Actor actor) {
-    this.actor = actor;
-    }
+//    public Actor getActor() {
+//    return actor;
+//    }
+//    // setter function
+//    public void setActor(Actor actor) {
+//    this.actor = actor;
+//    }
 
     public String getDescription() {
         return description;
@@ -57,13 +57,13 @@ public class Actor implements Serializable {
     //hashcode and equals and tostring and a bunch of other stuff I do not understand
     @Override
     public String toString() {
-        return "Actor{" + "actor=" + actor + ", description=" + description + ", coordinates=" + coordinates + '}';
+        return "Actor{" +  "description=" + description + ", coordinates=" + coordinates + '}';
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 61 * hash + Objects.hashCode(this.actor);
+        //hash = 61 * hash + Objects.hashCode(this.actor);
         hash = 61 * hash + Objects.hashCode(this.description);
         hash = 61 * hash + Objects.hashCode(this.coordinates);
         return hash;
@@ -78,9 +78,9 @@ public class Actor implements Serializable {
             return false;
         }
         final Actor other = (Actor) obj;
-        if (!Objects.equals(this.actor, other.actor)) {
-            return false;
-        }
+//        if (!Objects.equals(this.actor, other.actor)) {
+//            return false;
+//        }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }

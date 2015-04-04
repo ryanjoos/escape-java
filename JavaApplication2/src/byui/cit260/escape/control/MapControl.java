@@ -235,6 +235,7 @@ public class MapControl {
         for (Actor actor : actors) {
             Point coordinates = actor.getCoordinates();
             MapControl.moveActorToLocation(actor, coordinates);
+            System.out.println(actor);
         }  
     }
 
