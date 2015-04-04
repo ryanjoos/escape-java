@@ -22,6 +22,7 @@ import byui.cit260.escape.model.ResourceType;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
+import java.awt.Point;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -84,49 +85,49 @@ public class GameControl {
         Actor native1 = new Actor();
         native1.setActor(ActorEnum.NativeIslander1);
         native1.setDescription("Native Islander #1, is not a woman");
-        native1.setStartingPoint(2, 17);
+        native1.setStartingPoint(new Point(5, 9));
         list[ActorEnum.NativeIslander1.ordinal()] = native1;
 
         Actor native2 = new Actor();
         native2.setActor(ActorEnum.NativeIslander2);
         native2.setDescription("Native Islander #2, is a wild woman");
-        native2.setStartingPoint(2, 17);
+        native2.setStartingPoint(new Point(5, 9));
         list[ActorEnum.NativeIslander2.ordinal()] = native2;
 
         Actor native3 = new Actor();
         native3.setActor(ActorEnum.NativeIslander3);
         native3.setDescription("Native Islander #3, is a wild woman");
-        native3.setStartingPoint(2, 17);
+        native3.setStartingPoint(new Point(5, 8));
         list[ActorEnum.NativeIslander3.ordinal()] = native3;
 
         Actor native4 = new Actor();
         native4.setActor(ActorEnum.NativeIslander4);
         native4.setDescription("Native Islander #4, is a wild woman");
-        native4.setStartingPoint(2, 17);
+        native4.setStartingPoint(new Point(4, 9));
         list[ActorEnum.NativeIslander4.ordinal()] = native4;
 
         Actor chief = new Actor();
         chief.setActor(ActorEnum.NativeChief);
         chief.setDescription("The cheif, is a wild woman");
-        chief.setStartingPoint(2, 17);
+        chief.setStartingPoint(new Point(2, 16));
         list[ActorEnum.NativeChief.ordinal()] = chief;
 
         Actor kale = new Actor();
         kale.setActor(ActorEnum.Kale);
         kale.setDescription("Kale, is a wild woman");
-        kale.setStartingPoint(2, 17);
+        kale.setStartingPoint(new Point(3, 17));
         list[ActorEnum.Kale.ordinal()] = kale;
 
         Actor carissa = new Actor();
         carissa.setActor(ActorEnum.Carissa);
         carissa.setDescription("Carissa, is a wild woman");
-        carissa.setStartingPoint(2, 17);
+        carissa.setStartingPoint(new Point(3, 17));
         list[ActorEnum.Carissa.ordinal()] = carissa;
 
         Actor ryan = new Actor();
         ryan.setActor(ActorEnum.Ryan);
         ryan.setDescription("Ryan, is cool");
-        ryan.setStartingPoint(2, 17);
+        ryan.setStartingPoint(new Point(3, 17));
         list[ActorEnum.Ryan.ordinal()] = ryan;
 
         return list;

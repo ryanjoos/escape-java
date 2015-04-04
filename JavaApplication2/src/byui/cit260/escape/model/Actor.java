@@ -21,12 +21,13 @@ public class Actor implements Serializable {
     //add variables
     private String description;
     private Point coordinates;
+    private Point startingPoint;
     
     private ActorEnum actorEnum;
     
     // default constructor
     public Actor() {
-    //this.coordinates = new Point(2, 17);
+    this.coordinates = new Point(2, 17);
     this.description = "\n This is an Actor.";
     }
     
@@ -54,9 +55,17 @@ public class Actor implements Serializable {
         
     }
 
-    public void setStartingPoint(int i, int i0) {
-        this.coordinates = new Point(2, 17);
+    public Point getStartingPoint() {
+        return startingPoint;
     }
+
+    public void setStartingPoint(Point startingPoint) {
+        this.startingPoint = startingPoint;
+    }
+
+//    public void setStartingPoint(int i, int i0) {
+//        this.coordinates = new Point(2, 17);
+//    }
 
     public Point getCoordinates() {
         return coordinates;
@@ -107,7 +116,5 @@ public class Actor implements Serializable {
             return false;
         }
         return true;
-    }
-    
-    
+    }    
 }

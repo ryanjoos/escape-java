@@ -264,10 +264,12 @@ public class GameMenuView extends View {
 
         this.console.println("\n*** These are the Actors ***");
         this.console.println("\nList of Actors");
-        this.console.println("\nName" + "\t" + "Description");
+        this.console.println("\nName" + "\t" + "Description\t");
+        this.console.println("\nLocation");
 
         for (Actor actorList : list) {
             this.console.println(actorList.getDescription());
+            this.console.println(actorList.getStartingPoint());
         }
 
         GameMenuView gameMenu = new GameMenuView();
@@ -281,7 +283,11 @@ public class GameMenuView extends View {
     }
 
     private void viewLocationContents() {
+
         // add actor info to location
+        //Actor[] list = GameControl.getActorList();
+        Actor actor = Escape.getCurrentGame().getMap().getActor();
+
         Point coordinates;
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         coordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
@@ -289,11 +295,12 @@ public class GameMenuView extends View {
         int column = coordinates.y;
         int amount = locations[row][column].getResource().getLocationAmount();
         Resource resource = locations[row][column].getResource();
-        Actor actor = locations[row][column].getActors();
         String resourceType = locations[row][column].getResource().getType();
         int totalAmount = resource.getTotalAmount();
-        //String actorDescription = locations[row][column].getActors().getDescription();
-        this.console.println(actor);
+        
+//            if (locations[row][column].getPlayer().getCoordinates() == actor.getStartingPoint())
+//            this.console.println(actor.getDescription());
+        
         System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
         totalAmount += amount;
         locations[row][column].getResource().setTotalAmount(totalAmount);

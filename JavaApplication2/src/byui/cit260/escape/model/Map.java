@@ -22,6 +22,7 @@ public class Map implements Serializable {
     private Scene scene;
     private Player player; 
     private Resource resource;
+    private Actor actor;
     
 
     // default constructor
@@ -46,7 +47,7 @@ public class Map implements Serializable {
         for (int row = 0; row < rowCount; row++) {
             for (int column = 0; column < columnCount; column++) {
                 //create and initialize new Location object instance
-                Location location = new Location(row, column, visited, scene, player, resource);
+                Location location = new Location(row, column, visited, scene, player, resource, actor);
 //                location.setColumn(column);
 //                location.setRow(row);
 //                location.setVisited(false);
@@ -115,6 +116,14 @@ public class Map implements Serializable {
 
     public void setResource(Resource resource) {
         this.resource = resource;
+    }
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
     }
     
     
