@@ -17,6 +17,7 @@ import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import escapePackage.Escape;
 import java.awt.Point;
+import byui.cit260.escape.view.CrossRiverView;
 
 /**
  *
@@ -210,6 +211,11 @@ public class MapControl {
                     + coordinates.x + ", " + coordinates.y
                     + " because that location is outside "
                     + "the bounds of the map.");
+        //}else if (location.getScene().getSceneType() == SceneType.river) {
+           // CrossRiverView crossRiver = new CrossRiverView();
+            //crossRiver.display();
+ 
+        
         } else {
             System.out.println("This location is blocked. Please pick a new location to move to matey or choose another option from the Game Menu! ");
             System.out.println();
