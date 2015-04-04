@@ -108,7 +108,7 @@ public class GameControl {
         Actor chief = new Actor();
         chief.setActor(ActorEnum.NativeChief);
         chief.setDescription("The cheif, is a wild woman");
-        chief.setStartingPoint(1, 1);
+        chief.setStartingPoint(2, 17);
         list[ActorEnum.NativeChief.ordinal()] = chief;
 
         Actor kale = new Actor();
