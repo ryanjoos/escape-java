@@ -14,6 +14,7 @@ import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Resource;
+import byui.cit260.escape.model.ResourceType;
 import escapePackage.Escape;
 import java.awt.Point;
 import java.io.IOException;
