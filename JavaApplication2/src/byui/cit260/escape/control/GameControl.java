@@ -894,9 +894,9 @@ public class GameControl {
         // timber,
         Resource timberResource = new Resource();
         timberResource.setType("timber resource");
-        timberResource.setTotalAmount(5);
+        timberResource.setTotalAmount(0);
         timberResource.setLocationAmount(10);
-        timberResource.setNeededAmount(100);
+        timberResource.setNeededAmount(0);
         resources[ResourceType.timber.ordinal()] = timberResource;
 
         // fiberousPlants
@@ -904,15 +904,15 @@ public class GameControl {
         fiberousPlantResource.setType("fiberous plants");
         fiberousPlantResource.setTotalAmount(0);
         fiberousPlantResource.setLocationAmount(3);
-        fiberousPlantResource.setNeededAmount(100);
+        fiberousPlantResource.setNeededAmount(0);
         resources[ResourceType.fiberousPlants.ordinal()] = fiberousPlantResource;
 
         // ore,
         Resource oreResource = new Resource();
         oreResource.setType("ore resource");
-        oreResource.setTotalAmount(6);
+        oreResource.setTotalAmount(0);
         oreResource.setLocationAmount(5);
-        oreResource.setNeededAmount(100);
+        oreResource.setNeededAmount(0);
         resources[ResourceType.ore.ordinal()] = oreResource;
 
         // water,
