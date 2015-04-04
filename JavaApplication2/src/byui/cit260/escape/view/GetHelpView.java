@@ -87,9 +87,9 @@ public class GetHelpView extends View {
     }
 
     private void gameGoal() {
-        this.console.println("The goal of Escape is to test your skill in escaping Jaba Island. "
-                + "You will have to use strategy to gather all the nessecary resources to build a raft and"
-                + "make it safely off the island. ");
+        this.console.println("The goal of Escape is to test your skill in escaping Jaba Island.\n "
+                + "You will have to use strategy to gather all the nessecary resources to build a raft and\n"
+                + "make it safely off the island.\n ");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();
