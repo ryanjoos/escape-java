@@ -14,7 +14,6 @@ import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Resource;
-import byui.cit260.escape.model.ResourceType;
 import escapePackage.Escape;
 import java.awt.Point;
 import java.io.IOException;
@@ -438,16 +437,33 @@ public class GameMenuView extends View {
     private void launchRaft() {
         //get the sorted list of inventory items
         Resource[] inventory = GameControl.getSortedResourceList();
-        int total = 0;
+        Item[] itemInventory = GameControl.getSortedInventoryList();
+        int totalAmountResource = 0;
+        int neededAmountResource = 0;
+        int totalAmountItem = 0;
+        int neededAmountItem = 0;
         //For each inventory resource
         for (Resource inventoryResource : inventory) {
-            total = inventoryResource.getTotalAmount();
+
+            totalAmountResource = inventoryResource.getTotalAmount();
+            neededAmountResource = inventoryResource.getNeededAmount();
         }
-        if (total >= 100) {
-            this.console.println("Congratualtions you won!! You gathered all the resources needed to "
-                    + "\n make it safely home! You are a survival master!");
+        if (totalAmountResource >= neededAmountResource) {
+            this.console.println("Congratualtions! You gathered all the resources needed to "
+                    + "\nmake it safely home! You are a survival master!");
         } else {
             this.console.println("Sorry, you do not have enough resources to make it home. Keep playing the game!");
+        }
+        for (Item inventoryItem : itemInventory) {
+
+            totalAmountItem = (int) inventoryItem.getQuantityInStock();
+            neededAmountItem = (int) inventoryItem.getRequiredAmount();
+        }
+        if (totalAmountItem >= neededAmountItem) {
+            this.console.println("Congratualtions! You gathered all the items needed to "
+                    + "\nmake it safely home! You are a survival master!");
+        } else {
+            this.console.println("Sorry, you do not have the items needed to make it home. Keep playing the game!");
         }
         this.console.println();
         GameMenuView gameMenu = new GameMenuView();
