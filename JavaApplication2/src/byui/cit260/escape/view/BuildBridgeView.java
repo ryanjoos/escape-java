@@ -45,7 +45,7 @@ public class BuildBridgeView extends View {
             this.console.println("\nWhat is the height of the bridge? ");
             height = this.getInput();
 
-            String[] values = new String[2];
+            String[] values = new String[3];
             values[0] = length;
             values[1] = width;
             values[2] = height;
@@ -100,7 +100,7 @@ public class BuildBridgeView extends View {
         // call control function
         double result = 0;
 
-        try {
+        try {            
             result = MapControl.calcBridgeSize(length, width, height);
         } catch (MapControlException me) {
             ErrorView.display(this.getClass().getName(),

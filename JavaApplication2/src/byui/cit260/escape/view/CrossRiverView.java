@@ -92,7 +92,7 @@ public class CrossRiverView extends View {
         Resource[] resource = Escape.getCurrentGame().getResource();
         Item[] item = Escape.getCurrentGame().getItem();
 
-        if (resource[ResourceType.timber.ordinal()].getTotalAmount() >= 0 && item[ItemType.hatchet.ordinal()].getQuantityInStock() >= 0) {
+        if (resource[ResourceType.timber.ordinal()].getTotalAmount() >= 40 && item[ItemType.hatchet.ordinal()].getQuantityInStock() >= 1) {
             String promptMessage = null;
             BuildBridgeView start = new BuildBridgeView(promptMessage);
             start.display();
