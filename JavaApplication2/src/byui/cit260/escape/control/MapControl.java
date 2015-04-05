@@ -129,23 +129,22 @@ public class MapControl {
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
-        Point otherCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        Point otherCoordinates; // = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
         int newRow = newCoordinates.x + 1;
         int newColumn = newCoordinates.y;
         newCoordinates = new Point(newRow, newColumn);
-        otherCoordinates = new Point(newRow+1, newColumn);
+        otherCoordinates = new Point(newRow + 1, newColumn);
 
         Location location = locations[newRow][newColumn];
         String scene = location.getScene().getDescription();
         System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
         if (newRow == 8 && newColumn == 14) {
-            locations[newRow+1][newColumn].getPlayer().setCoorinates(otherCoordinates);
+            locations[newRow + 1][newColumn].getPlayer().setCoorinates(otherCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            locations[newRow+1][newColumn].setVisited(true);
+            locations[newRow + 1][newColumn].setVisited(true);
             ObstacleVolcanoView obstacleVolcanoMenu = new ObstacleVolcanoView();
             obstacleVolcanoMenu.display();
-        }
-        else if (location.getScene().isBlocked() == false) {
+        } else if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
@@ -194,14 +193,23 @@ public class MapControl {
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        Point otherCoordinates;
         int newRow = newCoordinates.x;
         int newColumn = newCoordinates.y - 1;
         newCoordinates = new Point(newRow, newColumn);
+        otherCoordinates = new Point(newRow, newColumn-1);
 
         Location location = locations[newRow][newColumn];
         String scene = location.getScene().getDescription();
         System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
-        if (location.getScene().isBlocked() == false) {
+        if (newRow == 3 && newColumn == 11 || newRow == 5 && newColumn == 10
+                || newRow == 11 && newColumn == 6) {
+            locations[newRow][newColumn-1].getPlayer().setCoorinates(otherCoordinates);
+            locations[newRow][newColumn].setVisited(true);
+            locations[newRow][newColumn-1].setVisited(true);
+            CrossRiverView crossRiverMenu = new CrossRiverView();
+            crossRiverMenu.display();
+        } else if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
@@ -211,10 +219,9 @@ public class MapControl {
                     + " because that location is outside "
                     + "the bounds of the map.");
         //}else if (location.getScene().getSceneType() == SceneType.river) {
-           // CrossRiverView crossRiver = new CrossRiverView();
+            // CrossRiverView crossRiver = new CrossRiverView();
             //crossRiver.display();
- 
-        
+
         } else {
             System.out.println("This location is blocked. Please pick a new location to move to matey or choose another option from the Game Menu! ");
             System.out.println();
@@ -239,19 +246,14 @@ public class MapControl {
 
     public static void moveActorsToStartingLocation(Map map)
             throws MapControlException {
-        
+
         Actor[] actors = Escape.getCurrentGame().getActor();
-        
-        
-        
-        
+
         //Go through the Actor Array and get the information about the various actors in it
-        
-        
         for (Actor actor : actors) {
             Point coordinates = actor.getCoordinates();
             MapControl.moveActorToLocation(actor, coordinates);
-        }  
+        }
     }
 
     // throws MapControlException had to take out because it wasn't working
@@ -401,7 +403,7 @@ public class MapControl {
         System.out.println(resource);
         String resourceType = locations[row][column].getResource().getType();
         int totalAmount = resource.getTotalAmount();
-        
+
         System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
         totalAmount += amount;
         locations[row][column].getResource().setTotalAmount(totalAmount);
