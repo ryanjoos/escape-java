@@ -152,7 +152,7 @@ public class GameControl {
 
         Item spear = new Item();
         spear.setDescription("Spear");
-        spear.setQuantityInStock(0);
+        spear.setQuantityInStock(1);
         spear.setRequiredAmount(1);
         invetory[ItemType.spear.ordinal()] = spear;
 
@@ -264,6 +264,7 @@ public class GameControl {
         locations[16][12].setResource(resources[ResourceType.berries.ordinal()]);
 
         // animal
+        locations[3][17].setResource(resources[ResourceType.meat.ordinal()]);
         locations[6][6].setResource(resources[ResourceType.meat.ordinal()]);
         locations[7][5].setResource(resources[ResourceType.meat.ordinal()]);
         locations[7][7].setResource(resources[ResourceType.meat.ordinal()]);
