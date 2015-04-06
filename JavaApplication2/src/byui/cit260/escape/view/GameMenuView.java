@@ -385,18 +385,54 @@ public class GameMenuView extends View {
     }
 
     private void estimateResources() {
-//        int days = 16;
-//        int totalAmount = 0;
-//        try {
-//            totalAmount = GameControl.getTotalResources(days);
-//        } catch (GameControlException gc) {
-//            ErrorView.display(this.getClass().getName(),
-//                    "\nError: " + gc.getMessage());
-//        }
-//        this.console.println("You will need a total of " + totalAmount + " resources to complete the game");
-//        double estimate =  GameControl.getRequiredAmount(resource, days);
-//        GameMenuView gameMenu = new GameMenuView();
-//        gameMenu.display();
+        Resource[] inventory = GameControl.getSortedResourceList();
+        Item[] itemInventory = GameControl.getSortedInventoryList();
+
+        int totalAmountResource = 0;
+        int neededAmountResource = 0;
+        int totalAmountItem = 0;
+        int neededAmountItem = 0;
+        int estResource = 0;
+        int estItem = 0;
+        String itemDescription;
+        String resourceDescription;
+
+        //For each inventory resource
+        for (Resource inventoryResource : inventory) {
+
+            totalAmountResource = inventoryResource.getTotalAmount();
+            neededAmountResource = inventoryResource.getNeededAmount();
+            resourceDescription = inventoryResource.getType();
+            estResource = neededAmountResource - totalAmountResource;
+            if (estResource < 0) {
+                estResource *= -1;
+                this.console.println("You have over the amount you need by: " + estResource + " for the " + resourceDescription);
+            } else if (estResource == 0) {
+                this.console.println("You have exactly the amount you need for the " + resourceDescription);
+            } else {
+                this.console.println("You still need " + estResource + " for the " + resourceDescription);
+            }
+        }
+        this.console.println();
+        for (Item inventoryItem : itemInventory) {
+
+            totalAmountItem = (int) inventoryItem.getQuantityInStock();
+            neededAmountItem = (int) inventoryItem.getRequiredAmount();
+            itemDescription = inventoryItem.getDescription();
+            estItem = neededAmountItem - totalAmountItem;
+            if (estItem < 0) {
+                estItem *= -1;
+                this.console.println("You have over the amount you need by: " + estItem + " for the " + itemDescription);
+            } else if (estItem == 0) {
+                this.console.println("You have exactly the amount you need for the " + itemDescription);
+            } else {
+                this.console.println("You still need " + estItem + " for the " + itemDescription);
+            }
+        }
+
+        this.console.println();
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void viewResourceStatus() {
@@ -537,7 +573,7 @@ public class GameMenuView extends View {
         } else {
             this.console.println("Sorry, your raft is not complete. Please keep working.");
         }
-        
+
         this.console.println();
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
