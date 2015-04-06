@@ -522,7 +522,7 @@ public class GameMenuView extends View {
             totalAmountItem = (int) inventoryItem.getQuantityInStock();
             neededAmountItem = (int) inventoryItem.getRequiredAmount();
         }
-        if (totalAmountResource >= neededAmountResource && totalAmountItem >= neededAmountItem && amount == 10) {
+        if (totalAmountResource >= neededAmountResource && totalAmountItem >= neededAmountItem && amount >= 10) {
             this.console.println("Congratulations! You have won the game!! ");
             this.console.println("                                ,.        ,.      ,.\n"
                     + "                                ||        ||      ||  ()\n"
@@ -552,7 +552,7 @@ public class GameMenuView extends View {
         } else {
             this.console.println("Sorry, you do not have the items needed to make it home. Keep playing the game!");
         }
-        if (amount == 10) {
+        if (amount >= 10) {
             this.console.println("Congratulations! Your raft is complete as well!!! You have won the game!! ");
             this.console.println("                                ,.        ,.      ,.\n"
                     + "                                ||        ||      ||  ()\n"
