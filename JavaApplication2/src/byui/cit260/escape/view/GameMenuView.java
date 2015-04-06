@@ -8,11 +8,13 @@ package byui.cit260.escape.view;
 import byui.cit260.escape.control.GameControl;
 import byui.cit260.escape.control.ItemControl;
 import byui.cit260.escape.control.MapControl;
+import byui.cit260.escape.control.RaftControl;
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Player;
+import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
 import escapePackage.Escape;
 import java.awt.Point;
@@ -277,7 +279,15 @@ public class GameMenuView extends View {
     }
 
     private void viewRaftStatus() {
-        this.console.println("\n*** view raft status ***");
+        Raft raft = Escape.getCurrentGame().getRaft();
+        double amount = raft.getRaftStatus();
+        double raftStatus = RaftControl.calcRaftStatus(amount);
+        if (raftStatus < 100) {
+            this.console.println("You have completed " + raftStatus + "% of the raft");
+        } else {
+            this.console.println("You have completed " + raftStatus + "% of the raft. "
+                    + "Congratulations! It is complete. You are on your way to leaving the island.");
+        }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -297,10 +307,9 @@ public class GameMenuView extends View {
         Resource resource = locations[row][column].getResource();
         String resourceType = locations[row][column].getResource().getType();
         int totalAmount = resource.getTotalAmount();
-        
+
 //            if (locations[row][column].getPlayer().getCoordinates() == actor.getStartingPoint())
 //            this.console.println(actor.getDescription());
-        
         System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
         totalAmount += amount;
         locations[row][column].getResource().setTotalAmount(totalAmount);
@@ -391,10 +400,8 @@ public class GameMenuView extends View {
     }
 
     private void viewResourceStatus() {
-//        GameControl.getResourceList();
-//        MainMenuView mainMenu = new MainMenuView();
-//        // display the game menu
-//        mainMenu.display();
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void designBarrels() {
@@ -447,9 +454,43 @@ public class GameMenuView extends View {
     }
 
     private void workOnRaft() {
-        String promptMessage = null;
-        RaftView volume = new RaftView(promptMessage);
-        volume.display();
+        Raft raft = Escape.getCurrentGame().getRaft();
+        Point coordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        int row = coordinates.x;
+        int column = coordinates.y;
+        double volume = raft.getVolume();
+        double raftStatus = raft.getRaftStatus();
+
+        if (row == 3 && column == 8) {
+            if (raftStatus == 0) {
+                String promptMessage = null;
+                RaftView theRaft = new RaftView(promptMessage);
+                theRaft.display();
+            } else {
+                if (volume <= 150) {
+                    RaftControl.buildRaftOne();
+                    this.console.println(
+                            "The volume of your specified raft will be " + volume + " cubic feet, "
+                            + "and it will only fit one person.");
+                }
+                if (volume < 180 && volume >= 150) {
+                    this.console.println(
+                            "The volume of your specified raft will be " + volume + " cubic feet and can"
+                            + " fit two people.");
+                    RaftControl.buildRaftTwo();
+
+                }
+                if (volume == 180) {
+                    this.console.println(
+                            "The volume of your specified raft will be " + volume + " cubic feet and can"
+                            + " fit three people.");
+                    RaftControl.buildRaftThree();
+                }
+            }
+        } else {
+            this.console.println("You are not in the finish location to build the raft. View the map to find the 'FN' symbol and go there.");
+        }
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -464,6 +505,8 @@ public class GameMenuView extends View {
         //get the sorted list of inventory items
         Resource[] inventory = GameControl.getSortedResourceList();
         Item[] itemInventory = GameControl.getSortedInventoryList();
+        Raft raft = Escape.getCurrentGame().getRaft();
+        double amount = raft.getRaftStatus();
         int totalAmountResource = 0;
         int neededAmountResource = 0;
         int totalAmountItem = 0;
@@ -474,23 +517,27 @@ public class GameMenuView extends View {
             totalAmountResource = inventoryResource.getTotalAmount();
             neededAmountResource = inventoryResource.getNeededAmount();
         }
-        if (totalAmountResource >= neededAmountResource) {
-            this.console.println("Congratualtions! You gathered all the resources needed to "
-                    + "\nmake it safely home! You are a survival master!");
-        } else {
-            this.console.println("Sorry, you do not have enough resources to make it home. Keep playing the game!");
-        }
         for (Item inventoryItem : itemInventory) {
 
             totalAmountItem = (int) inventoryItem.getQuantityInStock();
             neededAmountItem = (int) inventoryItem.getRequiredAmount();
         }
-        if (totalAmountItem >= neededAmountItem) {
-            this.console.println("Congratualtions! You gathered all the items needed to "
-                    + "\nmake it safely home! You are a survival master!");
+        if (totalAmountResource >= neededAmountResource && totalAmountItem >= neededAmountItem && amount >= 10) {
+            this.console.println("Congratulations! You have won the game!! ");
+            this.console.println("                                ,.        ,.      ,.\n"
+                    + "                                ||        ||      ||  ()\n"
+                    + " ,--. ,-. ,.,-.  ,--.,.,-. ,-.  ||-.,.  ,.|| ,-.  ||-.,. ,-. ,.,-.  ,--.\n"
+                    + "//`-'//-\\\\||/|| //-||||/`'//-\\\\ ||-'||  ||||//-\\\\ ||-'||//-\\\\||/|| ((`-'\n"
+                    + "||   || |||| ||||  ||||   || || ||  || /|||||| || ||  |||| |||| ||  ``.\n"
+                    + "\\\\,-.\\\\-//|| || \\\\-||||   \\\\-|| ||  ||//||||\\\\-|| ||  ||\\\\-//|| || ,-.))\n"
+                    + " `--' `-' `' `'  `-,|`'    `-^-``'  `-' `'`' `-^-``'  `' `-' `' `' `--'\n"
+                    + "                  //          \n"
+                    + "              ,-.//          \n"
+                    + "              `--'    ");
         } else {
-            this.console.println("Sorry, you do not have the items needed to make it home. Keep playing the game!");
+            this.console.println("Sorry, your raft is not complete. Please keep working.");
         }
+        
         this.console.println();
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();

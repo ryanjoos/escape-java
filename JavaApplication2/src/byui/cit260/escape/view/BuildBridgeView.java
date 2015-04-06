@@ -12,9 +12,9 @@ import byui.cit260.escape.exceptions.MapControlException;
  *
  * @author ryanjoos
  */
-public class BuildBridgeView extends View{
+public class BuildBridgeView extends View {
 
-     public BuildBridgeView(String promptMessage) {
+    public BuildBridgeView(String promptMessage) {
         super("We need to build a bridge to cross the river.");
     }
 
@@ -36,16 +36,16 @@ public class BuildBridgeView extends View{
 
             this.console.println(this.getPromptMessage()); // display main menu
 
-            this.console.println("\nHWhat is the length of the bridge? ");
+            this.console.println("\nWhat is the length of the bridge? ");
             length = this.getInput();
 
             this.console.println("\nWhat is the width of the bridge? ");
             width = this.getInput();
-            
-            this.console.println("\nWhat is the height of the bridge? ");
-            height = this.getInput();            
 
-            String[] values = new String[2];
+            this.console.println("\nWhat is the height of the bridge? ");
+            height = this.getInput();
+
+            String[] values = new String[3];
             values[0] = length;
             values[1] = width;
             values[2] = height;
@@ -65,19 +65,19 @@ public class BuildBridgeView extends View{
             length = Double.parseDouble(bridgeValues[0]);
         } catch (NumberFormatException nf) {
             ErrorView.display(this.getClass().getName(),
-            "\nYou must enter a valid number." + "Try again or enter Q to quit");
+                    "\nYou must enter a valid number." + "Try again or enter Q to quit");
         }
         try {
             width = Double.parseDouble(bridgeValues[1]);
         } catch (NumberFormatException nf) {
             ErrorView.display(this.getClass().getName(),
-            "\nYou must enter a valid number." + "Try again or enter Q to quit");
+                    "\nYou must enter a valid number." + "Try again or enter Q to quit");
         }
-          try {
+        try {
             height = Double.parseDouble(bridgeValues[2]);
         } catch (NumberFormatException nf) {
             ErrorView.display(this.getClass().getName(),
-            "\nYou must enter a valid number." + "Try again or enter Q to quit");
+                    "\nYou must enter a valid number." + "Try again or enter Q to quit");
         }
 
         if (length
@@ -100,11 +100,11 @@ public class BuildBridgeView extends View{
         // call control function
         double result = 0;
 
-        try {
+        try {            
             result = MapControl.calcBridgeSize(length, width, height);
         } catch (MapControlException me) {
             ErrorView.display(this.getClass().getName(),
-            "\nYou must enter a valid number." + "Try again or enter Q to quit" + me.getMessage());
+                    "\nYou must enter a valid number." + "Try again or enter Q to quit" + me.getMessage());
         }
 //display output output result
 
@@ -112,9 +112,8 @@ public class BuildBridgeView extends View{
                 "You can now access the locations on the other side of the river.");
 
         // call main menu
-        MainMenuView mainMenu = new MainMenuView();
-
-        mainMenu.display();
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
 
         return true;
     }

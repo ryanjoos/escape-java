@@ -8,9 +8,12 @@ package byui.cit260.escape.control;
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
+import byui.cit260.escape.model.Item;
+import byui.cit260.escape.model.ItemType;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
+import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
@@ -129,23 +132,22 @@ public class MapControl {
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
-        Point otherCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        Point otherCoordinates; // = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
         int newRow = newCoordinates.x + 1;
         int newColumn = newCoordinates.y;
         newCoordinates = new Point(newRow, newColumn);
-        otherCoordinates = new Point(newRow+1, newColumn);
+        otherCoordinates = new Point(newRow + 1, newColumn);
 
         Location location = locations[newRow][newColumn];
         String scene = location.getScene().getDescription();
         System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
         if (newRow == 8 && newColumn == 14) {
-            locations[newRow+1][newColumn].getPlayer().setCoorinates(otherCoordinates);
+            locations[newRow + 1][newColumn].getPlayer().setCoorinates(otherCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            locations[newRow+1][newColumn].setVisited(true);
+            locations[newRow + 1][newColumn].setVisited(true);
             ObstacleVolcanoView obstacleVolcanoMenu = new ObstacleVolcanoView();
             obstacleVolcanoMenu.display();
-        }
-        else if (location.getScene().isBlocked() == false) {
+        } else if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
@@ -194,14 +196,23 @@ public class MapControl {
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        Point otherCoordinates;
         int newRow = newCoordinates.x;
         int newColumn = newCoordinates.y - 1;
         newCoordinates = new Point(newRow, newColumn);
+        otherCoordinates = new Point(newRow, newColumn - 1);
 
         Location location = locations[newRow][newColumn];
         String scene = location.getScene().getDescription();
         System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
-        if (location.getScene().isBlocked() == false) {
+        if (newRow == 3 && newColumn == 11 || newRow == 5 && newColumn == 10
+                || newRow == 11 && newColumn == 6) {
+            locations[newRow][newColumn - 1].getPlayer().setCoorinates(otherCoordinates);
+            locations[newRow][newColumn].setVisited(true);
+            locations[newRow][newColumn - 1].setVisited(true);
+            CrossRiverView crossRiverMenu = new CrossRiverView();
+            crossRiverMenu.display();
+        } else if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
@@ -210,11 +221,10 @@ public class MapControl {
                     + coordinates.x + ", " + coordinates.y
                     + " because that location is outside "
                     + "the bounds of the map.");
-        //}else if (location.getScene().getSceneType() == SceneType.river) {
-           // CrossRiverView crossRiver = new CrossRiverView();
+            //}else if (location.getScene().getSceneType() == SceneType.river) {
+            // CrossRiverView crossRiver = new CrossRiverView();
             //crossRiver.display();
- 
-        
+
         } else {
             System.out.println("This location is blocked. Please pick a new location to move to matey or choose another option from the Game Menu! ");
             System.out.println();
@@ -239,19 +249,14 @@ public class MapControl {
 
     public static void moveActorsToStartingLocation(Map map)
             throws MapControlException {
-        
+
         Actor[] actors = Escape.getCurrentGame().getActor();
-        
-        
-        
-        
+
         //Go through the Actor Array and get the information about the various actors in it
-        
-        
         for (Actor actor : actors) {
             Point coordinates = actor.getCoordinates();
             MapControl.moveActorToLocation(actor, coordinates);
-        }  
+        }
     }
 
     // throws MapControlException had to take out because it wasn't working
@@ -401,13 +406,61 @@ public class MapControl {
         System.out.println(resource);
         String resourceType = locations[row][column].getResource().getType();
         int totalAmount = resource.getTotalAmount();
-        
-        System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
-        totalAmount += amount;
-        locations[row][column].getResource().setTotalAmount(totalAmount);
-        resource.setTotalAmount(totalAmount);
 
-        System.out.println(resourceType + " amount at the location(" + row + ", " + column + ") is " + amount + ".");
-        System.out.println("After harvesting the " + resourceType + " you now have a total of " + totalAmount + ".");
+        if (resourceType == "meat") {
+            MapControl.huntMeat();
+        } else {
+            System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
+            totalAmount += amount;
+            locations[row][column].getResource().setTotalAmount(totalAmount);
+            resource.setTotalAmount(totalAmount);
+
+            System.out.println(resourceType + " amount at the location(" + row + ", " + column + ") is " + amount + ".");
+            System.out.println("After harvesting the " + resourceType + " you now have a total of " + totalAmount + ".");
+        }
+    }
+
+    private static void huntMeat() {
+
+        //Resource[] resources = Escape.getCurrentGame().getResource();
+        Item[] item = Escape.getCurrentGame().getItem();
+        Point coordinates;
+        Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
+        coordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        int row = coordinates.x;
+        int column = coordinates.y;
+        int amount = locations[row][column].getResource().getLocationAmount();
+        Resource resource = locations[row][column].getResource();
+        System.out.println(resource);
+        String resourceType = locations[row][column].getResource().getType();
+        int totalAmount = resource.getTotalAmount();
+
+        if (item[ItemType.spear.ordinal()].getQuantityInStock() >= 1) {
+            System.out.println("You have come across a wild boar. You have hunted the boar with your spear and now have meat"
+                    + " in your resources. ");
+            System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
+            totalAmount += amount;
+            locations[row][column].getResource().setTotalAmount(totalAmount);
+            resource.setTotalAmount(totalAmount);
+
+            System.out.println(resourceType + " amount at the location(" + row + ", " + column + ") is " + amount + ".");
+            System.out.println("After harvesting the " + resourceType + " you now have a total of " + totalAmount + ".");
+        } else {
+            System.out.println("You cannot hunt a wild boar with out a spear. Collect more timber and ore to be able to"
+                    + " get meat.");
+        }
+    }
+
+    public static Raft createRaft() {
+        Raft raft = new Raft();
+
+        raft.setRaftStatus(0);
+        raft.setDescription("\nThis is your raft to get off the island.");
+        raft.setWidth(0);
+        raft.setLength(0);
+        raft.setHeight(0);
+        raft.setVolume(0);
+        
+        return raft;
     }
 }

@@ -20,6 +20,7 @@ public class Raft implements Serializable{
     private double width;
     private double length;
     private double height;
+    private double volume;
     
 
     public Raft() {
@@ -29,6 +30,7 @@ public class Raft implements Serializable{
         this.length = 0;
         this.height = 0;
         this.raftStatus = 0;
+        this.volume = 0;
     }
 
     
@@ -48,6 +50,38 @@ public class Raft implements Serializable{
         this.description = description;
     }
 
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    public double getVolume() {
+        return volume;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+    
     @Override
     public String toString() {
         return "Raft{" + "raftStatus=" + raftStatus + ", description=" + description + '}';

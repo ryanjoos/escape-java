@@ -5,6 +5,12 @@
  */
 package byui.cit260.escape.view;
 
+import byui.cit260.escape.model.Item;
+import byui.cit260.escape.model.ItemType;
+import byui.cit260.escape.model.Resource;
+import byui.cit260.escape.model.ResourceType;
+import escapePackage.Escape;
+
 /**
  *
  * @author ryanjoos
@@ -72,18 +78,35 @@ public class CrossRiverView extends View {
     }
 
     private void checkResources() {
-        this.console.println("Looks Good, Go ahead and Build the Bridge");
+        Resource[] resource = Escape.getCurrentGame().getResource();
+        Item[] item = Escape.getCurrentGame().getItem();
+
+        if (resource[ResourceType.timber.ordinal()].getTotalAmount() >= 40 && item[ItemType.hatchet.ordinal()].getQuantityInStock() >= 1) {
+            this.console.println("You have enough resources to build a bridge.");
+        } else {
+            this.console.println("Sorry, you don't have enough resource. Keep collecting timber and/or make a hatchet.");
+        }
     }
 
     private void buildBridge() {
-        String promptMessage = null;
-        BuildBridgeView start = new BuildBridgeView(promptMessage);
-        start.display();
+        Resource[] resource = Escape.getCurrentGame().getResource();
+        Item[] item = Escape.getCurrentGame().getItem();
+
+        if (resource[ResourceType.timber.ordinal()].getTotalAmount() >= 40 && item[ItemType.hatchet.ordinal()].getQuantityInStock() >= 1) {
+            int numTimber = resource[ResourceType.timber.ordinal()].getTotalAmount();
+            numTimber -= 40;
+            resource[ResourceType.timber.ordinal()].setTotalAmount(numTimber);
+            String promptMessage = null;
+            BuildBridgeView start = new BuildBridgeView(promptMessage);
+            start.display();
+        } else {
+            this.console.println("Sorry, you don't have enough resource. Keep collecting timber and/or make a hatchet.");
+        }
     }
 
     private void leave() {
-        MainMenuView mainMenu = new MainMenuView();
+        GameMenuView gameMenu = new GameMenuView();
 
-        mainMenu.display();
+        gameMenu.display();
     }
 }

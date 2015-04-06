@@ -59,7 +59,7 @@ public class GameControl {
         game.setResource(resourceList);
 
         // create raft
-        Raft raft = new Raft();
+        Raft raft = MapControl.createRaft();
 
         // save raft
         game.setRaft(raft);
@@ -140,31 +140,31 @@ public class GameControl {
 
         Item hammer = new Item();
         hammer.setDescription("Hammer");
-        hammer.setQuantityInStock(0);
+        hammer.setQuantityInStock(1);
         hammer.setRequiredAmount(1);
         invetory[ItemType.hammer.ordinal()] = hammer;
 
         Item hatchet = new Item();
         hatchet.setDescription("Hatchet");
-        hatchet.setQuantityInStock(0);
+        hatchet.setQuantityInStock(1);
         hatchet.setRequiredAmount(1);
         invetory[ItemType.hatchet.ordinal()] = hatchet;
 
         Item spear = new Item();
         spear.setDescription("Spear");
-        spear.setQuantityInStock(0);
+        spear.setQuantityInStock(1);
         spear.setRequiredAmount(1);
         invetory[ItemType.spear.ordinal()] = spear;
 
         Item rope = new Item();
         rope.setDescription("Rope");
-        rope.setQuantityInStock(0);
+        rope.setQuantityInStock(5);
         rope.setRequiredAmount(5);
         invetory[ItemType.rope.ordinal()] = rope;
 
         Item barrell = new Item();
         barrell.setDescription("Barrell");
-        barrell.setQuantityInStock(0);
+        barrell.setQuantityInStock(3);
         barrell.setRequiredAmount(3);
         invetory[ItemType.barrell.ordinal()] = barrell;
 
@@ -264,6 +264,7 @@ public class GameControl {
         locations[16][12].setResource(resources[ResourceType.berries.ordinal()]);
 
         // animal
+        locations[3][17].setResource(resources[ResourceType.meat.ordinal()]);
         locations[6][6].setResource(resources[ResourceType.meat.ordinal()]);
         locations[7][5].setResource(resources[ResourceType.meat.ordinal()]);
         locations[7][7].setResource(resources[ResourceType.meat.ordinal()]);
@@ -884,7 +885,7 @@ public class GameControl {
         // grain,
         Resource grainResource = new Resource();
         grainResource.setType("grain resource");
-        grainResource.setTotalAmount(0);
+        grainResource.setTotalAmount(500);
         grainResource.setLocationAmount(5);
         grainResource.setNeededAmount(100);
         resources[ResourceType.grain.ordinal()] = grainResource;
@@ -892,7 +893,7 @@ public class GameControl {
         // timber,
         Resource timberResource = new Resource();
         timberResource.setType("timber resource");
-        timberResource.setTotalAmount(0);
+        timberResource.setTotalAmount(500);
         timberResource.setLocationAmount(10);
         timberResource.setNeededAmount(0);
         resources[ResourceType.timber.ordinal()] = timberResource;
@@ -900,7 +901,7 @@ public class GameControl {
         // fiberousPlants
         Resource fiberousPlantResource = new Resource();
         fiberousPlantResource.setType("fiberous plants");
-        fiberousPlantResource.setTotalAmount(0);
+        fiberousPlantResource.setTotalAmount(500);
         fiberousPlantResource.setLocationAmount(3);
         fiberousPlantResource.setNeededAmount(0);
         resources[ResourceType.fiberousPlants.ordinal()] = fiberousPlantResource;
@@ -908,7 +909,7 @@ public class GameControl {
         // ore,
         Resource oreResource = new Resource();
         oreResource.setType("ore resource");
-        oreResource.setTotalAmount(0);
+        oreResource.setTotalAmount(500);
         oreResource.setLocationAmount(5);
         oreResource.setNeededAmount(0);
         resources[ResourceType.ore.ordinal()] = oreResource;
@@ -916,7 +917,7 @@ public class GameControl {
         // water,
         Resource waterResource = new Resource();
         waterResource.setType("water resource");
-        waterResource.setTotalAmount(0);
+        waterResource.setTotalAmount(500);
         waterResource.setLocationAmount(5);
         waterResource.setNeededAmount(100);
         resources[ResourceType.water.ordinal()] = waterResource;
@@ -924,7 +925,7 @@ public class GameControl {
         // berries
         Resource berriesResource = new Resource();
         berriesResource.setType("berry resource");
-        berriesResource.setTotalAmount(0);
+        berriesResource.setTotalAmount(500);
         berriesResource.setLocationAmount(5);
         berriesResource.setNeededAmount(100);
         resources[ResourceType.berries.ordinal()] = berriesResource;
@@ -932,7 +933,7 @@ public class GameControl {
         // meat
         Resource meatResource = new Resource();
         meatResource.setType("meat resource");
-        meatResource.setTotalAmount(0);
+        meatResource.setTotalAmount(500);
         meatResource.setLocationAmount(5);
         meatResource.setNeededAmount(100);
         resources[ResourceType.meat.ordinal()] = meatResource;
@@ -940,7 +941,7 @@ public class GameControl {
         // nothing
         Resource nothingResource = new Resource();
         nothingResource.setType("no resource");
-        nothingResource.setTotalAmount(0);
+        nothingResource.setTotalAmount(100);
         nothingResource.setLocationAmount(0);
         nothingResource.setNeededAmount(0);
         resources[ResourceType.nothing.ordinal()] = nothingResource;
