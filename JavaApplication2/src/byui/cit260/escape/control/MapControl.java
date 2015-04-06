@@ -459,6 +459,7 @@ public class MapControl {
         raft.setWidth(0);
         raft.setLength(0);
         raft.setHeight(0);
+        raft.setVolume(0);
         
         return raft;
     }

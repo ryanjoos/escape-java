@@ -7,6 +7,8 @@ package byui.cit260.escape.view;
 
 import byui.cit260.escape.control.RaftControl;
 import byui.cit260.escape.exceptions.RaftControlException;
+import byui.cit260.escape.model.Raft;
+import escapePackage.Escape;
 
 /**
  *
@@ -101,32 +103,15 @@ public class RaftView extends View {
 
         // call control function
         double volume = 0;
+        Raft raft = Escape.getCurrentGame().getRaft();
 
         try {
             volume = RaftControl.calcRaftSize(length, width, height);
+            raft.setVolume(volume);
         } catch (RaftControlException re) {
             ErrorView.display(this.getClass().getName(), "Error reading input: " + re.getMessage());
         }
 //display output output result
-        if (volume <= 150) {
-            RaftControl.buildRaftOne();
-            this.console.println(
-                    "The volume of your specified raft will be " + volume + " cubic feet, "
-                    + "and it will only fit one person.");
-        }
-        if (volume < 180 && volume >= 150) {
-            this.console.println(
-                    "The volume of your specified raft will be " + volume + " cubic feet and can"
-                    + " fit two people.");
-            RaftControl.buildRaftTwo();
-
-        }
-        if (volume == 180) {
-            this.console.println(
-                    "The volume of your specified raft will be " + volume + " cubic feet and can"
-                    + " fit three people.");
-            RaftControl.buildRaftThree();
-        }
 
         return true;
     }
