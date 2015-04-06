@@ -465,7 +465,8 @@ public class GameMenuView extends View {
     }
 
     private void deliverResource() {
-        this.console.println("\n*** deliver resource ***");
+        this.console.println("To deliver the resource, go to the finish location on the map (3, 8) then "
+                + "choose option 'P' to pack the raft. ");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
