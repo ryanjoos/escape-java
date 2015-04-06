@@ -114,7 +114,7 @@ public class GameControl {
 
         Actor kale = new Actor();
         kale.setActor(ActorEnum.Kale);
-        kale.setDescription("Kale, is a wild woman");
+        kale.setDescription("Kale, is a man");
         kale.setStartingPoint(new Point(3, 17));
         list[ActorEnum.Kale.ordinal()] = kale;
 
