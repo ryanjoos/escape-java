@@ -97,12 +97,6 @@ public class GameMenuView extends View {
             case 'E':
                 this.estimateResources();
                 break;
-            case 'O':
-                this.viewResourceStatus();
-                break;
-            case 'B':
-                this.designBarrels();
-                break;
             case 'C':
                 this.constructTools();
                 break;
@@ -388,12 +382,12 @@ public class GameMenuView extends View {
         Resource[] inventory = GameControl.getSortedResourceList();
         Item[] itemInventory = GameControl.getSortedInventoryList();
 
-        int totalAmountResource = 0;
-        int neededAmountResource = 0;
-        int totalAmountItem = 0;
-        int neededAmountItem = 0;
-        int estResource = 0;
-        int estItem = 0;
+        int totalAmountResource;
+        int neededAmountResource;
+        int totalAmountItem;
+        int neededAmountItem;
+        int estResource;
+        int estItem;
         String itemDescription;
         String resourceDescription;
 
@@ -431,17 +425,6 @@ public class GameMenuView extends View {
         }
 
         this.console.println();
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
-    }
-
-    private void viewResourceStatus() {
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
-    }
-
-    private void designBarrels() {
-        this.console.println("\n*** design barrels ***");
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
