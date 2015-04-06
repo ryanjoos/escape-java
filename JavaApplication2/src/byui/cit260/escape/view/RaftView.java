@@ -12,9 +12,9 @@ import byui.cit260.escape.exceptions.RaftControlException;
  *
  * @author Carissa
  */
-public class RaftView extends View{
-    
- public RaftView(String promptMessage) {
+public class RaftView extends View {
+
+    public RaftView(String promptMessage) {
         super("Determine how big to build the raft......");
     }
 
@@ -31,7 +31,7 @@ public class RaftView extends View{
         String value1;
         String value2;
         String value3;
-        
+
         boolean result;
 
         do {
@@ -43,10 +43,10 @@ public class RaftView extends View{
 
             this.console.println("\nWhat width would you like your raft to be:  ");
             value2 = this.getInput();
-            
+
             this.console.println("\nWhat height would you like your raft to be: ");
             value3 = this.getInput();
-            
+
             String[] values = new String[3];
             values[0] = value1;
             values[1] = value2;
@@ -63,7 +63,7 @@ public class RaftView extends View{
         double length = 0;
         double width = 0;
         double height = 0;
-        
+
         try {
             length = Double.parseDouble(inputValues[0]);
         } catch (NumberFormatException nf) {
@@ -76,7 +76,7 @@ public class RaftView extends View{
             ErrorView.display(this.getClass().getName(), "\nYou must enter a valid number."
                     + "Try again or enter Q to quit");
         }
-        
+
         try {
             height = Double.parseDouble(inputValues[2]);
         } catch (NumberFormatException nf) {
@@ -98,24 +98,35 @@ public class RaftView extends View{
             ErrorView.display(this.getClass().getName(), "Please enter the height you wish to build your raft: ");
             return false;
         }
-        
+
         // call control function
-        double result = 0;
+        double volume = 0;
 
         try {
-            result = RaftControl.calcRaftSize(length, width, height);
+            volume = RaftControl.calcRaftSize(length, width, height);
         } catch (RaftControlException re) {
-            ErrorView.display(this.getClass().getName(), "Error reading input: " + re.getMessage());     
+            ErrorView.display(this.getClass().getName(), "Error reading input: " + re.getMessage());
         }
 //display output output result
+        if (volume <= 150) {
+            RaftControl.buildRaftOne();
+            this.console.println(
+                    "The volume of your specified raft will be " + volume + " cubic feet, "
+                    + "and it will only fit one person.");
+        }
+        if (volume < 180 && volume >= 150) {
+            this.console.println(
+                    "The volume of your specified raft will be " + volume + " cubic feet and can"
+                    + " fit two people.");
+            RaftControl.buildRaftTwo();
 
-        this.console.println(
-                "The volume of your specified raft will be " + result + " cubic feet");
-
-        // call main menu
-        MainMenuView mainMenu = new MainMenuView();
-
-        mainMenu.display();
+        }
+        if (volume == 180) {
+            this.console.println(
+                    "The volume of your specified raft will be " + volume + " cubic feet and can"
+                    + " fit three people.");
+            RaftControl.buildRaftThree();
+        }
 
         return true;
     }

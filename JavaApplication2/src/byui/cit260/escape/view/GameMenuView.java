@@ -8,11 +8,14 @@ package byui.cit260.escape.view;
 import byui.cit260.escape.control.GameControl;
 import byui.cit260.escape.control.ItemControl;
 import byui.cit260.escape.control.MapControl;
+import byui.cit260.escape.control.RaftControl;
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
+import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
+import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
 import escapePackage.Escape;
 import java.awt.Point;
@@ -277,7 +280,10 @@ public class GameMenuView extends View {
     }
 
     private void viewRaftStatus() {
-        this.console.println("\n*** view raft status ***");
+        Raft raft = Escape.getCurrentGame().getRaft();
+        double amount = raft.getRaftStatus();
+        double raftStatus = RaftControl.calcRaftStatus(amount);
+        this.console.println(raftStatus);
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -297,10 +303,9 @@ public class GameMenuView extends View {
         Resource resource = locations[row][column].getResource();
         String resourceType = locations[row][column].getResource().getType();
         int totalAmount = resource.getTotalAmount();
-        
+
 //            if (locations[row][column].getPlayer().getCoordinates() == actor.getStartingPoint())
 //            this.console.println(actor.getDescription());
-        
         System.out.println("You current total amount for " + resourceType + " is " + totalAmount + ".");
         totalAmount += amount;
         locations[row][column].getResource().setTotalAmount(totalAmount);
@@ -390,11 +395,9 @@ public class GameMenuView extends View {
 //        gameMenu.display();
     }
 
-    private void viewResourceStatus() {
-//        GameControl.getResourceList();
-//        MainMenuView mainMenu = new MainMenuView();
-//        // display the game menu
-//        mainMenu.display();
+    private void viewResourceStatus() {        
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void designBarrels() {
@@ -447,9 +450,18 @@ public class GameMenuView extends View {
     }
 
     private void workOnRaft() {
-        String promptMessage = null;
-        RaftView volume = new RaftView(promptMessage);
-        volume.display();
+        Point coordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        int row = coordinates.x;
+        int column = coordinates.y;
+
+        if (row == 3 && column == 8) {
+            String promptMessage = null;
+            RaftView volume = new RaftView(promptMessage);
+            volume.display();
+        } else {
+            this.console.println("You are not in the finish location to build the raft. View the map to find the 'FN' symbol and go there.");
+        }
+
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

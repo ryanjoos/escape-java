@@ -13,6 +13,7 @@ import byui.cit260.escape.model.ItemType;
 import byui.cit260.escape.model.Location;
 import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
+import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
@@ -448,6 +449,17 @@ public class MapControl {
             System.out.println("You cannot hunt a wild boar with out a spear. Collect more timber and ore to be able to"
                     + " get meat.");
         }
+    }
 
+    public static Raft createRaft() {
+        Raft raft = new Raft();
+
+        raft.setRaftStatus(0);
+        raft.setDescription("\nThis is your raft to get off the island.");
+        raft.setWidth(0);
+        raft.setLength(0);
+        raft.setHeight(0);
+        
+        return raft;
     }
 }

@@ -48,6 +48,31 @@ public class Raft implements Serializable{
         this.description = description;
     }
 
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
+    }
+
+    
     @Override
     public String toString() {
         return "Raft{" + "raftStatus=" + raftStatus + ", description=" + description + '}';
