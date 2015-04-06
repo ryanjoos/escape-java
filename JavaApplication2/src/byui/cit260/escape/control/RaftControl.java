@@ -123,15 +123,25 @@ public class RaftControl {
 
         if (amount < 1) {
             return raftStatus;
-        } else if (amount <= 10 && amount > 0) {
+        } else if (amount == 1) {
+            raftStatus = .10;
+        } else if (amount == 2) {
             raftStatus = .20;
-        } else if (amount <= 20 && amount > 10) {
+        } else if (amount == 3) {
+            raftStatus = .30;
+        } else if (amount == 4) {
             raftStatus = .40;
-        } else if (amount <= 30 && amount > 20) {
+        } else if (amount == 5) {
+            raftStatus = .50;
+        } else if (amount == 6) {
             raftStatus = .60;
-        } else if (amount <= 40 && amount > 30) {
+        } else if (amount == 7) {
+            raftStatus = .70;
+        } else if (amount == 8) {
             raftStatus = .80;
-        } else if (amount <= 50 && amount > 40) {
+        } else if (amount == 9) {
+            raftStatus = .90;
+        } else if (amount == 10) {
             raftStatus = 1.0;
         }
         raftStatus *= 100;

@@ -13,7 +13,6 @@ import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.Location;
-import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
@@ -455,29 +454,33 @@ public class GameMenuView extends View {
         int row = coordinates.x;
         int column = coordinates.y;
         double volume = raft.getVolume();
+        double raftStatus = raft.getRaftStatus();
 
         if (row == 3 && column == 8) {
-            String promptMessage = null;
-            RaftView theRaft = new RaftView(promptMessage);
-            theRaft.display();
-            if (volume <= 150) {
-                RaftControl.buildRaftOne();
-                this.console.println(
-                        "The volume of your specified raft will be " + volume + " cubic feet, "
-                        + "and it will only fit one person.");
-            }
-            if (volume < 180 && volume >= 150) {
-                this.console.println(
-                        "The volume of your specified raft will be " + volume + " cubic feet and can"
-                        + " fit two people.");
-                RaftControl.buildRaftTwo();
+            if (raftStatus == 0) {
+                String promptMessage = null;
+                RaftView theRaft = new RaftView(promptMessage);
+                theRaft.display();
+            } else {
+                if (volume <= 150) {
+                    RaftControl.buildRaftOne();
+                    this.console.println(
+                            "The volume of your specified raft will be " + volume + " cubic feet, "
+                            + "and it will only fit one person.");
+                }
+                if (volume < 180 && volume >= 150) {
+                    this.console.println(
+                            "The volume of your specified raft will be " + volume + " cubic feet and can"
+                            + " fit two people.");
+                    RaftControl.buildRaftTwo();
 
-            }
-            if (volume == 180) {
-                this.console.println(
-                        "The volume of your specified raft will be " + volume + " cubic feet and can"
-                        + " fit three people.");
-                RaftControl.buildRaftThree();
+                }
+                if (volume == 180) {
+                    this.console.println(
+                            "The volume of your specified raft will be " + volume + " cubic feet and can"
+                            + " fit three people.");
+                    RaftControl.buildRaftThree();
+                }
             }
         } else {
             this.console.println("You are not in the finish location to build the raft. View the map to find the 'FN' symbol and go there.");

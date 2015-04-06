@@ -112,7 +112,25 @@ public class RaftView extends View {
             ErrorView.display(this.getClass().getName(), "Error reading input: " + re.getMessage());
         }
 //display output output result
+        if (volume <= 150) {
+            RaftControl.buildRaftOne();
+            this.console.println(
+                    "The volume of your specified raft will be " + volume + " cubic feet, "
+                    + "and it will only fit one person.");
+        }
+        if (volume < 180 && volume >= 150) {
+            this.console.println(
+                    "The volume of your specified raft will be " + volume + " cubic feet and can"
+                    + " fit two people.");
+            RaftControl.buildRaftTwo();
 
+        }
+        if (volume == 180) {
+            this.console.println(
+                    "The volume of your specified raft will be " + volume + " cubic feet and can"
+                    + " fit three people.");
+            RaftControl.buildRaftThree();
+        }
         return true;
     }
 }
