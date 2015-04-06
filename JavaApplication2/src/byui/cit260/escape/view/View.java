@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 public abstract class View implements ViewInterface {
 
     private String promptMessage;
-    
+
     protected final BufferedReader keyboard = Escape.getInFile();
     protected final PrintWriter console = Escape.getOutFile();
 
@@ -72,7 +72,7 @@ public abstract class View implements ViewInterface {
         }
         return selection;
     }
-    
+
     public String getPromptMessage() {
         return promptMessage;
     }
@@ -80,5 +80,5 @@ public abstract class View implements ViewInterface {
     public void setPromptMessage(String message) {
         this.promptMessage = message;
     }
-    
+
 }

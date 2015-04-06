@@ -12,7 +12,7 @@ import java.io.IOException;
  *
  * @author ryanjoos
  */
-public class SaveGameView extends View{
+public class SaveGameView extends View {
 
     public SaveGameView() {
         super("Saving the game to a file: ");
@@ -35,9 +35,9 @@ public class SaveGameView extends View{
             if (inputValue.length() < 1) {
                 ErrorView.display(this.getClass().getName(), "Please enter a file name ");
                 continue; // and repeat again
-            }
-            else 
+            } else {
                 SaveGameControl.saveGame();
+            }
             break; // stop the do while thingy
         }
         return inputValue;
