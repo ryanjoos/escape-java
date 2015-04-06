@@ -538,36 +538,6 @@ public class GameMenuView extends View {
             this.console.println("Sorry, your raft is not complete. Please keep working.");
         }
         
-        
-        if (totalAmountResource >= neededAmountResource && totalAmountItem >= neededAmountItem && amount == 10) {
-            this.console.println("Congratualtions! You gathered all the resources needed to "
-                    + "\nmake it safely home! You are a survival master!");
-        } else {
-            this.console.println("Sorry, you do not have enough resources to make it home. Keep playing the game!");
-        }
-
-        if (totalAmountItem >= neededAmountItem) {
-            this.console.println("Congratualtions! You gathered all the items needed to "
-                    + "\nmake it safely home! You are a survival master!");
-        } else {
-            this.console.println("Sorry, you do not have the items needed to make it home. Keep playing the game!");
-        }
-        if (amount >= 10) {
-            this.console.println("Congratulations! Your raft is complete as well!!! You have won the game!! ");
-            this.console.println("                                ,.        ,.      ,.\n"
-                    + "                                ||        ||      ||  ()\n"
-                    + " ,--. ,-. ,.,-.  ,--.,.,-. ,-.  ||-.,.  ,.|| ,-.  ||-.,. ,-. ,.,-.  ,--.\n"
-                    + "//`-'//-\\\\||/|| //-||||/`'//-\\\\ ||-'||  ||||//-\\\\ ||-'||//-\\\\||/|| ((`-'\n"
-                    + "||   || |||| ||||  ||||   || || ||  || /|||||| || ||  |||| |||| ||  ``.\n"
-                    + "\\\\,-.\\\\-//|| || \\\\-||||   \\\\-|| ||  ||//||||\\\\-|| ||  ||\\\\-//|| || ,-.))\n"
-                    + " `--' `-' `' `'  `-,|`'    `-^-``'  `-' `'`' `-^-``'  `' `-' `' `' `--'\n"
-                    + "                  //          \n"
-                    + "              ,-.//          \n"
-                    + "              `--'    ");
-        } else {
-            this.console.println("Sorry, your raft is not complete. Please keep working.");
-        }
-
         this.console.println();
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
