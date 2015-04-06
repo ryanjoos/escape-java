@@ -48,8 +48,6 @@ public class GameMenuView extends View {
                 + "\nM - Move to new location"
                 + "\nN - Move character to new location"
                 + "\nE - Estimate the resource needed"
-                + "\nO - View resource status"
-                + "\nB - Design barrels"
                 + "\nC - Construct tools"
                 + "\nR - Harvest resource"
                 + "\nD - Deliver resource"
