@@ -282,7 +282,12 @@ public class GameMenuView extends View {
         Raft raft = Escape.getCurrentGame().getRaft();
         double amount = raft.getRaftStatus();
         double raftStatus = RaftControl.calcRaftStatus(amount);
-        this.console.println(raftStatus);
+        if (raftStatus < 100) {
+            this.console.println("You have completed " + raftStatus + "% of the raft");
+        } else {
+            this.console.println("You have completed " + raftStatus + "% of the raft. "
+                    + "Congratulations! It is complete. You are on your way to leaving the island.");
+        }
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -500,6 +505,8 @@ public class GameMenuView extends View {
         //get the sorted list of inventory items
         Resource[] inventory = GameControl.getSortedResourceList();
         Item[] itemInventory = GameControl.getSortedInventoryList();
+        Raft raft = Escape.getCurrentGame().getRaft();
+        double amount = raft.getRaftStatus();
         int totalAmountResource = 0;
         int neededAmountResource = 0;
         int totalAmountItem = 0;
@@ -510,23 +517,57 @@ public class GameMenuView extends View {
             totalAmountResource = inventoryResource.getTotalAmount();
             neededAmountResource = inventoryResource.getNeededAmount();
         }
-        if (totalAmountResource >= neededAmountResource) {
-            this.console.println("Congratualtions! You gathered all the resources needed to "
-                    + "\nmake it safely home! You are a survival master!");
-        } else {
-            this.console.println("Sorry, you do not have enough resources to make it home. Keep playing the game!");
-        }
         for (Item inventoryItem : itemInventory) {
 
             totalAmountItem = (int) inventoryItem.getQuantityInStock();
             neededAmountItem = (int) inventoryItem.getRequiredAmount();
         }
+        if (totalAmountResource >= neededAmountResource && totalAmountItem >= neededAmountItem && amount == 10) {
+            this.console.println("Congratulations! You have won the game!! ");
+            this.console.println("                                ,.        ,.      ,.\n"
+                    + "                                ||        ||      ||  ()\n"
+                    + " ,--. ,-. ,.,-.  ,--.,.,-. ,-.  ||-.,.  ,.|| ,-.  ||-.,. ,-. ,.,-.  ,--.\n"
+                    + "//`-'//-\\\\||/|| //-||||/`'//-\\\\ ||-'||  ||||//-\\\\ ||-'||//-\\\\||/|| ((`-'\n"
+                    + "||   || |||| ||||  ||||   || || ||  || /|||||| || ||  |||| |||| ||  ``.\n"
+                    + "\\\\,-.\\\\-//|| || \\\\-||||   \\\\-|| ||  ||//||||\\\\-|| ||  ||\\\\-//|| || ,-.))\n"
+                    + " `--' `-' `' `'  `-,|`'    `-^-``'  `-' `'`' `-^-``'  `' `-' `' `' `--'\n"
+                    + "                  //          \n"
+                    + "              ,-.//          \n"
+                    + "              `--'    ");
+        } else {
+            this.console.println("Sorry, your raft is not complete. Please keep working.");
+        }
+        
+        
+        if (totalAmountResource >= neededAmountResource && totalAmountItem >= neededAmountItem && amount == 10) {
+            this.console.println("Congratualtions! You gathered all the resources needed to "
+                    + "\nmake it safely home! You are a survival master!");
+        } else {
+            this.console.println("Sorry, you do not have enough resources to make it home. Keep playing the game!");
+        }
+
         if (totalAmountItem >= neededAmountItem) {
             this.console.println("Congratualtions! You gathered all the items needed to "
                     + "\nmake it safely home! You are a survival master!");
         } else {
             this.console.println("Sorry, you do not have the items needed to make it home. Keep playing the game!");
         }
+        if (amount == 10) {
+            this.console.println("Congratulations! Your raft is complete as well!!! You have won the game!! ");
+            this.console.println("                                ,.        ,.      ,.\n"
+                    + "                                ||        ||      ||  ()\n"
+                    + " ,--. ,-. ,.,-.  ,--.,.,-. ,-.  ||-.,.  ,.|| ,-.  ||-.,. ,-. ,.,-.  ,--.\n"
+                    + "//`-'//-\\\\||/|| //-||||/`'//-\\\\ ||-'||  ||||//-\\\\ ||-'||//-\\\\||/|| ((`-'\n"
+                    + "||   || |||| ||||  ||||   || || ||  || /|||||| || ||  |||| |||| ||  ``.\n"
+                    + "\\\\,-.\\\\-//|| || \\\\-||||   \\\\-|| ||  ||//||||\\\\-|| ||  ||\\\\-//|| || ,-.))\n"
+                    + " `--' `-' `' `'  `-,|`'    `-^-``'  `-' `'`' `-^-``'  `' `-' `' `' `--'\n"
+                    + "                  //          \n"
+                    + "              ,-.//          \n"
+                    + "              `--'    ");
+        } else {
+            this.console.println("Sorry, your raft is not complete. Please keep working.");
+        }
+
         this.console.println();
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
