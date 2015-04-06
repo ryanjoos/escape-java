@@ -18,12 +18,11 @@ public class Map implements Serializable {
     private int rowCount;
     private int columnCount;
     private Location[][] locations;
-    private boolean visited; 
+    private boolean visited;
     private Scene scene;
-    private Player player; 
+    private Player player;
     private Resource resource;
     private Actor actor;
-    
 
     // default constructor
     public Map() {
@@ -32,7 +31,7 @@ public class Map implements Serializable {
 
     public Map(int rowCount, int columnCount) {
         player = Escape.getPlayer();
-        
+
         if (rowCount < 1 || columnCount < 1) {
             System.out.println("The number of rows and columns must be > zero");
             return;
@@ -125,8 +124,6 @@ public class Map implements Serializable {
     public void setActor(Actor actor) {
         this.actor = actor;
     }
-    
-    
 
     @Override
     public String toString() {

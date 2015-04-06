@@ -14,7 +14,7 @@ import java.util.Objects;
  * @author ryanjoos
  */
 public class Player implements Serializable {
-    
+
     //class instance variables
     private String name;
     private Point coordinates;
@@ -23,8 +23,6 @@ public class Player implements Serializable {
         this.name = null;
         this.coordinates = new Point(2, 17);
     }
-    
-    
 
     public String getName() {
         return name;
@@ -37,10 +35,10 @@ public class Player implements Serializable {
     public Point getCoordinates() {
         return coordinates;
     }
+
     public void setCoorinates(Point coordinates) {
         this.coordinates = coordinates;
     }
-    
 
     @Override
     public String toString() {
@@ -68,5 +66,5 @@ public class Player implements Serializable {
         }
         return true;
     }
-    
+
 }

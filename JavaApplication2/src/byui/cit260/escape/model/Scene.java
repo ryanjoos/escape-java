@@ -12,16 +12,16 @@ import java.util.Objects;
  *
  * @author ryanjoos
  */
-public class Scene implements Serializable{
-    
+public class Scene implements Serializable {
+
     //class instance variables
     private String description;
     private boolean blocked;
     private String mapSymbol;
     private double travelTime;
-    
+
     private String icon;
-    
+
     private SceneType sceneType;
 
     public Scene() {
@@ -76,8 +76,7 @@ public class Scene implements Serializable{
     public void setSceneType(SceneType sceneType) {
         this.sceneType = sceneType;
     }
-   
-    
+
     @Override
     public String toString() {
         return "Scene{" + "description=" + description + ", blocked=" + blocked + '}';

@@ -11,7 +11,8 @@ import java.io.Serializable;
  *
  * @author owner
  */
-public class Game implements Serializable{
+public class Game implements Serializable {
+
     private double totalTime;
     private Raft raft;
     private Player player;
@@ -19,8 +20,7 @@ public class Game implements Serializable{
     private Actor[] actors;
     private Item[] item;
     private Resource[] resource;
-    
-    
+
     public Game() {
     }
 
@@ -79,8 +79,7 @@ public class Game implements Serializable{
     public void setResource(Resource[] resource) {
         this.resource = resource;
     }
-    
-    
+
     @Override
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + '}';
@@ -107,6 +106,5 @@ public class Game implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

@@ -10,6 +10,7 @@ package byui.cit260.escape.model;
  * @author Carissa
  */
 public enum ResourceType {
+
     grain,
     timber,
     fiberousPlants,

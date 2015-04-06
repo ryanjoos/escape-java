@@ -11,10 +11,10 @@ import java.io.Serializable;
  *
  * @author Carissa
  */
-public class obstacleScene implements Serializable{
+public class obstacleScene implements Serializable {
+
     private int chicken;
-    private double house; 
-    
+    private double house;
+
     // This has not been implemented into the game yet!!!
-    
 }
