@@ -86,54 +86,63 @@ public class GameControl {
         native1.setActor(ActorEnum.NativeIslander1);
         native1.setDescription("Native Islander #1, one of the natives.");
         native1.setStartingPoint(new Point(5, 9));
+        native1.setFriend(true);
         list[ActorEnum.NativeIslander1.ordinal()] = native1;
 
         Actor native2 = new Actor();
         native2.setActor(ActorEnum.NativeIslander2);
         native2.setDescription("Native Islander #2, seems friendly");
         native2.setStartingPoint(new Point(5, 9));
+        native2.setFriend(true);
         list[ActorEnum.NativeIslander2.ordinal()] = native2;
 
         Actor native3 = new Actor();
         native3.setActor(ActorEnum.NativeIslander3);
         native3.setDescription("Native Islander #3, another native islander");
         native3.setStartingPoint(new Point(5, 8));
+        native3.setFriend(true);
         list[ActorEnum.NativeIslander3.ordinal()] = native3;
 
         Actor native4 = new Actor();
         native4.setActor(ActorEnum.NativeIslander4);
         native4.setDescription("Native Islander #4, a somewhat hostile native islander");
         native4.setStartingPoint(new Point(4, 9));
+        native4.setFriend(true);
         list[ActorEnum.NativeIslander4.ordinal()] = native4;
 
         Actor chief = new Actor();
         chief.setActor(ActorEnum.NativeChief);
         chief.setDescription("The cheif, the native leader");
         chief.setStartingPoint(new Point(2, 16));
+        chief.setFriend(true);
         list[ActorEnum.NativeChief.ordinal()] = chief;
 
         Actor kale = new Actor();
         kale.setActor(ActorEnum.Kale);
         kale.setDescription("Kale, is a man");
         kale.setStartingPoint(new Point(3, 17));
+        kale.setFriend(true);
         list[ActorEnum.Kale.ordinal()] = kale;
 
         Actor carissa = new Actor();
         carissa.setActor(ActorEnum.Carissa);
         carissa.setDescription("Carissa, is a woman");
         carissa.setStartingPoint(new Point(3, 17));
+        carissa.setFriend(true);
         list[ActorEnum.Carissa.ordinal()] = carissa;
 
         Actor ryan = new Actor();
         ryan.setActor(ActorEnum.Ryan);
         ryan.setDescription("Ryan, is cool");
         ryan.setStartingPoint(new Point(3, 17));
+        ryan.setFriend(true);
         list[ActorEnum.Ryan.ordinal()] = ryan;
        
         Actor none = new Actor();
         none.setActor(ActorEnum.None);
         none.setDescription("There are no actors here");
         none.setStartingPoint(new Point(3, 17));
+        none.setFriend(true);
         list[ActorEnum.None.ordinal()] = none;
         
         return list;
