@@ -16,6 +16,7 @@ import byui.cit260.escape.model.Map;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.model.Raft;
 import byui.cit260.escape.model.Resource;
+import byui.cit260.escape.model.ResourceType;
 import byui.cit260.escape.model.Scene;
 import byui.cit260.escape.model.SceneType;
 import byui.cit260.escape.view.ObstacleVolcanoView;
@@ -108,6 +109,7 @@ public class MapControl {
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        Actor[] actor = Escape.getCurrentGame().getActor();
         int newRow = newCoordinates.x - 1;
         int newColumn = newCoordinates.y;
         newCoordinates = new Point(newRow, newColumn);
@@ -118,8 +120,26 @@ public class MapControl {
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
-            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
+            if (newRow == 2 && newColumn == 16 || newRow == 5 && newColumn == 9
+                    || newRow == 4 && newColumn == 8 || newRow == 3 && newColumn == 9) {
+                if (actor[ActorEnum.NativeChief.ordinal()].isFriend() == false) {
+                    Resource[] resource = Escape.getCurrentGame().getResource();
+                    int numOre = resource[ResourceType.ore.ordinal()].getTotalAmount();
+                    int numTimber = resource[ResourceType.timber.ordinal()].getTotalAmount();
+
+                    numOre -= 5;
+                    numTimber -= 5;
+                    resource[ResourceType.ore.ordinal()].setTotalAmount(numOre);
+                    System.out.println(resource[ResourceType.ore.ordinal()].getType() + " now  has a total amount of " + resource[ResourceType.ore.ordinal()].getTotalAmount()
+                            + " in stock because you are enemies with the islanders.");
+                    resource[ResourceType.timber.ordinal()].setTotalAmount(numTimber);
+                    System.out.println(resource[ResourceType.timber.ordinal()].getType() + " now  has a total amount of " + resource[ResourceType.timber.ordinal()].getTotalAmount()
+                            + " in stock because you are enemies with the islanders.");
+                }
+            } else {
+                System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
+                System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
+            }
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -137,6 +157,7 @@ public class MapControl {
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        Actor[] actor = Escape.getCurrentGame().getActor();
         Point otherCoordinates; // = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
         int newRow = newCoordinates.x + 1;
         int newColumn = newCoordinates.y;
@@ -155,8 +176,26 @@ public class MapControl {
         } else if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
-            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
+            if (newRow == 2 && newColumn == 16 || newRow == 5 && newColumn == 9
+                    || newRow == 4 && newColumn == 8 || newRow == 3 && newColumn == 9) {
+                if (actor[ActorEnum.NativeChief.ordinal()].isFriend() == false) {
+                    Resource[] resource = Escape.getCurrentGame().getResource();
+                    int numOre = resource[ResourceType.ore.ordinal()].getTotalAmount();
+                    int numTimber = resource[ResourceType.timber.ordinal()].getTotalAmount();
+
+                    numOre -= 5;
+                    numTimber -= 5;
+                    resource[ResourceType.ore.ordinal()].setTotalAmount(numOre);
+                    System.out.println(resource[ResourceType.ore.ordinal()].getType() + " now  has a total amount of " + resource[ResourceType.ore.ordinal()].getTotalAmount()
+                            + " in stock because you are enemies with the islanders.");
+                    resource[ResourceType.timber.ordinal()].setTotalAmount(numTimber);
+                    System.out.println(resource[ResourceType.timber.ordinal()].getType() + " now  has a total amount of " + resource[ResourceType.timber.ordinal()].getTotalAmount()
+                            + " in stock because you are enemies with the islanders.");
+                }
+            } else {
+                System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
+                System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
+            }
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -174,6 +213,8 @@ public class MapControl {
         Map map = Escape.getCurrentGame().getMap();
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
         Point newCoordinates = Escape.getCurrentGame().getMap().getPlayer().getCoordinates();
+        Actor[] actor = Escape.getCurrentGame().getActor();
+
         int newRow = newCoordinates.x;
         int newColumn = newCoordinates.y + 1;
         newCoordinates = new Point(newRow, newColumn);
@@ -184,8 +225,26 @@ public class MapControl {
         if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
-            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
+            if (newRow == 2 && newColumn == 16 || newRow == 5 && newColumn == 9
+                    || newRow == 4 && newColumn == 8 || newRow == 3 && newColumn == 9) {
+                if (actor[ActorEnum.NativeChief.ordinal()].isFriend() == false) {
+                    Resource[] resource = Escape.getCurrentGame().getResource();
+                    int numOre = resource[ResourceType.ore.ordinal()].getTotalAmount();
+                    int numTimber = resource[ResourceType.timber.ordinal()].getTotalAmount();
+
+                    numOre -= 5;
+                    numTimber -= 5;
+                    resource[ResourceType.ore.ordinal()].setTotalAmount(numOre);
+                    System.out.println(resource[ResourceType.ore.ordinal()].getType() + " now  has a total amount of " + resource[ResourceType.ore.ordinal()].getTotalAmount()
+                            + " in stock because you are enemies with the islanders.");
+                    resource[ResourceType.timber.ordinal()].setTotalAmount(numTimber);
+                    System.out.println(resource[ResourceType.timber.ordinal()].getType() + " now  has a total amount of " + resource[ResourceType.timber.ordinal()].getTotalAmount()
+                            + " in stock because you are enemies with the islanders.");
+                }
+            } else {
+                System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
+                System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
+            }
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -230,14 +289,29 @@ public class MapControl {
                 System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
                 System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
             }
+
+            if (newRow == 2 && newColumn == 16 || newRow == 5 && newColumn == 9
+                    || newRow == 4 && newColumn == 8 || newRow == 3 && newColumn == 9) {
+                if (actor[ActorEnum.NativeChief.ordinal()].isFriend() == false) {
+                    Resource[] resource = Escape.getCurrentGame().getResource();
+                    int numOre = resource[ResourceType.ore.ordinal()].getTotalAmount();
+                    int numTimber = resource[ResourceType.timber.ordinal()].getTotalAmount();
+
+                    numOre -= 5;
+                    numTimber -= 5;
+                    resource[ResourceType.ore.ordinal()].setTotalAmount(numOre);
+                    System.out.println(resource[ResourceType.ore.ordinal()].getType() + " now  has a total amount of " + resource[ResourceType.ore.ordinal()].getTotalAmount()
+                            + " in stock because you are enemies with the islanders.");
+                    resource[ResourceType.timber.ordinal()].setTotalAmount(numTimber);
+                    System.out.println(resource[ResourceType.timber.ordinal()].getType() + " now  has a total amount of " + resource[ResourceType.timber.ordinal()].getTotalAmount()
+                            + " in stock because you are enemies with the islanders.");
+                }
+            }
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
                     + " because that location is outside "
                     + "the bounds of the map.");
-            //}else if (location.getScene().getSceneType() == SceneType.river) {
-            // CrossRiverView crossRiver = new CrossRiverView();
-            //crossRiver.display();
 
         } else {
             System.out.println("This location is blocked. Please pick a new location to move to matey or choose another option from the Game Menu! ");
@@ -291,7 +365,7 @@ public class MapControl {
         Scene finishScene = new Scene();
 
         finishScene.setDescription(
-                "\nYay, you did it. go outside");
+                "\nThis is the scene to build your raft!");
         finishScene.setMapSymbol("  FN  ");
         finishScene.setBlocked(false);
         finishScene.setTravelTime(Double.POSITIVE_INFINITY);
@@ -497,13 +571,14 @@ public class MapControl {
             actor[ActorEnum.NativeIslander2.ordinal()].setFriend(true);
             actor[ActorEnum.NativeIslander3.ordinal()].setFriend(true);
             actor[ActorEnum.NativeIslander4.ordinal()].setFriend(true);
+            System.out.println("You are now friends with the islanders.");
         } else {
             actor[ActorEnum.NativeChief.ordinal()].setFriend(false);
             actor[ActorEnum.NativeIslander1.ordinal()].setFriend(false);
             actor[ActorEnum.NativeIslander2.ordinal()].setFriend(false);
             actor[ActorEnum.NativeIslander3.ordinal()].setFriend(false);
             actor[ActorEnum.NativeIslander4.ordinal()].setFriend(false);
+            System.out.println("You are now enemies with the islanders and will loose resources each time you meet one.");
         }
-
     }
 }
