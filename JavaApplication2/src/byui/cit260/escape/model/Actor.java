@@ -21,6 +21,7 @@ public class Actor implements Serializable {
     private String description;
     private Point coordinates;
     private Point startingPoint;
+    private boolean friend;
 
     private ActorEnum actorEnum;
 
@@ -28,6 +29,7 @@ public class Actor implements Serializable {
     public Actor() {
         this.coordinates = new Point(2, 17);
         this.description = "\n This is an Actor.";
+        this.friend = true;
     }
 
     public Actor(String description, ActorEnum actorEnum) {
@@ -82,6 +84,15 @@ public class Actor implements Serializable {
         this.actorEnum = actorEnum;
     }
 
+    public boolean isFriend() {
+        return friend;
+    }
+
+    public void setFriend(boolean friend) {
+        this.friend = friend;
+    }
+
+    
     @Override
     public String toString() {
         return "Actor{" + "description=" + description + ", coordinates=" + coordinates + ", actorEnum=" + actorEnum + '}';
