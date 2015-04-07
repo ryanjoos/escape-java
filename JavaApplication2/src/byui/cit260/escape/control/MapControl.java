@@ -90,10 +90,12 @@ public class MapControl {
         //create the scenes for the game
         Scene[] scenes = createScenes();
         Resource[] resources = Escape.getCurrentGame().getResource();
+        Actor[] actors = GameControl.createActorList();
 
         // assign scenes to locations
         GameControl.assignScenesToLocations(map, scenes);
         GameControl.assignResourcesToLocation(map, resources);
+        GameControl.assignActorsToLocations(map, actors);
 
         return map;
     }
@@ -115,6 +117,7 @@ public class MapControl {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
+            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());            
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -151,6 +154,7 @@ public class MapControl {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
+            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());            
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -179,6 +183,7 @@ public class MapControl {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
+            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());            
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -216,6 +221,7 @@ public class MapControl {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
+            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());            
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y

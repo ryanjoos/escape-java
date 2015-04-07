@@ -436,7 +436,7 @@ public class GameMenuView extends View {
 
     private void harvestResource() {
         Point coordinates = null;
-        this.console.println("\nDo you want to gether the resource? (yes/no)\n");
+        this.console.println("\nDo you want to gather the resource? (yes/no)\n");
         String choice = this.getInput().toLowerCase();
         if ("yes".equals(choice)) {
             MapControl.harvestResources(coordinates);

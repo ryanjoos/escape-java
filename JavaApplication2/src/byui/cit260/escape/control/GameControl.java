@@ -80,35 +80,35 @@ public class GameControl {
 
     public static Actor[] createActorList() {
 
-        Actor[] list = new Actor[8];
+        Actor[] list = new Actor[9];
 
         Actor native1 = new Actor();
         native1.setActor(ActorEnum.NativeIslander1);
-        native1.setDescription("Native Islander #1, is not a woman");
+        native1.setDescription("Native Islander #1, one of the natives.");
         native1.setStartingPoint(new Point(5, 9));
         list[ActorEnum.NativeIslander1.ordinal()] = native1;
 
         Actor native2 = new Actor();
         native2.setActor(ActorEnum.NativeIslander2);
-        native2.setDescription("Native Islander #2, is a wild woman");
+        native2.setDescription("Native Islander #2, seems friendly");
         native2.setStartingPoint(new Point(5, 9));
         list[ActorEnum.NativeIslander2.ordinal()] = native2;
 
         Actor native3 = new Actor();
         native3.setActor(ActorEnum.NativeIslander3);
-        native3.setDescription("Native Islander #3, is a wild woman");
+        native3.setDescription("Native Islander #3, another native islander");
         native3.setStartingPoint(new Point(5, 8));
         list[ActorEnum.NativeIslander3.ordinal()] = native3;
 
         Actor native4 = new Actor();
         native4.setActor(ActorEnum.NativeIslander4);
-        native4.setDescription("Native Islander #4, is a wild woman");
+        native4.setDescription("Native Islander #4, a somewhat hostile native islander");
         native4.setStartingPoint(new Point(4, 9));
         list[ActorEnum.NativeIslander4.ordinal()] = native4;
 
         Actor chief = new Actor();
         chief.setActor(ActorEnum.NativeChief);
-        chief.setDescription("The cheif, is a wild woman");
+        chief.setDescription("The cheif, the native leader");
         chief.setStartingPoint(new Point(2, 16));
         list[ActorEnum.NativeChief.ordinal()] = chief;
 
@@ -120,7 +120,7 @@ public class GameControl {
 
         Actor carissa = new Actor();
         carissa.setActor(ActorEnum.Carissa);
-        carissa.setDescription("Carissa, is a wild woman");
+        carissa.setDescription("Carissa, is a woman");
         carissa.setStartingPoint(new Point(3, 17));
         list[ActorEnum.Carissa.ordinal()] = carissa;
 
@@ -129,7 +129,13 @@ public class GameControl {
         ryan.setDescription("Ryan, is cool");
         ryan.setStartingPoint(new Point(3, 17));
         list[ActorEnum.Ryan.ordinal()] = ryan;
-
+       
+        Actor none = new Actor();
+        none.setActor(ActorEnum.None);
+        none.setDescription("There are no actors here");
+        none.setStartingPoint(new Point(3, 17));
+        list[ActorEnum.None.ordinal()] = none;
+        
         return list;
     }
 
@@ -728,6 +734,15 @@ public class GameControl {
         locations[19][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
     }
+    
+    public static void assignActorsToLocations(Map map, Actor[] actor) {
+    Location[][] locations = map.getLocations();
+
+    locations = setDefaultActor(locations, actor[ActorEnum.None.ordinal()]);
+
+    locations[3][17].setActors(actor[ActorEnum.Carissa.ordinal()]);
+
+    }
 
 //    public static  void findVisited (Map map, Scene[] scenes) {
 //        Location[][] locations = map.getLocations();
@@ -787,6 +802,14 @@ public class GameControl {
         for (int row = 0; row < locations.length; row++) {
             for (int column = 0; column < locations.length; column++) {
                 locations[row][column].setScene(defaultScene);
+            }
+        }
+        return locations;
+    }
+        private static Location[][] setDefaultActor(Location[][] locations, Actor defaultActors) {
+        for (int row = 0; row < locations.length; row++) {
+            for (int column = 0; column < locations.length; column++) {
+                locations[row][column].setActors(defaultActors);
             }
         }
         return locations;

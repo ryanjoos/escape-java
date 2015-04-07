@@ -18,7 +18,7 @@ public enum ActorEnum {
     NativeChief,    //("Chief of the islanders of Jaba Island", new Point(1,1)),
     Kale,           //("An injured crew member who lays at the beach", new Point(1,1)),
     Carissa,        //("Another injured crew member", new Point(1,1)),
-    Ryan;           //("Injured crew member who tries to keep peace between the islander and the crew", new Point(1,1));   
-
+    Ryan, 
+    None;           //("Injured crew member who tries to keep peace between the islander and the crew", new Point(1,1));   
 }
 
