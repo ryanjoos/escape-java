@@ -288,7 +288,7 @@ public class GameMenuView extends View {
 
         // add actor info to location
         //Actor[] list = GameControl.getActorList();
-        Actor actor = Escape.getCurrentGame().getMap().getActor();
+        Actor[] actors = Escape.getCurrentGame().getActor();
 
         Point coordinates;
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();
@@ -297,6 +297,8 @@ public class GameMenuView extends View {
         int column = coordinates.y;
         int amount = locations[row][column].getResource().getLocationAmount();
         Resource resource = locations[row][column].getResource();
+        Actor actor = locations[row][column].getActors();
+        this.console.println(actor.getDescription());
         String resourceType = locations[row][column].getResource().getType();
         int totalAmount = resource.getTotalAmount();
 

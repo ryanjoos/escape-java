@@ -112,7 +112,7 @@ public class GameControl {
 
         Actor chief = new Actor();
         chief.setActor(ActorEnum.NativeChief);
-        chief.setDescription("The cheif, the native leader");
+        chief.setDescription("The chief, the native leader");
         chief.setStartingPoint(new Point(2, 16));
         chief.setFriend(true);
         list[ActorEnum.NativeChief.ordinal()] = chief;
@@ -743,13 +743,16 @@ public class GameControl {
         locations[19][19].setScene(scenes[SceneType.ocean.ordinal()]);
 
     }
-    
+ 
     public static void assignActorsToLocations(Map map, Actor[] actor) {
     Location[][] locations = map.getLocations();
 
     locations = setDefaultActor(locations, actor[ActorEnum.None.ordinal()]);
 
     locations[3][17].setActors(actor[ActorEnum.Carissa.ordinal()]);
+    locations[3][17].setActors(actor[ActorEnum.Kale.ordinal()]);
+    locations[3][17].setActors(actor[ActorEnum.Ryan.ordinal()]);
+    locations[2][16].setActors(actor[ActorEnum.NativeChief.ordinal()]);
 
     }
 

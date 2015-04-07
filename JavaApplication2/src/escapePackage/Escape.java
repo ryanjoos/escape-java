@@ -5,6 +5,7 @@
  */
 package escapePackage;
 
+import byui.cit260.escape.model.Actor;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Player;
 import byui.cit260.escape.view.StartGameView;
@@ -23,6 +24,7 @@ public class Escape {
 
     private static Game currentGame = null;
     private static Player player = null;
+    private static Actor actor = null;
 
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
@@ -43,6 +45,14 @@ public class Escape {
 
     public static void setPlayer(Player player) {
         Escape.player = player;
+    }
+    
+    public static Actor getActor() {
+        return actor;
+    }
+    
+    public static void setActor(Actor actor) {
+        Escape.actor = actor; 
     }
 
     public static PrintWriter getOutFile() {
