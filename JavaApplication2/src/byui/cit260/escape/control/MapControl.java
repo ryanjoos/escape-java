@@ -578,7 +578,7 @@ public class MapControl {
             actor[ActorEnum.NativeIslander2.ordinal()].setFriend(false);
             actor[ActorEnum.NativeIslander3.ordinal()].setFriend(false);
             actor[ActorEnum.NativeIslander4.ordinal()].setFriend(false);
-            System.out.println("You are now enemies with the islanders and will loose resources each time you meet one.");
+            System.out.println("You are now enemies with the islanders and will lose resources each time you meet one.");
         }
     }
 }

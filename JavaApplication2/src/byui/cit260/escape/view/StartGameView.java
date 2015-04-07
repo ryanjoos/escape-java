@@ -71,6 +71,10 @@ public class StartGameView extends View {
                 + "\n* The island has many resources that are available to gather.        *"
                 + "\n* The resources will be used to create a way for you to escape       *"
                 + "\n* the island.                                                        *"
+                + "\n*                                                                    *"
+                + "\n* As you wash up onto the island, you see the Native Chief of Jaba   *"
+                + "\n* Island in the location to the left of you (2,16). You next step    *"
+                + "\n* is to move left to meet with the chief.                            *"
         );
         this.console.println("*                                                                    *");
         this.console.println("**********************************************************************");
