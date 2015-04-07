@@ -287,8 +287,7 @@ public class GameMenuView extends View {
     private void viewLocationContents() {
 
         // add actor info to location
-        //Actor[] list = GameControl.getActorList();
-        Actor[] actors = Escape.getCurrentGame().getActor();
+        //Actor[] list = GameControl.getActorList();;
 
         Point coordinates;
         Location[][] locations = Escape.getCurrentGame().getMap().getLocations();

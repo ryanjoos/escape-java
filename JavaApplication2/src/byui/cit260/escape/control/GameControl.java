@@ -753,6 +753,10 @@ public class GameControl {
     locations[3][17].setActors(actor[ActorEnum.Kale.ordinal()]);
     locations[3][17].setActors(actor[ActorEnum.Ryan.ordinal()]);
     locations[2][16].setActors(actor[ActorEnum.NativeChief.ordinal()]);
+    locations[5][9].setActors(actor[ActorEnum.NativeIslander1.ordinal()]);
+    locations[5][9].setActors(actor[ActorEnum.NativeIslander2.ordinal()]);
+    locations[3][9].setActors(actor[ActorEnum.NativeIslander3.ordinal()]);
+    locations[4][8].setActors(actor[ActorEnum.NativeIslander4.ordinal()]);
 
     }
 

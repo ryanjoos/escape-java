@@ -7,6 +7,7 @@ package byui.cit260.escape.control;
 
 import byui.cit260.escape.exceptions.MapControlException;
 import byui.cit260.escape.model.Actor;
+import byui.cit260.escape.model.ActorEnum;
 import byui.cit260.escape.model.Game;
 import byui.cit260.escape.model.Item;
 import byui.cit260.escape.model.ItemType;
@@ -21,6 +22,7 @@ import byui.cit260.escape.view.ObstacleVolcanoView;
 import escapePackage.Escape;
 import java.awt.Point;
 import byui.cit260.escape.view.CrossRiverView;
+import java.util.Random;
 
 /**
  *
@@ -117,7 +119,7 @@ public class MapControl {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
-            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());            
+            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -154,7 +156,7 @@ public class MapControl {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
-            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());            
+            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -183,7 +185,7 @@ public class MapControl {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
             System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
-            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());            
+            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -208,6 +210,7 @@ public class MapControl {
         otherCoordinates = new Point(newRow, newColumn - 1);
 
         Location location = locations[newRow][newColumn];
+        Actor[] actor = Escape.getCurrentGame().getActor();
         String scene = location.getScene().getDescription();
         System.out.println("You are at location (" + newRow + ", " + newColumn + "). " + scene);
         if (newRow == 3 && newColumn == 11 || newRow == 5 && newColumn == 10
@@ -220,8 +223,13 @@ public class MapControl {
         } else if (location.getScene().isBlocked() == false) {
             locations[newRow][newColumn].getPlayer().setCoorinates(newCoordinates);
             locations[newRow][newColumn].setVisited(true);
-            System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
-            System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());            
+
+            if (newRow == 2 && newColumn == 16) {
+                MapControl.isFriend();
+            } else {
+                System.out.println("The resources are: " + locations[newRow][newColumn].getResource().getType());
+                System.out.println("The actors here are: " + locations[newRow][newColumn].getActors().getDescription());
+            }
         } else if (newColumn < 0 || newColumn >= map.getColumnCount()) {
             throw new MapControlException("Can not move actor to location "
                     + coordinates.x + ", " + coordinates.y
@@ -468,5 +476,34 @@ public class MapControl {
         raft.setVolume(0);
 
         return raft;
+    }
+
+    private static void isFriend() {
+        System.out.println("You have entered the location of the Native chief. You want to be on his good side or else he will make "
+                + "\nyour life hard on the island. The dice will be rolled. If you recieve a number less than or equal to five, you and the islanders"
+                + "\nwill be your friends. If you receive a number from six to ten, they will become your enemy and you will loose "
+                + "\nresources everytime you come across them. ");
+        Actor[] actor = Escape.getCurrentGame().getActor();
+        Random rand = new Random();
+
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = rand.nextInt(10);
+
+        System.out.println("Your number is: " + randomNum);
+        if (randomNum <= 5) {
+            actor[ActorEnum.NativeChief.ordinal()].setFriend(true);
+            actor[ActorEnum.NativeIslander1.ordinal()].setFriend(true);
+            actor[ActorEnum.NativeIslander2.ordinal()].setFriend(true);
+            actor[ActorEnum.NativeIslander3.ordinal()].setFriend(true);
+            actor[ActorEnum.NativeIslander4.ordinal()].setFriend(true);
+        } else {
+            actor[ActorEnum.NativeChief.ordinal()].setFriend(false);
+            actor[ActorEnum.NativeIslander1.ordinal()].setFriend(false);
+            actor[ActorEnum.NativeIslander2.ordinal()].setFriend(false);
+            actor[ActorEnum.NativeIslander3.ordinal()].setFriend(false);
+            actor[ActorEnum.NativeIslander4.ordinal()].setFriend(false);
+        }
+
     }
 }
