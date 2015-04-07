@@ -14,24 +14,23 @@ import java.util.Objects;
  * @author owner
  */
 public class Actor implements Serializable {
-    
+
     // class instance variable
     //private Actor actor;
-    
     //add variables
     private String description;
     private Point coordinates;
     private Point startingPoint;
-    
+
     private ActorEnum actorEnum;
-    
+
     // default constructor
     public Actor() {
-    this.coordinates = new Point(2, 17);
-    this.description = "\n This is an Actor.";
+        this.coordinates = new Point(2, 17);
+        this.description = "\n This is an Actor.";
     }
-    
-    public Actor (String description, ActorEnum actorEnum) {
+
+    public Actor(String description, ActorEnum actorEnum) {
         this.description = description;
         this.actorEnum = actorEnum;
     }
@@ -51,8 +50,9 @@ public class Actor implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+
     public void setActor(ActorEnum actorEnum) {
-        
+
     }
 
     public Point getStartingPoint() {
@@ -66,7 +66,6 @@ public class Actor implements Serializable {
 //    public void setStartingPoint(int i, int i0) {
 //        this.coordinates = new Point(2, 17);
 //    }
-
     public Point getCoordinates() {
         return coordinates;
     }
@@ -116,5 +115,5 @@ public class Actor implements Serializable {
             return false;
         }
         return true;
-    }    
+    }
 }

@@ -10,7 +10,7 @@ package byui.cit260.escape.model;
  * @author ryanjoos
  */
 public enum ActorEnum {
-        
+
     NativeIslander1,//("A native to the island who builds for the tribe", new Point(1,1)),
     NativeIslander2,//("A native to the island who is mated with the builder", new Point(1,1)),
     NativeIslander3,//("A native to the island who hunts for the tribe", new Point(1,1)),
@@ -21,4 +21,3 @@ public enum ActorEnum {
     Ryan, 
     None;           //("Injured crew member who tries to keep peace between the islander and the crew", new Point(1,1));   
 }
-

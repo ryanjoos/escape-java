@@ -9,7 +9,7 @@ package byui.cit260.escape.exceptions;
  *
  * @author Carissa
  */
-public class GameControlException extends Exception{
+public class GameControlException extends Exception {
 
     public GameControlException() {
     }
@@ -29,5 +29,5 @@ public class GameControlException extends Exception{
     public GameControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
+
 }

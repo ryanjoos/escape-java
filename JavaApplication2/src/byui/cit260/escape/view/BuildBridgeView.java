@@ -100,7 +100,7 @@ public class BuildBridgeView extends View {
         // call control function
         double result = 0;
 
-        try {            
+        try {
             result = MapControl.calcBridgeSize(length, width, height);
         } catch (MapControlException me) {
             ErrorView.display(this.getClass().getName(),

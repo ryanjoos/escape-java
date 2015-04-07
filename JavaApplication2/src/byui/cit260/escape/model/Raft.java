@@ -12,8 +12,8 @@ import java.util.Objects;
  *
  * @author ryanjoos
  */
-public class Raft implements Serializable{
-    
+public class Raft implements Serializable {
+
     //class instance variables
     private double raftStatus;
     private String description;
@@ -21,7 +21,6 @@ public class Raft implements Serializable{
     private double length;
     private double height;
     private double volume;
-    
 
     public Raft() {
         this.description = "\nThis is the raft of Escape."
@@ -33,7 +32,6 @@ public class Raft implements Serializable{
         this.volume = 0;
     }
 
-    
     public double getRaftStatus() {
         return raftStatus;
     }
@@ -81,7 +79,7 @@ public class Raft implements Serializable{
     public void setVolume(double volume) {
         this.volume = volume;
     }
-    
+
     @Override
     public String toString() {
         return "Raft{" + "raftStatus=" + raftStatus + ", description=" + description + '}';
@@ -112,8 +110,5 @@ public class Raft implements Serializable{
         }
         return true;
     }
-    
-    
-    
-    
+
 }

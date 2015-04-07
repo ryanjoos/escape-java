@@ -15,15 +15,15 @@ import escapePackage.Escape;
 public class ProgramControl {
 
     public static Player createPlayer(String playersName) {
-        if (playersName == null){
-        return null;
-    }
+        if (playersName == null) {
+            return null;
+        }
         Player player = new Player();
         player.setName(playersName);
-        
+
         Escape.setPlayer(player);
-        
+
         return player;
     }
-    
+
 }

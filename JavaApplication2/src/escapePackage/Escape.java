@@ -84,7 +84,7 @@ public class Escape {
             // open log file
             String filePath = "log.txt";
             Escape.logFile = new PrintWriter(filePath);
-            
+
             StartGameView startGameView = new StartGameView();
             startGameView.startGame();
         } catch (Exception e) {
@@ -101,7 +101,7 @@ public class Escape {
                 if (Escape.outFile != null) {
                     Escape.outFile.close();
                 }
-                
+
                 if (Escape.logFile != null) {
                     Escape.logFile.close();
                 }
@@ -111,6 +111,6 @@ public class Escape {
                 return;
             }
         }
-               
+
     }
 }

@@ -5,12 +5,11 @@ package byui.cit260.escape.exceptions;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Carissa
  */
-public class MapControlException extends Exception{
+public class MapControlException extends Exception {
 
     public MapControlException() {
     }
@@ -30,5 +29,5 @@ public class MapControlException extends Exception{
     public MapControlException(String string, Throwable thrwbl, boolean bln, boolean bln1) {
         super(string, thrwbl, bln, bln1);
     }
-    
+
 }

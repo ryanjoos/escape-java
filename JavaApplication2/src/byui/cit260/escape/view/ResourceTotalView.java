@@ -10,5 +10,5 @@ package byui.cit260.escape.view;
  * @author ryanjoos
  */
 public class ResourceTotalView {
-    
+
 }

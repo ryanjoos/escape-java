@@ -101,8 +101,6 @@ public class Location implements Serializable {
         return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", scene=" + scene + ", actors=" + actors + ", player=" + player + ", resource=" + resource + '}';
     }
 
-    
-
     @Override
     public int hashCode() {
         int hash = 3;

@@ -10,7 +10,7 @@ package byui.cit260.escape.control;
  * @author Carissa
  */
 public class SaveGameControl {
-    
+
     public static void saveGame() {
         System.out.println("*** saveGame function called ***");
     }

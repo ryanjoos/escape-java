@@ -12,14 +12,14 @@ import java.util.Objects;
  *
  * @author ryanjoos
  */
-public class Resource implements Serializable{
-    
+public class Resource implements Serializable {
+
     //class instance variables
     private String type;
     private int totalAmount;
-    private int neededAmount; 
+    private int neededAmount;
     private int locationAmount;
-    
+
     private ResourceType resourceType;
 
     public Resource(String type, int totalAmount, ResourceType resourceType, int locationAmount) {
@@ -28,15 +28,14 @@ public class Resource implements Serializable{
         this.resourceType = resourceType;
         this.locationAmount = locationAmount;
     }
-    
+
     public Resource() {
         this.type = "This is a resource";
         this.totalAmount = 0;
         this.neededAmount = 5;
         this.locationAmount = 5;
     }
-    
-    
+
     //getters and setters
     public String getType() {
         return type;
@@ -120,6 +119,5 @@ public class Resource implements Serializable{
         }
         return true;
     }
- 
-    
+
 }
