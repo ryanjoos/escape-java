@@ -122,6 +122,7 @@ public class GameMenuView extends View {
             default:
                 ErrorView.display(this.getClass().getName(),
                         "\n***** invalid selection **** Try Again!");
+                this.display();
                 break;
         }
         return true;
@@ -211,6 +212,8 @@ public class GameMenuView extends View {
         } catch (Exception ex) {
             ErrorView.display("GameMenuView", ex.getMessage());
         }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void viewInventory() {

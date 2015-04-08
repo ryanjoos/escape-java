@@ -32,9 +32,9 @@ public class Actor implements Serializable {
         this.friend = true;
     }
 
-    public Actor(String description, ActorEnum actorEnum) {
+    public Actor(String description, Point startingPoint) {
         this.description = description;
-        this.actorEnum = actorEnum;
+        this.startingPoint = startingPoint;
     }
     //getters
 //    public Actor getActor() {

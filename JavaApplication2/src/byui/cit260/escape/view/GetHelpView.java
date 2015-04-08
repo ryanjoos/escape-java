@@ -81,6 +81,7 @@ public class GetHelpView extends View {
                 break;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
+                this.display();
                 break;
         }
         return true;
@@ -133,7 +134,8 @@ public class GetHelpView extends View {
     }
 
     private void observeSurroundings() {
-        this.console.println("*** observeSurroundings function called ***");
+        this.console.println("Option 'L' in the Game Menu will display all the contents "
+                + "inside the location and observe your surrounds.");
         GetHelpView getHelpMenu = new GetHelpView();
         // display the game menu
         getHelpMenu.display();

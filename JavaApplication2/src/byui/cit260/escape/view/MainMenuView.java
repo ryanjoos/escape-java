@@ -62,6 +62,7 @@ public class MainMenuView extends View {
                 return true;
             default:
                 ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
+                this.display();
                 break;
         }
         return true;

@@ -72,6 +72,7 @@ public class CrossRiverView extends View {
             default:
                 ErrorView.display(this.getClass().getName(),
                         "\nYou must enter a valid Selection.");
+                this.display();
                 break;
         }
         return true;

@@ -29,6 +29,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 
 /**
  *
@@ -148,9 +149,20 @@ public class GameControl {
         return list;
     }
 
+    public ArrayList<Actor> addActors() {
+        ArrayList<Actor> actors = new ArrayList<>();
+        
+       Actor nativeIslander5 = new Actor("This is a Native Islander.", new Point (3, 20));
+       actors.add(nativeIslander5);
+       Actor nativeIslander6 = new Actor("nativeIslander6", new Point (4, 16));
+       actors.add(nativeIslander6);
+       
+         return actors;       
+    }
     private static Item[] createItemList() {
 
         // create array (list of items)
+        // array of objects
         Item[] invetory = new Item[Constants.NUMBER_OF_INVENTORY_ITEMS];
 
         Item hammer = new Item();
